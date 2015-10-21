@@ -1,5 +1,7 @@
 # [Whois](http://whoisrb.org/) Parser
 
+[![Build Status](https://travis-ci.org/weppos/whois-parser.svg?branch=master)](https://travis-ci.org/weppos/whois-parser)
+
 
 ## Versioning
 
