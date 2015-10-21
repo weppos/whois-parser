@@ -1,9 +1,11 @@
 require 'fileutils'
+require 'whois'
+require 'whois/parser'
 
 namespace :spec do
 
   ROOT_DIR      = File.expand_path("../../", __FILE__)
-  TARGET_DIR    = File.join(ROOT_DIR, %w( spec whois record parser responses ))
+  TARGET_DIR    = File.join(ROOT_DIR, %w( spec whois parsers responses ))
 
   SOURCE_DIR    = File.join(ROOT_DIR, %w( spec fixtures responses ))
   SOURCE_PARTS  = SOURCE_DIR.split("/")
@@ -23,7 +25,7 @@ namespace :spec do
 #
 
 require 'spec_helper'
-require 'whois/record/parser/%{khost}.rb'
+require 'whois/parsers/%{khost}.rb'
 
 describe %{described_class}, "%{descr}" do
 
@@ -71,7 +73,7 @@ end
       parts = (source_path.split("/") - SOURCE_PARTS)
       khost = parts.first
       kfile = parts.last
-      described_class = Whois::Record::Parser.parser_klass(khost)
+      described_class = Whois::Parser.parser_klass(khost)
 
       target_path = File.join(TARGET_DIR, *parts).gsub(".expected", "_spec.rb")
 
@@ -126,12 +128,12 @@ end
 
       describe = <<-RUBY
 #{TPL_DESCRIBE % {
-  :described_class    => described_class,
-  :khost    => khost,
-  :descr    => kfile,
-  :sfile    => relativize(source_path),
-  :fixture  => parts.join("/").gsub(".expected", ".txt"),
-  :contexts => contexts
+  :described_class  => described_class,
+  :khost            => khost,
+  :descr            => kfile,
+  :sfile            => relativize(source_path),
+  :fixture          => parts.join("/").gsub(".expected", ".txt"),
+  :contexts         => contexts
 }}
       RUBY
 
@@ -179,9 +181,9 @@ end
     case described_class
     when "array"      then "Array"
     when "time"       then "Time"
-    when "contact"    then "Whois::Record::Contact"
-    when "registrar"  then "Whois::Record::Registrar"
-    when "nameserver" then "Whois::Record::Nameserver"
+    when "contact"    then "Whois::Parser::Contact"
+    when "registrar"  then "Whois::Parser::Registrar"
+    when "nameserver" then "Whois::Parser::Nameserver"
     else
       raise "Unknown class `#{described_class}'"
     end

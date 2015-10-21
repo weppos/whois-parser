@@ -40,13 +40,13 @@ module Whois
 
   # Raised when attempting to access a property when the response is throttled.
   #
-  # @see Whois::Record::Parser::Base#response_throttled?
+  # @see Whois::Parsers::Base#response_throttled?
   class ResponseIsThrottled < ResponseError
   end
 
   # Raised when attempting to access a property when the response is unavailable.
   #
-  # @see Whois::Record::Parser::Base#response_unavailable?
+  # @see Whois::Parsers::Base#response_unavailable?
   class ResponseIsUnavailable < ResponseError
   end
 

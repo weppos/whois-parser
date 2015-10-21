@@ -2,7 +2,7 @@
   %s %CLASS{array}
   %s %SIZE{2}
   %s[0] %CLASS{contact}
-  %s[0].type          == Whois::Record::Contact::TYPE_TECHNICAL
+  %s[0].type          == Whois::Parser::Contact::TYPE_TECHNICAL
   %s[0].id            == "KG780-UANIC"
   %s[0].name          == nil
   %s[0].organization  == "Kyivstar GSM"
@@ -18,7 +18,7 @@
   %s[0].created_on    == nil
   %s[0].updated_on    %TIME{2008-09-02 12:52:47}
   %s[1] %CLASS{contact}
-  %s[1].type          == Whois::Record::Contact::TYPE_TECHNICAL
+  %s[1].type          == Whois::Parser::Contact::TYPE_TECHNICAL
   %s[1].id            == "EIC-UANIC"
   %s[1].name          == nil
   %s[1].organization  == "\"ElVisti Information Center\", LLC\nООО \"Информационный центр \"Электронные вести\"\nТОВ \"ІЦ ЕЛВІСТІ\""

@@ -11,8 +11,8 @@ task :test => :spec
 spec = Gem::Specification.new do |s|
   s.name              = "whois-parser"
   s.version           = Whois::Parser::VERSION
-  s.summary           = "An intelligent pure Ruby WHOIS client and parser."
-  s.description       = "Whois is an intelligent WHOIS client and parser written in pure Ruby. It can query registry data for IPv4, IPv6 and top level domains, parse and convert responses into easy-to-use Ruby objects."
+  s.summary           = "An intelligent pure Ruby WHOIS parser."
+  s.description       = "Whois is an intelligent WHOIS parser written in pure Ruby. It can parse and convert responses into easy-to-use Ruby objects."
 
   s.required_ruby_version = ">= 2.0.0"
 
@@ -90,7 +90,7 @@ task :clobber => "yardoc:clobber"
 
 desc "Open an irb session preloaded with this library"
 task :console do
-  sh "irb -rubygems -I lib -r whois.rb"
+  sh "irb -rubygems -I lib -r whois/parser.rb"
 end
 
 

@@ -6,5 +6,3 @@ Gemfile.lock
 # YARD
 .yardoc
 yardoc/
-
-utils/whois-utf8.rb

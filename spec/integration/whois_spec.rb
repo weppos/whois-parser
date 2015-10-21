@@ -19,8 +19,8 @@ describe Whois do
         expect(record.available?).to be_truthy
         expect(record.registered?).to be_falsey
 
-        expect(record.parser).to be_a(Whois::Record::Parser)
-        expect(record.parser.parsers.first).to be_a(Whois::Record::Parser::WhoisNicIt)
+        expect(record.parser).to be_a(Whois::Parser)
+        expect(record.parser.parsers.first).to be_a(Whois::Parsers::WhoisNicIt)
       end
     end
   end
