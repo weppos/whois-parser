@@ -8,8 +8,8 @@
 
 
 require 'whois'
-require_relative './whois'
-require_relative './parsers'
+require_relative 'parsers'
+require_relative 'parser_extensions'
 require_relative 'parser/version'
 require_relative 'parser/errors'
 
