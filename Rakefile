@@ -1,7 +1,8 @@
 require 'rubygems'
 
-module Whois; end
-require_relative 'lib/whois/parser/version'
+$:.unshift(File.dirname(__FILE__) + '/lib')
+require 'whois'
+require 'whois-parser'
 
 
 # Run test by default.
@@ -22,7 +23,7 @@ spec = Gem::Specification.new do |s|
   s.license           = "MIT"
 
   s.files             = %w( LICENSE.txt .yardopts ) +
-                        Dir.glob("*.{markdown,gemspec}") +
+                        Dir.glob("*.{md,gemspec}") +
                         Dir.glob("{lib}/**/*")
   s.require_paths     = %w( lib )
 
