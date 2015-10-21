@@ -2,4 +2,4 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'whois', git: '/Users/weppos/Code/whois-ruby', branch: 'whois-only'
+gem 'whois', git: 'git@github.com:weppos/whois.git', branch: 'whois-only'
