@@ -1,0 +1,8 @@
+#status
+  %s == ["OK"]
+
+#available?
+  %s == false
+
+#registered?
+  %s == true

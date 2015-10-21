@@ -1,0 +1,3 @@
+#nameservers
+  %s %CLASS{array}
+  %s == []

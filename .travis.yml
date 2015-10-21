@@ -1,0 +1,17 @@
+sudo: false
+language: ruby
+rvm:
+  - 2.0
+  - 2.1
+  - 2.2
+  - ruby-head
+  - jruby-19mode
+
+notifications:
+  recipients:
+    - weppos@weppos.net
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-19mode

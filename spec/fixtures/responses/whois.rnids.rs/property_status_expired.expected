@@ -1,0 +1,8 @@
+#status
+  %s == :expired
+
+#available?
+  %s == false
+
+#registered?
+  %s == true

@@ -1,0 +1,5 @@
+#available?
+  %s == true
+
+#registered?
+  %s == false
