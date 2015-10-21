@@ -15,7 +15,7 @@ describe Whois do
     it "queries the domain and returns true" do
       with_definitions do
         Whois::Server.define(:tld, ".test", "parser.test")
-        Whois::Server::Adapters::Standard.any_instance.expects(:query_the_socket).with("example.test", "parser.test").returns("1 == 1")
+        expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).with("example.test", "parser.test").and_return("1 == 1")
 
         expect(Whois.available?("example.test")).to be_truthy
       end
@@ -24,7 +24,7 @@ describe Whois do
     it "queries the domain and returns false" do
       with_definitions do
         Whois::Server.define(:tld, ".test", "parser.test")
-        Whois::Server::Adapters::Standard.any_instance.expects(:query_the_socket).with("example.test", "parser.test").returns("1 == 2")
+        expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).with("example.test", "parser.test").and_return("1 == 2")
 
         expect(Whois.available?("example.test")).to be_falsey
       end
@@ -33,8 +33,8 @@ describe Whois do
     it "returns nil when missing parser" do
       with_definitions do
         Whois::Server.define(:tld, ".test", "missing.parser.test")
-        Whois::Server::Adapters::Standard.any_instance.expects(:query_the_socket).returns("1 == 2")
-        Whois.expects(:warn)
+        expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).and_return("1 == 2")
+        expect(Whois).to receive(:warn)
 
         expect(Whois.available?("example.test")).to be_nil
       end
@@ -45,7 +45,7 @@ describe Whois do
     it "queries the domain and returns false" do
       with_definitions do
         Whois::Server.define(:tld, ".test", "parser.test")
-        Whois::Server::Adapters::Standard.any_instance.expects(:query_the_socket).with("example.test", "parser.test").returns("1 == 1")
+        expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).with("example.test", "parser.test").and_return("1 == 1")
 
         expect(Whois.registered?("example.test")).to be_falsey
       end
@@ -54,7 +54,7 @@ describe Whois do
     it "queries the domain and returns true" do
       with_definitions do
         Whois::Server.define(:tld, ".test", "parser.test")
-        Whois::Server::Adapters::Standard.any_instance.expects(:query_the_socket).with("example.test", "parser.test").returns("1 == 2")
+        expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).with("example.test", "parser.test").and_return("1 == 2")
 
         expect(Whois.registered?("example.test")).to be_truthy
       end
@@ -63,8 +63,8 @@ describe Whois do
     it "returns nil when missing parser" do
       with_definitions do
         Whois::Server.define(:tld, ".test", "missing.parser.test")
-        Whois::Server::Adapters::Standard.any_instance.expects(:query_the_socket).returns("1 == 2")
-        Whois.expects(:warn)
+        expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).and_return("1 == 2")
+        expect(Whois).to receive(:warn)
 
         expect(Whois.registered?("example.test")).to be_nil
       end

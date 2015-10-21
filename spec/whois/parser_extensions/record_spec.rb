@@ -81,9 +81,9 @@ describe Whois::Record do
     end
 
     it "returns both nil and not-nil values" do
-      subject.expects(:domain).returns("")
-      subject.expects(:created_on).returns(nil)
-      subject.expects(:expires_on).returns(Time.parse("2010-10-10"))
+      expect(subject).to receive(:domain).and_return("")
+      expect(subject).to receive(:created_on).and_return(nil)
+      expect(subject).to receive(:expires_on).and_return(Time.parse("2010-10-10"))
 
       properties = subject.properties
       expect(properties[:domain]).to eq("")
@@ -110,7 +110,7 @@ describe Whois::Record do
 
   describe "#property_any_supported?" do
     it "delegates to parsers" do
-      subject.parser.expects(:property_any_supported?).with(:example).returns(true)
+      expect(subject.parser).to receive(:property_any_supported?).with(:example).and_return(true)
       expect(subject.property_any_supported?(:example)).to be_truthy
     end
   end
@@ -186,7 +186,7 @@ describe Whois::Record do
     it "delegates to #parser if self and other references different objects" do
       other = described_class.new(nil, parts)
       instance = described_class.new(nil, parts)
-      instance.parser.expects(:unchanged?).with(other.parser)
+      expect(instance.parser).to receive(:unchanged?).with(other.parser)
 
       instance.unchanged?(other)
     end
@@ -194,7 +194,7 @@ describe Whois::Record do
 
   describe "#contacts" do
     it "delegates to parser" do
-      subject.parser.expects(:contacts).returns([:one, :two])
+      expect(subject.parser).to receive(:contacts).and_return([:one, :two])
       expect(subject.contacts).to eq([:one, :two])
     end
   end
@@ -202,21 +202,21 @@ describe Whois::Record do
 
   describe "#response_incomplete?" do
     it "delegates to #parser" do
-      subject.parser.expects(:response_incomplete?)
+      expect(subject.parser).to receive(:response_incomplete?)
       subject.response_incomplete?
     end
   end
 
   describe "#response_throttled?" do
     it "delegates to #parser" do
-      subject.parser.expects(:response_throttled?)
+      expect(subject.parser).to receive(:response_throttled?)
       subject.response_throttled?
     end
   end
 
   describe "#response_unavailable?" do
     it "delegates to #parser" do
-      subject.parser.expects(:response_unavailable?)
+      expect(subject.parser).to receive(:response_unavailable?)
       subject.response_unavailable?
     end
   end
@@ -228,17 +228,17 @@ describe Whois::Record do
 
     context "when a parser question method/property" do
       it "calls the corresponding no-question method" do
-        subject.expects(:status)
+        expect(subject).to receive(:status)
         subject.status?
       end
 
       it "returns true if the property is not nil" do
-        subject.expects(:status).returns("available")
+        expect(subject).to receive(:status).and_return("available")
         expect(subject.status?).to eq(true)
       end
 
       it "returns false if the property is nil" do
-        subject.expects(:status).returns(nil)
+        expect(subject).to receive(:status).and_return(nil)
         expect(subject.status?).to eq(false)
       end
     end
