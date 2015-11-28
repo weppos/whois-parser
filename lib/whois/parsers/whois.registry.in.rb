@@ -15,6 +15,12 @@ module Whois
 
     # Parser for the whois.registry.in server.
     class WhoisRegistryIn < BaseAfilias
+
+      self.scanner = Scanners::BaseAfilias, {
+          # Disclaimer starts with "Access to" in .in servers
+          pattern_disclaimer: /^Access to/
+      }
+
     end
 
   end
