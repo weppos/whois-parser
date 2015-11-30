@@ -47,6 +47,7 @@ module Whois
       # @see Whois::Record::Parser#property_any_supported?
       #
       def property_any_supported?(property)
+        warn("DEPRECATED")
         parser.property_any_supported?(property)
       end
 
@@ -71,47 +72,41 @@ module Whois
 
       # Shortcut for <tt>#registrant_contacts.first</tt>.
       #
+      # @see Whois::Record#registrant_contacts
+      #
       # @return [Whois::Record::Contact]
       #         If the property is supported and a contact exists.
       # @return [nil]
-      #         If the property is not supported or the contact doesn't exist.
-      #
-      # @see Whois::Record#registrant_contacts
-      #
+      #         If the the contact doesn't exist.
+      # @raise  [Whois::AttributeNotSupported, Whois::AttributeNotImplemented]
       def registrant_contact
-        if property_any_supported?(:registrant_contacts)
-          parser.registrant_contacts.first
-        end
+        parser.registrant_contacts.first
       end
 
       # Shortcut for <tt>#admin_contacts.first</tt>.
       #
+      # @see Whois::Record#admin_contacts
+      #
       # @return [Whois::Record::Contact]
       #         If the property is supported and a contact exists.
       # @return [nil]
-      #         If the property is not supported or the contact doesn't exist.
-      #
-      # @see Whois::Record#admin_contacts
-      #
+      #         If the contact doesn't exist.
+      # @raise  [Whois::AttributeNotSupported, Whois::AttributeNotImplemented]
       def admin_contact
-        if property_any_supported?(:admin_contacts)
-          parser.admin_contacts.first
-        end
+        parser.admin_contacts.first
       end
 
       # Shortcut for <tt>#technical_contacts.first</tt>.
       #
+      # @see Whois::Record#technical_contacts
+      #
       # @return [Whois::Record::Contact]
       #         If the property is supported and a contact exists.
       # @return [nil]
-      #         If the property is not supported or the contact doesn't exist.
-      #
-      # @see Whois::Record#technical_contacts
-      #
+      #         If the contact doesn't exist.
+      # @raise  [Whois::AttributeNotSupported, Whois::AttributeNotImplemented]
       def technical_contact
-        if property_any_supported?(:technical_contacts)
-          parser.technical_contacts.first
-        end
+        parser.technical_contacts.first
       end
 
       # Collects and returns all the contacts.
@@ -225,9 +220,7 @@ module Whois
         def define_property_method(method)
           class_eval <<-RUBY, __FILE__, __LINE__ + 1
             def #{method}(*args, &block)
-              if property_any_supported?(:#{method})
-                parser.#{method}(*args, &block)
-              end
+              parser.#{method}(*args, &block)
             end
           RUBY
         end
@@ -236,9 +229,7 @@ module Whois
         def define_method_method(method)
           class_eval <<-RUBY, __FILE__, __LINE__ + 1
             def #{method}(*args, &block)
-              if parser.respond_to?(:#{method})
-                parser.#{method}(*args, &block)
-              end
+              parser.#{method}(*args, &block)
             end
           RUBY
         end

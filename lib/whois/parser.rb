@@ -8,8 +8,6 @@
 
 
 require 'whois'
-require_relative 'parsers'
-require_relative 'parser_extensions'
 require_relative 'parser/version'
 require_relative 'parser/errors'
 
@@ -399,3 +397,8 @@ module Whois
 
   end
 end
+
+require_relative 'parsers'
+require_relative 'parsers/base'
+require_relative 'parser_extensions'
+
