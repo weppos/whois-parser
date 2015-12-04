@@ -24,6 +24,10 @@ Make your change. Add tests for your change. Make the tests pass:
 
     $ bundle exec rake
 
+`utils/mkwhois.rb` can be used to quicky generate `status_available.txt` and `status_registered.txt` files for your tests
+
+    $ ruby utils/mkwhois.rb google.com status_available
+
 Commit your changes:
 
     $ git commit -am 'Add some feature'
