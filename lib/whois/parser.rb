@@ -8,6 +8,7 @@
 
 
 require 'whois'
+require 'active_support/core_ext/class/attribute'
 require_relative 'parsers'
 require_relative 'parser_extensions'
 require_relative 'parser/version'
