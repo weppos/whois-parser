@@ -1,11 +1,11 @@
-require 'rspec'
-require 'whois'
-require 'whois/parser'
-
 if ENV['COVERALL']
   require 'coveralls'
   Coveralls.wear!
 end
+
+require 'rspec'
+require 'whois'
+require 'whois/parser'
 
 unless defined?(SPEC_ROOT)
   SPEC_ROOT = File.expand_path("../", __FILE__)
