@@ -15,7 +15,7 @@ module Whois
 
     # Parser for the whois.nic.space server.
     #
-    # @see Whois::Record::Parser::Example
+    # @see Whois::Parsers::Example
     #   The Example parser for the list of all available methods.
     #
     class WhoisNicSpace < WhoisCentralnicCom

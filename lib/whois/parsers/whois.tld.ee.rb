@@ -14,7 +14,7 @@ module Whois
 
     # Parser for the whois.tld.ee server.
     #
-    # @see Whois::Record::Parser::Example
+    # @see Whois::Parsers::Example
     #   The Example parser for the list of all available methods.
     #
     class WhoisTldEe < Base
