@@ -14,10 +14,9 @@ require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/kernel/singleton_class'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/time/calculations'
-require_relative 'parsers'
-require_relative 'parser_extensions'
 require_relative 'parser/version'
 require_relative 'parser/errors'
+require_relative 'parsers'
 
 
 # The parsing controller that stays behind the {Whois::Record}.
@@ -405,3 +404,8 @@ module Whois
 
   end
 end
+
+require_relative 'parsers'
+require_relative 'parsers/base'
+require_relative 'parser_extensions'
+
