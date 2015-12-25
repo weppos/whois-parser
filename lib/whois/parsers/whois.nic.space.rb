@@ -13,12 +13,12 @@ require_relative 'whois.centralnic.com'
 module Whois
   class Parsers
 
-    # Parser for the whois.nic.xyz server.
+    # Parser for the whois.nic.space server.
     #
     # @see Whois::Record::Parser::Example
     #   The Example parser for the list of all available methods.
     #
-    class WhoisNicXyz < WhoisCentralnicCom
+    class WhoisNicSpace < WhoisCentralnicCom
     end
 
   end
