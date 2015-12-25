@@ -11,9 +11,6 @@ describe Whois::Record do
     Whois::Record::Part.new(body: "This is a record from foo.", host: "foo.example.test"),
     Whois::Record::Part.new(body: "This is a record from bar.", host: "bar.example.test")
   ]}
-  let(:content) {
-    parts.map(&:body).join("\n")
-  }
 
 
   describe "#respond_to?" do
@@ -58,6 +55,7 @@ describe Whois::Record do
     end
   end
 
+
   describe "#parser" do
     it "returns a Parser" do
       expect(subject.parser).to be_a(Whois::Parser)
@@ -74,27 +72,26 @@ describe Whois::Record do
     end
   end
 
-
-  describe "#properties", skip: "Handle NotImplemented, NotSupported" do
-    it "returns a Hash" do
-      expect(subject.properties).to be_a(Hash)
-    end
-
-    it "returns both nil and not-nil values" do
-      expect(subject).to receive(:domain).and_return("")
-      expect(subject).to receive(:created_on).and_return(nil)
-      expect(subject).to receive(:expires_on).and_return(Time.parse("2010-10-10"))
-
-      properties = subject.properties
-      expect(properties[:domain]).to eq("")
-      expect(properties[:created_on]).to be_nil
-      expect(properties[:expires_on]).to eq(Time.parse("2010-10-10"))
-    end
-
-    it "fetches all parser property" do
-      expect(subject.properties.keys).to match(Whois::Parser::PROPERTIES)
-    end
-  end
+  # describe "#properties", skip: "Handle NotImplemented, NotSupported" do
+  #   it "returns a Hash" do
+  #     expect(subject.properties).to be_a(Hash)
+  #   end
+  #
+  #   it "returns both nil and not-nil values" do
+  #     expect(subject).to receive(:domain).and_return("")
+  #     expect(subject).to receive(:created_on).and_return(nil)
+  #     expect(subject).to receive(:expires_on).and_return(Time.parse("2010-10-10"))
+  #
+  #     properties = subject.properties
+  #     expect(properties[:domain]).to eq("")
+  #     expect(properties[:created_on]).to be_nil
+  #     expect(properties[:expires_on]).to eq(Time.parse("2010-10-10"))
+  #   end
+  #
+  #   it "fetches all parser property" do
+  #     expect(subject.properties.keys).to match(Whois::Parser::PROPERTIES)
+  #   end
+  # end
 
 
   class Whois::Parsers::WhoisPropertiesTest < Whois::Parsers::Base
@@ -106,13 +103,6 @@ describe Whois::Record do
     end
     property_not_supported :updated_on
     # property_not_defined :expires_on
-  end
-
-  describe "#property_any_supported?" do
-    it "delegates to parsers" do
-      expect(subject.parser).to receive(:property_any_supported?).with(:example).and_return(true)
-      expect(subject.property_any_supported?(:example)).to be_truthy
-    end
   end
 
   describe "property" do

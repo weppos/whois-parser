@@ -24,7 +24,6 @@ module Whois
       # for {Parser::PROPERTIES} and {Parser::METHODS}.
       #
       # @return [Boolean]
-      #
       def respond_to?(symbol, include_private = false)
         respond_to_parser_method?(symbol) || super
       end
@@ -33,42 +32,21 @@ module Whois
       # Lazy-loads and returns the parser proxy for current record.
       #
       # @return [Whois::Record::Parser]
-      #
       def parser
         @parser ||= Parser.new(self)
       end
-
-      # Checks if the <tt>property</tt> passed as symbol
-      # is supported in any of the parsers.
-      #
-      # @param  [Symbol] property The name of the property to check.
-      # @return [Boolean]
-      #
-      # @see Whois::Record::Parser#property_any_supported?
-      #
-      def property_any_supported?(property)
-        warn("DEPRECATED")
-        parser.property_any_supported?(property)
-      end
-
-
-      # @!group Properties
 
       # Returns a Hash containing all supported properties for this record
       # along with corresponding values.
       #
       # @return [{ Symbol => Object }]
-      #
+      # @raise  [Whois::AttributeNotSupported, Whois::AttributeNotImplemented]
       def properties
+        warn("#{self.class}#properties is deprecated")
         hash = {}
         Parser::PROPERTIES.each { |property| hash[property] = send(property) }
         hash
       end
-
-      # @!endgroup
-
-
-      # @!group Methods
 
       # Shortcut for <tt>#registrant_contacts.first</tt>.
       #
@@ -111,18 +89,14 @@ module Whois
 
       # Collects and returns all the contacts.
       #
+      # @see Whois::Parser#contacts
+      #
       # @return [Array<Whois::Record::Contact>]
-      #
-      # @see Whois::Record::Parser#contacts
-      #
       def contacts
+        warn("#{self.class}#contacts is deprecated")
         parser.contacts
       end
 
-      # @!endgroup
-
-
-      # @!group Response
 
       # Checks whether this {Whois::Record} is different than +other+.
       #
@@ -137,22 +111,20 @@ module Whois
       # This method should provide a bulletproof way to detect whether this record
       # changed compared with +other+.
       #
+      # @see Whois::Parser#changed?
+      #
       # @param  [Whois::Record] other The other record instance to compare.
       # @return [Boolean]
-      #
-      # @see Whois::Record::Parser#changed?
-      #
       def changed?(other)
         !unchanged?(other)
       end
 
       # The opposite of {#changed?}.
       #
+      # @see Whois::Parser#unchanged?
+      #
       # @param  [Whois::Record] other The other record instance to compare.
       # @return [Boolean]
-      #
-      # @see Whois::Record::Parser#unchanged?
-      #
       def unchanged?(other)
         unless other.is_a?(self.class)
           raise(ArgumentError, "Can't compare `#{self.class}' with `#{other.class}'")
@@ -161,39 +133,49 @@ module Whois
         equal?(other) || parser.unchanged?(other.parser)
       end
 
-
       # Checks whether this is an incomplete response.
       #
+      # @deprecated
+      # @see Whois::Parser#response_incomplete?
+      #
       # @return [Boolean]
-      #
-      # @see Whois::Record::Parser#response_incomplete?
-      #
       def response_incomplete?
+        warn("#{self.class}#response_incomplete? is deprecated. Use parser.response_incomplete?")
         parser.response_incomplete?
       end
 
       # Checks whether this is a throttle response.
       #
+      # @deprecated
+      # @see Whois::Parser#response_throttled?
+      #
       # @return [Boolean]
-      #
-      # @see Whois::Record::Parser#response_throttled?
-      #
       def response_throttled?
+        warn("#{self.class}#response_throttled? is deprecated. Use parser.response_throttled?")
         parser.response_throttled?
       end
 
       # Checks whether this is an unavailable response.
       #
+      # @deprecated
+      # @see Whois::Parser#response_unavailable?
+      #
       # @return [Boolean]
-      #
-      # @see Whois::Record::Parser#response_unavailable?
-      #
       def response_unavailable?
+        warn("#{self.class}#response_unavailable? is deprecated. Use parser.response_unavailable?")
         parser.response_unavailable?
       end
 
-      # @!endgroup
 
+      # @deprecated
+      def property_any_supported?(property)
+        warn("#{self.class}#property_any_supported? is deprecated and has no effect. Use Whois::Parser.property_any_supported? if you need it.")
+      end
+
+
+      private
+
+      # @api private
       def respond_to_parser_method?(symbol)
         name = symbol.to_s =~ /\?$/ ? symbol.to_s[0..-2] : symbol
         Parser::PROPERTIES.include?(name.to_sym) || Parser::METHODS.include?(name.to_sym)

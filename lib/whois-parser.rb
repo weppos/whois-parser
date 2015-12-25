@@ -8,4 +8,3 @@
 
 
 require_relative 'whois/parser'
-
