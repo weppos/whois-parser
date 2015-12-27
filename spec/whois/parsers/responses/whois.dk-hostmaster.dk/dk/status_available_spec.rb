@@ -57,4 +57,9 @@ describe Whois::Parsers::WhoisDkHostmasterDk, "status_available.expected" do
       expect(subject.nameservers).to eq([])
     end
   end
+  describe "#response_throttled?" do
+    it do
+      expect(subject.response_throttled?).to eq(false)
+    end
+  end
 end

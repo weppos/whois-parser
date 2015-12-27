@@ -21,3 +21,7 @@
 #nameservers
   %s %CLASS{array}
   %s == []
+
+
+#response_throttled?
+  %s == false

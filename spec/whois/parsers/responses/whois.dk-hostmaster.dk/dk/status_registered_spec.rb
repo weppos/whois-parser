@@ -59,8 +59,17 @@ describe Whois::Parsers::WhoisDkHostmasterDk, "status_registered.expected" do
       expect(subject.nameservers.size).to eq(2)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
       expect(subject.nameservers[0].name).to eq("ns1.google.com")
+      expect(subject.nameservers[0].ipv4).to eq(nil)
+      expect(subject.nameservers[0].ipv6).to eq(nil)
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
       expect(subject.nameservers[1].name).to eq("ns2.google.com")
+      expect(subject.nameservers[1].ipv4).to eq(nil)
+      expect(subject.nameservers[1].ipv6).to eq(nil)
+    end
+  end
+  describe "#response_throttled?" do
+    it do
+      expect(subject.response_throttled?).to eq(false)
     end
   end
 end
