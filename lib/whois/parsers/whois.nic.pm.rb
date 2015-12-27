@@ -13,12 +13,12 @@ require_relative 'base_nic_fr'
 module Whois
   class Parsers
 
-    # Parser for the whois.nic.fr server.
+    # Parser for the whois.nic.pm server.
     #
     # @see Whois::Parsers::Example
     #   The Example parser for the list of all available methods.
     #
-    class WhoisNicFr < BaseNicFr
+    class WhoisNicPm < BaseNicFr
     end
 
   end

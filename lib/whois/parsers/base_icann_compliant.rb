@@ -16,11 +16,8 @@ module Whois
 
     # Base parser for ICANN Compliant servers.
     #
+    # @abstract
     # @see http://www.icann.org/en/resources/registrars/raa/approved-with-specs-27jun13-en.htm#whois
-    #
-    # @author Simone Carletti
-    # @author Igor Dolzhikov <bluesriverz@gmail.com>
-    #
     class BaseIcannCompliant < Base
       include Scanners::Scannable
 

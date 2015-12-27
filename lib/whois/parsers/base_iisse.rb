@@ -15,6 +15,8 @@ module Whois
   class Parsers
 
     # Base parser for IIS.se servers.
+    #
+    # @abstract
     class BaseIisse < Base
       include Scanners::Scannable
 
