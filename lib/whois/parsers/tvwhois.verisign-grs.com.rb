@@ -13,12 +13,12 @@ require_relative 'base_verisign'
 module Whois
   class Parsers
 
-    # Parser for the whois.nic.tv server.
+    # Parser for the tvwhois.verisign-grs.com server.
     #
     # @see Whois::Parsers::Example
     #   The Example parser for the list of all available methods.
     #
-    class WhoisNicTv < BaseVerisign
+    class TvwhoisVerisignGrsCom < BaseVerisign
     end
 
   end
