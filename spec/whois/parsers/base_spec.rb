@@ -35,6 +35,22 @@ describe Whois::Parsers::Base do
     end
   end
 
+  describe ".parse_time" do
+    it "returns a parsed timestamp" do
+      expect(described_class.parse_time("1970-01-01T00:00:00Z")).to eq(Time.at(0))
+    end
+
+    it "removes microseconds on parsed timestamps" do
+      expect(described_class.parse_time("1970-01-01T00:00:00.123Z")).to eq(Time.at(0))
+    end
+
+    it "returns nil for invalid input" do
+      expect(described_class.parse_time(nil)).to be_nil
+      expect(described_class.parse_time("null")).to be_nil
+      expect(described_class.parse_time("")).to be_nil
+    end
+  end
+
 
   describe "#initialize" do
     it "requires a part" do

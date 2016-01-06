@@ -163,7 +163,18 @@ module Whois
         self.class.property_state?(property, Parser::PROPERTY_STATE_SUPPORTED)
       end
 
-
+      # Parses a timestamp, returning nil for invalid input
+      #
+      # @param  [String] timestamp The timestamp to parse
+      # @return [Nil] if the timestamp can't be parsed
+      # @return [Time]
+      #
+      def self.parse_time(timestamp)
+        return unless timestamp.is_a?(String) && !timestamp.empty?
+        Time.parse(timestamp).change(usec: 0)
+      rescue ArgumentError
+        nil
+      end
 
       # @return [Whois::Record::Part] The part referenced by this parser.
       attr_reader :part
@@ -371,6 +382,10 @@ module Whois
         else
           value
         end
+      end
+
+      def parse_time(timestamp)
+        self.class.parse_time(timestamp)
       end
 
       def handle_property(property, *args)
