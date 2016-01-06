@@ -85,13 +85,6 @@ module Whois
         end
       end
 
-
-      private
-
-      def parse_time(value)
-        Time.parse(value).change(usec: 0)
-      end
-
     end
 
 end
