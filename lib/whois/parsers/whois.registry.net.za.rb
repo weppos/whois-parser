@@ -134,7 +134,7 @@ module Whois
       end
 
       def parse_date(date_string)
-        Time.parse(date_string) if date_string
+        parse_time(date_string) if date_string
       end
 
     end

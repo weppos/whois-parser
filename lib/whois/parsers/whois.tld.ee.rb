@@ -63,19 +63,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /registered:\s+(.+?)\n/
-          Time.parse($1)
+          parse_time($1)
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /changed:\s+(.+?)\n/
-          Time.parse($1)
+          parse_time($1)
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /expire:\s+(.+?)\n/
-          Time.parse($1)
+          parse_time($1)
         end
       end
 
@@ -123,7 +123,7 @@ module Whois
               type:       type,
               name:       Array.wrap(hash['name'])[i],
               email:      Array.wrap(hash['email'])[i],
-              updated_on: Time.parse(Array.wrap(hash['changed'])[i])
+              updated_on: parse_time(Array.wrap(hash['changed'])[i])
             )
           end
         end
