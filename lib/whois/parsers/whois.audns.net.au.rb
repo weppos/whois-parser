@@ -64,9 +64,9 @@ module Whois
 
       property_supported :registrar do
         node("Registrar Name") do |str|
-          Parser::Registrar.new(
-            :name => str
-          )
+          Parser::Registrar.new({
+            name: str,
+          })
         end
       end
 
@@ -86,7 +86,7 @@ module Whois
 
       property_supported :nameservers do
         Array.wrap(node("Name Server")).map do |name|
-          Parser::Nameserver.new(:name => name)
+          Parser::Nameserver.new(name: name)
         end
       end
 
@@ -95,24 +95,24 @@ module Whois
 
       def build_contact(element, type)
         node("#{element} ID") do |str|
-          Parser::Contact.new(
-            :type         => type,
-            :id           => str,
-            :name         => node("#{element} Name"),
-            :organization => nil,
-            :address      => nil,
-            :city         => nil,
-            :zip          => nil,
-            :state        => nil,
-            :country      => nil,
-            :phone        => nil,
-            :fax          => nil,
-            :email        => node("#{element} Email")
-          )
+          Parser::Contact.new({
+            type:         type,
+            id:           str,
+            name:         node("#{element} Name"),
+            organization: nil,
+            address:      nil,
+            city:         nil,
+            zip:          nil,
+            state:        nil,
+            country:      nil,
+            phone:        nil,
+            fax:          nil,
+            email:        node("#{element} Email"),
+          })
         end
       end
 
     end
 
-end
+  end
 end
