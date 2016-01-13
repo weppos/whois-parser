@@ -70,7 +70,7 @@ describe Whois::Parsers::WhoisAudnsNetAu, "status_registered.expected" do
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("MARKMONITOR")
+      expect(subject.registrar.id).to eq("MarkMonitor Inc.") # Registrar ID is no longer returned, use the name instead
       expect(subject.registrar.name).to eq("MarkMonitor Inc.")
       expect(subject.registrar.organization).to eq(nil)
       expect(subject.registrar.url).to eq(nil)
