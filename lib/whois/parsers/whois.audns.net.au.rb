@@ -65,7 +65,6 @@ module Whois
       property_supported :registrar do
         node("Registrar Name") do |str|
           Parser::Registrar.new(
-            :id   => str, # Registrar ID is no longer returned, use the name instead
             :name => str
           )
         end
