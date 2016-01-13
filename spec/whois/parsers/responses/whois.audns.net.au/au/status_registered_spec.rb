@@ -59,7 +59,7 @@ describe Whois::Parsers::WhoisAudnsNetAu, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2013-06-05 04:03:08 UTC"))
+      expect(subject.updated_on).to eq(Time.parse("2014-11-05 10:35:59 UTC"))
     end
   end
   describe "#expires_on" do
@@ -70,7 +70,6 @@ describe Whois::Parsers::WhoisAudnsNetAu, "status_registered.expected" do
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("MARKMONITOR")
       expect(subject.registrar.name).to eq("MarkMonitor Inc.")
       expect(subject.registrar.organization).to eq(nil)
       expect(subject.registrar.url).to eq(nil)
