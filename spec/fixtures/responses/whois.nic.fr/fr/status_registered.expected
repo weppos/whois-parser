@@ -17,7 +17,8 @@
   %s %TIME{2009-06-03}
 
 #expires_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2016-12-30}
 
 
 #registrant_contacts
