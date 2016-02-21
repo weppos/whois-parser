@@ -13,4 +13,6 @@ Initial import from the `whois` library.
 
 - FIXED: whois.audns.net.au removed the registrar ID field (GH-20, GH-21). Thanks [@afoster]
 
-- CHANGED: Updated jobswhois.verisign-grs.com to whois.nic.jobs (GH-23).
+- CHANGED: Updated .JOBS from obswhois.verisign-grs.com to whois.nic.jobs (GH-23).
+
+- CHANGED: Updated .PRO from whois.dotproregistry.net to whois.afilias.net (GH-24).

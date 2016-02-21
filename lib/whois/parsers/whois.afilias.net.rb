@@ -17,8 +17,23 @@ module Whois
     class WhoisAfiliasNet < BaseAfilias2
 
       self.scanner = Scanners::BaseAfilias, {
-          pattern_disclaimer: /^Access to/
+          pattern_disclaimer: /^Access to/,
+          pattern_reserved: /^Reserved by Registry\n/,
       }
+
+
+      property_supported :status do
+        if reserved?
+          :reserved
+        else
+          super()
+        end
+      end
+
+      # NEWPROPERTY
+      def reserved?
+        !!node("status:reserved")
+      end
 
     end
 
