@@ -21,7 +21,7 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{2008-05-08 17:59:38.43}
+  %s %TIME{2008-05-08 17:59:38}
 
 #updated_on
   %s %ERROR{AttributeNotSupported}
