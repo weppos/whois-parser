@@ -18,7 +18,7 @@ module Whois
 
       self.scanner = Scanners::BaseAfilias, {
           pattern_disclaimer: /^Access to/,
-          pattern_reserved: /^Reserved by Registry\n/,
+          pattern_reserved: /^(Name is reserved by afilias\n)|(Reserved by Registry\n)/,
       }
 
 

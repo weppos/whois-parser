@@ -11,6 +11,8 @@ Initial import from the `whois` library.
 
 - NEW: Safer time parsing (GH-18). [Thanks @davidcornu]
 
+- NEW: Detect reserved .INFO domains (whois/GH-468).
+
 - FIXED: whois.audns.net.au removed the registrar ID field (GH-20, GH-21). Thanks [@afoster]
 
 - CHANGED: Updated .JOBS from obswhois.verisign-grs.com to whois.nic.jobs (GH-23).
