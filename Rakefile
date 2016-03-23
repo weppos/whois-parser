@@ -27,7 +27,7 @@ spec = Gem::Specification.new do |s|
                         Dir.glob("{lib}/**/*")
   s.require_paths     = %w( lib )
 
-  # s.add_dependency "whois", ">= 4.0.0"
+  s.add_dependency "whois", ">= 4.0.0.pre.beta1"
   s.add_dependency "activesupport", ">= 3"
 
   s.add_development_dependency "rake"
