@@ -13,12 +13,12 @@ require_relative 'base_verisign'
 module Whois
   class Parsers
 
-    # Parser for the jobswhois.verisign-grs.com server.
+    # Parser for the whois.nic.jobs server.
     #
     # @see Whois::Parsers::Example
     #   The Example parser for the list of all available methods.
     #
-    class JobswhoisVerisignGrsCom < BaseVerisign
+    class WhoisNicJobs < BaseVerisign
     end
 
   end

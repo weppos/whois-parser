@@ -55,7 +55,7 @@ module Whois
 
 
       property_supported :created_on do
-        node("Acivated") { |value| Time.parse(value) }
+        node("Acivated") { |value| parse_time(value) }
       end
 
       property_not_supported :updated_on
@@ -104,8 +104,8 @@ module Whois
             phone:        node("#{element} Tel"),
             fax:          node("#{element} Fax"),
             email:        node("#{element} Email"),
-            created_on:   node("#{element} Created") { |value| Time.parse(value) },
-            updated_on:   node("#{element} Updated") { |value| Time.parse(value) if value != "None" }
+            created_on:   node("#{element} Created") { |value| parse_time(value) },
+            updated_on:   node("#{element} Updated") { |value| parse_time(value) }
           )
         end
       end

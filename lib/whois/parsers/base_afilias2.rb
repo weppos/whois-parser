@@ -52,32 +52,31 @@ module Whois
 
       property_supported :created_on do
         node("Creation Date") do |value|
-          Time.parse(value)
+          parse_time(value)
         end
       end
 
       property_supported :updated_on do
         node("Updated Date") do |value|
-          Time.parse(value)
+          parse_time(value)
         end
       end
 
       property_supported :expires_on do
         node("Registry Expiry Date") do |value|
-          Time.parse(value)
+          parse_time(value)
         end
       end
 
 
       property_supported :registrar do
         node("Sponsoring Registrar") do |value|
-          id, name = decompose_registrar(value) ||
-              Whois.bug!(ParserError, "Unknown registrar format `#{value}'")
+          id, name = decompose_registrar(value)
 
-          Parser::Registrar.new(
+          Parser::Registrar.new({
               id:           id,
-              name:         name
-          )
+              name:         name,
+          })
         end
       end
 
@@ -130,6 +129,8 @@ module Whois
       def decompose_registrar(value)
         if value =~ /(.+?) \((.+?)\)/
           [$2, $1]
+        else
+          [nil, value]
         end
       end
 

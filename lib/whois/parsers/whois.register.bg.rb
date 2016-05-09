@@ -50,7 +50,7 @@ module Whois
         if content_for_scanner =~ /activated on:\s+(.*?)\n/
           # Time.parse("30/06/2003 00:00:00")
           # => ArgumentError: argument out of range
-          Time.parse($1.gsub("/", "-"))
+          parse_time($1.gsub("/", "-"))
         end
       end
 
@@ -60,7 +60,7 @@ module Whois
         if content_for_scanner =~ /expires at:\s+(.*?)\n/
           # Time.parse("30/06/2003 00:00:00")
           # => ArgumentError: argument out of range
-          Time.parse($1.gsub("/", "-"))
+          parse_time($1.gsub("/", "-"))
         end
       end
 

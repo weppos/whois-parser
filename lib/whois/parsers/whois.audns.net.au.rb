@@ -56,18 +56,17 @@ module Whois
       property_not_supported :created_on
 
       property_supported :updated_on do
-        node("Last Modified") { |value| Time.parse(value) }
+        node("Last Modified") { |value| parse_time(value) }
       end
 
       property_not_supported :expires_on
 
 
       property_supported :registrar do
-        node("Registrar ID") do |str|
-          Parser::Registrar.new(
-            :id   => str,
-            :name => node("Registrar Name")
-          )
+        node("Registrar Name") do |str|
+          Parser::Registrar.new({
+            name: str,
+          })
         end
       end
 
@@ -87,7 +86,7 @@ module Whois
 
       property_supported :nameservers do
         Array.wrap(node("Name Server")).map do |name|
-          Parser::Nameserver.new(:name => name)
+          Parser::Nameserver.new(name: name)
         end
       end
 
@@ -96,24 +95,24 @@ module Whois
 
       def build_contact(element, type)
         node("#{element} ID") do |str|
-          Parser::Contact.new(
-            :type         => type,
-            :id           => str,
-            :name         => node("#{element} Name"),
-            :organization => nil,
-            :address      => nil,
-            :city         => nil,
-            :zip          => nil,
-            :state        => nil,
-            :country      => nil,
-            :phone        => nil,
-            :fax          => nil,
-            :email        => node("#{element} Email")
-          )
+          Parser::Contact.new({
+            type:         type,
+            id:           str,
+            name:         node("#{element} Name"),
+            organization: nil,
+            address:      nil,
+            city:         nil,
+            zip:          nil,
+            state:        nil,
+            country:      nil,
+            phone:        nil,
+            fax:          nil,
+            email:        node("#{element} Email"),
+          })
         end
       end
 
     end
 
-end
+  end
 end

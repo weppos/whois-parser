@@ -24,7 +24,7 @@
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2013-06-05 04:03:08 UTC}
+  %s %TIME{2014-11-05 10:35:59 UTC}
 
 #expires_on
   %s %ERROR{AttributeNotSupported}
@@ -32,7 +32,6 @@
 
 #registrar
   %s %CLASS{registrar}
-  %s.id           == "MARKMONITOR"
   %s.name         == "MarkMonitor Inc."
   %s.organization == nil
   %s.url          == nil

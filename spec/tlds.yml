@@ -205,9 +205,11 @@ coop:
     status_available: u34jedzcq.coop
     status_registered: calgary.coop
 info:
-    _server: whois.afilias.info
+    _server: whois.afilias.net
+    _subdir: info
     status_available: u34jedzcq.info
     status_registered: google.info
+    status_reserved: xn--qck4c5bxbbi9hd.info
 jobs:
     _server: jobswhois.verisign-grs.com
     _subdir: jobs
@@ -226,9 +228,11 @@ name:
     status_available: u34jedzcq.name
     status_registered: carletti.name
 pro:
-    _server: whois.registrypro.pro
+    _server: whois.afilias.net
+    _subdir: pro
     status_available: u34jedzcq.pro
     status_registered: google.pro
+    status_reserved: nii.pro
 tel:
     _server: whois.nic.tel
     status_available: u34jedzcq.tel
