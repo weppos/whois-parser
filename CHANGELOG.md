@@ -13,6 +13,8 @@ Initial import from the `whois` library.
 
 - NEW: Detect reserved .INFO domains (whois/GH-468).
 
+- NEW: Added whois.cdmon.com parser (GH-27). [Thanks @sfumanal]
+
 - FIXED: whois.audns.net.au removed the registrar ID field (GH-20, GH-21). Thanks [@afoster]
 
 - CHANGED: Updated .JOBS from obswhois.verisign-grs.com to whois.nic.jobs (GH-23).
