@@ -40,8 +40,8 @@ describe Whois::Record do
     end
 
     it "returns true if method is a property?" do
-      Whois::Parser::PROPERTIES << :test_property
-      expect(subject.respond_to?(:test_property?)).to be_truthy
+      Whois::Parser::PROPERTIES << :test_property_b
+      expect(subject.respond_to?(:test_property_b?)).to be_truthy
     end
 
     it "returns true if method is a method" do
@@ -49,9 +49,9 @@ describe Whois::Record do
       expect(subject.respond_to?(:test_method)).to be_truthy
     end
 
-    it "returns true if method is a method" do
-      Whois::Parser::METHODS << :test_method
-      expect(subject.respond_to?(:test_method?)).to be_truthy
+    it "returns true if method is a method?" do
+      Whois::Parser::METHODS << :test_method_b
+      expect(subject.respond_to?(:test_method_b?)).to be_truthy
     end
   end
 
