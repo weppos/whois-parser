@@ -20,10 +20,8 @@ describe Whois::Record do
     end
 
     after(:all) do
-      Whois::Parser::PROPERTIES.clear
-      Whois::Parser::PROPERTIES.push(*@_properties)
-      Whois::Parser::METHODS.clear
-      Whois::Parser::METHODS.push(*@_methods)
+      Whois::Parser::PROPERTIES.replace(@_properties)
+      Whois::Parser::METHODS.replace(@_methods)
     end
 
     it "returns true if method is in self" do
