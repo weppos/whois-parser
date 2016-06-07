@@ -15,7 +15,7 @@ module Whois
       # for {Parser::PROPERTIES} and {Parser::METHODS}.
       #
       # @return [Boolean]
-      def respond_to?(symbol, include_private = false)
+      def respond_to_missing?(symbol, include_private = false)
         respond_to_parser_method?(symbol) || super
       end
 
