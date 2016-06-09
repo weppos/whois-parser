@@ -15,7 +15,7 @@ module Whois
       # for {Parser::PROPERTIES} and {Parser::METHODS}.
       #
       # @return [Boolean]
-      def respond_to?(symbol, include_private = false)
+      def respond_to_missing?(symbol, include_private = false)
         respond_to_parser_method?(symbol) || super
       end
 
@@ -168,8 +168,16 @@ module Whois
 
       # @api private
       def respond_to_parser_method?(symbol)
-        name = symbol.to_s =~ /\?$/ ? symbol.to_s[0..-2] : symbol
-        Parser::PROPERTIES.include?(name.to_sym) || Parser::METHODS.include?(name.to_sym)
+        Parser::PROPERTIES.include?(symbol) ||
+          Parser::METHODS.include?(symbol) ||
+          respond_to_question_method?(symbol)
+      end
+
+      def respond_to_question_method?(symbol)
+        return false unless symbol.to_s =~ /([a-z_]+)\?/
+        symbol = $1.to_sym
+        Parser::PROPERTIES.include?(symbol) ||
+            Parser::METHODS.include?(symbol)
       end
 
       # Delegates all method calls to the internal parser.
