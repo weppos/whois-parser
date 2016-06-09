@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'whois/parser_extensions'
 
 describe Whois::Record do
 
@@ -110,22 +111,6 @@ describe Whois::Record do
     it "returns true if method? is a method?" do
       Whois::Parser::METHODS << :test_md_method_c?
       expect(subject.method(:test_md_method_c?)).to be_instance_of Method
-    end
-  end
-
-  describe "#parser" do
-    it "returns a Parser" do
-      expect(subject.parser).to be_a(Whois::Parser)
-    end
-
-    it "initializes the parser with self" do
-      expect(subject.parser.record).to be(subject)
-    end
-
-    it "memoizes the value" do
-      expect(subject.instance_eval { @parser }).to be_nil
-      parser = subject.parser
-      expect(subject.instance_eval { @parser }).to be(parser)
     end
   end
 

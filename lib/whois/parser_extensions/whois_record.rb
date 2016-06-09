@@ -228,3 +228,8 @@ module Whois
 
   end
 end
+
+
+Whois::Record.class_eval do
+  include Whois::ParserExtensions::WhoisRecord
+end

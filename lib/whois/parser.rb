@@ -14,10 +14,33 @@ require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/kernel/singleton_class'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/time/calculations'
+
 require_relative 'parser/version'
 require_relative 'parser/errors'
-require_relative 'parsers'
 
+# These extensions add Whois::Record#parser, the Whois.registered?, and 
+# Whois.available? shortcuts.
+# These are handy convenient methods, and they are loaded by default.
+require_relative 'parser_extensions/whois'
+require_relative 'parser_extensions/whois_parser'
+
+# These extensions add most of Whois::Record parser-specific extensions
+# that were loaded by default in Whois 3. This is not recommended as it adds
+# a lot of stuff into the Whois::Record class.
+# Instead of Whois::Record.foo you should just use Whois::Record.parser.foo
+# and add your own abstraction if you need to manipulate the results.
+require_relative 'parser_extensions' if ENV["WHOISRB_4EXTENSIONS"] == "1"
+
+# This is really not recommended. It will restore Whois 3 old behavior
+# where the record was silently swallowing the error (returnin nil)
+# when the property was not implemented or not supported.
+# This compatibility layer will likely be removed in future releases.
+# See https://github.com/weppos/whois-parser/pull/5
+# require_relative 'safe_record'
+
+# This is required at the end of the file
+# because it depends on Whois::Parser::PROPERTIES
+# require_relative 'parsers'
 
 # The parsing controller that stays behind the {Whois::Record}.
 #
@@ -406,6 +429,3 @@ module Whois
 end
 
 require_relative 'parsers'
-require_relative 'parsers/base'
-require_relative 'parser_extensions'
-
