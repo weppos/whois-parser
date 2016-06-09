@@ -22,16 +22,16 @@ describe Whois::Parsers::Base do
     it "returns false if the property is not supported" do
       koncrete = Class.new(described_class) do
       end
-      expect(koncrete.new(part).property_supported?(:disclaimer)).to be_falsey
-      expect(koncrete.new(part).respond_to?(:disclaimer)).to be_truthy
+      expect(koncrete.new(part).property_supported?(:disclaimer)).to eq(false)
+      expect(koncrete.new(part).respond_to?(:disclaimer)).to eq(true)
     end
 
     it "returns true if the property is supported" do
       koncrete = Class.new(described_class) do
         property_register(:disclaimer, Whois::Parser::PROPERTY_STATE_SUPPORTED) {}
       end
-      expect(koncrete.new(part).property_supported?(:disclaimer)).to be_truthy
-      expect(koncrete.new(part).respond_to?(:disclaimer)).to be_truthy
+      expect(koncrete.new(part).property_supported?(:disclaimer)).to eq(true)
+      expect(koncrete.new(part).respond_to?(:disclaimer)).to eq(true)
     end
   end
 
@@ -91,7 +91,7 @@ describe Whois::Parsers::Base do
     end
     it "does not call the method if the object does not respond to the method" do
       koncrete = Class.new(described_class).new(Whois::Record::Part.new)
-      expect(koncrete.is(:response_throttled?)).to be_falsey
+      expect(koncrete.is(:response_throttled?)).to eq(false)
     end
   end
 
@@ -139,19 +139,19 @@ describe Whois::Parsers::Base do
 
     it "returns true if self and other references the same object" do
       instance = described_class.new(part)
-      expect(instance.unchanged?(instance)).to be_truthy
+      expect(instance.unchanged?(instance)).to eq(true)
     end
 
     it "returns true if the content_for_scanner is the same" do
       instance = described_class.new(Whois::Record::Part.new(:body => "This is the\nresponse 1.", :host => "whois.example.test"))
       other = described_class.new(Whois::Record::Part.new(:body => "This is the\r\nresponse 1.", :host => "whois.example.test"))
-      expect(instance.unchanged?(other)).to be_truthy
+      expect(instance.unchanged?(other)).to eq(true)
     end
 
     it "returns false if the content_for_scanner is not the same" do
       instance = described_class.new(Whois::Record::Part.new(:body => "This is the response 1.", :host => "whois.example.test"))
       other = described_class.new(Whois::Record::Part.new(:body => "This is the response 2.", :host => "whois.example.test"))
-      expect(instance.unchanged?(other)).to be_falsey
+      expect(instance.unchanged?(other)).to eq(false)
     end
   end
 
@@ -178,7 +178,7 @@ describe Whois::Parsers::Base do
 
   describe "#response_incomplete?" do
     it "is undefined" do
-      expect(described_class.new(part).respond_to?(:response_incomplete?)).to be_falsey
+      expect(described_class.new(part).respond_to?(:response_incomplete?)).to eq(false)
     end
 
     # it "returns nil" do
@@ -188,13 +188,13 @@ describe Whois::Parsers::Base do
     #
     # it "is false" do
     #   i = described_class.new(part)
-    #   expect(i.response_incomplete?).to be_falsey
+    #   expect(i.response_incomplete?).to eq(false)
     # end
   end
 
   describe "#response_throttled?" do
     it "is undefined" do
-      expect(described_class.new(part).respond_to?(:response_throttled?)).to be_falsey
+      expect(described_class.new(part).respond_to?(:response_throttled?)).to eq(false)
     end
 
     # it "returns nil" do
@@ -204,13 +204,13 @@ describe Whois::Parsers::Base do
     #
     # it "is false" do
     #   i = described_class.new(part)
-    #   expect(i.response_throttled?).to be_falsey
+    #   expect(i.response_throttled?).to eq(false)
     # end
   end
 
   describe "#response_unavailable?" do
     it "is undefined" do
-      expect(described_class.new(part).respond_to?(:response_unavailable?)).to be_falsey
+      expect(described_class.new(part).respond_to?(:response_unavailable?)).to eq(false)
     end
 
     # it "returns nil" do
@@ -220,7 +220,7 @@ describe Whois::Parsers::Base do
     #
     # it "is false" do
     #   i = described_class.new(part)
-    #   expect(i.response_unavailable?).to be_falsey
+    #   expect(i.response_unavailable?).to eq(false)
     # end
   end
 

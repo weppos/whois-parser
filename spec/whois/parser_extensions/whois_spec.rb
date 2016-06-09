@@ -17,7 +17,7 @@ describe Whois do
         Whois::Server.define(:tld, ".test", "parser.test")
         expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).with("example.test", "parser.test").and_return("1 == 1")
 
-        expect(Whois.available?("example.test")).to be_truthy
+        expect(Whois.available?("example.test")).to eq(true)
       end
     end
 
@@ -26,7 +26,7 @@ describe Whois do
         Whois::Server.define(:tld, ".test", "parser.test")
         expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).with("example.test", "parser.test").and_return("1 == 2")
 
-        expect(Whois.available?("example.test")).to be_falsey
+        expect(Whois.available?("example.test")).to eq(false)
       end
     end
 
@@ -46,7 +46,7 @@ describe Whois do
         Whois::Server.define(:tld, ".test", "parser.test")
         expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).with("example.test", "parser.test").and_return("1 == 1")
 
-        expect(Whois.registered?("example.test")).to be_falsey
+        expect(Whois.registered?("example.test")).to eq(false)
       end
     end
 
@@ -55,7 +55,7 @@ describe Whois do
         Whois::Server.define(:tld, ".test", "parser.test")
         expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).with("example.test", "parser.test").and_return("1 == 2")
 
-        expect(Whois.registered?("example.test")).to be_truthy
+        expect(Whois.registered?("example.test")).to eq(true)
       end
     end
 
