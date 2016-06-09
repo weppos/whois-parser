@@ -17,6 +17,8 @@ Initial import from the `whois` library.
 
 - FIXED: whois.audns.net.au removed the registrar ID field (GH-20, GH-21). Thanks [@afoster]
 
+- FIXED: Fix for Record#respond_to?(:available?) (GH-28, GH-29, GH-30). Thanks [@marcandre]
+
 - CHANGED: Updated .JOBS from obswhois.verisign-grs.com to whois.nic.jobs (GH-23).
 
 - CHANGED: Updated .PRO from whois.dotproregistry.net to whois.afilias.net (GH-24).
