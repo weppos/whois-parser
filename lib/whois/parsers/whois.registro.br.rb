@@ -60,6 +60,18 @@ module Whois
         end
       end
 
+      property_supported :registrant_contacts do
+        parse_contact("owner-c", Parser::Contact::TYPE_REGISTRANT)
+      end
+
+      property_supported :admin_contacts do
+        parse_contact("admin-c", Parser::Contact::TYPE_ADMINISTRATIVE)
+      end
+
+      property_supported :technical_contacts do
+        parse_contact("tech-c", Parser::Contact::TYPE_TECHNICAL)
+      end
+
       property_supported :nameservers do
         content_for_scanner.scan(/nserver:\s+(.+)\n/).flatten.map do |line|
           name, ipv4 = line.strip.split(" ")
@@ -67,6 +79,35 @@ module Whois
         end
       end
 
+    private
+      def parse_contact(element, type)
+        return unless content_for_scanner =~ /#{element}:\s+(.+)\n/
+
+        id = $1
+        content_for_scanner.scan(/nic-hdl-br:\s+#{id}\n((.+\n)+)\n/).any? ||
+            Whois.bug!(ParserError, "Unable to parse contact block for nic-hdl-br: #{id}")
+        values = build_hash($1.scan(/(.+?):\s+(.+?)\n/))
+
+        created_on = values["created"] ? Time.utc(*values["created"][0..3],*values["created"][4..5],*values["created"][6..7]) : nil
+        updated_on = values["changed"] ? Time.utc(*values["changed"][0..3],*values["changed"][4..5],*values["changed"][6..7]) : nil
+
+        Parser::Contact.new({
+          :type         => type,
+          :id           => id,
+          :name         => values["person"],
+          :email        => values["e-mail"],
+          :created_on   => created_on,
+          :updated_on   => updated_on
+        })
+      end
+
+      def build_hash(tokens)
+        {}.tap do |hash|
+          tokens.each do |key, value|
+            hash[key] = value
+          end
+        end
+      end
     end
 
   end
