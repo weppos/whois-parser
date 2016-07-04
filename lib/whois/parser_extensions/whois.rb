@@ -76,3 +76,8 @@ module Whois
 
   end
 end
+
+
+Whois.class_eval do
+  include Whois::ParserExtensions::Whois
+end

@@ -82,31 +82,31 @@ describe Whois::Parser do
     end
 
     it "returns true if method is in self" do
-      expect(subject.respond_to?(:to_s)).to be_truthy
+      expect(subject.respond_to?(:to_s)).to eq(true)
     end
 
     it "returns true if method is in hierarchy" do
-      expect(subject.respond_to?(:nil?)).to be_truthy
+      expect(subject.respond_to?(:nil?)).to eq(true)
     end
 
     it "returns true if method is a property" do
       Whois::Parser::PROPERTIES << :test_property
-      expect(subject.respond_to?(:test_property)).to be_truthy
+      expect(subject.respond_to?(:test_property)).to eq(true)
     end
 
     it "returns false if method is a property?" do
       Whois::Parser::PROPERTIES << :test_property
-      expect(subject.respond_to?(:test_property?)).to be_falsey
+      expect(subject.respond_to?(:test_property?)).to eq(false)
     end
 
     it "returns true if method is a method" do
       Whois::Parser::METHODS << :test_method
-      expect(subject.respond_to?(:test_method)).to be_truthy
+      expect(subject.respond_to?(:test_method)).to eq(true)
     end
 
     it "returns false if method is a method" do
       Whois::Parser::METHODS << :test_method
-      expect(subject.respond_to?(:test_method?)).to be_falsey
+      expect(subject.respond_to?(:test_method?)).to eq(false)
     end
   end
 
@@ -232,27 +232,27 @@ describe Whois::Parser do
   describe "#property_any_supported?" do
     it "returns false when 0 parts" do
       record = Whois::Record.new(nil, [])
-      expect(described_class.new(record).property_any_supported?(:disclaimer)).to be_falsey
+      expect(described_class.new(record).property_any_supported?(:disclaimer)).to eq(false)
     end
 
     it "returns true when 1 part supported" do
       record = Whois::Record.new(nil, [Whois::Record::Part.new(host: "whois.nic.it")])
-      expect(described_class.new(record).property_any_supported?(:disclaimer)).to be_truthy
+      expect(described_class.new(record).property_any_supported?(:disclaimer)).to eq(true)
     end
 
     it "returns false when 1 part supported" do
       record = Whois::Record.new(nil, [Whois::Record::Part.new(host: "missing.nic.it")])
-      expect(described_class.new(record).property_any_supported?(:disclaimer)).to be_falsey
+      expect(described_class.new(record).property_any_supported?(:disclaimer)).to eq(false)
     end
 
     it "returns true when 2 parts" do
       record = Whois::Record.new(nil, [Whois::Record::Part.new(host: "whois.verisign-grs.com"), Whois::Record::Part.new(host: "whois.nic.it")])
-      expect(described_class.new(record).property_any_supported?(:disclaimer)).to be_truthy
+      expect(described_class.new(record).property_any_supported?(:disclaimer)).to eq(true)
     end
 
     it "returns true when 1 part supported 1 part not supported" do
       record = Whois::Record.new(nil, [Whois::Record::Part.new(host: "missing.nic.it"), Whois::Record::Part.new(host: "whois.nic.it")])
-      expect(described_class.new(record).property_any_supported?(:disclaimer)).to be_truthy
+      expect(described_class.new(record).property_any_supported?(:disclaimer)).to eq(true)
     end
   end
 
@@ -325,19 +325,19 @@ describe Whois::Parser do
 
     it "returns true if self and other references the same object" do
       instance = described_class.new(record)
-      expect(instance.unchanged?(instance)).to be_truthy
+      expect(instance.unchanged?(instance)).to eq(true)
     end
 
     it "returns false if parser and other.parser have different number of elements" do
       instance = described_class.new(Whois::Record.new(nil, []))
       other    = described_class.new(Whois::Record.new(nil, [Whois::Record::Part.new(body: "", host: "foo.example.test")]))
-      expect(instance.unchanged?(other)).to be_falsey
+      expect(instance.unchanged?(other)).to eq(false)
     end
 
     it "returns true if parsers and other.parsers have 0 elements" do
       instance = described_class.new(Whois::Record.new(nil, []))
       other    = described_class.new(Whois::Record.new(nil, []))
-      expect(instance.unchanged?(other)).to be_truthy
+      expect(instance.unchanged?(other)).to eq(true)
     end
 
 
@@ -345,14 +345,14 @@ describe Whois::Parser do
       instance = described_class.new(Whois::Record.new(nil, [Whois::Record::Part.new(body: "hello", host: "foo.example.test"), Whois::Record::Part.new(body: "hello", host: "bar.example.test")]))
       other    = described_class.new(Whois::Record.new(nil, [Whois::Record::Part.new(body: "hello", host: "foo.example.test"), Whois::Record::Part.new(body: "hello", host: "bar.example.test")]))
 
-      expect(instance.unchanged?(other)).to be_truthy
+      expect(instance.unchanged?(other)).to eq(true)
     end
 
     it "returns false unless every parser in self marches the corresponding parser in other" do
       instance = described_class.new(Whois::Record.new(nil, [Whois::Record::Part.new(body: "hello", host: "foo.example.test"), Whois::Record::Part.new(body: "world", host: "bar.example.test")]))
       other    = described_class.new(Whois::Record.new(nil, [Whois::Record::Part.new(body: "hello", host: "foo.example.test"), Whois::Record::Part.new(body: "baby!", host: "bar.example.test")]))
 
-      expect(instance.unchanged?(other)).to be_falsey
+      expect(instance.unchanged?(other)).to eq(false)
     end
   end
 

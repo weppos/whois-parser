@@ -1,4 +1,1 @@
-module Whois
-  class Parsers
-  end
-end
+require_relative 'parsers/base'

@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'whois/parser_extensions'
 
 describe Whois::Record do
 
@@ -20,55 +21,96 @@ describe Whois::Record do
     end
 
     after(:all) do
-      Whois::Parser::PROPERTIES.clear
-      Whois::Parser::PROPERTIES.push(*@_properties)
-      Whois::Parser::METHODS.clear
-      Whois::Parser::METHODS.push(*@_methods)
+      Whois::Parser::PROPERTIES.replace(@_properties)
+      Whois::Parser::METHODS.replace(@_methods)
     end
 
     it "returns true if method is in self" do
-      expect(subject.respond_to?(:to_s)).to be_truthy
+      expect(subject.respond_to?(:to_s)).to eq(true)
     end
 
     it "returns true if method is in hierarchy" do
-      expect(subject.respond_to?(:nil?)).to be_truthy
+      expect(subject.respond_to?(:nil?)).to eq(true)
     end
 
     it "returns true if method is a property" do
       Whois::Parser::PROPERTIES << :test_property
-      expect(subject.respond_to?(:test_property)).to be_truthy
+      expect(subject.respond_to?(:test_property)).to eq(true)
     end
 
     it "returns true if method is a property?" do
-      Whois::Parser::PROPERTIES << :test_property
-      expect(subject.respond_to?(:test_property?)).to be_truthy
+      Whois::Parser::PROPERTIES << :test_property_b
+      expect(subject.respond_to?(:test_property_b?)).to eq(true)
+    end
+
+    it "returns true if method? is a property?" do
+      Whois::Parser::PROPERTIES << :test_property_c?
+      expect(subject.respond_to?(:test_property_c?)).to eq(true)
     end
 
     it "returns true if method is a method" do
       Whois::Parser::METHODS << :test_method
-      expect(subject.respond_to?(:test_method)).to be_truthy
+      expect(subject.respond_to?(:test_method)).to eq(true)
     end
 
-    it "returns true if method is a method" do
-      Whois::Parser::METHODS << :test_method
-      expect(subject.respond_to?(:test_method?)).to be_truthy
+    it "returns true if method is a method?" do
+      Whois::Parser::METHODS << :test_method_b
+      expect(subject.respond_to?(:test_method_b?)).to eq(true)
+    end
+
+    it "returns true if method? is a method?" do
+      Whois::Parser::METHODS << :test_method_c?
+      expect(subject.respond_to?(:test_method_c?)).to eq(true)
     end
   end
 
-
-  describe "#parser" do
-    it "returns a Parser" do
-      expect(subject.parser).to be_a(Whois::Parser)
+  describe "#method" do
+    before(:all) do
+      @_properties  = Whois::Parser::PROPERTIES.dup
+      @_methods     = Whois::Parser::METHODS.dup
     end
 
-    it "initializes the parser with self" do
-      expect(subject.parser.record).to be(subject)
+    after(:all) do
+      Whois::Parser::PROPERTIES.replace(@_properties)
+      Whois::Parser::METHODS.replace(@_methods)
     end
 
-    it "memoizes the value" do
-      expect(subject.instance_eval { @parser }).to be_nil
-      parser = subject.parser
-      expect(subject.instance_eval { @parser }).to be(parser)
+    it "returns true if method is in self" do
+      expect(subject.method(:to_s)).to be_instance_of Method
+    end
+
+    it "returns true if method is in hierarchy" do
+      expect(subject.method(:nil?)).to be_instance_of Method
+    end
+
+    it "returns true if method is a property" do
+      Whois::Parser::PROPERTIES << :test_md_property
+      expect(subject.method(:test_md_property)).to be_instance_of Method
+    end
+
+    it "returns true if method is a property?" do
+      Whois::Parser::PROPERTIES << :test_md_property_b
+      expect(subject.method(:test_md_property_b?)).to be_instance_of Method
+    end
+
+    it "returns true if method? is a property?" do
+      Whois::Parser::PROPERTIES << :test_md_property_c?
+      expect(subject.method(:test_md_property_c?)).to be_instance_of Method
+    end
+
+    it "returns true if method is a method" do
+      Whois::Parser::METHODS << :test_md_method
+      expect(subject.method(:test_md_method)).to be_instance_of Method
+    end
+
+    it "returns true if method is a method?" do
+      Whois::Parser::METHODS << :test_md_method_b
+      expect(subject.method(:test_md_method_b?)).to be_instance_of Method
+    end
+
+    it "returns true if method? is a method?" do
+      Whois::Parser::METHODS << :test_md_method_c?
+      expect(subject.method(:test_md_method_c?)).to be_instance_of Method
     end
   end
 
@@ -170,7 +212,7 @@ describe Whois::Record do
 
     it "returns true if self and other references the same object" do
       instance = described_class.new(nil, [])
-      expect(instance.unchanged?(instance)).to be_truthy
+      expect(instance.unchanged?(instance)).to eq(true)
     end
 
     it "delegates to #parser if self and other references different objects" do

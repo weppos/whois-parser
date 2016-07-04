@@ -15,8 +15,8 @@ describe Whois do
         record = Whois.lookup("example.it")
 
         expect(record).to be_a(Whois::Record)
-        expect(record.available?).to be_truthy
-        expect(record.registered?).to be_falsey
+        expect(record.available?).to eq(true)
+        expect(record.registered?).to eq(false)
 
         expect(record.parser).to be_a(Whois::Parser)
         expect(record.parser.parsers.first).to be_a(Whois::Parsers::WhoisNicIt)

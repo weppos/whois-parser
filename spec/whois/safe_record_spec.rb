@@ -38,31 +38,31 @@ describe Whois::SafeRecord do
     end
 
     it "returns true if method is in self" do
-      expect(subject.respond_to?(:to_s)).to be_truthy
+      expect(subject.respond_to?(:to_s)).to eq(true)
     end
 
     it "returns true if method is in hierarchy" do
-      expect(subject.respond_to?(:nil?)).to be_truthy
+      expect(subject.respond_to?(:nil?)).to eq(true)
     end
 
     it "returns true if method is a property" do
       Whois::Parser::PROPERTIES << :test_property
-      expect(subject.respond_to?(:test_property)).to be_truthy
+      expect(subject.respond_to?(:test_property)).to eq(true)
     end
 
     it "returns true if method is a property?" do
       Whois::Parser::PROPERTIES << :test_property
-      expect(subject.respond_to?(:test_property?)).to be_truthy
+      expect(subject.respond_to?(:test_property?)).to eq(true)
     end
 
     it "returns true if method is a method" do
       Whois::Parser::METHODS << :test_method
-      expect(subject.respond_to?(:test_method)).to be_truthy
+      expect(subject.respond_to?(:test_method)).to eq(true)
     end
 
     it "returns true if method is a method" do
       Whois::Parser::METHODS << :test_method
-      expect(subject.respond_to?(:test_method?)).to be_truthy
+      expect(subject.respond_to?(:test_method?)).to eq(true)
     end
   end
 
