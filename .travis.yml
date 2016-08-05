@@ -1,6 +1,3 @@
-before_install:
-  - gem install activesupport
-
 language: ruby
 rvm:
   - 2.0
