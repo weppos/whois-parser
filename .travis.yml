@@ -28,7 +28,7 @@ matrix:
       gemfile: Gemfile
     - rvm: 2.2
       gemfile: Gemfile
-    - jruby-9.0.5.0
+    - rvm: jruby-9.0.5.0
       env: COVERALL=1
   allow_failures:
     - rvm: ruby-head
