@@ -6,6 +6,9 @@ rvm:
   - 2.3
   - jruby-9.0.5.0
   - ruby-head
+gemfile:
+  - Gemfile
+  - Gemfile.activesupport-4.x
 
 sudo: false
 cache:
@@ -19,13 +22,13 @@ notifications:
     - weppos@weppos.net
 
 matrix:
-  include:
-  - rvm: 2.0
-    gemfile: Gemfile-2
-  - rvm: 2.1
-    gemfile: Gemfile-2
-  - rvm: 2.2
-    gemfile: Gemfile-2
+  exclude:
+    - rvm: 2.0
+      gemfile: Gemfile
+    - rvm: 2.1
+      gemfile: Gemfile
+    - rvm: 2.2
+      gemfile: Gemfile
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-9.0.5.0
