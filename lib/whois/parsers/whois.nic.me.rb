@@ -8,6 +8,7 @@
 
 
 require_relative 'base_afilias'
+require 'whois/scanners/whois.nic.me.rb'
 
 
 module Whois
@@ -16,32 +17,41 @@ module Whois
     # Parser for the whois.nic.me server.
     class WhoisNicMe < BaseAfilias
 
+      self.scanner = Scanners::WhoisNicMe
+
       property_supported :status do
         Array.wrap(node("Domain Status"))
       end
 
 
       property_supported :created_on do
-        node("Domain Create Date") do |value|
+        node("Creation Date") do |value|
           parse_time(value)
         end
       end
 
       property_supported :updated_on do
-        node("Domain Last Updated Date") do |value|
+        node("Updated Date") do |value|
           parse_time(value)
         end
       end
 
       property_supported :expires_on do
-        node("Domain Expiration Date") do |value|
+        node("Registry Expiry Date") do |value|
           parse_time(value)
         end
       end
 
+      property_supported :registrar do
+        return unless node('Sponsoring Registrar')
+        Parser::Registrar.new(
+          id:   node('Sponsoring Registrar IANA ID'),
+          name: node('Sponsoring Registrar')
+        )
+      end
 
       property_supported :nameservers do
-        Array.wrap(node("Nameservers")).reject(&:empty?).map do |name|
+        Array.wrap(node("Name Server")).reject(&:empty?).map do |name|
           Parser::Nameserver.new(name: name.downcase)
         end
       end
@@ -51,31 +61,20 @@ module Whois
 
       def build_contact(element, type)
         node("#{element} ID") do
-          address = ["", "2", "3"].
-              map { |i| node("#{element} Address#{i}") }.
-              delete_if(&:empty?).
-              join("\n")
-
           Parser::Contact.new(
             type:         type,
             id:           node("#{element} ID"),
             name:         node("#{element} Name"),
             organization: node("#{element} Organization"),
-            address:      address,
+            address:      node("#{element} Street"),
             city:         node("#{element} City"),
             zip:          node("#{element} Postal Code"),
             state:        node("#{element} State/Province"),
-            country_code: node("#{element} Country/Economy"),
+            country_code: node("#{element} Country"),
             phone:        node("#{element} Phone"),
-            fax:          node("#{element} FAX"),
-            email:        node("#{element} E-mail")
+            fax:          node("#{element} Fax"),
+            email:        node("#{element} Email")
           )
-        end
-      end
-
-      def decompose_registrar(value)
-        if value =~ /^(.+?) ([^\s]+)$/
-          [$2, $1]
         end
       end
 
