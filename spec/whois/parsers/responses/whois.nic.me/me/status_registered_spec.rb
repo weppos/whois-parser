@@ -23,7 +23,7 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
 
   describe "#disclaimer" do
     it do
-      expect(subject.disclaimer).to eq("WHOIS TERMS & CONDITIONS: Access to .ME WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the .ME registry database. The data in this record is provided by .ME Registry for informational purposes only, and .ME Registry does not guarantee its accuracy. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to: (a) allow, enable, or otherwise support the transmission by e-mail, telephone, facsimile, or other electronic processes of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. .ME Registry reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.")
+      expect(subject.disclaimer).to eq("Access to WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the registry database. The data in this record is provided by The Registry Operator for informational purposes only, and accuracy is not guaranteed.  This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to(a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. Registry Operator reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.")
     end
   end
   describe "#domain" do
@@ -33,12 +33,12 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
   end
   describe "#domain_id" do
     it do
-      expect(subject.domain_id).to eq("D11599-ME")
+      expect(subject.domain_id).to eq("D108500000000011599-AGRS")
     end
   end
   describe "#status" do
     it do
-      expect(subject.status).to eq(["CLIENT DELETE PROHIBITED", "CLIENT TRANSFER PROHIBITED", "CLIENT UPDATE PROHIBITED", "DELETE PROHIBITED", "TRANSFER PROHIBITED", "UPDATE PROHIBITED"])
+      expect(subject.status).to eq(["clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited", "clientTransferProhibited https://icann.org/epp#clientTransferProhibited", "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited", "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited", "serverTransferProhibited https://icann.org/epp#serverTransferProhibited", "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited"])
     end
   end
   describe "#available?" do
@@ -60,20 +60,20 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2013-05-12 09:21:14 UTC"))
+      expect(subject.updated_on).to eq(Time.parse("2016-05-12 09:26:23 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-06-13 17:17:40 UTC"))
+      expect(subject.expires_on).to eq(Time.parse("2017-06-13 17:17:40 UTC"))
     end
   end
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("R45-ME")
-      expect(subject.registrar.name).to eq("MarkMonitor Inc")
+      expect(subject.registrar.id).to eq("292")
+      expect(subject.registrar.name).to eq("MarkMonitor Inc.")
       expect(subject.registrar.organization).to eq(nil)
       expect(subject.registrar.url).to eq(nil)
     end
@@ -84,7 +84,7 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
       expect(subject.registrant_contacts.size).to eq(1)
       expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("mmr-32097")
+      expect(subject.registrant_contacts[0].id).to eq("a74791c75837f786")
       expect(subject.registrant_contacts[0].name).to eq("DNS Admin")
       expect(subject.registrant_contacts[0].organization).to eq("Google Inc.")
       expect(subject.registrant_contacts[0].address).to eq("1600 Amphitheatre Parkway")
@@ -92,9 +92,9 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
       expect(subject.registrant_contacts[0].zip).to eq("94043")
       expect(subject.registrant_contacts[0].state).to eq("CA")
       expect(subject.registrant_contacts[0].country_code).to eq("US")
-      expect(subject.registrant_contacts[0].phone).to eq("+1.6506234000")
-      expect(subject.registrant_contacts[0].fax).to eq("+1.6506188571")
-      expect(subject.registrant_contacts[0].email).to eq("dotme@markmonitor.com")
+      expect(subject.registrant_contacts[0].phone).to eq("+1.6502530000")
+      expect(subject.registrant_contacts[0].fax).to eq("+1.6502530001")
+      expect(subject.registrant_contacts[0].email).to eq("dns-admin@google.com")
     end
   end
   describe "#admin_contacts" do
@@ -103,7 +103,7 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
       expect(subject.admin_contacts.size).to eq(1)
       expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq("mmr-32097")
+      expect(subject.admin_contacts[0].id).to eq("a74791c75837f786")
       expect(subject.admin_contacts[0].name).to eq("DNS Admin")
       expect(subject.admin_contacts[0].organization).to eq("Google Inc.")
       expect(subject.admin_contacts[0].address).to eq("1600 Amphitheatre Parkway")
@@ -111,9 +111,9 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
       expect(subject.admin_contacts[0].zip).to eq("94043")
       expect(subject.admin_contacts[0].state).to eq("CA")
       expect(subject.admin_contacts[0].country_code).to eq("US")
-      expect(subject.admin_contacts[0].phone).to eq("+1.6506234000")
-      expect(subject.admin_contacts[0].fax).to eq("+1.6506188571")
-      expect(subject.admin_contacts[0].email).to eq("dotme@markmonitor.com")
+      expect(subject.admin_contacts[0].phone).to eq("+1.6502530000")
+      expect(subject.admin_contacts[0].fax).to eq("+1.6502530001")
+      expect(subject.admin_contacts[0].email).to eq("dns-admin@google.com")
     end
   end
   describe "#technical_contacts" do
@@ -122,7 +122,7 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
       expect(subject.technical_contacts.size).to eq(1)
       expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq("mmr-32097")
+      expect(subject.technical_contacts[0].id).to eq("a74791c75837f786")
       expect(subject.technical_contacts[0].name).to eq("DNS Admin")
       expect(subject.technical_contacts[0].organization).to eq("Google Inc.")
       expect(subject.technical_contacts[0].address).to eq("1600 Amphitheatre Parkway")
@@ -130,9 +130,9 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
       expect(subject.technical_contacts[0].zip).to eq("94043")
       expect(subject.technical_contacts[0].state).to eq("CA")
       expect(subject.technical_contacts[0].country_code).to eq("US")
-      expect(subject.technical_contacts[0].phone).to eq("+1.6506234000")
-      expect(subject.technical_contacts[0].fax).to eq("+1.6506188571")
-      expect(subject.technical_contacts[0].email).to eq("dotme@markmonitor.com")
+      expect(subject.technical_contacts[0].phone).to eq("+1.6502530000")
+      expect(subject.technical_contacts[0].fax).to eq("+1.6502530001")
+      expect(subject.technical_contacts[0].email).to eq("dns-admin@google.com")
     end
   end
   describe "#nameservers" do
@@ -140,9 +140,9 @@ describe Whois::Parsers::WhoisNicMe, "status_registered.expected" do
       expect(subject.nameservers).to be_a(Array)
       expect(subject.nameservers.size).to eq(4)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns2.google.com")
+      expect(subject.nameservers[0].name).to eq("ns1.google.com")
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns1.google.com")
+      expect(subject.nameservers[1].name).to eq("ns2.google.com")
       expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
       expect(subject.nameservers[2].name).to eq("ns4.google.com")
       expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)

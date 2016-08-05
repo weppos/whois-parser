@@ -1,4 +1,4 @@
-if ENV['COVERALL']
+if ENV['COVERALL'] == '1'
   require 'coveralls'
   Coveralls.wear!
 end

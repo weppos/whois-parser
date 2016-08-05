@@ -11,6 +11,8 @@ This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 - FIXED: Fix for Record#respond_to?(:available?) (GH-28, GH-29, GH-30). Thanks [@marcandre]
 
+- FIXED: Update parser for the new whois.nic.me response (GH-33). [@raszi]
+
 **1.0.0-beta1**
 
 Initial import from the `whois` library.
