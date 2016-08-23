@@ -8,7 +8,7 @@ env:
   - COVERALL=1
 
 notifications:
-  recipients:
+  email:
     - weppos@weppos.net
 
 matrix:
