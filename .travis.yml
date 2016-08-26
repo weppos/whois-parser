@@ -13,7 +13,7 @@ notifications:
 
 matrix:
   exclude:
-    - rvm: 1.9.3
+    - rvm: default
   include:
     - rvm: 2.0
       gemfile: Gemfile.activesupport-4.x
