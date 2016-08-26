@@ -2,6 +2,7 @@
 .bundle
 pkg/*
 Gemfile.lock
+Gemfile.activesupport-4.x.lock
 
 # YARD
 .yardoc

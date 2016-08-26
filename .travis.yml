@@ -14,10 +14,18 @@ env:
   - COVERALL=1
 
 notifications:
-  recipients:
+  email:
     - weppos@weppos.net
 
+gemfile:
+  - Gemfile.activesupport-4.x
+
 matrix:
+  include:
+    - rvm: jruby-9.0.5.0
+      gemfile: Gemfile
+    - rvm: ruby-head
+      gemfile: Gemfile
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-9.0.5.0
