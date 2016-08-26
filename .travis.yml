@@ -11,22 +11,20 @@ notifications:
   email:
     - weppos@weppos.net
 
+gemfile:
+  - Gemfile.activesupport-4.x
+
+rvm:
+  - 2.0
+  - 2.1
+  - 2.2
+  - jruby-9.0.5.0
+  - ruby-head
+
 matrix:
-  exclude:
-    - rvm: default
   include:
-    - rvm: 2.0
-      gemfile: Gemfile.activesupport-4.x
-    - rvm: 2.1
-      gemfile: Gemfile.activesupport-4.x
-    - rvm: 2.2
-      gemfile: Gemfile.activesupport-4.x
     - rvm: jruby-9.0.5.0
       gemfile: Gemfile
-    - rvm: jruby-9.0.5.0
-      gemfile: Gemfile.activesupport-4.x
-    - rvm: ruby-head
-      gemfile: Gemfile.activesupport-4.x
     - rvm: ruby-head
       gemfile: Gemfile
   allow_failures:
