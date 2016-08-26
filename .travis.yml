@@ -10,15 +10,15 @@ sudo: false
 cache:
   - bundler
 
+env:
+  - COVERALL=1
+
 notifications:
   email:
     - weppos@weppos.net
 
 gemfile:
   - Gemfile.activesupport-4.x
-
-env:
-  - COVERALL=1
 
 matrix:
   include:
