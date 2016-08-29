@@ -6,3 +6,6 @@
 
 #registered?
   %s == true
+
+#admin_contacts[0].email
+  %s == "mail@sanamato.com"
