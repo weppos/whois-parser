@@ -11,13 +11,13 @@ task :test => :spec
 spec = Gem::Specification.new do |s|
   s.name              = "whois-parser"
   s.version           = Whois::Parser::VERSION
-  s.summary           = "An intelligent pure Ruby WHOIS parser."
-  s.description       = "Whois is an intelligent WHOIS parser written in pure Ruby. It can parse and convert responses into easy-to-use Ruby objects."
+  s.summary           = "A pure Ruby WHOIS parser."
+  s.description       = "Whois Parser is a WHOIS parser written in pure Ruby. It can parse and convert responses into easy-to-use Ruby objects."
 
   s.required_ruby_version = ">= 2.0.0"
 
   s.authors           = ["Simone Carletti"]
-  s.email             = ["weppos@weppos.net"]
+  s.email             = ["https://whoisrb.org/"]
   s.homepage          = "http://whoisrb.org/"
   s.license           = "MIT"
 
