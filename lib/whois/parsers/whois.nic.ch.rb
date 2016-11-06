@@ -93,8 +93,8 @@ module Whois
               name, ip = $1, $2
               order << name unless order.include?(name)
               list[name] ||= Parser::Nameserver.new(:name => name)
-              list[name].ipv4 = ip if Whois::Server.valid_ipv4?(ip)
-              list[name].ipv6 = ip if Whois::Server.valid_ipv6?(ip)
+              list[name].ipv4 = ip if Whois::Server.send(:valid_ipv4?, ip)
+              list[name].ipv6 = ip if Whois::Server.send(:valid_ipv6?, ip)
             else
               order << line unless order.include?(line)
               list[line] ||= Parser::Nameserver.new(:name => line)

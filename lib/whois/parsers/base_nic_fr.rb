@@ -86,8 +86,8 @@ module Whois
           if line =~ /(.+) \[(.+)\]/
             name = $1
             ips  = $2.split(/\s+/)
-            ipv4 = ips.find { |ip| Whois::Server.valid_ipv4?(ip) }
-            ipv6 = ips.find { |ip| Whois::Server.valid_ipv6?(ip) }
+            ipv4 = ips.find { |ip| Whois::Server.send(:valid_ipv4?, ip) }
+            ipv6 = ips.find { |ip| Whois::Server.send(:valid_ipv6?, ip) }
             Parser::Nameserver.new(:name => name, :ipv4 => ipv4, :ipv6 => ipv6)
           else
             Parser::Nameserver.new(:name => line)
