@@ -17,8 +17,8 @@ spec = Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.0.0"
 
   s.authors           = ["Simone Carletti"]
-  s.email             = ["https://whoisrb.org/"]
-  s.homepage          = "http://whoisrb.org/"
+  s.email             = ["weppos@weppos.net"]
+  s.homepage          = "https://whoisrb.org/"
   s.license           = "MIT"
 
   s.files             = %w( LICENSE.txt .yardopts ) +
