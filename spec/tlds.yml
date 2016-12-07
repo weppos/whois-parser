@@ -1218,7 +1218,7 @@ ac.za:
     status_available: u34jedzcq.ac.za
     status_registered: tenet.ac.za
 co.za:
-    _server: whois.registry.net.za
+    _server: coza-whois.registry.net.za
     status_available: u34jedzcq.co.za
     status_registered: google.co.za
 gov.za:

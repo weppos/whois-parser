@@ -13,9 +13,9 @@ require_relative 'za_central_registry'
 module Whois
   class Parsers
 
-    # Parser for the whois.registry.za.net server.
+    # Parser for the coza-whois.registry.za.net server.
     #
-    class WhoisRegistryNetZa < ZaCentralRegistry
+    class CozaWhoisRegistryNetZa < ZaCentralRegistry
     end
 
   end
