@@ -21,11 +21,6 @@ describe Whois::Parsers::WhoisRegistryNetZa, "status_available.expected" do
     described_class.new(part)
   end
 
-  describe "#disclaimer" do
-    it do
-      expect(subject.disclaimer).to eq(nil)
-    end
-  end
   describe "#domain" do
     it do
       expect(subject.domain).to eq(nil)
@@ -33,7 +28,7 @@ describe Whois::Parsers::WhoisRegistryNetZa, "status_available.expected" do
   end
   describe "#domain_id" do
     it do
-      expect { subject.domain_id }.to raise_error Whois::AttributeNotSupported
+      expect(subject.domain_id).to eq(nil)
     end
   end
   describe "#status" do
@@ -58,7 +53,7 @@ describe Whois::Parsers::WhoisRegistryNetZa, "status_available.expected" do
   end
   describe "#updated_on" do
     it do
-      expect { subject.updated_on }.to raise_error Whois::AttributeNotSupported
+      expect(subject.updated_on).to eq(nil)
     end
   end
   describe "#expires_on" do
@@ -73,21 +68,25 @@ describe Whois::Parsers::WhoisRegistryNetZa, "status_available.expected" do
   end
   describe "#registrant_contacts" do
     it do
+      expect(subject.registrant_contacts).to be_a(Array)
       expect(subject.registrant_contacts).to eq([])
     end
   end
   describe "#admin_contacts" do
     it do
-      expect { subject.admin_contacts }.to raise_error Whois::AttributeNotSupported
+      expect(subject.admin_contacts).to be_a(Array)
+      expect(subject.admin_contacts).to eq([])
     end
   end
   describe "#technical_contacts" do
     it do
-      expect { subject.technical_contacts }.to raise_error Whois::AttributeNotSupported
+      expect(subject.technical_contacts).to be_a(Array)
+      expect(subject.technical_contacts).to eq([])
     end
   end
   describe "#nameservers" do
     it do
+      expect(subject.nameservers).to be_a(Array)
       expect(subject.nameservers).to eq([])
     end
   end
