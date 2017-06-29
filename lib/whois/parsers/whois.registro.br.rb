@@ -35,8 +35,7 @@ module Whois
       end
 
       property_supported :available? do
-        Rails.logger.error("Content: #{content_for_scanner}")
-        !!(content_for_scanner =~ /.*inexistente.*/)
+        !!(content_for_scanner =~ /No match for/)
       end
 
       property_supported :registered? do
