@@ -3,7 +3,12 @@
 This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 
-##### Release 1.0
+#### master
+
+- FIXED: Updated .BR parser to the new response (GH-51). [Thanks @otaviojr]
+
+
+#### Release 1.0
 
 **1.0.0-beta2**
 
