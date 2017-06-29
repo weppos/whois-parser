@@ -34,6 +34,7 @@ module Whois
         end
       end
 
+      Rails.logger.error("Content: #{content_for_scanner}")
       property_supported :available? do
         !!(content_for_scanner =~ /No match for/)
       end
