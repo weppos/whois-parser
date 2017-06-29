@@ -10,21 +10,25 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{20110630}
+  %s %TIME{1999-05-18}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{20110630}
+  %s %TIME{2017-04-27}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{20120630}
+  %s %TIME{2018-05-18}
 
 
 #nameservers
   %s %CLASS{array}
-  %s %SIZE{2}
+  %s %SIZE{4}
   %s[0] %CLASS{nameserver}
-  %s[0].name == "a.sec.dns.br"
+  %s[0].name == "ns1.google.com"
   %s[1] %CLASS{nameserver}
-  %s[1].name == "b.sec.dns.br"
+  %s[1].name == "ns2.google.com"
+  %s[2] %CLASS{nameserver}
+  %s[2].name == "ns3.google.com"
+  %s[3] %CLASS{nameserver}
+  %s[3].name == "ns4.google.com"

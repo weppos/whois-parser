@@ -39,29 +39,33 @@ describe Whois::Parsers::WhoisRegistroBr, "status_registered.expected" do
   describe "#created_on" do
     it do
       expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("20110630"))
+      expect(subject.created_on).to eq(Time.parse("1999-05-18"))
     end
   end
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("20110630"))
+      expect(subject.updated_on).to eq(Time.parse("2017-04-27"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("20120630"))
+      expect(subject.expires_on).to eq(Time.parse("2018-05-18"))
     end
   end
   describe "#nameservers" do
     it do
       expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(2)
+      expect(subject.nameservers.size).to eq(4)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("a.sec.dns.br")
+      expect(subject.nameservers[0].name).to eq("ns1.google.com")
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("b.sec.dns.br")
+      expect(subject.nameservers[1].name).to eq("ns2.google.com")
+      expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[2].name).to eq("ns3.google.com")
+      expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[3].name).to eq("ns4.google.com")
     end
   end
 end
