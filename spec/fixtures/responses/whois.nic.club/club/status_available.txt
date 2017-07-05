@@ -1,0 +1,33 @@
+[Querying whois.nic.club]
+[whois.nic.club]
+No Data Found
+>>> Last update of WHOIS database: 2017-07-05T10:46:16Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+.Club Domains, LLC, the Registry Operator for .club, has collected this information for the WHOIS database through
+an ICANN-Accredited Registrar. This information is provided to you for informational purposes only and is designed
+to assist persons in determining contents of a domain name registration record in the .Club Domains registry
+database. .Club Domains makes this information available to you "as is" and does not guarantee its accuracy. By
+submitting a WHOIS query, you agree that you will use this data only for lawful purposes and that, under no
+circumstances will you use this data: (1) to allow, enable, or otherwise support the transmission of mass unsolicited,
+commercial advertising or solicitations via direct mail, electronic mail, or by telephone; (2) in contravention of any
+applicable data and privacy protection acts; or (3) to enable high volume, automated, electronic processes that apply
+to the registry (or its systems). Compilation, repackaging, dissemination, or other use of the WHOIS database in its
+entirety, or of a substantial portion thereof, is not allowed without .Club Domains' prior written permission. .Club
+Domains reserves the right to modify or change these conditions at any time without prior or subsequent notification
+of any kind. By executing this query, in any manner whatsoever, you agree to abide by these terms. You agree that
+violation of these terms would cause .Club Domains irreparable injury.
+
+In using the WHOIS system, you agree to consent to the jurisdiction of courts of the State of Florida over your person
+in matters related to your WHOIS query.  You agree to consent to Florida jurisdiction regardless of your geographic
+location at the time of your query or your nation of citizenship.
+
+NOTE: FAILURE TO LOCATE A RECORD IN THE WHOIS DATABASE IS NOT INDICATIVE OF THE
+AVAILABILITY OF A DOMAIN NAME.
+
+Contact information: Disclosure of contact data is restricted because of UK and EU Data Protection
+legislation. The contact details for this contact ID may be available by looking up a domain object in the
+WHOIS system. The information can also be obtained through the .Club Domains Special Access Service.
+Visit http://www.nic.club for more details.
+

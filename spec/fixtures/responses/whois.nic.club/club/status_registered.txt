@@ -1,0 +1,96 @@
+[Querying whois.nic.club]
+[whois.nic.club]
+Domain Name: nic.club
+Domain ID: D313-CLUB
+WHOIS Server:
+Referral URL:
+Updated Date: 2014-10-09T18:04:41Z
+Creation Date: 2013-08-09T23:33:53Z
+Registry Expiry Date: 2024-08-08T23:59:59Z
+Sponsoring Registrar: DOTCLUB DOMAINS, LLC
+Sponsoring Registrar IANA ID: 9999
+Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
+Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
+Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
+Registrant ID: C312-CLUB
+Registrant Name: Domain Administrator
+Registrant Organization: .CLUB Domains, LLC
+Registrant Street: 100 S.E. 3rd Ave.,
+Registrant Street: Suite 1310
+Registrant Street:
+Registrant City: Fort Lauderdale
+Registrant State/Province: FL
+Registrant Postal Code: 33394-0054
+Registrant Country: US
+Registrant Phone: +1.8778330000
+Registrant Phone Ext:
+Registrant Fax:
+Registrant Fax Ext:
+Registrant Email: domainadmin@nic.club
+Admin ID: C312-CLUB
+Admin Name: Domain Administrator
+Admin Organization: .CLUB Domains, LLC
+Admin Street: 100 S.E. 3rd Ave.,
+Admin Street: Suite 1310
+Admin Street:
+Admin City: Fort Lauderdale
+Admin State/Province: FL
+Admin Postal Code: 33394-0054
+Admin Country: US
+Admin Phone: +1.8778330000
+Admin Phone Ext:
+Admin Fax:
+Admin Fax Ext:
+Admin Email: domainadmin@nic.club
+Tech ID: C312-CLUB
+Tech Name: Domain Administrator
+Tech Organization: .CLUB Domains, LLC
+Tech Street: 100 S.E. 3rd Ave.,
+Tech Street: Suite 1310
+Tech Street:
+Tech City: Fort Lauderdale
+Tech State/Province: FL
+Tech Postal Code: 33394-0054
+Tech Country: US
+Tech Phone: +1.8778330000
+Tech Phone Ext:
+Tech Fax:
+Tech Fax Ext:
+Tech Email: domainadmin@nic.club
+Name Server: ns4.dns.nic.club
+Name Server: ns1.dns.nic.club
+Name Server: ns3.dns.nic.club
+Name Server: ns2.dns.nic.club
+Name Server: ns6.dns.nic.club
+Name Server: ns5.dns.nic.club
+DNSSEC: unsigned
+>>> Last update of WHOIS database: 2017-07-05T10:46:25Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+.Club Domains, LLC, the Registry Operator for .club, has collected this information for the WHOIS database through
+an ICANN-Accredited Registrar. This information is provided to you for informational purposes only and is designed
+to assist persons in determining contents of a domain name registration record in the .Club Domains registry
+database. .Club Domains makes this information available to you "as is" and does not guarantee its accuracy. By
+submitting a WHOIS query, you agree that you will use this data only for lawful purposes and that, under no
+circumstances will you use this data: (1) to allow, enable, or otherwise support the transmission of mass unsolicited,
+commercial advertising or solicitations via direct mail, electronic mail, or by telephone; (2) in contravention of any
+applicable data and privacy protection acts; or (3) to enable high volume, automated, electronic processes that apply
+to the registry (or its systems). Compilation, repackaging, dissemination, or other use of the WHOIS database in its
+entirety, or of a substantial portion thereof, is not allowed without .Club Domains' prior written permission. .Club
+Domains reserves the right to modify or change these conditions at any time without prior or subsequent notification
+of any kind. By executing this query, in any manner whatsoever, you agree to abide by these terms. You agree that
+violation of these terms would cause .Club Domains irreparable injury.
+
+In using the WHOIS system, you agree to consent to the jurisdiction of courts of the State of Florida over your person
+in matters related to your WHOIS query.  You agree to consent to Florida jurisdiction regardless of your geographic
+location at the time of your query or your nation of citizenship.
+
+NOTE: FAILURE TO LOCATE A RECORD IN THE WHOIS DATABASE IS NOT INDICATIVE OF THE
+AVAILABILITY OF A DOMAIN NAME.
+
+Contact information: Disclosure of contact data is restricted because of UK and EU Data Protection
+legislation. The contact details for this contact ID may be available by looking up a domain object in the
+WHOIS system. The information can also be obtained through the .Club Domains Special Access Service.
+Visit http://www.nic.club for more details.
+
