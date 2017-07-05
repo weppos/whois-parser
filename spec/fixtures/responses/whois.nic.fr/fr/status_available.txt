@@ -1,3 +1,5 @@
+[Querying whois.nic.fr]
+[whois.nic.fr]
 %%
 %% This is the AFNIC Whois server.
 %%
@@ -6,11 +8,11 @@
 %% version              : FRNIC-2.5
 %%
 %% Rights restricted by copyright.
-%% See http://www.afnic.fr/afnic/web/mentions-legales-whois_en
+%% See https://www.afnic.fr/en/products-and-services/services/whois/whois-special-notice/
 %%
 %% Use '-h' option to obtain more information about this service.
 %%
-%% [80.181.162.148 REQUEST] >> u34jedzcq.fr
+%% [0.0.0.0 REQUEST] >> u34jedzcq.fr
 %%
 %% RL Net [##########] - RL IP [#########.]
 %%

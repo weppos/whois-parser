@@ -1,3 +1,5 @@
+[Querying whois.nic.tf]
+[whois.nic.tf]
 %%
 %% This is the AFNIC Whois server.
 %%
@@ -6,17 +8,17 @@
 %% version              : FRNIC-2.5
 %%
 %% Rights restricted by copyright.
-%% See http://www.afnic.fr/afnic/web/mentions-legales-whois_en
+%% See https://www.afnic.fr/en/products-and-services/services/whois/whois-special-notice/
 %%
 %% Use '-h' option to obtain more information about this service.
 %%
-%% [87.12.202.23 REQUEST] >> nic.tf
+%% [0.0.0.0 REQUEST] >> nic.tf
 %%
 %% RL Net [##########] - RL IP [#########.]
 %%
 
 domain:      nic.tf
-status:      FROZEN
+status:      ACTIVE
 hold:        NO
 holder-c:    AAEA9-FRNIC
 admin-c:     NFC1-FRNIC
@@ -29,13 +31,13 @@ remarks:     Please email mailto: nic@nic.fr
 remarks:     Spam mailto: abuse@nic.fr
 remarks:     Test mailto: ping@nic.fr
 registrar:   AFNIC registry
-anniversary: 26/10
+Expiry Date: 25/10/2017
 created:     26/10/2004
-last-update: 29/10/2004
+last-update: 25/10/2016
 source:      FRNIC
 
 ns-list:     NSL1-FRNIC
-nserver:     ns1.nic.fr [192.134.4.1 2001:660:3003:2::4:1]
+nserver:     ns1.nic.fr [192.134.4.1 2001:67c:2218:2::4:1]
 nserver:     ns2.nic.fr [192.93.0.4 2001:660:3005:1::1:2]
 nserver:     ns3.nic.fr [192.134.0.49 2001:660:3006:1::1:1]
 source:      FRNIC
@@ -67,6 +69,7 @@ tech-c:      PV827-FRNIC
 tech-c:      GO661-FRNIC
 tech-c:      MS-FRNIC
 tech-c:      AI1-FRNIC
+registrar:   AFNIC registry
 changed:     23/08/2005 hostmaster@nic.fr
 anonymous:   NO
 obsoleted:   NO
@@ -80,9 +83,9 @@ address:     2, rue Stephenson
 address:     Montigny-Le-Bretonneux
 address:     78181 Saint Quentin en Yvelines Cedex
 country:     FR
+registrar:   AFNIC registry
 changed:     09/10/2008 whoismaster@nic.fr
 anonymous:   NO
 obsoleted:   NO
-idstatus:    ni
 source:      FRNIC
 

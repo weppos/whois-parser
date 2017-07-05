@@ -1,3 +1,5 @@
+[Querying whois.nic.re]
+[whois.nic.re]
 %%
 %% This is the AFNIC Whois server.
 %%
@@ -6,13 +8,13 @@
 %% version              : FRNIC-2.5
 %%
 %% Rights restricted by copyright.
-%% See http://www.afnic.fr/afnic/web/mentions-legales-whois_en
+%% See https://www.afnic.fr/en/products-and-services/services/whois/whois-special-notice/
 %%
 %% Use '-h' option to obtain more information about this service.
 %%
-%% [80.117.237.137 REQUEST] >> nic.re
+%% [0.0.0.0 REQUEST] >> nic.re
 %%
-%% RL Net [##########] - RL IP [#######...]
+%% RL Net [##########] - RL IP [#########.]
 %%
 
 domain:      nic.re
@@ -23,30 +25,46 @@ admin-c:     NFC1-FRNIC
 tech-c:      NFC1-FRNIC
 zone-c:      NFC1-FRNIC
 nsl-id:      NSL1-FRNIC
-dsl-id:      SIGN5-FRNIC
+dsl-id:      SIGN736572-FRNIC
 registrar:   AFNIC registry
-anniversary: 01/01
+Expiry Date: 31/12/2017
 created:     01/01/1995
-last-update: 26/04/2011
+last-update: 31/12/2016
 source:      FRNIC
 
 ns-list:     NSL1-FRNIC
-nserver:     ns1.nic.fr [192.134.4.1 2001:660:3003:2::4:1]
+nserver:     ns1.nic.fr [192.134.4.1 2001:67c:2218:2::4:1]
 nserver:     ns2.nic.fr [192.93.0.4 2001:660:3005:1::1:2]
 nserver:     ns3.nic.fr [192.134.0.49 2001:660:3006:1::1:1]
 source:      FRNIC
 
-ds-list:     SIGN5-FRNIC
-key1-tag:    11627
+ds-list:     SIGN736572-FRNIC
+key1-tag:    42275
 key1-algo:   8 [RSASHA256]
 key1-dgst-t: 2 [SHA-256]
-key1-dgst:   20A0C64FD65B5518954D2F9E14D07D750966308786CA00D78F52136EBF89C61C
+key1-dgst:   0337202F13AADFAFF4197396D15C4DC26FB04CF0AC775F595743A2EC075DF9D3
 source:      FRNIC
 
 registrar:   AFNIC registry
 type:        Isp Option 2
 anonymous:   YES
 registered:  22/05/1997
+source:      FRNIC
+
+nic-hdl:     A1967-FRNIC
+type:        ORGANIZATION
+contact:     AFNIC
+address:     immeuble international
+address:     2, rue Stephenson
+address:     Montigny-Le-Bretonneux
+address:     78181 Saint Quentin en Yvelines
+country:     FR
+registrar:   AFNIC registry
+changed:     02/12/2009 nic@nic.fr
+anonymous:   NO
+obsoleted:   NO
+eligstatus:  ok
+eligdate:    01/01/1995 00:00:00
 source:      FRNIC
 
 nic-hdl:     NFC1-FRNIC
@@ -74,21 +92,5 @@ registrar:   AFNIC registry
 changed:     23/08/2005 hostmaster@nic.fr
 anonymous:   NO
 obsoleted:   NO
-source:      FRNIC
-
-nic-hdl:     A1967-FRNIC
-type:        ORGANIZATION
-contact:     AFNIC
-address:     immeuble international
-address:     2, rue Stephenson
-address:     Montigny-Le-Bretonneux
-address:     78181 Saint Quentin en Yvelines
-country:     FR
-registrar:   AFNIC registry
-changed:     02/12/2009 nic@nic.fr
-anonymous:   NO
-obsoleted:   NO
-eligstatus:  ok
-eligdate:    01/01/1995 00:00:00
 source:      FRNIC
 

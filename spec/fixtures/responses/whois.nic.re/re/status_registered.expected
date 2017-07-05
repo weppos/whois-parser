@@ -14,10 +14,11 @@
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2011-04-26}
+  %s %TIME{2016-12-31}
 
 #expires_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2017-12-31}
 
 
 #registrant_contacts
