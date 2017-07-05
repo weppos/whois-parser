@@ -45,12 +45,13 @@ describe Whois::Parsers::WhoisNicFr, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2004-10-29"))
+      expect(subject.updated_on).to eq(Time.parse("2016-10-25"))
     end
   end
   describe "#expires_on" do
     it do
-      expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.expires_on).to be_a(Time)
+      expect(subject.expires_on).to eq(Time.parse("2017-10-25"))
     end
   end
   describe "#registrant_contacts" do
@@ -123,7 +124,7 @@ describe Whois::Parsers::WhoisNicFr, "status_registered.expected" do
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
       expect(subject.nameservers[0].name).to eq("ns1.nic.fr")
       expect(subject.nameservers[0].ipv4).to eq("192.134.4.1")
-      expect(subject.nameservers[0].ipv6).to eq("2001:660:3003:2::4:1")
+      expect(subject.nameservers[0].ipv6).to eq("2001:67c:2218:2::4:1")
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
       expect(subject.nameservers[1].name).to eq("ns2.nic.fr")
       expect(subject.nameservers[1].ipv4).to eq("192.93.0.4")

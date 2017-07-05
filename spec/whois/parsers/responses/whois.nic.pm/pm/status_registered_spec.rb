@@ -45,12 +45,13 @@ describe Whois::Parsers::WhoisNicPm, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2004-09-17"))
+      expect(subject.updated_on).to eq(Time.parse("2016-12-31"))
     end
   end
   describe "#expires_on" do
     it do
-      expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.expires_on).to be_a(Time)
+      expect(subject.expires_on).to eq(Time.parse("2017-12-31"))
     end
   end
   describe "#registrant_contacts" do

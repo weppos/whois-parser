@@ -14,10 +14,11 @@
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2004-09-17}
+  %s %TIME{2016-12-31}
 
 #expires_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2017-12-31}
 
 
 #registrant_contacts
@@ -83,8 +84,8 @@
   %s %SIZE{3}
   %s[0] %CLASS{nameserver}
   %s[0].name == "ns1.nic.fr"
-  %s[0].ipv4 == "192.93.0.1"
-  %s[0].ipv6 == "2001:660:3005:1::1:1"
+  %s[0].ipv4 == "192.134.4.1"
+  %s[0].ipv6 == "2001:67c:2218:2::4:1"
   %s[1] %CLASS{nameserver}
   %s[1].name == "ns2.nic.fr"
   %s[1].ipv4 == "192.93.0.4"
