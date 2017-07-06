@@ -21,6 +21,16 @@ describe Whois::Parsers::WhoisNicClub, "status_registered.expected" do
     described_class.new(part)
   end
 
+  describe "#domain" do
+    it do
+      expect(subject.domain).to eq("nic.club")
+    end
+  end
+  describe "#domain_id" do
+    it do
+      expect(subject.domain_id).to eq("D313-CLUB")
+    end
+  end
   describe "#status" do
     it do
       expect(subject.status).to eq(:registered)

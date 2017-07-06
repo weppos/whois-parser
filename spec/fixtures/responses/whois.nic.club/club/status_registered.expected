@@ -1,3 +1,9 @@
+#domain
+  %s == "nic.club"
+
+#domain_id
+  %s == "D313-CLUB"
+
 #status
   %s == :registered
 
