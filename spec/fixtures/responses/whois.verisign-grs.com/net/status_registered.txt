@@ -21,7 +21,7 @@ for detailed information.
    Status: serverUpdateProhibited
    Updated Date: 11-feb-2014
    Creation Date: 15-mar-1999
-   Expiration Date: 15-mar-2015
+   Registry Expiry Date: 15-mar-2015
 
 >>> Last update of whois database: Tue, 18 Mar 2014 13:37:06 UTC <<<
 
