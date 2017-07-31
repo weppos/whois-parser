@@ -266,7 +266,7 @@ for detailed information.
    Status: serverUpdateProhibited
    Updated Date: 20-jul-2011
    Creation Date: 15-sep-1997
-   Expiration Date: 14-sep-2020
+   Registry Expiry Date: 14-sep-2020
 
 >>> Last update of whois database: Tue, 18 Mar 2014 13:37:06 UTC <<<
 

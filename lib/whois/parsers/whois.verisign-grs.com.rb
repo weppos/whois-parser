@@ -20,11 +20,6 @@ module Whois
     #
     class WhoisVerisignGrsCom < BaseVerisign
 
-      property_supported :expires_on do
-        node("Expiration Date") { |value| parse_time(value) }
-      end
-
-
       property_supported :registrar do
         node("Registrar") do |value|
           Parser::Registrar.new(
