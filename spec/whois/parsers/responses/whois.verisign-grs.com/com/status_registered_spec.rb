@@ -33,7 +33,7 @@ describe Whois::Parsers::WhoisVerisignGrsCom, "status_registered.expected" do
   end
   describe "#domain_id" do
     it do
-      expect(subject.domain_id).to eq(nil)
+      expect(subject.domain_id).to eq("2138514_DOMAIN_COM-VRSN")
     end
   end
   describe "#status" do
@@ -72,7 +72,7 @@ describe Whois::Parsers::WhoisVerisignGrsCom, "status_registered.expected" do
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq(nil)
+      expect(subject.registrar.id).to eq("292")
       expect(subject.registrar.name).to eq("MarkMonitor Inc.")
       expect(subject.registrar.organization).to eq(nil)
       expect(subject.registrar.url).to eq("http://www.markmonitor.com")
@@ -102,7 +102,7 @@ describe Whois::Parsers::WhoisVerisignGrsCom, "status_registered.expected" do
   end
   describe "#referral_whois" do
     it do
-      expect(subject.referral_whois).to eq(["whois.PublicDomainRegistry.com", "whois.PublicDomainRegistry.com", "whois.tucows.com", "whois.domaincontext.com", "whois.PublicDomainRegistry.com", "whois.PublicDomainRegistry.com", "whois.PublicDomainRegistry.com", "whois.rrpproxy.net", "whois.onlinenic.com", "whois.domain.com", "whois.PublicDomainRegistry.com", "whois.PublicDomainRegistry.com", "whois.webnic.cc", "whois.PublicDomainRegistry.com", "whois.corehub.net", "whois.melbourneit.com", "whois.godaddy.com", "whois.godaddy.com", "whois.enom.com", "whois.omnis.com", "Whois.bigrock.com", "whois.PublicDomainRegistry.com", "whois.yoursrs.com", "whois.yoursrs.com", "whois.wildwestdomains.com", "whois.PublicDomainRegistry.com", "whois.crazydomains.com", "whois.yoursrs.com", "whois.enom.com", "whois.name.com", "whois.gandi.net", "whois.hostingservicesinc.net", "whois.tucows.com", "whois.godaddy.com", "whois.godaddy.com", "whois.godaddy.com", "whois.namesecure.com", "whois.paycenter.com.cn", "whois.enom.com", "whois.instra.net", "whois.planetdomain.com", "whois.enom.com", "whois.enom.com", "whois.tucows.com", "whois.markmonitor.com"])
+      expect(subject.referral_whois).to eq("whois.markmonitor.com")
     end
   end
   describe "#referral_url" do
