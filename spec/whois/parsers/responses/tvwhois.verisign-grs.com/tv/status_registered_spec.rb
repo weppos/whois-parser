@@ -33,7 +33,7 @@ describe Whois::Parsers::TvwhoisVerisignGrsCom, "status_registered.expected" do
   end
   describe "#domain_id" do
     it do
-      expect(subject.domain_id).to eq("87196881")
+      expect(subject.domain_id).to eq("87196881_DOMAIN_TV-VRSN")
     end
   end
   describe "#status" do
@@ -54,28 +54,28 @@ describe Whois::Parsers::TvwhoisVerisignGrsCom, "status_registered.expected" do
   describe "#created_on" do
     it do
       expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2002-08-02 12:43:36 UTC"))
+      expect(subject.created_on).to eq(Time.parse("2002-08-02 16:43:36 UTC"))
     end
   end
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2013-07-09 17:03:47 UTC"))
+      expect(subject.updated_on).to eq(Time.parse("2017-07-01 09:25:47 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-08-02 12:43:36 UTC"))
+      expect(subject.expires_on).to eq(Time.parse("2018-08-02 16:43:36 UTC"))
     end
   end
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("48")
-      expect(subject.registrar.name).to eq("ENOM, INC.")
+      expect(subject.registrar.id).to eq("292")
+      expect(subject.registrar.name).to eq("MARKMONITOR INC.")
       expect(subject.registrar.organization).to eq(nil)
-      expect(subject.registrar.url).to eq("http://www.enom.com")
+      expect(subject.registrar.url).to eq("http://www.markmonitor.com")
     end
   end
   describe "#nameservers" do
@@ -98,12 +98,12 @@ describe Whois::Parsers::TvwhoisVerisignGrsCom, "status_registered.expected" do
   end
   describe "#referral_whois" do
     it do
-      expect(subject.referral_whois).to eq("whois.enom.com")
+      expect(subject.referral_whois).to eq("whois.markmonitor.com")
     end
   end
   describe "#referral_url" do
     it do
-      expect(subject.referral_url).to eq("http://www.enom.com")
+      expect(subject.referral_url).to eq("http://www.markmonitor.com")
     end
   end
 end
