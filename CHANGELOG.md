@@ -5,6 +5,8 @@ This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 #### master
 
+- CHANGED: Updated .BR parser to the new response (GH-57). [Thanks @phcyso]
+
 - CHANGED: Updated .BR parser to the new response (GH-51). [Thanks @otaviojr]
 
 - CHANGED: Add support for :expires_on to base_nic_fr (GH-54). [Thanks @yastupin]
