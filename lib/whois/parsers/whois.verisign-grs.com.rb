@@ -21,14 +21,14 @@ module Whois
     class WhoisVerisignGrsCom < BaseVerisign
 
       property_supported :expires_on do
-        node("Expiration Date") { |value| parse_time(value) }
+        node("Registry Expiry Date") { |value| parse_time(value) }
       end
 
 
       property_supported :registrar do
         node("Registrar") do |value|
           Parser::Registrar.new(
-              id:           last_useful_item(node("Sponsoring Registrar IANA ID")),
+              id:           last_useful_item(node("Registrar IANA ID")),
               name:         last_useful_item(value),
               url:          referral_url
           )

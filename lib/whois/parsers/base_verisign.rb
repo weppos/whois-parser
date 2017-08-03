@@ -30,7 +30,7 @@ module Whois
       end
 
       property_supported :domain_id do
-        node("Domain ID")
+        node("Registry Domain ID")
       end
 
 
@@ -66,9 +66,9 @@ module Whois
 
 
       property_supported :registrar do
-        node("Sponsoring Registrar") do |value|
+        node("Registrar") do |value|
           Parser::Registrar.new(
-              id:           last_useful_item(node("Sponsoring Registrar IANA ID")),
+              id:           last_useful_item(node("Registrar IANA ID")),
               name:         last_useful_item(value),
               url:          referral_url
           )
@@ -84,11 +84,11 @@ module Whois
 
 
       def referral_whois
-        node("Whois Server")
+        node("Registrar WHOIS Server")
       end
 
       def referral_url
-        last_useful_item(node("Referral URL"))
+        last_useful_item(node("Registrar URL"))
       end
 
 

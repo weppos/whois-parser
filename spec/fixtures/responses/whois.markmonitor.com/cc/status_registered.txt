@@ -1,10 +1,10 @@
-Domain Name: google.net
-Registry Domain ID: 4802712_DOMAIN_NET-VRSN
+Domain Name: google.cc
+Registry Domain ID: 86420657_DOMAIN_CC-VRSN
 Registrar WHOIS Server: whois.markmonitor.com
 Registrar URL: http://www.markmonitor.com
-Updated Date: 2017-02-11T02:56:38-0800
-Creation Date: 1999-03-15T00:00:00-0800
-Registrar Registration Expiration Date: 2018-03-14T00:00:00-0700
+Updated Date: 2017-05-06T02:28:41-0700
+Creation Date: 1999-06-07T00:00:00-0700
+Registrar Registration Expiration Date: 2018-06-06T00:00:00-0700
 Registrar: MarkMonitor, Inc.
 Registrar IANA ID: 292
 Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
@@ -54,13 +54,13 @@ Tech Phone Ext:
 Tech Fax: +1.6506188571
 Tech Fax Ext: 
 Tech Email: dns-admin@google.com
-Name Server: ns1.google.com
 Name Server: ns3.google.com
-Name Server: ns2.google.com
 Name Server: ns4.google.com
+Name Server: ns2.google.com
+Name Server: ns1.google.com
 DNSSEC: unsigned
 URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
->>> Last update of WHOIS database: 2017-07-31T18:39:55-0700 <<<
+>>> Last update of WHOIS database: 2017-07-31T17:31:01-0700 <<<
 
 The Data in MarkMonitor.com's WHOIS database is provided by MarkMonitor.com for
 information purposes, and to assist persons in obtaining information about or
