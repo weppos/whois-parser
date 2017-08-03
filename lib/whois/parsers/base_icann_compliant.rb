@@ -52,19 +52,19 @@ module Whois
 
 
       property_supported :created_on do
-        node('Creation Date') do |value|
+        node("Creation Date") do |value|
           parse_time(value)
         end
       end
 
       property_supported :updated_on do
-        node('Updated Date') do |value|
+        node("Updated Date") do |value|
           parse_time(value)
         end
       end
 
       property_supported :expires_on do
-        node('Registrar Registration Expiration Date') do |value|
+        node("Registrar Registration Expiration Date") do |value|
           parse_time(value)
         end
       end

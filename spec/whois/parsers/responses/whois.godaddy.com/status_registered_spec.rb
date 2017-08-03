@@ -21,9 +21,19 @@ describe Whois::Parsers::WhoisGodaddyCom, "status_registered.expected" do
     described_class.new(part)
   end
 
+  describe "#domain" do
+    it do
+      expect(subject.domain).to eq("godaddy.com")
+    end
+  end
+  describe "#domain_id" do
+    it do
+      expect(subject.domain_id).to eq("4013247_DOMAIN_COM-VRSN")
+    end
+  end
   describe "#status" do
     it do
-      expect { subject.status }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.status).to eq(:registered)
     end
   end
   describe "#available?" do
@@ -36,12 +46,30 @@ describe Whois::Parsers::WhoisGodaddyCom, "status_registered.expected" do
       expect(subject.registered?).to eq(true)
     end
   end
+  describe "#created_on" do
+    it do
+      expect(subject.created_on).to be_a(Time)
+      expect(subject.created_on).to eq(Time.parse("1999-03-02 05:00:00 UTC"))
+    end
+  end
+  describe "#updated_on" do
+    it do
+      expect(subject.updated_on).to be_a(Time)
+      expect(subject.updated_on).to eq(Time.parse("2013-06-02 12:16:24 UTC"))
+    end
+  end
+  describe "#expires_on" do
+    it do
+      expect(subject.expires_on).to be_a(Time)
+      expect(subject.expires_on).to eq(Time.parse("2021-11-01 11:59:59 UTC"))
+    end
+  end
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq(nil)
+      expect(subject.registrar.id).to eq("146")
       expect(subject.registrar.name).to eq("GoDaddy.com, LLC")
-      expect(subject.registrar.organization).to eq(nil)
+      expect(subject.registrar.organization).to eq("GoDaddy.com, LLC")
       expect(subject.registrar.url).to eq("http://www.godaddy.com")
     end
   end
@@ -51,17 +79,20 @@ describe Whois::Parsers::WhoisGodaddyCom, "status_registered.expected" do
       expect(subject.registrant_contacts.size).to eq(1)
       expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].name).to eq("Go Daddy Go Daddy")
-      expect(subject.registrant_contacts[0].organization).to eq("Go Daddy")
+      expect(subject.registrant_contacts[0].id).to eq("Not Available From Registry")
+      expect(subject.registrant_contacts[0].name).to eq("Domain Administrator")
+      expect(subject.registrant_contacts[0].organization).to eq("Go Daddy Operating Company, LLC")
       expect(subject.registrant_contacts[0].address).to eq("14455 N Hayden Rd Suite 219")
       expect(subject.registrant_contacts[0].city).to eq("Scottsdale")
       expect(subject.registrant_contacts[0].zip).to eq("85260")
       expect(subject.registrant_contacts[0].state).to eq("Arizona")
-      expect(subject.registrant_contacts[0].country).to eq("United States")
-      expect(subject.registrant_contacts[0].phone).to eq(nil)
-      expect(subject.registrant_contacts[0].fax).to eq(nil)
-      expect(subject.registrant_contacts[0].email).to eq(nil)
+      expect(subject.registrant_contacts[0].country).to eq(nil)
+      expect(subject.registrant_contacts[0].country_code).to eq("US")
+      expect(subject.registrant_contacts[0].phone).to eq("+1.4805058800")
+      expect(subject.registrant_contacts[0].fax).to eq("+1.4805058844")
+      expect(subject.registrant_contacts[0].email).to eq("companynames@godaddy.com")
       expect(subject.registrant_contacts[0].created_on).to eq(nil)
+      expect(subject.registrant_contacts[0].updated_on).to eq(nil)
       expect(subject.registrant_contacts[0].updated_on).to eq(nil)
     end
   end
@@ -71,17 +102,20 @@ describe Whois::Parsers::WhoisGodaddyCom, "status_registered.expected" do
       expect(subject.admin_contacts.size).to eq(1)
       expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].name).to eq("Go Daddy Go Daddy")
-      expect(subject.admin_contacts[0].organization).to eq("Go Daddy")
+      expect(subject.admin_contacts[0].id).to eq("Not Available From Registry")
+      expect(subject.admin_contacts[0].name).to eq("Domain Administrator")
+      expect(subject.admin_contacts[0].organization).to eq("Go Daddy Operating Company, LLC")
       expect(subject.admin_contacts[0].address).to eq("14455 N Hayden Rd Suite 219")
       expect(subject.admin_contacts[0].city).to eq("Scottsdale")
       expect(subject.admin_contacts[0].zip).to eq("85260")
       expect(subject.admin_contacts[0].state).to eq("Arizona")
-      expect(subject.admin_contacts[0].country).to eq("United States")
+      expect(subject.admin_contacts[0].country).to eq(nil)
+      expect(subject.admin_contacts[0].country_code).to eq("US")
       expect(subject.admin_contacts[0].phone).to eq("+1.4805058800")
       expect(subject.admin_contacts[0].fax).to eq("+1.4805058844")
-      expect(subject.admin_contacts[0].email).to eq("dns@jomax.net")
+      expect(subject.admin_contacts[0].email).to eq("companynames@godaddy.com")
       expect(subject.admin_contacts[0].created_on).to eq(nil)
+      expect(subject.admin_contacts[0].updated_on).to eq(nil)
       expect(subject.admin_contacts[0].updated_on).to eq(nil)
     end
   end
@@ -91,36 +125,63 @@ describe Whois::Parsers::WhoisGodaddyCom, "status_registered.expected" do
       expect(subject.technical_contacts.size).to eq(1)
       expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].name).to eq("Go Daddy Go Daddy")
-      expect(subject.technical_contacts[0].organization).to eq("Go Daddy")
+      expect(subject.technical_contacts[0].id).to eq("Not Available From Registry")
+      expect(subject.technical_contacts[0].name).to eq("Domain Administrator")
+      expect(subject.technical_contacts[0].organization).to eq("Go Daddy Operating Company, LLC")
       expect(subject.technical_contacts[0].address).to eq("14455 N Hayden Rd Suite 219")
       expect(subject.technical_contacts[0].city).to eq("Scottsdale")
       expect(subject.technical_contacts[0].zip).to eq("85260")
       expect(subject.technical_contacts[0].state).to eq("Arizona")
-      expect(subject.technical_contacts[0].country).to eq("United States")
+      expect(subject.technical_contacts[0].country).to eq(nil)
+      expect(subject.technical_contacts[0].country_code).to eq("US")
       expect(subject.technical_contacts[0].phone).to eq("+1.4805058800")
       expect(subject.technical_contacts[0].fax).to eq("+1.4805058844")
-      expect(subject.technical_contacts[0].email).to eq("dns@jomax.net")
+      expect(subject.technical_contacts[0].email).to eq("companynames@godaddy.com")
       expect(subject.technical_contacts[0].created_on).to eq(nil)
+      expect(subject.technical_contacts[0].updated_on).to eq(nil)
       expect(subject.technical_contacts[0].updated_on).to eq(nil)
     end
   end
   describe "#nameservers" do
     it do
       expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(3)
+      expect(subject.nameservers.size).to eq(9)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("CNS1.SECURESERVER.NET")
+      expect(subject.nameservers[0].name).to eq("cns1.godaddy.com")
       expect(subject.nameservers[0].ipv4).to eq(nil)
       expect(subject.nameservers[0].ipv6).to eq(nil)
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("CNS2.SECURESERVER.NET")
+      expect(subject.nameservers[1].name).to eq("cns2.godaddy.com")
       expect(subject.nameservers[1].ipv4).to eq(nil)
       expect(subject.nameservers[1].ipv6).to eq(nil)
       expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("CNS3.SECURESERVER.NET")
+      expect(subject.nameservers[2].name).to eq("cns3.godaddy.com")
       expect(subject.nameservers[2].ipv4).to eq(nil)
       expect(subject.nameservers[2].ipv6).to eq(nil)
+      expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[3].name).to eq("a11-64.akam.net")
+      expect(subject.nameservers[3].ipv4).to eq(nil)
+      expect(subject.nameservers[3].ipv6).to eq(nil)
+      expect(subject.nameservers[4]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[4].name).to eq("a1-245.akam.net")
+      expect(subject.nameservers[4].ipv4).to eq(nil)
+      expect(subject.nameservers[4].ipv6).to eq(nil)
+      expect(subject.nameservers[5]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[5].name).to eq("a20-65.akam.net")
+      expect(subject.nameservers[5].ipv4).to eq(nil)
+      expect(subject.nameservers[5].ipv6).to eq(nil)
+      expect(subject.nameservers[6]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[6].name).to eq("a6-66.akam.net")
+      expect(subject.nameservers[6].ipv4).to eq(nil)
+      expect(subject.nameservers[6].ipv6).to eq(nil)
+      expect(subject.nameservers[7]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[7].name).to eq("a8-67.akam.net")
+      expect(subject.nameservers[7].ipv4).to eq(nil)
+      expect(subject.nameservers[7].ipv6).to eq(nil)
+      expect(subject.nameservers[8]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[8].name).to eq("a9-67.akam.net")
+      expect(subject.nameservers[8].ipv4).to eq(nil)
+      expect(subject.nameservers[8].ipv6).to eq(nil)
     end
   end
 end
