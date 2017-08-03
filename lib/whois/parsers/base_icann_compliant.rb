@@ -25,11 +25,11 @@ module Whois
 
 
       property_supported :domain do
-        node('Domain Name', &:downcase)
+        node("Domain Name", &:downcase)
       end
 
       property_supported :domain_id do
-        node('Registry Domain ID')
+        node("Registry Domain ID")
       end
 
 
@@ -71,13 +71,13 @@ module Whois
 
 
       property_supported :registrar do
-        return unless node('Registrar')
-        Parser::Registrar.new(
-            id:           node('Registrar IANA ID'),
-            name:         node('Registrar'),
-            organization: node('Registrar'),
-            url:          node('Registrar URL'),
-        )
+        return unless node("Registrar")
+        Parser::Registrar.new({
+            id:           node("Registrar IANA ID"),
+            name:         node("Registrar"),
+            organization: node("Registrar"),
+            url:          node("Registrar URL"),
+        })
       end
 
 
@@ -95,7 +95,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node('Name Server') || node('Name Servers')).reject(&:empty?).map do |name|
+        Array.wrap(node("Name Server") || node("Name Servers")).reject(&:empty?).map do |name|
           Parser::Nameserver.new(name: name.downcase)
         end
       end

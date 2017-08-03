@@ -5,7 +5,9 @@ This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 #### master
 
-- CHANGED: Updated .BR parser to the new response (GH-57). [Thanks @phcyso]
+- CHANGED: Updated Donuts parser to the new response. It looks like Donuts is now more compliant with base ICANN parser.
+
+- CHANGED: Updated Verisign parser to the new response (GH-57). [Thanks @phcyso]
 
 - CHANGED: Updated .BR parser to the new response (GH-51). [Thanks @otaviojr]
 

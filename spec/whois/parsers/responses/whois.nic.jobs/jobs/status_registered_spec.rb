@@ -33,7 +33,7 @@ describe Whois::Parsers::WhoisNicJobs, "status_registered.expected" do
   end
   describe "#domain_id" do
     it do
-      expect(subject.domain_id).to eq("86932313_DOMAIN_JOBS-VRSN")
+      expect(subject.domain_id).to eq("86932313")
     end
   end
   describe "#status" do
@@ -54,19 +54,19 @@ describe Whois::Parsers::WhoisNicJobs, "status_registered.expected" do
   describe "#created_on" do
     it do
       expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2005-09-15 04:00:00 UTC"))
+      expect(subject.created_on).to eq(Time.parse("2005-09-15 00:00:00 UTC"))
     end
   end
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2017-07-27 20:59:01 UTC"))
+      expect(subject.updated_on).to eq(Time.parse("2013-08-14 05:20:33 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2017-09-15 04:00:00 UTC"))
+      expect(subject.expires_on).to eq(Time.parse("2014-09-15 00:00:00 UTC"))
     end
   end
   describe "#registrar" do
