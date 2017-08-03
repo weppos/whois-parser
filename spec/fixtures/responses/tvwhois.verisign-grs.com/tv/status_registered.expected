@@ -5,7 +5,7 @@
   %s == "google.tv"
 
 #domain_id
-  %s == "87196881"
+  %s == "87196881_DOMAIN_TV-VRSN"
 
 
 #status
@@ -20,23 +20,23 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{2002-08-02 12:43:36 UTC}
+  %s %TIME{2002-08-02 16:43:36 UTC}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2013-07-09 17:03:47 UTC}
+  %s %TIME{2017-07-01 09:25:47 UTC}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2014-08-02 12:43:36 UTC}
+  %s %TIME{2018-08-02 16:43:36 UTC}
 
 
 #registrar
   %s %CLASS{registrar}
-  %s.id           == "48"
-  %s.name         == "ENOM, INC."
+  %s.id           == "292"
+  %s.name         == "MARKMONITOR INC."
   %s.organization == nil
-  %s.url          == "http://www.enom.com"
+  %s.url          == "http://www.markmonitor.com"
 
 
 #nameservers
@@ -58,7 +58,7 @@
 
 
 #referral_whois
-  %s == "whois.enom.com"
+  %s == "whois.markmonitor.com"
 
 #referral_url
-  %s == "http://www.enom.com"
+  %s == "http://www.markmonitor.com"

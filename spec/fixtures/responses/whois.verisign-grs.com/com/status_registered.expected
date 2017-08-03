@@ -6,7 +6,7 @@
   %s == "google.com"
 
 #domain_id
-  %s == nil
+  %s == "2138514_DOMAIN_COM-VRSN"
 
 
 #status
@@ -21,21 +21,21 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{1997-09-15}
+  %s %TIME{1997-09-15 04:00:00 UTC}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2011-07-20}
+  %s %TIME{2011-07-20 16:55:31 UTC}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2020-09-14}
+  %s %TIME{2020-09-14 04:00:00 UTC}
 
 
 #registrar
   %s %CLASS{registrar}
-  %s.id           == nil
-  %s.name         == "MARKMONITOR INC."
+  %s.id           == "292"
+  %s.name         == "MarkMonitor Inc."
   %s.organization == nil
   %s.url          == "http://www.markmonitor.com"
 
@@ -63,7 +63,7 @@
 
 
 #referral_whois
-  %s == ["whois.PublicDomainRegistry.com", "whois.PublicDomainRegistry.com", "whois.tucows.com", "whois.domaincontext.com", "whois.PublicDomainRegistry.com", "whois.PublicDomainRegistry.com", "whois.PublicDomainRegistry.com", "whois.rrpproxy.net", "whois.onlinenic.com", "whois.domain.com", "whois.PublicDomainRegistry.com", "whois.PublicDomainRegistry.com", "whois.webnic.cc", "whois.PublicDomainRegistry.com", "whois.corehub.net", "whois.melbourneit.com", "whois.godaddy.com", "whois.godaddy.com", "whois.enom.com", "whois.omnis.com", "Whois.bigrock.com", "whois.PublicDomainRegistry.com", "whois.yoursrs.com", "whois.yoursrs.com", "whois.wildwestdomains.com", "whois.PublicDomainRegistry.com", "whois.crazydomains.com", "whois.yoursrs.com", "whois.enom.com", "whois.name.com", "whois.gandi.net", "whois.hostingservicesinc.net", "whois.tucows.com", "whois.godaddy.com", "whois.godaddy.com", "whois.godaddy.com", "whois.namesecure.com", "whois.paycenter.com.cn", "whois.enom.com", "whois.instra.net", "whois.planetdomain.com", "whois.enom.com", "whois.enom.com", "whois.tucows.com", "whois.markmonitor.com"]
+  %s == "whois.markmonitor.com"
 
 #referral_url
   %s == "http://www.markmonitor.com"

@@ -6,7 +6,7 @@
   %s == "google.net"
 
 #domain_id
-  %s == nil
+  %s == "4802712_DOMAIN_NET-VRSN"
 
 
 #status
@@ -21,21 +21,21 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{1999-03-15}
+  %s %TIME{1999-03-15 05:00:00 UTC}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2014-02-11}
+  %s %TIME{2017-02-11 10:56:37 UTC}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2015-03-15}
+  %s %TIME{2018-03-15 04:00:00 UTC}
 
 
 #registrar
   %s %CLASS{registrar}
-  %s.id           == nil
-  %s.name         == "MARKMONITOR INC."
+  %s.id           == "292"
+  %s.name         == "MarkMonitor Inc."
   %s.organization == nil
   %s.url          == "http://www.markmonitor.com"
 
