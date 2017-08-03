@@ -24,3 +24,6 @@ matrix:
 before_install:
   - rvm get latest
   - gem install bundler
+
+before_script:
+  - rake spec:generate
