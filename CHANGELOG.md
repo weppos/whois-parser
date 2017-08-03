@@ -3,7 +3,7 @@
 This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 
-#### master
+#### Release 1.0.1
 
 - CHANGED: Updated GoDaddy parser to the new response (GH-60).
 
