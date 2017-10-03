@@ -19,7 +19,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /Domain:\s+(.+)\n/
-          "#{$1.downcase}.eu"
+          "#{$1.downcase}"
         end
       end
 

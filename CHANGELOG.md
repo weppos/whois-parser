@@ -3,6 +3,11 @@
 This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 
+#### master
+
+- FIXED: Bug where .EU domain property had double .eu suffix (GH-63).
+
+
 #### Release 1.0.1
 
 - CHANGED: Updated GoDaddy parser to the new response (GH-60).

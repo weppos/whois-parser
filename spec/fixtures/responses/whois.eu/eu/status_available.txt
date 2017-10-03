@@ -41,7 +41,6 @@
 % Registrant and onsite contact information can be obtained through use of the
 % webbased whois service available from the EURid website www.eurid.eu
 %
-% WHOIS u34jedzcq
-Domain:	u34jedzcq
-Status:	AVAILABLE
-
+% WHOIS u34jedzcq.eu
+Domain: u34jedzcq.eu
+Status: AVAILABLE

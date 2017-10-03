@@ -41,31 +41,25 @@
 % Registrant and onsite contact information can be obtained through use of the
 % webbased whois service available from the EURid website www.eurid.eu
 %
-% WHOIS google
-Domain:	google
+% WHOIS google.eu
+Domain: google.eu
 
 Registrant:
-	NOT DISCLOSED!
-	Visit www.eurid.eu for webbased whois.
+        NOT DISCLOSED!
+        Visit www.eurid.eu for webbased whois.
 
 Onsite(s):
-	NOT DISCLOSED!
-	Visit www.eurid.eu for webbased whois.
-
-Reseller:
-
-Technical:
+        NOT DISCLOSED!
+        Visit www.eurid.eu for webbased whois.
 
 Registrar:
-	Name:	 MarkMonitor Inc.
-	Website: www.markmonitor.com
+        Name: MarkMonitor Inc.
+        Website: https://www.markmonitor.com/
 
 Name servers:
-	ns4.google.com
-	ns3.google.com
-	ns1.google.com
-	ns2.google.com
-
-Keys:
+        ns3.google.com
+        ns4.google.com
+        ns1.google.com
+        ns2.google.com
 
 Please visit www.eurid.eu for more info.

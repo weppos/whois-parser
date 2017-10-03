@@ -67,7 +67,7 @@ describe Whois::Parsers::WhoisEu, "status_registered.expected" do
       expect(subject.registrar.id).to eq(nil)
       expect(subject.registrar.name).to eq("MarkMonitor Inc.")
       expect(subject.registrar.organization).to eq(nil)
-      expect(subject.registrar.url).to eq("www.markmonitor.com")
+      expect(subject.registrar.url).to eq("https://www.markmonitor.com/")
     end
   end
   describe "#registrant_contacts" do
@@ -91,11 +91,11 @@ describe Whois::Parsers::WhoisEu, "status_registered.expected" do
       expect(subject.nameservers).to be_a(Array)
       expect(subject.nameservers.size).to eq(4)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns4.google.com")
+      expect(subject.nameservers[0].name).to eq("ns3.google.com")
       expect(subject.nameservers[0].ipv4).to eq(nil)
       expect(subject.nameservers[0].ipv6).to eq(nil)
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns3.google.com")
+      expect(subject.nameservers[1].name).to eq("ns4.google.com")
       expect(subject.nameservers[1].ipv4).to eq(nil)
       expect(subject.nameservers[1].ipv6).to eq(nil)
       expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
