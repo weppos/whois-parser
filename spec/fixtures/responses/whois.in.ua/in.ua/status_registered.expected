@@ -9,23 +9,24 @@
 
 
 #created_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2007-12-18 17:12:35}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2012-12-16 13:41:04}
+  %s %TIME{2017-12-19 09:54:31}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2013-12-18 00:00:00}
+  %s %TIME{2018-12-19 21:00:00}
 
 
 #nameservers
   %s %CLASS{array}
   %s %SIZE{3}
   %s[0] %CLASS{nameserver}
-  %s[0].name == "ns12.uadns.com"
+  %s[0].name == "ns10.uadns.com"
   %s[1] %CLASS{nameserver}
-  %s[1].name == "ns11.uadns.com"
+  %s[1].name == "ns12.uadns.com"
   %s[2] %CLASS{nameserver}
-  %s[2].name == "ns10.uadns.com"
+  %s[2].name == "ns11.uadns.com"
