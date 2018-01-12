@@ -7,7 +7,7 @@
 #++
 
 
-require_relative 'base_shared2'
+require_relative 'base_icann_compliant'
 
 
 module Whois
@@ -18,7 +18,35 @@ module Whois
     # @see Whois::Parsers::Example
     #   The Example parser for the list of all available methods.
     #
-    class WhoisNicCo < BaseShared2
+    class WhoisNicCo < BaseIcannCompliant
+
+      property_supported :expires_on do
+        node("Registry Expiry Date") do |value|
+          parse_time(value)
+        end
+      end
+
+
+      property_supported :registrar do
+        return unless node("Registrar")
+        Parser::Registrar.new({
+            id:           node("Registrar IANA ID"),
+            name:         node("Registrar"),
+            organization: node("Registrar"),
+            url:          node("Registrar URL"),
+        })
+      end
+
+
+      private
+      #
+      # def build_contact(element, type)
+      #   if (contact = super)
+      #     contact.id = node("#{element} ID")
+      #   end
+      #   contact
+      # end
+
     end
 
   end
