@@ -48,7 +48,7 @@ describe Whois::Parsers::WhoisNicSt, "status_available.expected" do
   end
   describe "#expires_on" do
     it do
-      expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.expires_on).to eq(nil)
     end
   end
   describe "#nameservers" do
