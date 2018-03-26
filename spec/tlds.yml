@@ -272,7 +272,7 @@ ag:
     status_available: u34jedzcq.ag
     status_registered: google.ag
 ai:
-    _server: whois.ai
+    _server: whois.nic.ai
     status_available: u34jedzcq.ai
     status_registered: google.ai
 al:

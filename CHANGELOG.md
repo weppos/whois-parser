@@ -5,6 +5,8 @@ This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 #### master
 
+- CHANGED: Updated WhoisAi to WhoisNicAi.
+
 - FIXED: Bug where .EU domain property had double .eu suffix (GH-63).
 
 
