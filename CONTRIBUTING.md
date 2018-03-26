@@ -4,31 +4,45 @@
 
 Fork, then clone the repo:
 
-    $ git clone git@github.com:your-username/whois-parser.git
+```shell
+git clone git@github.com:your-username/whois-parser.git
+```
 
 Set up your machine:
 
-    $ bundle
+```shell
+bundle
+```
 
 Make sure the tests pass:
 
-    $ bundle exec rake
+```shell
+$ bundle exec rake
+```
 
 To propose a change/feature/patch, create your feature branch:
 
-    $ git checkout -b my-new-feature
+```shell
+git checkout -b my-new-feature
+```
 
 Make your change. Add tests for your change. Make the tests pass:
 
-    $ bundle exec rake
+```shell
+bundle exec rake
+```
 
 `utils/mkwhois.rb` can be used to quicky generate `status_available.txt` and `status_registered.txt` files for your tests
 
-    $ ruby utils/mkwhois.rb google.com status_available
+```shell
+ruby utils/mkwhois.rb google.com status_available
+```
 
 Commit your changes:
 
-    $ git commit -am 'Add some feature'
+```shell
+git commit -am 'Add some feature'
+```
 
 Push to your fork and [submit a pull request](https://github.com/weppos/whois-parser/compare/).
 
