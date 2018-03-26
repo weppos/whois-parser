@@ -24,4 +24,4 @@ The [whois repository](https://github.com/weppos/whois) contains more informatio
 
 ## License
 
-Copyright (c) 2009-2017 [Simone Carletti](https://simonecarletti.com/). This is Free Software distributed under the MIT license.
+Copyright (c) 2009-2018 [Simone Carletti](https://simonecarletti.com/). This is Free Software distributed under the MIT license.
