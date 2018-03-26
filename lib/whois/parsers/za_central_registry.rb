@@ -40,6 +40,17 @@ module Whois
         !node("Creation Date")
       end
 
+      # Checks whether the response has been throttled.
+      #
+      # @return [Boolean]
+      #
+      # @example
+      #   Please go away for 13 Seconds
+      #
+      def response_throttled?
+        !!(content_for_scanner =~ /Please go away for \d+ [Ss]econds/)
+      end
+
 
       private
 

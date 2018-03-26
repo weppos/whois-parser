@@ -1,12 +1,8 @@
-#disclaimer
-  %s == nil
-
-
 #domain
   %s == nil
 
 #domain_id
-  %s raise_error Whois::AttributeNotSupported
+  %s == nil
 
 
 #status
@@ -23,7 +19,7 @@
   %s == nil
 
 #updated_on
-  %s raise_error Whois::AttributeNotSupported
+  %s == nil
 
 #expires_on
   %s == nil
@@ -34,14 +30,18 @@
 
 
 #registrant_contacts
+  %s %CLASS{array}
   %s == []
 
 #admin_contacts
-  %s raise_error Whois::AttributeNotSupported
+  %s %CLASS{array}
+  %s == []
 
 #technical_contacts
-  %s raise_error Whois::AttributeNotSupported
+  %s %CLASS{array}
+  %s == []
 
 
 #nameservers
+  %s %CLASS{array}
   %s == []
