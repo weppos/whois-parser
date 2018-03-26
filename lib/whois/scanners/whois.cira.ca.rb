@@ -23,7 +23,7 @@ module Whois
       end
 
       tokenizer :scan_header do
-        if @input.scan(/^(.+?):\n/)
+        if !@input.match?(/^\s/) && @input.scan(/^(.+?):\n/)
           @tmp["group"] = @input[1]
         end
       end

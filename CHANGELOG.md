@@ -12,6 +12,7 @@ This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 - CHANGED: WhoizNicSt to the new response (GH-72). [Thanks @fturmel]
 
 - FIXED: Bug where .EU domain property had double .eu suffix (GH-63).
+- FIXED: Fix scanning issue with .ca when keys have no value (GH-36).
 
 
 #### Release 1.0.1
