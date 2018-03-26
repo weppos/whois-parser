@@ -35,7 +35,7 @@ module Whois
       end
 
       property_supported :available? do
-        content_for_scanner.match?(/Status:\s+AVAILABLE/)
+        !!(content_for_scanner =~ /Status:\s+AVAILABLE/)
       end
 
       property_supported :registered? do
@@ -121,7 +121,7 @@ module Whois
       #   -1: Still in grace period, wait 7777777 seconds
       #
       def response_throttled?
-        content_for_scanner.match?(/Still in grace period/)
+        !!(content_for_scanner =~ /Still in grace period/)
       end
 
     end

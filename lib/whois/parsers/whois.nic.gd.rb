@@ -22,7 +22,7 @@ module Whois
 
       # NEWPROPERTY
       def reserved?
-        content_for_scanner.match?(/RESTRICTED/)
+        !!content_for_scanner.match(/RESTRICTED/)
       end
 
     end

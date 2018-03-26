@@ -35,7 +35,7 @@ module Whois
       end
 
       property_supported :available? do
-        content_for_scanner.match?(/We do not have an entry in our database matching your query\./)
+        !!(content_for_scanner =~ /We do not have an entry in our database matching your query\./)
       end
 
       property_supported :registered? do

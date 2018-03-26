@@ -38,7 +38,7 @@ module Whois
       end
 
       property_supported :available? do
-        content_for_scanner.match?(/^No information available about domain name/)
+        !!(content_for_scanner =~ /^No information available about domain name/)
       end
 
       property_supported :registered? do
@@ -103,7 +103,7 @@ module Whois
       #   Looup quota exceeded.
       #
       def response_throttled?
-        content_for_scanner.match?(/^request limit exceeded for/)
+        !!(content_for_scanner =~ /^request limit exceeded for/)
       end
 
 

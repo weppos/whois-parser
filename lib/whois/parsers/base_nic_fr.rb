@@ -42,7 +42,7 @@ module Whois
       end
 
       property_supported :available? do
-        content_for_scanner.match?(/No entries found in the AFNIC Database/)
+        !!(content_for_scanner =~ /No entries found in the AFNIC Database/)
       end
 
       property_supported :registered? do
@@ -102,7 +102,7 @@ module Whois
       #
       # @return [Boolean]
       def response_throttled?
-        content_for_scanner.match?(/^%% Too many requests\.{3}/)
+        !!(content_for_scanner =~ /^%% Too many requests\.{3}/)
       end
 
 

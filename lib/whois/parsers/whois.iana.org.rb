@@ -30,7 +30,7 @@ module Whois
       end
 
       property_supported :available? do
-        content_for_scanner.match?(/This query returned 0 objects|organisation: Not assigned/)
+        !!(content_for_scanner =~ /This query returned 0 objects|organisation: Not assigned/)
       end
 
       property_supported :registered? do

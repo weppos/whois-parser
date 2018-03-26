@@ -40,7 +40,7 @@ module Whois
       end
 
       property_supported :available? do
-        !invalid? && content_for_scanner.match?(/No match found for "(.+)"/)
+        !invalid? && !!(content_for_scanner =~ /No match found for "(.+)"/)
       end
 
       property_supported :registered? do

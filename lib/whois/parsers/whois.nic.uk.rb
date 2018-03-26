@@ -55,7 +55,7 @@ module Whois
       end
 
       property_supported :available? do
-        content_for_scanner.match?(/This domain name has not been registered/)
+        !!(content_for_scanner =~ /This domain name has not been registered/)
       end
 
       property_supported :registered? do
@@ -149,7 +149,7 @@ module Whois
       #   and will be replenished in 50 seconds.
       #
       def response_throttled?
-        content_for_scanner.match?(/The WHOIS query quota for .+ has been exceeded/)
+        !!(content_for_scanner =~ /The WHOIS query quota for .+ has been exceeded/)
       end
 
 
@@ -163,7 +163,7 @@ module Whois
       # NEWPROPERTY
       def invalid?
         cached_properties_fetch(:invalid?) do
-          content_for_scanner.match?(/This domain cannot be registered/)
+          !!(content_for_scanner =~ /This domain cannot be registered/)
         end
       end
 

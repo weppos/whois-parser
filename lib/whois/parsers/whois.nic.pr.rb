@@ -40,7 +40,7 @@ module Whois
       end
 
       property_supported :available? do
-        content_for_scanner.match?(/^The domain (.+?) is not registered\.\n/)
+        !!(content_for_scanner =~ /^The domain (.+?) is not registered\.\n/)
       end
 
       property_supported :registered? do

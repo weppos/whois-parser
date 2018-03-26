@@ -45,7 +45,7 @@ module Whois
       end
 
       property_supported :available? do
-        content_for_scanner.match?(/^No entries found for the selected source/)
+        !!(content_for_scanner =~ /^No entries found for the selected source/)
       end
 
       property_supported :registered? do
@@ -79,7 +79,7 @@ module Whois
       #
       # @return [Boolean]
       def response_throttled?
-        content_for_scanner.match?(/# Too many connections[.]/)
+        !!(content_for_scanner =~ /# Too many connections[.]/)
       end
 
     end

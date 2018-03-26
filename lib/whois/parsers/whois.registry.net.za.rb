@@ -112,7 +112,7 @@ module Whois
       #   -1: Please go away for 90 Seconds
       #
       def response_throttled?
-        content_for_scanner.match?(/Please go away for \d+ Seconds/)
+        !!(content_for_scanner =~ /Please go away for \d+ Seconds/)
       end
 
       private
