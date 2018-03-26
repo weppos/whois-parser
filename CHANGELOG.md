@@ -3,7 +3,7 @@
 This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 
-#### master
+#### Release 1.1.0
 
 - NEW: Added .FM parser (GH-74). [Thanks @thomas07vt]
 - NEW: Added .BR parser contacts (GH-31). [Thanks @forain]
