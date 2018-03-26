@@ -538,7 +538,9 @@ fj:
 fk:
     _adapter: none
 fm:
-    _adapter: web
+    _server: whois.nic.fm
+    status_available: u34jedzcq.fm
+    status_registered: google.fm
 fo:
     _server: whois.nic.fo
     status_available: u34jedzcq.fo
