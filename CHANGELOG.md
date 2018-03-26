@@ -9,6 +9,7 @@ This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 - CHANGED: Updated WhoisAi to WhoisNicAi.
 - CHANGED: WhoizBiz to the new response (GH-73). [Thanks @thomas07vt]
+- CHANGED: WhoizNicSt to the new response (GH-72). [Thanks @fturmel]
 
 - FIXED: Bug where .EU domain property had double .eu suffix (GH-63).
 
