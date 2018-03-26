@@ -15,6 +15,9 @@ module Whois
 
     # Parser for the coza-whois.registry.za.net server.
     #
+    # @see Whois::Parsers::Example
+    #   The Example parser for the list of all available methods.
+    #
     class CozaWhoisRegistryNetZa < ZaCentralRegistry
     end
 
