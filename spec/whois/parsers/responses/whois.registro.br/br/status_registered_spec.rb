@@ -54,6 +54,72 @@ describe Whois::Parsers::WhoisRegistroBr, "status_registered.expected" do
       expect(subject.expires_on).to eq(Time.parse("2018-05-18"))
     end
   end
+  describe "#registrant_contacts" do
+    it do
+      expect(subject.registrant_contacts).to be_a(Array)
+      expect(subject.registrant_contacts.size).to eq(1)
+      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
+      expect(subject.registrant_contacts[0].id).to eq("DOADM17")
+      expect(subject.registrant_contacts[0].name).to eq("Domain Admin")
+      expect(subject.registrant_contacts[0].organization).to eq(nil)
+      expect(subject.registrant_contacts[0].address).to eq(nil)
+      expect(subject.registrant_contacts[0].city).to eq(nil)
+      expect(subject.registrant_contacts[0].state).to eq(nil)
+      expect(subject.registrant_contacts[0].zip).to eq(nil)
+      expect(subject.registrant_contacts[0].country).to eq(nil)
+      expect(subject.registrant_contacts[0].country_code).to eq(nil)
+      expect(subject.registrant_contacts[0].phone).to eq(nil)
+      expect(subject.registrant_contacts[0].fax).to eq(nil)
+      expect(subject.registrant_contacts[0].email).to eq("ccops@markmonitor.com")
+      expect(subject.registrant_contacts[0].created_on).to eq(Time.parse("2010-05-20 00:00:00 UTC"))
+      expect(subject.registrant_contacts[0].updated_on).to eq(Time.parse("2017-01-03 00:00:00 UTC"))
+    end
+  end
+  describe "#admin_contacts" do
+    it do
+      expect(subject.admin_contacts).to be_a(Array)
+      expect(subject.admin_contacts.size).to eq(1)
+      expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
+      expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+      expect(subject.admin_contacts[0].id).to eq("DOADM17")
+      expect(subject.admin_contacts[0].name).to eq("Domain Admin")
+      expect(subject.admin_contacts[0].organization).to eq(nil)
+      expect(subject.admin_contacts[0].address).to eq(nil)
+      expect(subject.admin_contacts[0].city).to eq(nil)
+      expect(subject.admin_contacts[0].state).to eq(nil)
+      expect(subject.admin_contacts[0].zip).to eq(nil)
+      expect(subject.admin_contacts[0].country).to eq(nil)
+      expect(subject.admin_contacts[0].country_code).to eq(nil)
+      expect(subject.admin_contacts[0].phone).to eq(nil)
+      expect(subject.admin_contacts[0].fax).to eq(nil)
+      expect(subject.admin_contacts[0].email).to eq("ccops@markmonitor.com")
+      expect(subject.admin_contacts[0].created_on).to eq(Time.parse("2010-05-20 00:00:00 UTC"))
+      expect(subject.admin_contacts[0].updated_on).to eq(Time.parse("2017-01-03 00:00:00 UTC"))
+    end
+  end
+  describe "#technical_contacts" do
+    it do
+      expect(subject.technical_contacts).to be_a(Array)
+      expect(subject.technical_contacts.size).to eq(1)
+      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+      expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
+      expect(subject.technical_contacts[0].id).to eq("DOADM17")
+      expect(subject.technical_contacts[0].name).to eq("Domain Admin")
+      expect(subject.technical_contacts[0].organization).to eq(nil)
+      expect(subject.technical_contacts[0].address).to eq(nil)
+      expect(subject.technical_contacts[0].city).to eq(nil)
+      expect(subject.technical_contacts[0].state).to eq(nil)
+      expect(subject.technical_contacts[0].zip).to eq(nil)
+      expect(subject.technical_contacts[0].country).to eq(nil)
+      expect(subject.technical_contacts[0].country_code).to eq(nil)
+      expect(subject.technical_contacts[0].phone).to eq(nil)
+      expect(subject.technical_contacts[0].fax).to eq(nil)
+      expect(subject.technical_contacts[0].email).to eq("ccops@markmonitor.com")
+      expect(subject.technical_contacts[0].created_on).to eq(Time.parse("2010-05-20 00:00:00 UTC"))
+      expect(subject.technical_contacts[0].updated_on).to eq(Time.parse("2017-01-03 00:00:00 UTC"))
+    end
+  end
   describe "#nameservers" do
     it do
       expect(subject.nameservers).to be_a(Array)
