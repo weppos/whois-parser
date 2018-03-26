@@ -108,7 +108,7 @@ module Whois
 
       # NEWPROPERTY
       def reserved?
-        !!content_for_scanner.match(/Domain not available/)
+        content_for_scanner.match?(/Domain not available/)
       end
 
     end

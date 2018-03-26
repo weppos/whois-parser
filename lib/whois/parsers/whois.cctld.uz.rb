@@ -38,7 +38,7 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /not found in database/)
+        content_for_scanner.match?(/not found in database/)
       end
 
       property_supported :registered? do

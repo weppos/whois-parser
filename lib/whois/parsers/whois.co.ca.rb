@@ -33,7 +33,7 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /^(.+) is available/)
+        content_for_scanner.match?(/^(.+) is available/)
       end
 
       property_supported :registered? do
@@ -65,7 +65,7 @@ module Whois
 
       # NEWPROPERTY
       def reserved?
-        !!(content_for_scanner =~ /^Domain is not available or is reserved by the registry/)
+        content_for_scanner.match?(/^Domain is not available or is reserved by the registry/)
       end
 
     end

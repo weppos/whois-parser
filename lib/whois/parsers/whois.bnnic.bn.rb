@@ -33,7 +33,7 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /^Domain Not Found/)
+        content_for_scanner.match?(/^Domain Not Found/)
       end
 
       property_supported :registered? do

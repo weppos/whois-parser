@@ -114,7 +114,7 @@ module Whois
       #
       # @return [Boolean]
       def response_unavailable?
-        !!(content_for_scanner =~ /Server too busy, try again later/)
+        content_for_scanner.match?(/Server too busy, try again later/)
       end
 
     end

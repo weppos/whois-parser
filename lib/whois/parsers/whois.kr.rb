@@ -33,7 +33,7 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /^Above domain name is not registered to KRNIC/)
+        content_for_scanner.match?(/^Above domain name is not registered to KRNIC/)
       end
 
       property_supported :registered? do

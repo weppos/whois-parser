@@ -35,7 +35,7 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /Domain not found, marked private, or error in your query/)
+        content_for_scanner.match?(/Domain not found, marked private, or error in your query/)
       end
 
       property_supported :registered? do
