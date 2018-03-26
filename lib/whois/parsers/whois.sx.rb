@@ -48,7 +48,7 @@ module Whois
         when "premium name"
           :unavailable
         else
-          Whois.bug!(ParserError, "Unknown status `#{s}'.")
+          Whois::Parser.bug!(ParserError, "Unknown status `#{s}'.")
         end
       end
 

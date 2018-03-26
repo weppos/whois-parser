@@ -72,7 +72,7 @@ module Whois
               { :name => name }
             end
           else
-            Whois.bug!(ParserError, "Unknown nameservers format `#{value}'")
+            Whois::Parser.bug!(ParserError, "Unknown nameservers format `#{value}'")
           end
 
           values.map do |params|

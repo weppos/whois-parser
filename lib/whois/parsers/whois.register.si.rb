@@ -30,7 +30,7 @@ module Whois
           if statuses.include?("server_update_prohibited")
             :registered
           else
-            Whois.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
           end
         else
           :available

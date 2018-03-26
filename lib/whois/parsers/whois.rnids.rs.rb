@@ -48,7 +48,7 @@ module Whois
         when 'expired'
           :expired
         else
-          Whois.bug!(ParserError, "Unknown status `#{node("Domain status")}'.")
+          Whois::Parser.bug!(ParserError, "Unknown status `#{node("Domain status")}'.")
         end
       end
 

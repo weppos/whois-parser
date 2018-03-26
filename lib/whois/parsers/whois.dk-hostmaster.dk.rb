@@ -37,7 +37,7 @@ module Whois
             when "reserved"
               :reserved
             else
-              Whois.bug!(ParserError, "Unknown status `#{$1}'.")
+              Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
           end
         else
           :available

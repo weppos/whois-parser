@@ -25,7 +25,7 @@ module Whois
           super()
         else
           registrar ? :registered : :available
-          # Whois.bug!(ParserError, "Unable to parse status.")
+          # Whois::Parser.bug!(ParserError, "Unable to parse status.")
         end
       end
     end

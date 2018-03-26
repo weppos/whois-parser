@@ -49,9 +49,9 @@ module Whois
           when /invalid characters/
             :invalid
           else
-            Whois.bug!(ParserError, "Unknown status `#{value}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{value}'.")
           end
-        end || Whois.bug!(ParserError, "Unable to parse status.")
+        end || Whois::Parser.bug!(ParserError, "Unable to parse status.")
       end
 
       property_supported :available? do

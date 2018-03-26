@@ -43,7 +43,7 @@ module Whois
             v = self.class.status_mapping[s.downcase]
             break v if v
           end
-          status || Whois.bug!(ParserError, "Unknown status `#{string}'.")
+          status || Whois::Parser.bug!(ParserError, "Unknown status `#{string}'.")
         end || :available
       end
 

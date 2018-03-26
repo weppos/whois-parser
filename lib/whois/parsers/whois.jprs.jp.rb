@@ -36,7 +36,7 @@ module Whois
           when "suspended"
             :expired
           else
-            Whois.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
           end
         elsif content_for_scanner =~ /\[State\]\s+(.+)\n/
           case $1.split(" ").first.downcase
@@ -47,7 +47,7 @@ module Whois
           when "reserved"
             :reserved
           else
-            Whois.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
           end
        else
           :available

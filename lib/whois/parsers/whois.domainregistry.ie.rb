@@ -48,7 +48,7 @@ module Whois
             :available
           end
         else
-          Whois.bug!(ParserError, "Unknown status `#{node("status")}'.")
+          Whois::Parser.bug!(ParserError, "Unknown status `#{node("status")}'.")
         end
       end
 

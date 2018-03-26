@@ -34,7 +34,7 @@ module Whois
           # This is the case of second level names.
           when "not_open"   then :reserved
           else
-            Whois.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
           end
         else
           :available
@@ -115,7 +115,7 @@ module Whois
 
         id = $1
         content_for_scanner.scan(/nic-hdl:\s+#{id}\n((.+\n)+)\n/).any? ||
-            Whois.bug!(ParserError, "Unable to parse contact block for nic-hdl: #{id}")
+            Whois::Parser.bug!(ParserError, "Unable to parse contact block for nic-hdl: #{id}")
         values = build_hash($1.scan(/(.+?):\s+(.+?)\n/))
 
         if values["type"] == "ORGANIZATION"

@@ -43,10 +43,10 @@ module Whois
           when "not allowed"
             :invalid
           else
-            Whois.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
           end
         else
-          Whois.bug!(ParserError, "Unable to parse status.")
+          Whois::Parser.bug!(ParserError, "Unable to parse status.")
         end
       end
 

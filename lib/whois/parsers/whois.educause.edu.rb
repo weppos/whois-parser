@@ -27,7 +27,7 @@ module Whois
         if content_for_scanner =~ /\A((.*\n)+)\n--------------------------\n/
           $1
         else
-          Whois.bug!(ParserError, "Unable to parse disclaimer.")
+          Whois::Parser.bug!(ParserError, "Unable to parse disclaimer.")
         end
       end
 

@@ -58,7 +58,7 @@ module Whois
           when  "dom_held"
             :redemption
           else
-            Whois.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
           end
         else
           :available

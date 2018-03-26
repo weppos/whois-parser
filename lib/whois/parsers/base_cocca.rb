@@ -29,7 +29,7 @@ module Whois
 
       property_supported :domain do
         content_for_scanner =~ /Query:\s+(.+?)\n/
-        $1 || Whois.bug!(ParserError, "Unable to parse domain.")
+        $1 || Whois::Parser.bug!(ParserError, "Unable to parse domain.")
       end
 
       property_not_supported :domain_id
@@ -38,9 +38,9 @@ module Whois
       property_supported :status do
         if content_for_scanner =~ /Status:\s+(.+?)\n/
           status = $1.downcase
-          self.class.status_mapping[status] || Whois.bug!(ParserError, "Unknown status `#{status}'.")
+          self.class.status_mapping[status] || Whois::Parser.bug!(ParserError, "Unknown status `#{status}'.")
         else
-          Whois.bug!(ParserError, "Unable to parse status.")
+          Whois::Parser.bug!(ParserError, "Unable to parse status.")
         end
       end
 

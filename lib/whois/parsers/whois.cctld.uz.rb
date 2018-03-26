@@ -30,7 +30,7 @@ module Whois
           when "active" then :registered
           when "reserved" then :reserved
           else
-            Whois.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
           end
         else
           :available

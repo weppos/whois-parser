@@ -54,6 +54,21 @@ require_relative 'parser_extensions' if ENV["WHOISRB_4EXTENSIONS"] == "1"
 module Whois
   class Parser
 
+    # Appends `Please report issue to` to the message
+    # and raises a new +error+ with the final message.
+    #
+    # @param  [Exception] error
+    # @param  [String] message
+    # @return [void]
+    #
+    # @api private
+    # @private
+    def bug!(error, message)
+      raise error, message.dup          +
+          " Please report the issue at" +
+          " http://github.com/weppos/whois-parser/issues"
+    end
+
     METHODS = [
       :contacts,
       :changed?, :unchanged?,

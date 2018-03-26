@@ -54,7 +54,7 @@ module Whois
             # NEWSTATUS invalid
             :invalid
           else
-            Whois.bug!(ParserError, "Unknown status `#{node("Status")}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{node("Status")}'.")
           end
         end
       end

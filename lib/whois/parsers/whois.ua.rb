@@ -32,7 +32,7 @@ module Whois
             when "redemptionperiod", "pendingdelete"
               :redemption
             else
-              Whois.bug!(ParserError, "Unknown status `#{s}'.")
+              Whois::Parser.bug!(ParserError, "Unknown status `#{s}'.")
             end
           else
             :available
@@ -101,7 +101,7 @@ module Whois
             when /^ok-until/
               :registered
             else
-              Whois.bug!(ParserError, "Unknown status `#{s}'.")
+              Whois::Parser.bug!(ParserError, "Unknown status `#{s}'.")
             end
           else
             :available

@@ -49,7 +49,7 @@ module Whois
           when "ACTIVE"
             :registered
           else
-            Whois.bug!(ParserError, "Unknown status `#{node("field:status")}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{node("field:status")}'.")
           end
         end
       end
