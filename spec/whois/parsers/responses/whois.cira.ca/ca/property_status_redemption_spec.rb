@@ -36,4 +36,9 @@ describe Whois::Parsers::WhoisCiraCa, "property_status_redemption.expected" do
       expect(subject.registered?).to eq(true)
     end
   end
+  describe "#admin_contacts[0].email" do
+    it do
+      expect(subject.admin_contacts[0].email).to eq("mail@sanamato.com")
+    end
+  end
 end
