@@ -1,18 +1,18 @@
-[Querying whois.nic.club]
-[whois.nic.club]
 Domain Name: nic.club
-Domain ID: D313-CLUB
-WHOIS Server:
-Referral URL:
-Updated Date: 2014-10-09T18:04:41Z
+Registry Domain ID: D313-CLUB
+Registrar WHOIS Server:
+Registrar URL:
+Updated Date: 2017-07-14T08:48:42Z
 Creation Date: 2013-08-09T23:33:53Z
 Registry Expiry Date: 2024-08-08T23:59:59Z
-Sponsoring Registrar: DOTCLUB DOMAINS, LLC
-Sponsoring Registrar IANA ID: 9999
+Registrar: DOTCLUB DOMAINS, LLC
+Registrar IANA ID: 9999
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone:
+Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
 Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
 Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
-Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
-Registrant ID: C312-CLUB
+Registry Registrant ID: C312-CLUB
 Registrant Name: Domain Administrator
 Registrant Organization: .CLUB Domains, LLC
 Registrant Street: 100 S.E. 3rd Ave.,
@@ -27,7 +27,7 @@ Registrant Phone Ext:
 Registrant Fax:
 Registrant Fax Ext:
 Registrant Email: domainadmin@nic.club
-Admin ID: C312-CLUB
+Registry Admin ID: C312-CLUB
 Admin Name: Domain Administrator
 Admin Organization: .CLUB Domains, LLC
 Admin Street: 100 S.E. 3rd Ave.,
@@ -42,7 +42,7 @@ Admin Phone Ext:
 Admin Fax:
 Admin Fax Ext:
 Admin Email: domainadmin@nic.club
-Tech ID: C312-CLUB
+Registry Tech ID: C312-CLUB
 Tech Name: Domain Administrator
 Tech Organization: .CLUB Domains, LLC
 Tech Street: 100 S.E. 3rd Ave.,
@@ -64,7 +64,8 @@ Name Server: ns2.dns.nic.club
 Name Server: ns6.dns.nic.club
 Name Server: ns5.dns.nic.club
 DNSSEC: unsigned
->>> Last update of WHOIS database: 2017-07-05T10:46:25Z <<<
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2018-04-02T11:32:35Z <<<
 
 For more information on Whois status codes, please visit https://icann.org/epp
 

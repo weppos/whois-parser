@@ -55,7 +55,7 @@ describe Whois::Parsers::WhoisNicClub, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2014-10-09 18:04:41 UTC"))
+      expect(subject.updated_on).to eq(Time.parse("2017-07-14 08:48:42 UTC"))
     end
   end
   describe "#expires_on" do
@@ -73,14 +73,14 @@ describe Whois::Parsers::WhoisNicClub, "status_registered.expected" do
       expect(subject.registrant_contacts[0].id).to eq("C312-CLUB")
       expect(subject.registrant_contacts[0].name).to eq("Domain Administrator")
       expect(subject.registrant_contacts[0].organization).to eq(".CLUB Domains, LLC")
-      expect(subject.registrant_contacts[0].address).to eq("100 S.E. 3rd Ave.,\nSuite 1310")
+      expect(subject.registrant_contacts[0].address).to eq("100 S.E. 3rd Ave.,, Suite 1310")
       expect(subject.registrant_contacts[0].city).to eq("Fort Lauderdale")
       expect(subject.registrant_contacts[0].zip).to eq("33394-0054")
       expect(subject.registrant_contacts[0].state).to eq("FL")
       expect(subject.registrant_contacts[0].country).to eq(nil)
       expect(subject.registrant_contacts[0].country_code).to eq("US")
       expect(subject.registrant_contacts[0].phone).to eq("+1.8778330000")
-      expect(subject.registrant_contacts[0].fax).to eq(nil)
+      expect(subject.registrant_contacts[0].fax).to eq("")
       expect(subject.registrant_contacts[0].email).to eq("domainadmin@nic.club")
       expect(subject.registrant_contacts[0].updated_on).to eq(nil)
     end
@@ -94,14 +94,14 @@ describe Whois::Parsers::WhoisNicClub, "status_registered.expected" do
       expect(subject.admin_contacts[0].id).to eq("C312-CLUB")
       expect(subject.admin_contacts[0].name).to eq("Domain Administrator")
       expect(subject.admin_contacts[0].organization).to eq(".CLUB Domains, LLC")
-      expect(subject.admin_contacts[0].address).to eq("100 S.E. 3rd Ave.,\nSuite 1310")
+      expect(subject.admin_contacts[0].address).to eq("100 S.E. 3rd Ave.,, Suite 1310")
       expect(subject.admin_contacts[0].city).to eq("Fort Lauderdale")
       expect(subject.admin_contacts[0].zip).to eq("33394-0054")
       expect(subject.admin_contacts[0].state).to eq("FL")
       expect(subject.admin_contacts[0].country).to eq(nil)
       expect(subject.admin_contacts[0].country_code).to eq("US")
       expect(subject.admin_contacts[0].phone).to eq("+1.8778330000")
-      expect(subject.admin_contacts[0].fax).to eq(nil)
+      expect(subject.admin_contacts[0].fax).to eq("")
       expect(subject.admin_contacts[0].email).to eq("domainadmin@nic.club")
       expect(subject.admin_contacts[0].updated_on).to eq(nil)
     end
@@ -115,14 +115,14 @@ describe Whois::Parsers::WhoisNicClub, "status_registered.expected" do
       expect(subject.technical_contacts[0].id).to eq("C312-CLUB")
       expect(subject.technical_contacts[0].name).to eq("Domain Administrator")
       expect(subject.technical_contacts[0].organization).to eq(".CLUB Domains, LLC")
-      expect(subject.technical_contacts[0].address).to eq("100 S.E. 3rd Ave.,\nSuite 1310")
+      expect(subject.technical_contacts[0].address).to eq("100 S.E. 3rd Ave.,, Suite 1310")
       expect(subject.technical_contacts[0].city).to eq("Fort Lauderdale")
       expect(subject.technical_contacts[0].zip).to eq("33394-0054")
       expect(subject.technical_contacts[0].state).to eq("FL")
       expect(subject.technical_contacts[0].country).to eq(nil)
       expect(subject.technical_contacts[0].country_code).to eq("US")
       expect(subject.technical_contacts[0].phone).to eq("+1.8778330000")
-      expect(subject.technical_contacts[0].fax).to eq(nil)
+      expect(subject.technical_contacts[0].fax).to eq("")
       expect(subject.technical_contacts[0].email).to eq("domainadmin@nic.club")
       expect(subject.technical_contacts[0].updated_on).to eq(nil)
     end

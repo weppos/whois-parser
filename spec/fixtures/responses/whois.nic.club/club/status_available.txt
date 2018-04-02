@@ -1,7 +1,5 @@
-[Querying whois.nic.club]
-[whois.nic.club]
 No Data Found
->>> Last update of WHOIS database: 2017-07-05T10:46:16Z <<<
+>>> Last update of WHOIS database: 2018-04-02T12:02:06Z <<<
 
 For more information on Whois status codes, please visit https://icann.org/epp
 
