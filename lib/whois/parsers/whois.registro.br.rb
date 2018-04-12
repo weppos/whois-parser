@@ -32,6 +32,10 @@ module Whois
         end
       end
 
+      property_supported :domain do
+        content_for_scanner.match(/^domain: \s*(.+)\n/)[1]
+      end
+
       property_supported :available? do
         !!(content_for_scanner =~ /No match for/)
       end
