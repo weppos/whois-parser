@@ -2,6 +2,10 @@
 
 This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
+#### master
+
+- CHANGED: Renamed WhoisDomainKg to WhoisKg (GH-48)
+
 
 #### Release 1.1.0
 

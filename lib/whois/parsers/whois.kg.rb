@@ -13,18 +13,15 @@ require_relative 'base'
 module Whois
   class Parsers
 
+    # Parser for the whois.kg server.
     #
-    # = whois.domain.kg
+    # @note This parser is just a stub and provides only a few basic methods
+    #   to check for domain availability and get domain status.
+    #   Please consider to contribute implementing missing methods.
     #
-    # Parser for the whois.domain.kg server.
-    #
-    # NOTE: This parser is just a stub and provides only a few basic methods
-    # to check for domain availability and get domain status.
-    # Please consider to contribute implementing missing methods.
-    # See WhoisNicIt parser for an explanation of all available methods
-    # and examples.
-    #
-    class WhoisDomainKg < Base
+    # @see Whois::Parsers::Example
+    #   The Example parser for the list of all available methods.
+    class WhoisKg < Base
 
       property_supported :status do
         if available?
