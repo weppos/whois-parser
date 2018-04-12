@@ -7,6 +7,9 @@
 #registered?
   %s == false
 
+#domain
+  %s == "u34jedzcq.br"
+
 
 #created_on
   %s == nil

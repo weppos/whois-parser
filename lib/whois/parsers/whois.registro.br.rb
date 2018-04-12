@@ -33,7 +33,11 @@ module Whois
       end
 
       property_supported :domain do
-        content_for_scanner.match(/^domain: \s*(.+)\n/)[1]
+        if available?
+          content_for_scanner.match(/^% No match for \s*(.+)\n/)[1]
+        elsif registered?
+          content_for_scanner.match(/^domain: \s*(.+)\n/)[1]
+        end
       end
 
       property_supported :available? do
