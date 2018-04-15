@@ -6,7 +6,7 @@
 # Copyright (c) 2009-2015 Simone Carletti <weppos@weppos.net>
 #++
 
-require_relative 'base'
+require_relative 'base_icann_compliant'
 
 module Whois
   class Parsers
