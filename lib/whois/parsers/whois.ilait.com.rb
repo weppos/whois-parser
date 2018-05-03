@@ -22,24 +22,8 @@ module Whois
         !!(content_for_scanner =~ /NOT FOUND/)
       end
 
-      property_supported :domain do
-        node("Domain Name")
-      end
-
-      property_supported :domain_id do
-        node("Registry Domain ID")
-      end
-
       property_supported :created_on do
         node("Creation  Date") { |value| parse_time(value) }
-      end
-
-      property_supported :updated_on do
-        node("Updated Date") { |value| parse_time(value) }
-      end
-
-      property_supported :expires_on do
-        node("Registrar Registration Expiration Date") { |value| parse_time(value) }
       end
 
       property_supported :registrar do
@@ -62,14 +46,6 @@ module Whois
 
       property_supported :technical_contacts do
         build_contact("Tech", Parser::Contact::TYPE_TECHNICAL)
-      end
-
-      # Checks whether this response contains a message
-      # that can be reconducted to a "WHOIS Server Unavailable" status.
-      #
-      # @return [Boolean]
-      def response_unavailable?
-        !!node("response:unavailable")
       end
 
       private
