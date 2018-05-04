@@ -34,7 +34,7 @@ module Whois
 
       property_supported :nameservers do
         Array.wrap(node("Name Server")).reject(&:empty?).map do |line|
-          server = line.match(/^(?<name>[^ ]+)(?: (?<ipv4>\d{1,3}(?:\.\d{1,3})+))?(?: (?<ipv6>[\da-fA-F:]+))?(?: (?<ipv4>\d{1,3}(?:\.\d{1,3})+))?$/).named_captures
+          server = line.match(/^(?<name>[^ ]+)(?: (?<ipv4>\d{1,3}(?:\.\d{1,3})+))?(?: (?<ipv6>[\da-fA-F:]+))?(?: (?<ipv4>\d{1,3}(?:\.\d{1,3})+))?$/)
           Parser::Nameserver.new(name: server["name"].strip.downcase, ipv4: server["ipv4"], ipv6: server["ipv6"])
         end
       end
