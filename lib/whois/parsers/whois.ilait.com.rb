@@ -15,26 +15,8 @@ module Whois
 
     class WhoisIlaitCom < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^Domain not found\.\n/
+          pattern_available: /^NOT FOUND\n/
       }
-
-      property_supported :available? do
-        !!(content_for_scanner =~ /NOT FOUND/)
-      end
-
-      property_supported :created_on do
-        node("Creation  Date") { |value| parse_time(value) }
-      end
-
-      property_supported :registrar do
-        return unless node("Registrar")
-        Parser::Registrar.new(
-          id:           node("Registrar IANA  ID"),
-          name:         node("Registrar"),
-          organization: node("Registrar"),
-          url:          node("Registrar URL")
-        )
-      end
 
       property_supported :registrant_contacts do
         build_contact("Registrant", Parser::Contact::TYPE_REGISTRANT)
