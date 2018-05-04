@@ -15,7 +15,7 @@ module Whois
 
     class WhoisIlaitCom < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^NOT FOUND\n/
+        pattern_available: /^NOT FOUND\n/
       }
 
       property_supported :registrant_contacts do
