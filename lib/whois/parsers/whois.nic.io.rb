@@ -36,6 +36,26 @@ module Whois
         end
       end
 
+      property_supported :created_on do
+        if content_for_scanner =~ /Creation Date:\s+(.+)\n/
+          y, m, d = $1.split("-")
+          parse_time("#{y}-#{m}-#{d}")
+        end
+      end
+
+      property_supported :updated_on do
+        if content_for_scanner =~ /Updated Date:\s+(.+)\n/
+          y, m, d = $1.split("-")
+          parse_time("#{y}-#{m}-#{d}")
+        end
+      end
+
+      property_supported :expires_on do
+        if content_for_scanner =~ /Registry Expiry Date:\s+(.+)\n/
+          y, m, d = $1.split("-")
+          parse_time("#{y}-#{m}-#{d}")
+        end
+      end
 
       # NEWPROPERTY
       def reserved?

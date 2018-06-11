@@ -1,7 +1,6 @@
 
 Domain : redis.io
 Status : Live
-Expiry : 2014-05-28
 
 NS 1   : ns1.iwantmyname.net
 NS 2   : ns2.iwantmyname.net
@@ -15,3 +14,6 @@ Owner  : Campobello di Licata (AG
 Owner  : .
 Owner  : IT
 
+Creation Date: 2010-05-28
+Updated Date: 2018-04-13
+Registry Expiry Date: 2019-05-28
