@@ -9,15 +9,14 @@
 
 
 #created_on
-  %s %CLASS{time}
-  %s %TIME{2000-07-17}
-  
-#updated_on	
+  %s %ERROR{AttributeNotSupported}
+
+#updated_on
   %s %ERROR{AttributeNotSupported}
 
 #expires_on
-  %s %CLASS{time}
-  %s %TIME{2018-09-17}
+  %s %ERROR{AttributeNotSupported}
+
 
 #nameservers
   %s %CLASS{array}

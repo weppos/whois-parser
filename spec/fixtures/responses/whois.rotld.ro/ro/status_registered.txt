@@ -1,3 +1,4 @@
+
 % Whois Server Version 3.0 - whois.rotld.ro:43
 
 % Rights restricted by copyright.
@@ -14,11 +15,8 @@
 
   Domain Name: google.ro
   Registered On: 2000-07-17
-  Expires On: 2018-09-17
   Registrar: MarkMonitor Inc.
-  Referral URL: www.markmonitor.com
-
-  DNSSEC: Inactive
+  Referral URL: http://www.markmonitor.com
 
   Nameserver: ns1.google.com
   Nameserver: ns2.google.com
@@ -26,3 +24,5 @@
   Nameserver: ns4.google.com
 
   Domain Status: UpdateProhibited
+
+

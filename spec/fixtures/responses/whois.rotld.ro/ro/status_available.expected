@@ -9,13 +9,14 @@
 
 
 #created_on
-  %s == nil
-  
-#updated_on	
+  %s %ERROR{AttributeNotSupported}
+
+#updated_on
   %s %ERROR{AttributeNotSupported}
 
 #expires_on
-  %s == nil
+  %s %ERROR{AttributeNotSupported}
+
 
 #nameservers
   %s %CLASS{array}

@@ -59,6 +59,7 @@ module Whois
 
       property_not_supported :updated_on
 
+
       property_supported :nameservers do
         content_for_scanner.scan(/Nameserver:\s+(.+)\n/).flatten.map do |name|
           Parser::Nameserver.new(name: name)
