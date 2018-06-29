@@ -52,10 +52,12 @@ module Whois
       end
 
       property_supported :created_on do
-        if content_for_scanner =~ /created:\s+(.+?)\n/
+        if content_for_scanner =~ /Registered On:\s+(.+?)\n/
           parse_time($1)
         end
       end
+
+      property_not_supported :updated_on
 
       property_supported :nameservers do
         content_for_scanner.scan(/Nameserver:\s+(.+)\n/).flatten.map do |name|
