@@ -8,7 +8,7 @@ module Whois
 
       tokenizer :scan_disclaimer do
         if @input.match?(/^Access to/)
-          @ast["field:disclaimer"] = _scan_lines_to_array(/^(.+)\n/).join(" ")
+          @ast["field:disclaimer"] = _scan_lines_to_array(/^(.+)(\n+)/).join(" ")
         end
       end
     end
