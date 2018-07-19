@@ -2,8 +2,10 @@
 
 This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
+
 #### master
 
+- CHANGED: Updated .ORG parser to the latest response (GH-98, GH-97). [Thanks @talarini]
 - CHANGED: Renamed WhoisDomainKg to WhoisKg (GH-48)
 
 
