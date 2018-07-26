@@ -1,0 +1,66 @@
+Domain Name: BLUEBUCKWOODWORKING.COM
+Domain ID: 2027638587_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.domain.com
+Registrar URL: www.domain.com
+Updated Date: 2016-05-13T16:25:54Z
+Creation Date: 2016-05-12T09:25:07Z
+Registrar Registration Expiration Date: 2017-05-12T09:25:07Z
+Sponsoring Registrar: Domain.com, LLC
+Sponsoring Registrar IANA ID: 886
+Registrar Abuse Contact Email: compliance@domain-inc.net
+Registrar Abuse Contact Phone: +1.6027165396
+Reseller: FatCow
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+Registry Registrant ID: 
+Registrant Name: Andreea Luisa
+Registrant Organization: bluebuckwoodworking
+Registrant Street: Aleea Luptatorilor, nr 32
+Registrant City: Bucuresti
+Registrant State/Province: NA
+Registrant Postal Code: 021447
+Registrant Country: RO
+Registrant Phone: +40.0744222769
+Registrant Phone Ext: 
+Registrant Fax: 
+Registrant Fax Ext: 
+Registrant Email: bluebuckwood@mail.com
+Registry Admin ID: 
+Admin Name: Andreea Luisa
+Admin Organization: bluebuckwoodworking
+Admin Street: Aleea Luptatorilor, nr 32
+Admin City: Bucuresti
+Admin State/Province: NA
+Admin Postal Code: 021447
+Admin Country: RO
+Admin Phone: +40.0744222769
+Admin Phone Ext: 
+Admin Fax: 
+Admin Fax Ext: 
+Admin Email: bluebuckwood@mail.com
+Registry Tech ID: 
+Tech Name: Andreea Luisa
+Tech Organization: bluebuckwoodworking
+Tech Street: Aleea Luptatorilor, nr 32
+Tech City: Bucuresti
+Tech State/Province: NA
+Tech Postal Code: 021447
+Tech Country: RO
+Tech Phone: +40.0744222769
+Tech Phone Ext: 
+Tech Fax: 
+Tech Fax Ext: 
+Tech Email: bluebuckwood@mail.com
+Name Server: NS1.HOST-CARE.COM
+Name Server: NS2.HOST-CARE.COM
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2016-05-13T16:25:54Z <<<
+
+"For more information on Whois status codes, please visit https://icann.org/epp"
+
+Registration Service Provider:
+    FatCow, support@fatcow.com
+    888-278-9780
+
+
