@@ -44,30 +44,29 @@ describe Whois::Parsers::WhoisIsocOrgIl, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2014-01-16"))
+      expect(subject.updated_on).to eq(Time.parse("2016-06-26"))
     end
   end
   describe "#expires_on" do
     it do
-      expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.expires_on).to be_a(Time)
+      expect(subject.expires_on).to eq(Time.parse("2019-01-11"))
     end
   end
   describe "#nameservers" do
     it do
       expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(6)
+      expect(subject.nameservers.size).to eq(5)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns.isoc.org.il")
+      expect(subject.nameservers[0].name).to eq("ns1.isoc.org.il")
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("grappa.isoc.org.il")
+      expect(subject.nameservers[1].name).to eq("sns-pb.isc.org")
       expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
       expect(subject.nameservers[2].name).to eq("aristo.tau.ac.il")
       expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
       expect(subject.nameservers[3].name).to eq("relay.huji.ac.il")
       expect(subject.nameservers[4]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[4].name).to eq("drns.isoc.org.il")
-      expect(subject.nameservers[5]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[5].name).to eq("sns-pb.isc.org")
+      expect(subject.nameservers[4].name).to eq("ns3.isoc.org.il")
     end
   end
 end

@@ -60,7 +60,16 @@ module Whois
         end
       end
 
-      property_not_supported :expires_on
+      property_supported :expires_on do
+        if content_for_scanner =~ /validity:\s+(.+)\n/
+          case $1.downcase
+          when "N/A"
+            nil
+          else
+            parse_time($1)
+          end
+        end
+      end
 
 
       property_supported :nameservers do

@@ -21,21 +21,20 @@ domain:       isoc.org.il
 descr:        Israel Internet Association (ISOC-IL)
 descr:        6 Bareket st., POB 7210
 descr:        Petach Tikva
-descr:        49517
+descr:        4951774
 descr:        Israel
 phone:        +972 3 9700900
 fax-no:       +972 3 9700901
-e-mail:       info-domains AT isoc.org.il
-admin-c:      II-DB11403-IL
-tech-c:       II-DB11403-IL
-zone-c:       II-DB11403-IL
-nserver:      ns.isoc.org.il 
-nserver:      grappa.isoc.org.il 
+e-mail:       domain-mgr AT isoc.org.il
+admin-c:      II-RM13088-IL
+tech-c:       II-RM13088-IL
+zone-c:       II-RM13088-IL
+nserver:      ns1.isoc.org.il 
+nserver:      sns-pb.isc.org 
 nserver:      aristo.tau.ac.il 
 nserver:      relay.huji.ac.il 
-nserver:      drns.isoc.org.il 
-nserver:      sns-pb.isc.org 
-validity:     N/A
+nserver:      ns3.isoc.org.il 
+validity:     11-01-2019
 status:       Transfer Locked
 changed:      registrar AT ns.il 19960111 (Assigned)
 changed:      registrar AT ns.il 19960623 (Changed)
@@ -54,18 +53,21 @@ changed:      domain-registrar AT isoc.org.il 20100511 (Changed)
 changed:      domain-registrar AT isoc.org.il 20101007 (Changed)
 changed:      domain-registrar AT isoc.org.il 20120506 (Changed)
 changed:      domain-registrar AT isoc.org.il 20140116 (Changed)
+changed:      domain-registrar AT isoc.org.il 20140827 (Changed)
+changed:      domain-registrar AT isoc.org.il 20150903 (Changed)
+changed:      domain-registrar AT isoc.org.il 20160626 (Changed)
 
-person:       Dina Beer
+person:       Registry Manager
 address:      Israel Internet Association (ISOC-IL)
 address:      6 Bareket st., POB 7210
 address:      Petach Tikva
-address:      49517
+address:      4951774
 address:      Israel
 phone:        +972 3 9700900
 fax-no:       +972 3 9700901
-e-mail:       dina.b AT isoc.org.il
-nic-hdl:      II-DB11403-IL
-changed:      domain-registrar AT isoc.org.il 20140116
+e-mail:       domain-mgr AT isoc.org.il
+nic-hdl:      II-RM13088-IL
+changed:      domain-registrar AT isoc.org.il 20150903
 
 registrar name: Israel Internet Association ISOC-IL
 registrar info: www.isoc.org.il
