@@ -302,7 +302,7 @@ at:
     status_available: u34jedzcq.at
     status_registered: google.at
 au:
-    _server: whois.audns.net.au
+    _server: whois.auda.org.au
     status_available: u34jedzcq.com.au
     status_registered: google.com.au
     _status_registered_skipdiff:
