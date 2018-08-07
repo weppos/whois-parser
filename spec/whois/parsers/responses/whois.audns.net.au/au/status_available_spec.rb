@@ -23,7 +23,7 @@ describe Whois::Parsers::WhoisAudnsNetAu, "status_available.expected" do
 
   describe "#disclaimer" do
     it do
-      expect { subject.disclaimer }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.disclaimer).to eq("Afilias Australia Pty Ltd (Afilias), for itself and on behalf of .au Domain Administration Limited (auDA), makes the WHOIS registration data directory service (WHOIS Service) available solely for the purposes of:\n(a) querying the availability of a domain name licence;\n(b) identifying the holder of a domain name licence; and/or\n(c) contacting the holder of a domain name licence in relation to that domain name and its use.\nThe WHOIS Service must not be used for any other purpose (even if that purpose is lawful), including:\n(a) aggregating, collecting or compiling information from the WHOIS database, whether for personal or commercial purposes;\n(b) enabling the sending of unsolicited electronic communications; and / or\n(c) enabling high volume, automated, electronic processes that send queries or data to the systems of Afilias, any registrar, any domain name licence holder, or auDA.\nThe WHOIS Service is provided for information purposes only. By using the WHOIS Service, you agree to be bound by these terms and conditions. The WHOIS Service is operated in accordance with the auDA WHOIS Policy (available at https://www.auda.org.au/policies/index-of-published-policies/2014/2014-07/ ).")
     end
   end
   describe "#domain" do
@@ -33,7 +33,7 @@ describe Whois::Parsers::WhoisAudnsNetAu, "status_available.expected" do
   end
   describe "#domain_id" do
     it do
-      expect { subject.domain_id }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.domain_id).to eq(nil)
     end
   end
   describe "#status" do
