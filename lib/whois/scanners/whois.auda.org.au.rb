@@ -3,8 +3,8 @@ require_relative 'base'
 module Whois
   module Scanners
 
-    # Scanner for the whois.audns.net.au record.
-    class WhoisAudnsNetAu < Base
+    # Scanner for the whois.auda.org.au record.
+    class WhoisAudaOrgAu < Base
 
       self.tokenizers += [
           :skip_empty_line,

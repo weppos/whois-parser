@@ -8,21 +8,21 @@
 
 
 require_relative 'base'
-require 'whois/scanners/whois.audns.net.au.rb'
+require 'whois/scanners/whois.auda.org.au.rb'
 
 
 module Whois
   class Parsers
 
-    # Parser for the whois.audns.net.au server.
+    # Parser for the whois.auda.org.au server.
     #
     # @see Whois::Parsers::Example
     #   The Example parser for the list of all available methods.
     #
-    class WhoisAudnsNetAu < Base
+    class WhoisAudaOrgAu < Base
       include Scanners::Scannable
 
-      self.scanner = Scanners::WhoisAudnsNetAu
+      self.scanner = Scanners::WhoisAudaOrgAu
 
 
       property_not_supported :disclaimer
