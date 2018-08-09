@@ -28,7 +28,9 @@ module Whois
       end
 
       property_supported :status do
-        if content_for_scanner.match(/NOT FOUND/)
+        if reserved?
+          :reserved
+        elsif available?
           :available
         else
           :registered
@@ -36,11 +38,11 @@ module Whois
       end
 
       property_supported :available? do
-        status == :available
+        !!content_for_scanner.match(/NOT FOUND/)
       end
 
       property_supported :registered? do
-        status == :registered
+        status == :registered || status == :reserved
       end
 
       property_supported :expires_on do
@@ -55,6 +57,9 @@ module Whois
         end
       end
 
+      def reserved?
+        !!content_for_scanner.match(/^Reserved by Registry\n/)
+      end
     end
   end
 end

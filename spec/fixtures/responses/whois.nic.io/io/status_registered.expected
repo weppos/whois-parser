@@ -49,3 +49,6 @@
   %s[2].name == "NS4BHT.NAME.COM"
   %s[3] %CLASS{nameserver}
   %s[3].name == "NS3CKL.NAME.COM"
+
+#reserved?
+  %s == false
