@@ -1,17 +1,24 @@
-
-Domain : redis.io
-Status : Live
-Expiry : 2014-05-28
-
-NS 1   : ns1.iwantmyname.net
-NS 2   : ns2.iwantmyname.net
-NS 3   : ns3.iwantmyname.net
-NS 4   : ns4.iwantmyname.net
-
-Owner  : Salvatore Sanfilippo
-Owner  : Salvatore Sanfilippo
-Owner  : Via F.Alaimo, 2
-Owner  : Campobello di Licata (AG
-Owner  : .
-Owner  : IT
-
+Domain Name: REDIS.IO
+Registry Domain ID: D503300000040423931-LRMS
+Registrar WHOIS Server: whois.name.com
+Registrar URL: www.name.com
+Updated Date: 2018-04-13T20:45:25Z
+Creation Date: 2010-05-28T22:09:44Z
+Registry Expiry Date: 2019-05-28T22:09:44Z
+Registrar Registration Expiration Date:
+Registrar: Name.com LLC
+Registrar IANA ID: 625
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone:
+Reseller:
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Organization: Domain Protection Services, Inc.
+Registrant State/Province: CO
+Registrant Country: US
+Name Server: NS2KQZ.NAME.COM
+Name Server: NS1DJS.NAME.COM
+Name Server: NS4BHT.NAME.COM
+Name Server: NS3CKL.NAME.COM
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form is https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2018-08-08T22:49:18Z <<<
