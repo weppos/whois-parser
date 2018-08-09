@@ -28,7 +28,7 @@ describe Whois::Parsers::WhoisNicIo, "status_available.expected" do
   end
   describe "#domain" do
     it do
-      expect(subject.domain).to eq("u34jedzcq.io")
+      expect(subject.domain).to eq(nil)
     end
   end
   describe "#domain_id" do
@@ -73,8 +73,7 @@ describe Whois::Parsers::WhoisNicIo, "status_available.expected" do
   end
   describe "#registrant_contacts" do
     it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts).to eq([])
+      expect { subject.registrant_contacts }.to raise_error(Whois::AttributeNotSupported)
     end
   end
   describe "#admin_contacts" do
@@ -91,11 +90,6 @@ describe Whois::Parsers::WhoisNicIo, "status_available.expected" do
     it do
       expect(subject.nameservers).to be_a(Array)
       expect(subject.nameservers).to eq([])
-    end
-  end
-  describe "#reserved?" do
-    it do
-      expect(subject.reserved?).to eq(false)
     end
   end
 end

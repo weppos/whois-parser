@@ -64,7 +64,7 @@ describe Whois::Parsers::WhoisNicIo, "status_registered.expected" do
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-05-28"))
+      expect(subject.expires_on).to eq(Time.parse("2019-05-28 22:09:44 UTC"))
     end
   end
   describe "#registrar" do
@@ -74,24 +74,7 @@ describe Whois::Parsers::WhoisNicIo, "status_registered.expected" do
   end
   describe "#registrant_contacts" do
     it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq(nil)
-      expect(subject.registrant_contacts[0].name).to eq("Salvatore Sanfilippo")
-      expect(subject.registrant_contacts[0].organization).to eq("Salvatore Sanfilippo")
-      expect(subject.registrant_contacts[0].address).to eq("Via F.Alaimo, 2")
-      expect(subject.registrant_contacts[0].city).to eq("Campobello di Licata (AG")
-      expect(subject.registrant_contacts[0].zip).to eq(nil)
-      expect(subject.registrant_contacts[0].state).to eq(".")
-      expect(subject.registrant_contacts[0].country).to eq("IT")
-      expect(subject.registrant_contacts[0].country_code).to eq(nil)
-      expect(subject.registrant_contacts[0].phone).to eq(nil)
-      expect(subject.registrant_contacts[0].fax).to eq(nil)
-      expect(subject.registrant_contacts[0].email).to eq(nil)
-      expect(subject.registrant_contacts[0].created_on).to eq(nil)
-      expect(subject.registrant_contacts[0].updated_on).to eq(nil)
+      expect { subject.registrant_contacts }.to raise_error(Whois::AttributeNotSupported)
     end
   end
   describe "#admin_contacts" do
@@ -109,18 +92,13 @@ describe Whois::Parsers::WhoisNicIo, "status_registered.expected" do
       expect(subject.nameservers).to be_a(Array)
       expect(subject.nameservers.size).to eq(4)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns1.iwantmyname.net")
+      expect(subject.nameservers[0].name).to eq("NS2KQZ.NAME.COM")
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns2.iwantmyname.net")
+      expect(subject.nameservers[1].name).to eq("NS1DJS.NAME.COM")
       expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("ns3.iwantmyname.net")
+      expect(subject.nameservers[2].name).to eq("NS4BHT.NAME.COM")
       expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[3].name).to eq("ns4.iwantmyname.net")
-    end
-  end
-  describe "#reserved?" do
-    it do
-      expect(subject.reserved?).to eq(false)
+      expect(subject.nameservers[3].name).to eq("NS3CKL.NAME.COM")
     end
   end
 end

@@ -19,6 +19,8 @@ module Whois
     #   The Example parser for the list of all available methods.
     #
     class WhoisNicIo < BaseIcb
+      property_not_supported :registrant_contacts
+
       property_supported :domain do
         if content_for_scanner =~ /Domain Name:\s+(.*)\n/
           $1.downcase
