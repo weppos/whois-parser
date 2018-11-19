@@ -46,7 +46,6 @@ git commit -am 'Add some feature'
 
 Push to your fork and [submit a pull request](https://github.com/weppos/whois-parser/compare/).
 
-
 ## Tests
 
 To increase the chance that your pull request is accepted please **make sure to write tests**. Changes without corresponding tests will likely not be included as they will produce fragile code that can easily break whenever the registry changes the response format.
