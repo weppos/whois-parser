@@ -13,8 +13,12 @@ module Whois
           :scan_pair,
           :scan_contact,
           :skip_db_time,
+          :skip_comment_line,
       ]
 
+      tokenizer :skip_comment_line do
+        @input.skip(/^%.*\n/)
+      end
 
       tokenizer :scan_response_throttled do
         if @input.match?(/^% Error: 55000000002/)
