@@ -17,7 +17,7 @@ module Whois
     class WhoisAfiliasNet < BaseAfilias2
 
       self.scanner = Scanners::BaseAfilias, {
-          pattern_disclaimer: /^Access to/,
+          pattern_disclaimer: /^Access to|^The Registrar of/,
           pattern_reserved: /^(Name is reserved by afilias\n)|(Reserved by Registry\n)/,
       }
 
