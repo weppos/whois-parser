@@ -23,7 +23,7 @@ describe Whois::Parsers::WhoisNicXyz, "status_available.expected" do
 
   describe "#disclaimer" do
     it do
-      expect(subject.disclaimer).to eq(nil)
+      expect(subject.disclaimer).to eq("Access to the whois service is rate limited. For more information, please see https://registrar-console.centralnic.com/pub/whois_guidance.")
     end
   end
   describe "#domain" do
