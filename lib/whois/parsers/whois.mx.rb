@@ -14,9 +14,9 @@ module Whois
   class Parsers
 
     #
-    # = whois.nic.mx parser
+    # = whois.mx parser
     #
-    # Parser for the whois.nic.mx server.
+    # Parser for the whois.mx server.
     #
     # NOTE: This parser is just a stub and provides only a few basic methods
     # to check for domain availability and get domain status.
@@ -24,7 +24,7 @@ module Whois
     # See WhoisNicIt parser for an explanation of all available methods
     # and examples.
     #
-    class WhoisNicMx < Base
+    class WhoisMx < Base
 
       property_supported :status do
         if available?
