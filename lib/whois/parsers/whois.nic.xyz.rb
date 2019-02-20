@@ -19,6 +19,11 @@ module Whois
     #   The Example parser for the list of all available methods.
     #
     class WhoisNicXyz < WhoisCentralnicCom
+
+      property_supported :available? do
+        !!(content_for_scanner =~ /DOMAIN NOT FOUND/)
+      end
+
     end
 
   end

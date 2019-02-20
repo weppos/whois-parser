@@ -1,5 +1,5 @@
 #disclaimer
-  %s == nil
+  %s == "Access to the whois service is rate limited. For more information, please see https://registrar-console.centralnic.com/pub/whois_guidance."
 
 
 #domain
