@@ -1,5 +1,5 @@
 #disclaimer
-  %s == nil
+  %s == "The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name."
 
 
 #domain

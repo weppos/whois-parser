@@ -23,7 +23,7 @@ describe Whois::Parsers::WhoisAfiliasNet, "status_available.expected" do
 
   describe "#disclaimer" do
     it do
-      expect(subject.disclaimer).to eq(nil)
+      expect(subject.disclaimer).to eq("The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.")
     end
   end
   describe "#domain" do
