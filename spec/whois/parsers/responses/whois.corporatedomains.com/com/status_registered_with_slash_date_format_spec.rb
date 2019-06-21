@@ -55,13 +55,13 @@ describe Whois::Parsers::WhoisCorporatedomainsCom, "status_registered_with_slash
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2018-10-11 05:49:21 +0000"))
+      expect(subject.updated_on).to eq(Time.parse("2018-10-11 05:49:21 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2019-10-15 04:00:00 +0000"))
+      expect(subject.expires_on).to eq(Time.parse("2019-10-15 04:00:00 UTC"))
     end
   end
   describe "#registrar" do
