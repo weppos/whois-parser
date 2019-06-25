@@ -82,15 +82,15 @@ module Whois
 
 
       property_supported :registrant_contacts do
-        build_contact('Registrant', Parser::Contact::TYPE_REGISTRANT)
+        build_contact("Registrant", Parser::Contact::TYPE_REGISTRANT)
       end
 
       property_supported :admin_contacts do
-        build_contact('Admin', Parser::Contact::TYPE_ADMINISTRATIVE)
+        build_contact("Admin", Parser::Contact::TYPE_ADMINISTRATIVE)
       end
 
       property_supported :technical_contacts do
-        build_contact('Tech', Parser::Contact::TYPE_TECHNICAL)
+        build_contact("Tech", Parser::Contact::TYPE_TECHNICAL)
       end
 
 

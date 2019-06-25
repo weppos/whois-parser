@@ -33,7 +33,7 @@ describe Whois::Parsers::WhoisNicSh, "status_registered.expected" do
   end
   describe "#domain_id" do
     it do
-      expect { subject.domain_id }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.domain_id).to eq("D503300000040555710-LRMS")
     end
   end
   describe "#status" do
@@ -53,23 +53,29 @@ describe Whois::Parsers::WhoisNicSh, "status_registered.expected" do
   end
   describe "#created_on" do
     it do
-      expect { subject.created_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.created_on).to be_a(Time)
+      expect(subject.created_on).to eq(Time.parse("1999-06-07 17:23:46 UTC"))
     end
   end
   describe "#updated_on" do
     it do
-      expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.updated_on).to be_a(Time)
+      expect(subject.updated_on).to eq(Time.parse("2019-05-05 09:40:45 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-06-06"))
+      expect(subject.expires_on).to eq(Time.parse("2020-06-06 17:23:46 UTC"))
     end
   end
   describe "#registrar" do
     it do
-      expect { subject.registrar }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.registrar).to be_a(Whois::Parser::Registrar)
+      expect(subject.registrar.id).to eq("292")
+      expect(subject.registrar.name).to eq("MarkMonitor Inc.")
+      expect(subject.registrar.organization).to eq("MarkMonitor Inc.")
+      expect(subject.registrar.url).to eq("http://www.markmonitor.com")
     end
   end
   describe "#registrant_contacts" do
@@ -79,14 +85,14 @@ describe Whois::Parsers::WhoisNicSh, "status_registered.expected" do
       expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
       expect(subject.registrant_contacts[0].id).to eq(nil)
-      expect(subject.registrant_contacts[0].name).to eq("DNS Admin")
+      expect(subject.registrant_contacts[0].name).to eq(nil)
       expect(subject.registrant_contacts[0].organization).to eq("Google Inc.")
-      expect(subject.registrant_contacts[0].address).to eq("1600 Amphitheatre Parkway")
-      expect(subject.registrant_contacts[0].city).to eq("Mountain View")
+      expect(subject.registrant_contacts[0].address).to eq(nil)
+      expect(subject.registrant_contacts[0].city).to eq(nil)
       expect(subject.registrant_contacts[0].zip).to eq(nil)
       expect(subject.registrant_contacts[0].state).to eq("CA")
-      expect(subject.registrant_contacts[0].country).to eq("US")
-      expect(subject.registrant_contacts[0].country_code).to eq(nil)
+      expect(subject.registrant_contacts[0].country).to eq(nil)
+      expect(subject.registrant_contacts[0].country_code).to eq("US")
       expect(subject.registrant_contacts[0].phone).to eq(nil)
       expect(subject.registrant_contacts[0].fax).to eq(nil)
       expect(subject.registrant_contacts[0].email).to eq(nil)

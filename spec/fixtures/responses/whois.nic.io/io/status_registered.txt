@@ -1,17 +1,32 @@
+Domain Name: REDIS.IO
+Registry Domain ID: D503300000040423931-LRMS
+Registrar WHOIS Server: whois.name.com
+Registrar URL: www.name.com
+Updated Date: 2019-05-06T17:24:58Z
+Creation Date: 2010-05-28T22:09:44Z
+Registry Expiry Date: 2020-05-28T22:09:44Z
+Registrar Registration Expiration Date:
+Registrar: Name.com LLC
+Registrar IANA ID: 625
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone:
+Reseller:
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Organization: Domain Protection Services, Inc.
+Registrant State/Province: CO
+Registrant Country: US
+Name Server: NS2KQZ.NAME.COM
+Name Server: NS1DJS.NAME.COM
+Name Server: NS4BHT.NAME.COM
+Name Server: NS3CKL.NAME.COM
+DNSSEC: unsigned
 
-Domain : redis.io
-Status : Live
-Expiry : 2014-05-28
+>>> Last update of WHOIS database: 2019-06-25T20:05:14Z <<<
 
-NS 1   : ns1.iwantmyname.net
-NS 2   : ns2.iwantmyname.net
-NS 3   : ns3.iwantmyname.net
-NS 4   : ns4.iwantmyname.net
+For more information on Whois status codes, please visit https://icann.org/epp
 
-Owner  : Salvatore Sanfilippo
-Owner  : Salvatore Sanfilippo
-Owner  : Via F.Alaimo, 2
-Owner  : Campobello di Licata (AG
-Owner  : .
-Owner  : IT
+Access to WHOIS information provided by Internet Computer Bureau Ltd. ("ICB") is provided to assist persons in determining the contents of a domain name registration record in the ICB registry database. The data in this record is provided by ICB for informational purposes only, and ICB does not guarantee its accuracy. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to(i) allow, enable, or otherwise support the transmission by e-mail, telephone, facsimile or other electronic means of mass, unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (ii) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or ICB or its services providers except as reasonably necessary to register domain names or modify existing registrations. UK privacy laws limit the scope of information permitted for certain public access.  Therefore, concerns regarding abusive use of domain registrations in the ICB registry should be directed to either (a) the Registrar of Record as indicated in the WHOIS output, or (b) the ICB anti-abuse department at abuse@icbregistry.info.
 
+All rights reserved. ICB reserves the right to modify these terms at any time. By submitting this query, you agree to abide by these policies
+
+The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.

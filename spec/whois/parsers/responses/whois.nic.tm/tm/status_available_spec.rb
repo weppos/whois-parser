@@ -61,6 +61,11 @@ describe Whois::Parsers::WhoisNicTm, "status_available.expected" do
       expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
     end
   end
+  describe "#expires_on" do
+    it do
+      expect(subject.expires_on).to eq(nil)
+    end
+  end
   describe "#registrar" do
     it do
       expect { subject.registrar }.to raise_error(Whois::AttributeNotSupported)
@@ -84,7 +89,8 @@ describe Whois::Parsers::WhoisNicTm, "status_available.expected" do
   end
   describe "#nameservers" do
     it do
-      expect { subject.nameservers }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.nameservers).to be_a(Array)
+      expect(subject.nameservers).to eq([])
     end
   end
 end

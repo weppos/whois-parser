@@ -39,7 +39,7 @@ module Whois
 
       # NEWPROPERTY
       def reserved?
-        !!content_for_scanner.match(/^Domain reserved\n/)
+        !!(content_for_scanner =~ /^Reserved by Registry\n/)
       end
 
     end

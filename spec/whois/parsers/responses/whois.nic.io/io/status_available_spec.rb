@@ -28,12 +28,12 @@ describe Whois::Parsers::WhoisNicIo, "status_available.expected" do
   end
   describe "#domain" do
     it do
-      expect(subject.domain).to eq("u34jedzcq.io")
+      expect(subject.domain).to eq(nil)
     end
   end
   describe "#domain_id" do
     it do
-      expect { subject.domain_id }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.domain_id).to eq(nil)
     end
   end
   describe "#status" do
@@ -53,12 +53,12 @@ describe Whois::Parsers::WhoisNicIo, "status_available.expected" do
   end
   describe "#created_on" do
     it do
-      expect { subject.created_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.created_on).to eq(nil)
     end
   end
   describe "#updated_on" do
     it do
-      expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.updated_on).to eq(nil)
     end
   end
   describe "#expires_on" do
@@ -68,7 +68,7 @@ describe Whois::Parsers::WhoisNicIo, "status_available.expected" do
   end
   describe "#registrar" do
     it do
-      expect { subject.registrar }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.registrar).to eq(nil)
     end
   end
   describe "#registrant_contacts" do

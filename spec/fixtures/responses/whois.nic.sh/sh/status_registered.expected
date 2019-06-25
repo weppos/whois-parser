@@ -6,7 +6,7 @@
   %s == "google.sh"
 
 #domain_id
-  %s %ERROR{AttributeNotSupported}
+  %s == "D503300000040555710-LRMS"
 
 
 #status
@@ -20,18 +20,24 @@
 
 
 #created_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{1999-06-07 17:23:46 UTC}
 
 #updated_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2019-05-05 09:40:45 UTC}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2014-06-06}
+  %s %TIME{2020-06-06 17:23:46 UTC}
 
 
 #registrar
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{registrar}
+  %s.id           == "292"
+  %s.name         == "MarkMonitor Inc."
+  %s.organization == "MarkMonitor Inc."
+  %s.url          == "http://www.markmonitor.com"
 
 #registrant_contacts
   %s %CLASS{array}
@@ -39,14 +45,14 @@
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
   %s[0].id            == nil
-  %s[0].name          == "DNS Admin"
+  %s[0].name          == nil
   %s[0].organization  == "Google Inc."
-  %s[0].address       == "1600 Amphitheatre Parkway"
-  %s[0].city          == "Mountain View"
+  %s[0].address       == nil
+  %s[0].city          == nil
   %s[0].zip           == nil
   %s[0].state         == "CA"
-  %s[0].country       == "US"
-  %s[0].country_code  == nil
+  %s[0].country       == nil
+  %s[0].country_code  == "US"
   %s[0].phone         == nil
   %s[0].fax           == nil
   %s[0].email         == nil

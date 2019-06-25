@@ -6,7 +6,7 @@
   %s == "redis.io"
 
 #domain_id
-  %s %ERROR{AttributeNotSupported}
+  %s == "D503300000040423931-LRMS"
 
 
 #status
@@ -20,18 +20,24 @@
 
 
 #created_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2010-05-28 22:09:44 UTC}
 
 #updated_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2019-05-06 17:24:58 UTC}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2014-05-28}
+  %s %TIME{2020-05-28 22:09:44 UTC}
 
 
 #registrar
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{registrar}
+  %s.id           == "625"
+  %s.name         == "Name.com LLC"
+  %s.organization == "Name.com LLC"
+  %s.url          == "www.name.com"
 
 #registrant_contacts
   %s %CLASS{array}
@@ -39,14 +45,14 @@
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
   %s[0].id            == nil
-  %s[0].name          == "Salvatore Sanfilippo"
-  %s[0].organization  == "Salvatore Sanfilippo"
-  %s[0].address       == "Via F.Alaimo, 2"
-  %s[0].city          == "Campobello di Licata (AG"
+  %s[0].name          == nil
+  %s[0].organization  == "Domain Protection Services, Inc."
+  %s[0].address       == nil
+  %s[0].city          == nil
   %s[0].zip           == nil
-  %s[0].state         == "."
-  %s[0].country       == "IT"
-  %s[0].country_code  == nil
+  %s[0].state         == "CO"
+  %s[0].country       == nil
+  %s[0].country_code  == "US"
   %s[0].phone         == nil
   %s[0].fax           == nil
   %s[0].email         == nil
@@ -64,13 +70,13 @@
   %s %CLASS{array}
   %s %SIZE{4}
   %s[0] %CLASS{nameserver}
-  %s[0].name == "ns1.iwantmyname.net"
+  %s[0].name == "ns2kqz.name.com"
   %s[1] %CLASS{nameserver}
-  %s[1].name == "ns2.iwantmyname.net"
+  %s[1].name == "ns1djs.name.com"
   %s[2] %CLASS{nameserver}
-  %s[2].name == "ns3.iwantmyname.net"
+  %s[2].name == "ns4bht.name.com"
   %s[3] %CLASS{nameserver}
-  %s[3].name == "ns4.iwantmyname.net"
+  %s[3].name == "ns3ckl.name.com"
 
 
 #reserved?
