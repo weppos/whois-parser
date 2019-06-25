@@ -21,6 +21,11 @@ describe Whois::Parsers::WhoisRegistroBr, "status_available.expected" do
     described_class.new(part)
   end
 
+  describe "#domain" do
+    it do
+      expect(subject.domain).to eq("u34jedzcq.br")
+    end
+  end
   describe "#status" do
     it do
       expect(subject.status).to eq(:available)
@@ -34,11 +39,6 @@ describe Whois::Parsers::WhoisRegistroBr, "status_available.expected" do
   describe "#registered?" do
     it do
       expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("u34jedzcq.br")
     end
   end
   describe "#created_on" do
