@@ -1,3 +1,7 @@
+#domain
+  %s == "google.com.br"
+
+
 #status
   %s == :registered
 
@@ -6,9 +10,6 @@
 
 #registered?
   %s == true
-
-#domain
-  %s == "google.com.br"
 
 
 #created_on
