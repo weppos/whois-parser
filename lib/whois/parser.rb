@@ -18,7 +18,7 @@ require 'active_support/core_ext/time/calculations'
 require_relative 'parser/version'
 require_relative 'parser/errors'
 
-# These extensions add Whois::Record#parser, the Whois.registered?, and 
+# These extensions add Whois::Record#parser, the Whois.registered?, and
 # Whois.available? shortcuts.
 # These are handy convenient methods, and they are loaded by default.
 require_relative 'parser_extensions/whois'
@@ -63,7 +63,7 @@ module Whois
     #
     # @api private
     # @private
-    def bug!(error, message)
+    def self.bug!(error, message)
       raise error, message.dup          +
           " Please report the issue at" +
           " http://github.com/weppos/whois-parser/issues"
