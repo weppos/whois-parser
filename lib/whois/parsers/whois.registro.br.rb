@@ -24,6 +24,15 @@ module Whois
     #
     class WhoisRegistroBr < Base
 
+      property_supported :domain do
+        if available?
+          content_for_scanner.match(/^% No match for \s*(.+)\n/)[1]
+        else
+          content_for_scanner.match(/^domain: \s*(.+)\n/)[1]
+        end
+      end
+
+
       property_supported :status do
         if available?
           :available

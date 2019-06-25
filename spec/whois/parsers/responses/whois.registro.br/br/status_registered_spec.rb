@@ -36,6 +36,11 @@ describe Whois::Parsers::WhoisRegistroBr, "status_registered.expected" do
       expect(subject.registered?).to eq(true)
     end
   end
+  describe "#domain" do
+    it do
+      expect(subject.domain).to eq("google.com.br")
+    end
+  end
   describe "#created_on" do
     it do
       expect(subject.created_on).to be_a(Time)

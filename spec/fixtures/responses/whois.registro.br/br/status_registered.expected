@@ -1,3 +1,7 @@
+#domain
+  %s == "google.com.br"
+
+
 #status
   %s == :registered
 
