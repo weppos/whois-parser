@@ -12,14 +12,14 @@ Gem::Specification.new do |s|
   s.description = 'Whois Parser is a WHOIS parser written in pure Ruby. It can parse and convert responses into easy-to-use Ruby objects.'
   s.license     = 'MIT'
 
-  s.required_ruby_version = ">= 2.0.0"
+  s.required_ruby_version = ">= 2.3"
 
   s.require_paths    = %w( lib )
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.extra_rdoc_files = %w( LICENSE.txt .yardopts )
 
-  s.add_dependency "whois", ">= 4.0.7"
+  s.add_dependency "whois", ">= 4.1.0"
   s.add_dependency "activesupport", ">= 4"
 
   s.add_development_dependency "rake"

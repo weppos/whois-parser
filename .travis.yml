@@ -1,12 +1,11 @@
 language: ruby
 
 rvm:
-  - "2.0"
-  - "2.1"
-  - "2.2"
   - "2.3"
   - "2.4"
   - "2.5"
+  - "2.6"
+  - "2.7"
   - "jruby-9.1.5.0"
   - "ruby-head"
 
@@ -23,5 +22,4 @@ matrix:
     - rvm: jruby-9.1.5.0
 
 before_install:
-  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
-  - gem install bundler -v '< 2'
+  - gem install bundler
