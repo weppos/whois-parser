@@ -1,3 +1,7 @@
+#domain
+  %s == "u34jedzcq.br"
+
+
 #status
   %s == :available
 
@@ -6,9 +10,6 @@
 
 #registered?
   %s == false
-
-#domain
-  %s == "u34jedzcq.br"
 
 
 #created_on
