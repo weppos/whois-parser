@@ -69,10 +69,6 @@ module Whois
           " http://github.com/weppos/whois-parser/issues"
     end
 
-    def bug!(error, message)
-      self.class.bug!(error, message)
-    end
-
     METHODS = [
       :contacts,
       :changed?, :unchanged?,
