@@ -17,7 +17,7 @@ module Whois
       ]
 
       tokenizer :skip_comment_line do
-        @input.skip(/^%.*\n/)
+        @input.skip(/^%\s*\n/)
       end
 
       tokenizer :scan_response_throttled do
@@ -35,7 +35,7 @@ module Whois
       end
 
       tokenizer :scan_disclaimer do
-        if @input.match?(/% Copyright \(c\) *\d{4} by DENIC\n/)
+        if @input.match?(/% Restricted rights\.\n/)
           @input.scan_until(/% Terms and Conditions of Use\n/)
           lines = []
           while @input.match?(/%/) && @input.scan(/%(.*)\n/)

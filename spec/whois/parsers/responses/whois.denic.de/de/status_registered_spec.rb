@@ -23,7 +23,7 @@ describe Whois::Parsers::WhoisDenicDe, "status_registered.expected" do
 
   describe "#disclaimer" do
     it do
-      expect(subject.disclaimer).to eq("The data in this record is provided by DENIC for informational purposes only. DENIC does not guarantee its accuracy and cannot, under any circumstances, be held liable in case the stored information would prove to be wrong, incomplete or not accurate in any sense. All the domain data that is visible in the whois service is protected by law. It is not permitted to use it for any purpose other than technical or administrative requirements associated with the operation of the Internet. It is explicitly forbidden to extract, copy and/or use or re-utilise in any form and by any means (electronically or not) the whole or a quantitatively or qualitatively substantial part of the contents of the whois database without prior and explicit written permission by DENIC. It is prohibited, in particular, to use it for transmission of unsolicited and/or commercial and/or advertising by phone, fax, e-mail or for any similar purposes. By maintaining the connection you assure that you have a legitimate interest in the data and that you will only use it for the stated purposes. You are aware that DENIC maintains the right to initiate legal proceedings against you in the event of any breach of this assurance and to bar you from using its whois service. The DENIC whois service on port 43 never discloses any information concerning the domain holder/administrative contact. Information concerning the domain holder/administrative contact can be obtained through use of our web-based whois service available at the DENIC website: http://www.denic.de/en/domains/whois-service/web-whois.html")
+      expect(subject.disclaimer).to eq("The above data may only be used within the scope of technical or administrative necessities of Internet operation or to remedy legal problems. The use for other purposes, in particular for advertising, is not permitted. The DENIC whois service on port 43 doesn't disclose any information concerning the domain holder, general request and abuse contact. This information can be obtained through use of our web-based whois service available at the DENIC website: http://www.denic.de/en/domains/whois-service/web-whois.html")
     end
   end
   describe "#domain" do
@@ -59,7 +59,7 @@ describe Whois::Parsers::WhoisDenicDe, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2011-03-30 19:36:27 +0200"))
+      expect(subject.updated_on).to eq(Time.parse("2018-03-12 21:44:25 +0100"))
     end
   end
   describe "#expires_on" do
@@ -69,11 +69,7 @@ describe Whois::Parsers::WhoisDenicDe, "status_registered.expected" do
   end
   describe "#registrar" do
     it do
-      expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq(nil)
-      expect(subject.registrar.name).to eq("Domain Admin")
-      expect(subject.registrar.organization).to eq("MarkMonitor Inc")
-      expect(subject.registrar.url).to eq(nil)
+      expect(subject.registrar).to be_nil
     end
   end
   describe "#registrant_contacts" do
@@ -91,20 +87,8 @@ describe Whois::Parsers::WhoisDenicDe, "status_registered.expected" do
   describe "#technical_contacts" do
     it do
       expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts.size).to eq(1)
-      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq(nil)
-      expect(subject.technical_contacts[0].name).to eq("DNS Admin")
-      expect(subject.technical_contacts[0].organization).to eq("Google Inc.")
-      expect(subject.technical_contacts[0].address).to eq("1600 Amphitheatre Parkway")
-      expect(subject.technical_contacts[0].city).to eq("Mountain View")
-      expect(subject.technical_contacts[0].zip).to eq("94043")
-      expect(subject.technical_contacts[0].state).to eq(nil)
-      expect(subject.technical_contacts[0].country_code).to eq("US")
-      expect(subject.technical_contacts[0].phone).to eq("+1.6502530000")
-      expect(subject.technical_contacts[0].fax).to eq("+1.6506188571")
-      expect(subject.technical_contacts[0].email).to eq("dns-admin@google.com")
+      expect(subject.technical_contacts.size).to eq(0)
+      expect(subject.technical_contacts[0]).to be_nil
     end
   end
   describe "#nameservers" do

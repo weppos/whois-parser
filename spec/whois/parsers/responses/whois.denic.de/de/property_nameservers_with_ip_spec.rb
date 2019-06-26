@@ -43,7 +43,7 @@ describe Whois::Parsers::WhoisDenicDe, "property_nameservers_with_ip.expected" d
       expect(subject.nameservers[3].ipv6).to eq(nil)
       expect(subject.nameservers[4]).to be_a(Whois::Parser::Nameserver)
       expect(subject.nameservers[4].name).to eq("ns5.prodns.de")
-      expect(subject.nameservers[4].ipv4).to eq("65.18.172.184")
+      expect(subject.nameservers[4].ipv4).to eq("69.94.12.61")
       expect(subject.nameservers[4].ipv6).to eq(nil)
     end
   end

@@ -19,5 +19,5 @@
   %s[3].ipv6 == nil
   %s[4] %CLASS{nameserver}
   %s[4].name == "ns5.prodns.de"
-  %s[4].ipv4 == "65.18.172.184"
+  %s[4].ipv4 == "69.94.12.61"
   %s[4].ipv6 == nil
