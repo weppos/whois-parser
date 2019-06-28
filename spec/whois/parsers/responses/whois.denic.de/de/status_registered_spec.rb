@@ -69,7 +69,7 @@ describe Whois::Parsers::WhoisDenicDe, "status_registered.expected" do
   end
   describe "#registrar" do
     it do
-      expect(subject.registrar).to be_nil
+      expect(subject.registrar).to eq(nil)
     end
   end
   describe "#registrant_contacts" do
@@ -88,7 +88,6 @@ describe Whois::Parsers::WhoisDenicDe, "status_registered.expected" do
     it do
       expect(subject.technical_contacts).to be_a(Array)
       expect(subject.technical_contacts.size).to eq(0)
-      expect(subject.technical_contacts[0]).to be_nil
     end
   end
   describe "#nameservers" do
