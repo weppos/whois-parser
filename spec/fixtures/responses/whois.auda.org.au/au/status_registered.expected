@@ -3,14 +3,20 @@
 
 
 #domain
-  %s == "google.com.au"
+  %s == "GOOGLE.COM.AU"
 
 #domain_id
-  %s %ERROR{AttributeNotSupported}
+  %s == "D407400000001774763-AU"
 
 
 #status
-  %s == ["clientDeleteProhibited", "clientUpdateProhibited", "serverDeleteProhibited (Protected by .auLOCKDOWN)", "serverUpdateProhibited (Protected by .auLOCKDOWN)"]
+  %s == [
+  "clientDeleteProhibited https://afilias.com.au/get-au/whois-status-codes#clientDeleteProhibited",
+  "clientUpdateProhibited https://afilias.com.au/get-au/whois-status-codes#clientUpdateProhibited",
+  "serverDeleteProhibited https://afilias.com.au/get-au/whois-status-codes#serverDeleteProhibited",
+  "serverRenewProhibited https://afilias.com.au/get-au/whois-status-codes#serverRenewProhibited",
+  "serverUpdateProhibited https://afilias.com.au/get-au/whois-status-codes#serverUpdateProhibited"
+]
 
 #available?
   %s == false
@@ -32,7 +38,7 @@
 
 #registrar
   %s %CLASS{registrar}
-  %s.name         == "MarkMonitor Inc."
+  %s.name         == "MarkMonitor Corporate Services Inc"
   %s.organization == nil
   %s.url          == nil
 
@@ -84,10 +90,10 @@
   %s %CLASS{array}
   %s %SIZE{4}
   %s[0] %CLASS{nameserver}
-  %s[0].name == "ns1.google.com"
+  %s[0].name == "NS1.GOOGLE.COM"
   %s[1] %CLASS{nameserver}
-  %s[1].name == "ns2.google.com"
+  %s[1].name == "NS2.GOOGLE.COM"
   %s[2] %CLASS{nameserver}
-  %s[2].name == "ns3.google.com"
+  %s[2].name == "NS3.GOOGLE.COM"
   %s[3] %CLASS{nameserver}
-  %s[3].name == "ns4.google.com"
+  %s[3].name == "NS4.GOOGLE.COM"

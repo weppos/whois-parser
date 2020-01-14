@@ -8,21 +8,21 @@
 
 
 require_relative 'base'
-require 'whois/scanners/whois.audns.net.au.rb'
+require 'whois/scanners/whois.auda.org.au.rb'
 
 
 module Whois
   class Parsers
 
-    # Parser for the whois.audns.net.au server.
+    # Parser for the whois.auda.org.au server.
     #
     # @see Whois::Parsers::Example
     #   The Example parser for the list of all available methods.
     #
-    class WhoisAudnsNetAu < Base
+    class WhoisAudaOrgAu < Base
       include Scanners::Scannable
 
-      self.scanner = Scanners::WhoisAudnsNetAu
+      self.scanner = Scanners::WhoisAudaOrgAu
 
 
       property_not_supported :disclaimer
@@ -32,8 +32,13 @@ module Whois
         node("Domain Name")
       end
 
-      property_not_supported :domain_id
+      property_supported :domain_id do
+        node("Registry Domain ID")
+      end
 
+      property_supported :disclaimer do
+        node("field:disclaimer")
+      end
 
       # == Values for Status
       #
@@ -52,7 +57,6 @@ module Whois
         !available?
       end
 
-
       property_not_supported :created_on
 
       property_supported :updated_on do
@@ -61,7 +65,6 @@ module Whois
 
       property_not_supported :expires_on
 
-
       property_supported :registrar do
         node("Registrar Name") do |str|
           Parser::Registrar.new({
@@ -69,7 +72,6 @@ module Whois
           })
         end
       end
-
 
       property_supported :registrant_contacts do
         contact = build_contact("Registrant Contact", Parser::Contact::TYPE_REGISTRANT)
@@ -83,13 +85,11 @@ module Whois
         build_contact("Tech Contact", Parser::Contact::TYPE_TECHNICAL)
       end
 
-
       property_supported :nameservers do
         Array.wrap(node("Name Server")).map do |name|
           Parser::Nameserver.new(name: name)
         end
       end
-
 
       private
 
