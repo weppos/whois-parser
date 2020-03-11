@@ -42,6 +42,8 @@ module Whois
           :reserved
         elsif registered?
           case node("status", &:downcase)
+          when "registered"
+            :registered
           when "granted"
             :registered
           when "grace period"
@@ -76,33 +78,51 @@ module Whois
       end
 
 
-      property_not_supported :registrar
-
-      property_supported :registrant_contacts do
-        node("descr") do |array|
-          address = node("address")
-
-          Parser::Contact.new(
-            type:         Parser::Contact::TYPE_REGISTRANT,
-            id:           array[1],
-            name:         address[0],
-            organization: array[0],
-            address:      address[1],
-            zip:          address[2],
-            city:         address[3],
-            phone:        node("phone")
+      property_supported :registrar do
+        node("Registrar") do |hash|
+          Parser::Registrar.new(
+            name:         hash['registrar'],
+            organization: hash['registrar'],
+            url:          hash['www']
           )
         end
       end
 
-      property_not_supported :admin_contacts
+      property_not_supported :registrant_contacts do
+      end
 
-      property_not_supported :technical_contacts
+      property_supported :admin_contacts do
+        node("Holder") do |hash|
+          Parser::Contact.new(
+            type:         Parser::Contact::TYPE_ADMINISTRATIVE,
+            id:           hash['register number'],
+            name:         hash['name'],
+            address:      hash['address'][0],
+            zip:          hash['address'][1],
+            city:         hash['address'][2],
+            country:      hash['country'],
+            phone:        hash['phone'],
+            email:        hash['holder email']
+          )
+        end
+      end
+
+      property_supported :technical_contacts do
+        node("Tech") do |hash|
+          Parser::Contact.new(
+            type:         Parser::Contact::TYPE_TECHNICAL,
+            name:         hash['name'],
+            email:        hash['email']
+          )
+        end
+      end
 
 
       property_supported :nameservers do
-        Array.wrap(node("nserver")).map do |line|
-          Parser::Nameserver.new(name: line.split(" ").first)
+        node('Nameservers') do |hash|
+          Array.wrap(hash['nserver']).map do |line|
+            Parser::Nameserver.new(name: line.split(" ").first)
+          end
         end
       end
 
