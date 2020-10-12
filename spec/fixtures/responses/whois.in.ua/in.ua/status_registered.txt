@@ -1,16 +1,92 @@
-% In.UA whois server. (whois.in.ua)
-% All questions regarding this service please send to help@whois.in.ua
-% To search for domains and In.UA maintainers using the web, visit http://whois.in.ua
-domain:      dle.in.ua
-descr:       dle.in.ua
-admin-c:     VP535-UANIC
-tech-c:      NIC-UANIC
-status:      OK-UNTIL 20131218000000
-nserver:     NS12.UADNS.COM 
-nserver:     NS11.UADNS.COM 
-nserver:     NS10.UADNS.COM 
-mnt-by:      DRS-MNT-INUA
-mnt-lower:   DRS-MNT-INUA
-changed:     notify@drs.ua 20121216134104
-source:      INUA
+% This is the SUNIC WHOIS server.
+% The Whois is subject to Terms of use
+% See https://hostmaster.ua/documents.php
+%
+% In the process of delegation of a domain name,
+% the Registrant is an entity who uses and manages a certain domain name,
+% and the Registrar is a business entity that provides the Registrant
+% with the services necessary for the technical maintenance of the
+% registration and operation of the domain name.
+% For information on the Registrant's domain name, you should contact the Registrar.
+
+domain:             dle.in.ua
+dom-public:         NO
+mnt-by:             ua.nic
+nserver:            ns10.uadns.com
+nserver:            ns12.uadns.com
+nserver:            ns11.uadns.com
+status:             ok
+created:            2007-12-18 20:12:35+02
+modified:           2019-12-03 11:15:10+02
+expires:            2020-12-20 00:00:00+02
+source:             SUNIC
+
+% Registrar:
+% ==========
+registrar:          ua.nic
+organization:       NIC.UA LLC
+organization-loc:   ТОВ «НІК.ЮЕЙ»
+url:                http://nic.ua
+city:               Dnipro
+country:            UA
+abuse-email:        abuse@nic.ua
+abuse-phone:        +380.445933222
+abuse-postal:       Ukraine 49000 Dnipro PO/BOX 80
+abuse-postal-loc:   UA 49000 Днепр а/я 80
+source:             SUNIC
+
+% Registrant:
+% ===========
+person:             n/a
+organization:       n/a
+address:            n/a
+person-loc:         not published
+organization-loc:   not published
+address-loc:        not published
+email:              not published
+phone:              not published
+fax:                not published
+mnt-by:             sunic
+status:             linked
+status:             ok
+created:            2017-09-30 01:31:30+03
+modified:           2017-09-30 01:31:30+03
+source:             SUNIC
+
+% Administrative Contacts:
+% ========================
+person:             n/a
+organization:       n/a
+address:            n/a
+person-loc:         not published
+organization-loc:   not published
+address-loc:        not published
+email:              not published
+phone:              not published
+fax:                not published
+mnt-by:             sunic
+status:             linked
+status:             ok
+created:            2017-09-30 01:31:30+03
+modified:           2017-09-30 01:31:30+03
+source:             SUNIC
+
+
+% Technical Contacts:
+% ===================
+person:             NIC-UANIC
+organization:       NIC.UA LLC
+address:            not published
+person-loc:         n/a
+organization-loc:   n/a
+address-loc:        n/a
+email:              support@nic.ua
+phone:              +380.445933222
+fax:                +380.445937569
+mnt-by:             sunic
+status:             linked
+status:             ok
+created:            2016-09-18 10:37:53+03
+modified:           2016-09-17 10:37:53+03
+source:             SUNIC
 
