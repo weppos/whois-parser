@@ -24,16 +24,11 @@ module Whois
 
       self.scanner = Scanners::WhoisDnsHr
 
-
-      property_not_supported :disclaimer
-
-
       property_supported :domain do
-        node("domain")
+        node("Domain Name", &:downcase)
       end
 
       property_not_supported :domain_id
-
 
       property_supported :status do
         if available?
@@ -41,6 +36,10 @@ module Whois
         else
           :registered
         end
+      end
+
+      property_supported :disclaimer do
+        node("disclaimer")
       end
 
       property_supported :available? do
@@ -51,31 +50,35 @@ module Whois
         !available?
       end
 
-
-      property_not_supported :created_on
-
-      property_not_supported :updated_on
-
-      property_supported :expires_on do
-        node("expires") { |value| parse_time(value) }
+      property_supported :created_on do
+        node("Creation Date") { |value| parse_time(value) }
       end
 
+      property_supported :updated_on do
+        node("Updated Date") { |value| parse_time(value) }
+      end
 
-      property_not_supported :registrar
-
+      property_supported :expires_on do
+        node("Registrar Registration Expiration Date") { |value| parse_time(value) }
+      end
 
       property_supported :registrant_contacts do
-        node("descr") do |array|
-          _, zip, city = array[2].match(/([\d\s]+) (.+)/).to_a
+        node("Registrant Name") do |str|
+          city = node("Registrant City")
+          street = node("Registrant Street")
+          state = node("Registrant State/Province")
+          zip = node("Registrant Postal Code")
+          address = [city, street, zip].join(", ")
+
           Parser::Contact.new(
             :type         => Parser::Contact::TYPE_REGISTRANT,
             :id           => nil,
-            :name         => array[0],
+            :name         => node("Registrant Name"),
             :organization => nil,
-            :address      => array[1],
+            :address      => address,
             :city         => city,
             :zip          => zip,
-            :state        => nil,
+            :state        => state,
             :country      => nil,
             :phone        => nil,
             :fax          => nil,
@@ -84,14 +87,13 @@ module Whois
         end
       end
 
+      property_not_supported :registrar
+
       property_not_supported :admin_contacts
 
       property_not_supported :technical_contacts
 
-
       property_not_supported :nameservers
-
     end
-
   end
 end

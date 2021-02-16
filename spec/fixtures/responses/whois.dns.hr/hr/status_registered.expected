@@ -1,5 +1,5 @@
 #disclaimer
-  %s %ERROR{AttributeNotSupported}
+  %s == "From May 25, 2018, it  is mandatory  to apply  the  provisions  of the General Data Protection Regulation (EU) 2016/679. The basic purpose of the regulation is greater control for  individuals over their personal information. In  accordance  with  the  provisions  of  the General Data Protection Regulation (EU) 2016/679,  we inform you that the personal data of the domain holder and  the contact persons under  the domain holder are no longer publicly available through the domain search engine. If you believe that there is a legitimate reason for which you need to be provided with the data about the domain  holder please fill  in the Request form for personal data disclosure : https://domene.hr/portal/files/Request_personal_data_disclosure.pdf"
 
 
 #domain
@@ -20,14 +20,16 @@
 
 
 #created_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2011-09-20T22:00:00Z}
 
 #updated_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2012-08-28T22:00:00Z}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2014-09-21}
+  %s %TIME{2021-09-20T22:00:00Z}
 
 
 #registrar
@@ -41,10 +43,10 @@
   %s[0].id            == nil
   %s[0].name          == "Google Hrvatska d.o.o."
   %s[0].organization  == nil
-  %s[0].address       == "Ulica Petra Hektorovića 2"
+  %s[0].address       == "Zagreb, Ulica Petra Hektorovića 2, 10000"
   %s[0].city          == "Zagreb"
-  %s[0].zip           == "10 000"
-  %s[0].state         == nil
+  %s[0].zip           == "10000"
+  %s[0].state         == "HR"
   %s[0].country       == nil
   %s[0].country_code  == nil
   %s[0].phone         == nil
