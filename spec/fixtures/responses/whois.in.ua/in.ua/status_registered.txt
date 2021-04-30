@@ -1,16 +1,38 @@
-% In.UA whois server. (whois.in.ua)
-% All questions regarding this service please send to help@whois.in.ua
-% To search for domains and In.UA maintainers using the web, visit http://whois.in.ua
-domain:      dle.in.ua
-descr:       dle.in.ua
-admin-c:     VP535-UANIC
-tech-c:      NIC-UANIC
-status:      OK-UNTIL 20131218000000
-nserver:     NS12.UADNS.COM 
-nserver:     NS11.UADNS.COM 
-nserver:     NS10.UADNS.COM 
-mnt-by:      DRS-MNT-INUA
-mnt-lower:   DRS-MNT-INUA
-changed:     notify@drs.ua 20121216134104
-source:      INUA
+*
+* Whois query server SUNIC
+*
+
+domain:             dle.in.ua
+registrar:          ua.nic
+registrant:         vp535-sunic
+admin:              vp535-sunic
+tech:               nic-sunic
+nserver:            ns10.uadns.com
+nserver:            ns12.uadns.com
+nserver:            ns11.uadns.com
+status:             ok
+created:            2007-12-18 20:12:35
+updated:            2017-12-19 12:54:31
+expires:            2018-12-20 00:00:00
+source:             SUNIC
+
+Contact nic-sunic
+--------------------
+id:                 nic-sunic
+email:              support@nic.ua
+phone:              +380.445933222
+fax:                +380.445937569
+addr_int:           not published
+name_int:           NIC-UANIC
+org_int:            NIC.UA LLC
+
+Contact vp535-sunic
+--------------------
+id:                 vp535-sunic
+email:              not published
+phone:              not published
+fax:                not published
+addr_loc:           not published
+name_loc:           not published
+org_loc:            not published
 
