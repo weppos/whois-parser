@@ -19,6 +19,11 @@ module Whois
     #   The Example parser for the list of all available methods.
     #
     class WhoisNicCo < BaseShared2
+
+      property_supported :available? do
+        !!(content_for_scanner =~ /^No Data Found$/)
+      end
+
     end
 
   end

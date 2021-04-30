@@ -23,7 +23,7 @@ describe Whois::Parsers::WhoisNicCo, "status_available.expected" do
 
   describe "#domain" do
     it do
-      expect(subject.domain).to eq("u34jedzcq.co")
+      expect(subject.domain).to eq(nil)
     end
   end
   describe "#domain_id" do
