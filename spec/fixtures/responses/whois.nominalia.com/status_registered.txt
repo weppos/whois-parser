@@ -1,0 +1,59 @@
+Domain Name: NOMINALIA.COM
+Registry Domain ID: 4546874_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.nominalia.com
+Registrar URL: http://www.nominalia.com
+Updated Date: 2013-06-27T00:00:00Z
+Creation Date: 2008-02-07T00:00:00Z
+Registrar Registration Expiration Date: 2018-11-30T00:00:00Z
+Registrar: NOMINALIA INTERNET S.L.
+Registrar IANA ID: 76
+Registrar Abuse Contact Email: abuse@nominalia.com
+Registrar Abuse Contact Phone: +34.935074387
+Reseller:
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registry Registrant ID:
+Registrant Name: Nominalia Internet S.L.
+Registrant Organization: Nominalia Internet S.L.
+Registrant Street: Josep Pla, 2. Torres Diagonal Litoral, B3, 3D
+Registrant City: Barcelona
+Registrant State/Province: B
+Registrant Postal Code: ES-08019
+Registrant Country: ES
+Registrant Phone: +34.935074360
+Registrant Phone Ext:
+Registrant Fax: +34.933102360
+Registrant Fax Ext:
+Registrant Email: gestiontld@nominalia.com
+Registry Admin ID:
+Admin Name: Claudio Corbetta
+Admin Organization: Nominalia Internet S.L.
+Admin Street: Josep Pla, 2. Torres Diagonal Litoral, B3, 3D
+Admin City: Barcelona
+Admin State/Province: B
+Admin Postal Code: 08019
+Admin Country: ES
+Admin Phone: +34.935074360
+Admin Phone Ext:
+Admin Fax: +34.933102360
+Admin Fax Ext:
+Admin Email: gestiontld@nominalia.com
+Registry Tech ID:
+Tech Name: Billing Department
+Tech Organization: Nominalia Internet, S.L.
+Tech Street: Josep Pla, 2. Torres Diagonal Litoral. Edificio B3, planta 3-D
+Tech City: Barcelona
+Tech State/Province: Barcelona
+Tech Postal Code: 08019
+Tech Country: ES
+Tech Phone: +34.935074360
+Tech Phone Ext:
+Tech Fax: +34.933102360
+Tech Fax Ext:
+Tech Email: payment@nominalia.com
+Name Server: DNS1.NOMINALIA.COM
+Name Server: DNS2.NOMINALIA.COM
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of whois database: 2018-05-03T10:01:43Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
