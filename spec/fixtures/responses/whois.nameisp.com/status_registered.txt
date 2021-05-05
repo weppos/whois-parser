@@ -1,0 +1,74 @@
+
+
+Domain Name: nameisp.com
+Registry Domain ID: 93697156_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.nameisp.com
+Registrar URL: www.namesrs.com
+Updated Date: 2017-03-20T10:43:48.00Z
+Creation Date: 2003-01-06T13:49:20.00Z
+Registrar Registration Expiration Date: 2025-01-06T13:49:20.00Z
+Registrar: AB NAME ISP
+Registrar IANA ID: 1371
+Registrar Abuse Contact Email: info@nameisp.com
+Registrar Abuse Contact Phone: +46.313011220
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registry Registrant ID: 793066
+Registrant Name: Domain Admin
+Registrant Organization: AB Name ISP
+Registrant Street: Radiovgen 2
+Registrant City: VSTRA FRLUNDA
+Registrant State: 
+Registrant Postal Code: 421 47
+Registrant Country: SE
+Registrant Phone: +46.313011220
+Registrant Fax: +46.317090850
+Registrant Email: registry@nameisp.com
+Registry Admin ID: 959999
+Admin Name: Domain Admin
+Admin Organization: AB Name ISP
+Admin Street: Radiovgen 2
+Admin City: VSTRA FRLUNDA
+Admin Postal Code: 421 47
+Admin Country: se
+Admin Phone: +46.313011220
+Admin Fax: +46.317090850
+Admin Email: registry@nameisp.com
+Registry Tech ID: 793066
+Tech Name: Domain Admin
+Tech Organization: AB Name ISP
+Tech Street: Radiovgen 2
+Tech City: VSTRA FRLUNDA
+Tech Postal Code: 421 47
+Tech Country: SE
+Tech Phone: +46.313011220
+Tech Fax: +46.317090850
+Tech Email: registry@nameisp.com
+Name Server: GENE.NS.CLOUDFLARE.COM
+Name Server: TIM.NS.CLOUDFLARE.COM
+DNSSEC: Unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+Last update of WHOIS database: 2018-05-03T10:01:08.00Z
+
+Whois information protected.
+Contact the registrant via http://www.shieldwhois.com
+
+Whois server 2.5
+
+The data in the www.NameISP.com whois database is provided to you for
+information purposes only, that is, to assist you in obtaining information
+about or related to a domain name registration record. We make this
+information available "as is," and do not guarantee its accuracy.
+
+By submitting a whois query, you agree that you will use this data only for
+lawful purposes and that, under no circumstances will you use this data to:
+
+(1) enable high volume, automated, electronic processes that stress or load
+this whois database system providing you this information; or
+(2) allow, enable, or otherwise support the transmission of mass
+unsolicited,
+commercial advertising or solicitations via direct mail, electronic
+mail, or by telephone. The compilation, repackaging, dissemination or
+other use of this data is expressly prohibited without prior written
+consent from us.
+
+NOTE! ALL WHOIS QUERIES AND IP ADDRESSES ARE LOGGED!
