@@ -1,0 +1,93 @@
+#domain
+  %s == "corehub.net"
+
+#domain_id
+  %s == "D-179116748-CONE"
+
+#status
+  %s == :registered
+
+#available?
+  %s == false
+
+#registered?
+  %s == true
+
+#created_on
+  %s %CLASS{time}
+  %s %TIME{2012-07-14 16:04:42 UTC}
+
+#expires_on
+  %s %CLASS{time}
+  %s %TIME{2018-07-14 16:04:42 UTC}
+
+#registrar
+  %s %CLASS{registrar}
+  %s.id           == "15"
+  %s.name         == "CORE-901 (Axone/Secretariat Maintenance Account)"
+  %s.organization == "CORE-901 (Axone/Secretariat Maintenance Account)"
+  %s.url          == "http://corehub.net"
+
+#registrant_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
+  %s[0].name          == "CORE ASSOCIATION"
+  %s[0].organization  == ""
+  %s[0].address       == ""
+  %s[0].city          == "Geneva"
+  %s[0].zip           == "CH-1215"
+  %s[0].state         == "GE"
+  %s[0].country_code  == "CH"
+  %s[0].phone         == "+41.229295744"
+  %s[0].fax           == "+41.229295745"
+  %s[0].email         == "secretariat@corenic.org"
+
+#admin_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type          == Whois::Parser::Contact::TYPE_ADMINISTRATIVE
+  %s[0].name          == "CORE Secretariat"
+  %s[0].organization  == "CORE Association"
+  %s[0].address       == "cour de Rive 2"
+  %s[0].city          == "Geneve"
+  %s[0].zip           == "1204"
+  %s[0].state         == "GE"
+  %s[0].country_code  == "CH"
+  %s[0].phone         == "+41.223125610"
+  %s[0].fax           == ""
+  %s[0].email         == "secretariat@corenic.org"
+
+#technical_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type          == Whois::Parser::Contact::TYPE_TECHNICAL
+  %s[0].name          == "CORE Secretariat"
+  %s[0].organization  == "CORE Association"
+  %s[0].address       == "cour de Rive 2"
+  %s[0].city          == "Geneve"
+  %s[0].zip           == "1204"
+  %s[0].state         == "GE"
+  %s[0].country_code  == "CH"
+  %s[0].phone         == "+41.223125610"
+  %s[0].fax           == ""
+  %s[0].email         == "secretariat@corenic.org"
+
+#nameservers
+  %s %CLASS{array}
+  %s %SIZE{3}
+  %s[0] %CLASS{nameserver}
+  %s[0].name == "us20-west.irondns.net"
+  %s[0].ipv4 == "104.225.5.66"
+  %s[0].ipv6 == "2607:fc50:2000:2001::2"
+  %s[1] %CLASS{nameserver}
+  %s[1].name == "hk21.irondns.net"
+  %s[1].ipv4 == "103.6.86.97"
+  %s[1].ipv6 == "2403:2500:8000:1::9f9"
+  %s[2] %CLASS{nameserver}
+  %s[2].name == "us19-east.irondns.net"
+  %s[2].ipv4 == "4.71.215.210"
+  %s[2].ipv6 == "2001:1900:2236::d2"
