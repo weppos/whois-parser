@@ -1,9 +1,9 @@
 #disclaimer
-  %s == "More information is available at https://domain.fi/\nCopyright (c) Finnish Communications Regulatory Authority"
+  %s == "Copyright (c) Finnish Transport and Communications Agency Traficom"
 
 
 #domain
-  %s == "oogle.fi"
+  %s == "kalatalousministeri.fi"
 
 #domain_id
   %s %ERROR{AttributeNotSupported}
@@ -21,51 +21,69 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{2012-06-21}
+  %s %TIME{2018-03-14 17:47:42}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2013-06-22}
+  %s %TIME{2019-11-06}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2013-06-21}
+  %s %TIME{2020-03-14 17:47:42}
 
 
 #registrar
-  %s %ERROR{AttributeNotSupported}
+  %s.name == "Gandi SAS"
+  %s.url  == "www.gandi.net"
 
 #registrant_contacts
+  %s %ERROR{AttributeNotSupported}
+
+#admin_contacts
   %s %CLASS{array}
   %s %SIZE{1}
   %s[0] %CLASS{contact}
-  %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
-  %s[0].id            == "NURMI"
-  %s[0].name          == "-"
-  %s[0].organization  == "Minna"
-  %s[0].address       == "Huovitie 3"
-  %s[0].city          == "HELSINKI"
-  %s[0].zip           == "00400"
+  %s[0].type          == Whois::Parser::Contact::TYPE_ADMINISTRATIVE
+  %s[0].id            == "2823344-7"
+  %s[0].name          == "Digiteam Oy"
+  %s[0].address       == "Myllyniityntie 71"
+  %s[0].city          == "Lohja"
+  %s[0].zip           == "08100"
   %s[0].state         == nil
-  %s[0].country       == nil
+  %s[0].country       == "Finland"
   %s[0].country_code  == nil
-  %s[0].phone         == "+358201599789"
+  %s[0].phone         == "+358.503716096"
   %s[0].fax           == nil
-  %s[0].email         == nil
+  %s[0].email         == ""
   %s[0].created_on    == nil
   %s[0].updated_on    == nil
 
-#admin_contacts
-  %s %ERROR{AttributeNotSupported}
-
 #technical_contacts
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type          == Whois::Parser::Contact::TYPE_TECHNICAL
+  %s[0].id            == nil
+  %s[0].name          == "Seravo Oy"
+  %s[0].address       == nil
+  %s[0].city          == nil
+  %s[0].zip           == nil
+  %s[0].state         == nil
+  %s[0].country       == nil
+  %s[0].country_code  == nil
+  %s[0].phone         == nil
+  %s[0].fax           == nil
+  %s[0].email         == "hostmaster@seravo.com"
+  %s[0].created_on    == nil
+  %s[0].updated_on    == nil
 
 
 #nameservers
   %s %CLASS{array}
-  %s %SIZE{2}
+  %s %SIZE{3}
   %s[0] %CLASS{nameserver}
-  %s[0].name == "a.ns.netim.net"
+  %s[0].name == "ns-184-c.gandi.net"
   %s[1] %CLASS{nameserver}
-  %s[1].name == "b.ns.netim.net"
+  %s[1].name == "ns-196-a.gandi.net"
+  %s[2] %CLASS{nameserver}
+  %s[2].name == "ns-73-b.gandi.net"
