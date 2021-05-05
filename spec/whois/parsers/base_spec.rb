@@ -72,15 +72,20 @@ describe Whois::Parsers::Base do
 
   describe "#content_for_scanner" do
     it "returns the part body with line feed normalized" do
+      instance = described_class.new(Whois::Record::Part.new(:body => "This is\r\nthe response.\r\n", :host => "whois.example.test"))
+      expect(instance.send(:content_for_scanner)).to eq("This is\nthe response.\n")
+    end
+
+    it "returns the part body with line feed normalized" do
       instance = described_class.new(Whois::Record::Part.new(:body => "This is\r\nthe response.", :host => "whois.example.test"))
-      expect(instance.send(:content_for_scanner)).to eq("This is\nthe response.")
+      expect(instance.send(:content_for_scanner)).to eq("This is\nthe response.\n")
     end
 
     it "caches the result" do
       instance = described_class.new(Whois::Record::Part.new(:body => "This is\r\nthe response.", :host => "whois.example.test"))
       expect(instance.instance_eval { @content_for_scanner }).to be_nil
       instance.send(:content_for_scanner)
-      expect(instance.instance_eval { @content_for_scanner }).to eq("This is\nthe response.")
+      expect(instance.instance_eval { @content_for_scanner }).to eq("This is\nthe response.\n")
     end
   end
 
