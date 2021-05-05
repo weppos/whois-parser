@@ -45,13 +45,19 @@ module Whois
         !available?
       end
 
-
-      property_not_supported :created_on
+      property_supported :created_on do
+        if content_for_scanner =~ /Registered On:\s+(.+?)\n/
+          parse_time($1)
+        end
+      end
 
       property_not_supported :updated_on
 
-      property_not_supported :expires_on
-
+      property_supported :expires_on do
+        if content_for_scanner =~ /Expires On:\s+(.+?)\n/
+          parse_time($1)
+        end
+      end
 
       property_supported :nameservers do
         content_for_scanner.scan(/Nameserver:\s+(.+)\n/).flatten.map do |name|
