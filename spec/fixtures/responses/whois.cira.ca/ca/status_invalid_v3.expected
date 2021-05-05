@@ -1,0 +1,9 @@
+#status
+  %s == :available
+
+
+#valid?
+  %s == true
+
+#invalid?
+  %s == false
