@@ -38,7 +38,7 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /No records found for object/)
+        !!(content_for_scanner =~ /Domain name does not exist/)
       end
 
       property_supported :registered? do
@@ -46,19 +46,21 @@ module Whois
       end
 
 
-      property_not_supported :created_on
+      property_supported :created_on do
+        if content_for_scanner =~ /created:\s+(.*)\n/
+          parse_time($1)
+        end
+      end
 
       property_supported :updated_on do
-        if content_for_scanner =~ /changed:\s+(.*)\n/
-          time = $1.split(" ").last
-          Time.strptime(time, "%Y%m%d%H%M%S")
+        if content_for_scanner =~ /modified:\s+(.*)\n/
+          parse_time($1)
         end
       end
 
       property_supported :expires_on do
-        if content_for_scanner =~ /status:\s+(.*)\n/
-          time = $1.split(" ").last
-          Time.strptime(time, "%Y%m%d%H%M%S")
+        if content_for_scanner =~ /expires:\s+(.*)\n/
+          parse_time($1)
         end
       end
 

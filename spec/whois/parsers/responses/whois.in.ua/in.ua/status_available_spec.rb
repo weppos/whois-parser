@@ -38,7 +38,7 @@ describe Whois::Parsers::WhoisInUa, "status_available.expected" do
   end
   describe "#created_on" do
     it do
-      expect { subject.created_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.created_on).to eq(nil)
     end
   end
   describe "#updated_on" do
