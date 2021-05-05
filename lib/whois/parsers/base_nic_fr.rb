@@ -52,22 +52,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /created:\s+(.+)\n/
-          d, m, y = $1.split("/")
-          parse_time("#{y}-#{m}-#{d}")
+          parse_time($1)
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /last-update:\s+(.+)\n/
-          d, m, y = $1.split("/")
-          parse_time("#{y}-#{m}-#{d}")
+          parse_time($1)
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expiry Date:\s+(.+)\n/
-          d, m, y = $1.split("/")
-          parse_time("#{y}-#{m}-#{d}")
+          parse_time($1)
         end
       end
 
@@ -136,7 +133,7 @@ module Whois
           end
         end
 
-        updated_on = values["changed"] ? Time.utc(*values["changed"].split(" ").first.split("/").reverse) : nil
+        updated_on = values["changed"] ? parse_time(values["changed"].split(" ").first) : nil
 
         Parser::Contact.new({
           :type         => type,

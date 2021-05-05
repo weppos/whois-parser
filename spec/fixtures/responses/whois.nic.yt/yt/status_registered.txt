@@ -10,20 +10,20 @@
 %%
 %% Use '-h' option to obtain more information about this service.
 %%
-%% [209.153.220.50 REQUEST] >> nic.pm
+%% [209.153.220.50 REQUEST] >> nic.yt
 %%
 %% RL Net [##########] - RL IP [#########.]
 %%
 
-domain:      nic.pm
+domain:      nic.yt
 status:      ACTIVE
 hold:        NO
-holder-c:    APEM2-FRNIC
+holder-c:    AC3598-FRNIC
 admin-c:     NFC1-FRNIC
 tech-c:      NFC1-FRNIC
 zone-c:      NFC1-FRNIC
 nsl-id:      NSL1-FRNIC
-remarks:     Website at: http://www.nic.pm/
+remarks:     Website at: http://www.nic.yt/
 remarks:     Whois site at: whois.nic.fr
 remarks:     Please email mailto: nic@nic.fr
 remarks:     Spam mailto: abuse@nic.fr
@@ -31,7 +31,7 @@ remarks:     Test mailto: ping@nic.fr
 registrar:   AFNIC registry
 Expiry Date: 2019-12-31T23:00:00Z
 created:     1994-12-31T23:00:00Z
-last-update: 2018-12-31T23:33:19Z
+last-update: 2018-12-31T23:33:38Z
 source:      FRNIC
 
 ns-list:     NSL1-FRNIC
@@ -46,9 +46,9 @@ anonymous:   YES
 registered:  1997-05-22T12:00:00Z
 source:      FRNIC
 
-nic-hdl:     APEM2-FRNIC
+nic-hdl:     AC3598-FRNIC
 type:        ORGANIZATION
-contact:     Afnic (Saint-Pierre et Miquelon - CTOM)
+contact:     Afnic (Mayotte - CTOM)
 address:     immeuble le Stephenson
 address:     1, rue Stephenson
 address:     Hall A2 - 3eme etage
@@ -58,7 +58,7 @@ phone:       +33 1 39 30 83 00
 fax-no:      +33 1 39 30 83 01
 e-mail:      support@afnic.fr
 registrar:   AFNIC registry
-changed:     2017-07-17T12:39:46Z nic@nic.fr
+changed:     2017-07-17T12:41:44Z nic@nic.fr
 anonymous:   NO
 obsoleted:   NO
 eligstatus:  not identified

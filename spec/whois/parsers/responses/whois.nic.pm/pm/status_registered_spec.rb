@@ -39,19 +39,19 @@ describe Whois::Parsers::WhoisNicPm, "status_registered.expected" do
   describe "#created_on" do
     it do
       expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("1995-01-01"))
+      expect(subject.created_on).to eq(Time.parse("1994-12-31 23:00:00 UTC"))
     end
   end
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2016-12-31"))
+      expect(subject.updated_on).to eq(Time.parse("2018-12-31 23:33:19 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2017-12-31"))
+      expect(subject.expires_on).to eq(Time.parse("2019-12-31 23:00:00 UTC"))
     end
   end
   describe "#registrant_contacts" do
@@ -63,16 +63,16 @@ describe Whois::Parsers::WhoisNicPm, "status_registered.expected" do
       expect(subject.registrant_contacts[0].id).to eq("APEM2-FRNIC")
       expect(subject.registrant_contacts[0].name).to eq(nil)
       expect(subject.registrant_contacts[0].organization).to eq("Afnic (Saint-Pierre et Miquelon - CTOM)")
-      expect(subject.registrant_contacts[0].address).to eq("immeuble international\n2, rue Stephenson\nMontigny-Le-Bretonneux\n78181 Saint Quentin en Yvelines Cedex")
+      expect(subject.registrant_contacts[0].address).to eq("immeuble le Stephenson\n1, rue Stephenson\nHall A2 - 3eme etage\n78180 Montigny le Bretonneux")
       expect(subject.registrant_contacts[0].city).to eq(nil)
       expect(subject.registrant_contacts[0].zip).to eq(nil)
       expect(subject.registrant_contacts[0].state).to eq(nil)
       expect(subject.registrant_contacts[0].country).to eq(nil)
       expect(subject.registrant_contacts[0].country_code).to eq("FR")
-      expect(subject.registrant_contacts[0].phone).to eq(nil)
-      expect(subject.registrant_contacts[0].fax).to eq(nil)
-      expect(subject.registrant_contacts[0].email).to eq(nil)
-      expect(subject.registrant_contacts[0].updated_on).to eq(Time.parse("2008-10-09 00:00:00 UTC"))
+      expect(subject.registrant_contacts[0].phone).to eq("+33 1 39 30 83 00")
+      expect(subject.registrant_contacts[0].fax).to eq("+33 1 39 30 83 01")
+      expect(subject.registrant_contacts[0].email).to eq("support@afnic.fr")
+      expect(subject.registrant_contacts[0].updated_on).to eq(Time.parse("2017-07-17 12:39:46 UTC"))
     end
   end
   describe "#admin_contacts" do
@@ -84,7 +84,7 @@ describe Whois::Parsers::WhoisNicPm, "status_registered.expected" do
       expect(subject.admin_contacts[0].id).to eq("NFC1-FRNIC")
       expect(subject.admin_contacts[0].name).to eq("NIC France Contact")
       expect(subject.admin_contacts[0].organization).to eq("AFNIC")
-      expect(subject.admin_contacts[0].address).to eq("immeuble international\n2, rue Stephenson\nMontigny le Bretonneux\n78181 Saint Quentin en Yvelines Cedex")
+      expect(subject.admin_contacts[0].address).to eq("immeuble le Stephenson\n1, rue Stephenson\nHall A2 - 3eme etage\n78180 Montigny-Le-Bretonneux")
       expect(subject.admin_contacts[0].city).to eq(nil)
       expect(subject.admin_contacts[0].zip).to eq(nil)
       expect(subject.admin_contacts[0].state).to eq(nil)
@@ -93,7 +93,7 @@ describe Whois::Parsers::WhoisNicPm, "status_registered.expected" do
       expect(subject.admin_contacts[0].phone).to eq("+33 1 39 30 83 00")
       expect(subject.admin_contacts[0].fax).to eq(nil)
       expect(subject.admin_contacts[0].email).to eq("hostmaster@nic.fr")
-      expect(subject.admin_contacts[0].updated_on).to eq(Time.parse("2005-08-23 00:00:00 UTC"))
+      expect(subject.admin_contacts[0].updated_on).to eq(Time.parse("2005-08-23 16:13:17 UTC"))
     end
   end
   describe "#technical_contacts" do
@@ -105,7 +105,7 @@ describe Whois::Parsers::WhoisNicPm, "status_registered.expected" do
       expect(subject.technical_contacts[0].id).to eq("NFC1-FRNIC")
       expect(subject.technical_contacts[0].name).to eq("NIC France Contact")
       expect(subject.technical_contacts[0].organization).to eq("AFNIC")
-      expect(subject.technical_contacts[0].address).to eq("immeuble international\n2, rue Stephenson\nMontigny le Bretonneux\n78181 Saint Quentin en Yvelines Cedex")
+      expect(subject.technical_contacts[0].address).to eq("immeuble le Stephenson\n1, rue Stephenson\nHall A2 - 3eme etage\n78180 Montigny-Le-Bretonneux")
       expect(subject.technical_contacts[0].city).to eq(nil)
       expect(subject.technical_contacts[0].zip).to eq(nil)
       expect(subject.technical_contacts[0].state).to eq(nil)
@@ -114,13 +114,19 @@ describe Whois::Parsers::WhoisNicPm, "status_registered.expected" do
       expect(subject.technical_contacts[0].phone).to eq("+33 1 39 30 83 00")
       expect(subject.technical_contacts[0].fax).to eq(nil)
       expect(subject.technical_contacts[0].email).to eq("hostmaster@nic.fr")
-      expect(subject.technical_contacts[0].updated_on).to eq(Time.parse("2005-08-23 00:00:00 UTC"))
+      expect(subject.technical_contacts[0].updated_on).to eq(Time.parse("2005-08-23 16:13:17 UTC"))
     end
   end
   describe "#nameservers" do
     it do
       expect(subject.nameservers).to be_a(Array)
       expect(subject.nameservers.size).to eq(3)
+      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[0].name).to eq("ns1.nic.fr")
+      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[1].name).to eq("ns2.nic.fr")
+      expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+      expect(subject.nameservers[2].name).to eq("ns3.nic.fr")
     end
   end
 end

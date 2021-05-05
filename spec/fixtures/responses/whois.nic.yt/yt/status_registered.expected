@@ -10,15 +10,15 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{1995-01-01}
+  %s %TIME{1994-12-31 23:00:00 UTC}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2016-12-31}
+  %s %TIME{2018-12-31 23:33:38 UTC}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2017-12-31}
+  %s %TIME{2019-12-31 23:00:00 UTC}
 
 
 #registrant_contacts
@@ -29,16 +29,16 @@
   %s[0].id            == "AC3598-FRNIC"
   %s[0].name          == nil
   %s[0].organization  == "Afnic (Mayotte - CTOM)"
-  %s[0].address       == "immeuble international\n2, rue Stephenson\nMontigny-Le-Bretonneux\n78181 Saint Quentin en Yvelines Cedex"
+  %s[0].address       == "immeuble le Stephenson\n1, rue Stephenson\nHall A2 - 3eme etage\n78180 Montigny le Bretonneux"
   %s[0].city          == nil
   %s[0].zip           == nil
   %s[0].state         == nil
   %s[0].country       == nil
   %s[0].country_code  == "FR"
-  %s[0].phone         == nil
-  %s[0].fax           == nil
-  %s[0].email         == nil
-  %s[0].updated_on    %TIME{2008-10-09 00:00:00 UTC}
+  %s[0].phone         == "+33 1 39 30 83 00"
+  %s[0].fax           == "+33 1 39 30 83 01"
+  %s[0].email         == "support@afnic.fr"
+  %s[0].updated_on    %TIME{2017-07-17 12:41:44 UTC}
 
 #admin_contacts
   %s %CLASS{array}
@@ -48,7 +48,7 @@
   %s[0].id            == "NFC1-FRNIC"
   %s[0].name          == "NIC France Contact"
   %s[0].organization  == "AFNIC"
-  %s[0].address       == "immeuble international\n2, rue Stephenson\nMontigny le Bretonneux\n78181 Saint Quentin en Yvelines Cedex"
+  %s[0].address       == "immeuble le Stephenson\n1, rue Stephenson\nHall A2 - 3eme etage\n78180 Montigny-Le-Bretonneux"
   %s[0].city          == nil
   %s[0].zip           == nil
   %s[0].state         == nil
@@ -57,7 +57,7 @@
   %s[0].phone         == "+33 1 39 30 83 00"
   %s[0].fax           == nil
   %s[0].email         == "hostmaster@nic.fr"
-  %s[0].updated_on    %TIME{2005-08-23 00:00:00 UTC}
+  %s[0].updated_on    %TIME{2005-08-23 16:13:17 UTC}
 
 #technical_contacts
   %s %CLASS{array}
@@ -67,7 +67,7 @@
   %s[0].id            == "NFC1-FRNIC"
   %s[0].name          == "NIC France Contact"
   %s[0].organization  == "AFNIC"
-  %s[0].address       == "immeuble international\n2, rue Stephenson\nMontigny le Bretonneux\n78181 Saint Quentin en Yvelines Cedex"
+  %s[0].address       == "immeuble le Stephenson\n1, rue Stephenson\nHall A2 - 3eme etage\n78180 Montigny-Le-Bretonneux"
   %s[0].city          == nil
   %s[0].zip           == nil
   %s[0].state         == nil
@@ -76,7 +76,7 @@
   %s[0].phone         == "+33 1 39 30 83 00"
   %s[0].fax           == nil
   %s[0].email         == "hostmaster@nic.fr"
-  %s[0].updated_on    %TIME{2005-08-23 00:00:00 UTC}
+  %s[0].updated_on    %TIME{2005-08-23 16:13:17 UTC}
 
 
 #nameservers
@@ -84,13 +84,7 @@
   %s %SIZE{3}
   %s[0] %CLASS{nameserver}
   %s[0].name == "ns1.nic.fr"
-  %s[0].ipv4 == "192.134.4.1"
-  %s[0].ipv6 == "2001:67c:2218:2::4:1"
   %s[1] %CLASS{nameserver}
   %s[1].name == "ns2.nic.fr"
-  %s[1].ipv4 == "192.93.0.4"
-  %s[1].ipv6 == "2001:660:3005:1::1:2"
   %s[2] %CLASS{nameserver}
   %s[2].name == "ns3.nic.fr"
-  %s[2].ipv4 == "192.134.0.49"
-  %s[2].ipv6 == "2001:660:3006:1::1:1"
