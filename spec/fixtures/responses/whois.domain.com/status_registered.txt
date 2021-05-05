@@ -1,0 +1,70 @@
+Domain Name: DOMAIN.COM
+Domain ID: 608082_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.domain.com
+Registrar URL: www.domain.com
+Updated Date: 2016-10-21T20:11:05Z
+Creation Date: 1994-07-01T04:00:00Z
+Registrar Registration Expiration Date: 2021-01-07T13:34:24Z
+Registrar: Domain.com, LLC
+Registrar IANA ID: 886
+Reseller: Domain Name Holding Company, Inc
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+Registry Registrant ID: 
+Registrant Name: Domain Administrator
+Registrant Organization: Endurance International Group West, Inc
+Registrant Street: 10 Corporate Drive Suite 300
+Registrant City: Burlington
+Registrant State/Province: MA
+Registrant Postal Code: 01803
+Registrant Country: US
+Registrant Phone: +1.3604495900
+Registrant Phone Ext: 
+Registrant Fax: +1.3602534234
+Registrant Fax Ext: 
+Registrant Email: corpdomains@endurance.com
+Registry Admin ID: 
+Admin Name: Domain Administrator
+Admin Organization: Endurance International Group West, Inc
+Admin Street: 10 Corporate Drive Suite 300
+Admin City: Burlington
+Admin State/Province: MA
+Admin Postal Code: 01803
+Admin Country: US
+Admin Phone: +1.3604495900
+Admin Phone Ext: 
+Admin Fax: +1.3602534234
+Admin Fax Ext: 
+Admin Email: corpdomains@endurance.com
+Registry Tech ID: 
+Tech Name: Domain Administrator
+Tech Organization: Endurance International Group West, Inc
+Tech Street: 10 Corporate Drive Suite 300
+Tech City: Burlington
+Tech State/Province: MA
+Tech Postal Code: 01803
+Tech Country: US
+Tech Phone: +1.3604495900
+Tech Phone Ext: 
+Tech Fax: +1.3602534234
+Tech Fax Ext: 
+Tech Email: corpdomains@endurance.com
+Name Server: NS-166.AWSDNS-20.COM
+Name Server: NS-683.AWSDNS-21.NET
+Name Server: NS-1250.AWSDNS-28.ORG
+Name Server: NS-2022.AWSDNS-60.CO.UK
+DNSSEC: unsigned
+Registrar Abuse Contact Email: compliance@domain-inc.net
+Registrar Abuse Contact Phone: +1.6027165396
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2016-10-21T20:11:05Z <<<
+
+"For more information on Whois status codes, please visit https://icann.org/epp"
+
+Registration Service Provider:
+    Domain Name Holding Company, Inc, corpdomains@endurance.com
+    +1.8007972958
+    This company may be contacted for domain login/passwords,
+    DNS/Nameserver changes, and general domain support questions.
+
