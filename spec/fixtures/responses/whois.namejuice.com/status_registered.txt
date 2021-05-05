@@ -1,0 +1,84 @@
+
+Domain name: NAMEJUICE.COM
+Registry Domain ID: 104784662_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.namejuice.com
+Registrar URL: http://www.namejuice.com
+Updated Date: 2018-05-03T09:52:37Z
+Creation Date: 2004-03-25T16:06:56Z
+Registrar Registration Expiration Date: 2020-10-09T04:00:00Z
+Registrar: BRANDON GRAY INTERNET SERVICES, INC. DBA NAMEJUICE.COM
+Registrar IANA ID: 636
+Registrar Abuse Contact Email: abuse@namejuice.com
+Registrar Abuse Contact Phone: +1.9054152681
+Domain Status: clientDeleteProhibited https://www.icann.org/epp#clientDeleteProhibited
+Domain Status: clientTransferProhibited https://www.icann.org/epp#clientTransferProhibited
+Registry Registrant ID: 
+Registrant Name: Domain Registrar
+Registrant Organization: Brandon Gray Internet Services Inc.
+Registrant Street: 7100 Warden Ave
+Registrant Street: Unit 8
+Registrant City: Markham
+Registrant State/Province: ON
+Registrant Postal Code: L3R 8B5
+Registrant Country: CA
+Registrant Phone: +1.9054152681
+Registrant Phone Ext:
+Registrant Fax: +1.9054152682
+Registrant Fax Ext:
+Registrant Email: registrar@namejuice.com
+Registry Admin ID: 
+Admin Name: Domain Registrar
+Admin Organization: Brandon Gray Internet Services Inc.
+Admin Street: 7100 Warden Ave
+Admin Street: Unit 8
+Admin City: Markham
+Admin State/Province: ON
+Admin Postal Code: L3R 8B5
+Admin Country: CA
+Admin Phone: +1.9054152681
+Admin Phone Ext:
+Admin Fax: +1.9054152682
+Admin Fax Ext:
+Admin Email: registrar@namejuice.com
+Registry Tech ID: 
+Tech Name: Domain Registrar
+Tech Organization: Brandon Gray Internet Services Inc.
+Tech Street: 7100 Warden Ave
+Tech Street: Unit 8
+Tech City: Markham
+Tech State/Province: ON
+Tech Postal Code: L3R 8B5
+Tech Country: CA
+Tech Phone: +1.9054152681
+Tech Phone Ext:
+Tech Fax: +1.9054152682
+Tech Fax Ext:
+Tech Email: registrar@namejuice.com
+Name Server: DNS1.NAMERESOLVERS.COM
+Name Server: DNS2.NAMERESOLVERS.COM
+Name Server: DNS3.NAMERESOLVERS.COM
+Name Server: DNS4.NAMERESOLVERS.COM
+DNSSEC: Unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+Last update of WHOIS database: 2018-05-03T09:52:37Z
+
+For more information on Whois status codes, please visit https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en.
+
+
+
+The data in this whois database is provided to you for information
+purposes only, that is, to assist you in obtaining information about or
+related to a domain name registration record. We make this information
+available "as is," and do not guarantee its accuracy. By submitting a
+whois query, you agree that you will use this data only for lawful
+purposes and that, under no circumstances will you use this data to: (1)
+enable high volume, automated, electronic processes that stress or load
+this whois database system providing you this information; or (2) allow,
+enable, or otherwise support the transmission of mass unsolicited,
+commercial advertising or solicitations via direct mail, electronic
+mail, or by telephone. The compilation, repackaging, dissemination or
+other use of this data is expressly prohibited without prior written
+consent from us.
+
+We reserve the right to modify these terms at any time. By submitting
+this query, you agree to abide by these terms!
