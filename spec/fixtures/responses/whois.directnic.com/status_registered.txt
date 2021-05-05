@@ -1,0 +1,73 @@
+
+Domain Name: DIRECTNIC.COM
+Registry Domain ID: 19525357_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.directnic.com
+Registrar URL: http://www.directnic.com
+Updated Date: 2016-08-09T12:54:08Z
+Creation Date: 2000-02-09T17:22:12Z
+Registrar Registration Expiration Date: 2020-02-09T17:22:12Z
+Registrar: DNC Holdings, Inc.
+Sponsoring Registrar IANA ID: 291
+Registrar Abuse Contact Email: abuse@directnic.com
+Registrar Abuse Contact Phone: +1.8778569598
+Domain Status: clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)
+Domain Status: clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)
+Domain Status: clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)
+Registrant Name: Direct Privacy
+Registrant Organization: Savvy Investments, LLC Privacy ID# 472417
+Registrant Street: 2123 Pioneer Ave
+Registrant City: Cheyenne
+Registrant State/Province: WY
+Registrant Postal Code: 82001
+Registrant Country: US
+Registrant Phone: +1.5043215074
+Registrant Phone Ext:
+Registrant Fax:
+Registrant Fax Ext:
+Registrant Email: directnic.com@domainvault.io
+Admin Name: Direct Privacy
+Admin Organization: Savvy Investments, LLC Privacy ID# 472417
+Admin Street: 2123 Pioneer Ave
+Admin City: Cheyenne
+Admin State/Province: WY
+Admin Postal Code: 82001
+Admin Country: US
+Admin Phone: +1.5043215074
+Admin Phone Ext:
+Admin Fax:
+Admin Fax Ext:
+Admin Email: directnic.com@domainvault.io
+Tech Name: Direct Privacy
+Tech Organization: Savvy Investments, LLC Privacy ID# 472417
+Tech Street: 2123 Pioneer Ave
+Tech City: Cheyenne
+Tech State/Province: WY
+Tech Postal Code: 82001
+Tech Country: US
+Tech Phone: +1.5043215074
+Tech Phone Ext:
+Tech Fax:
+Tech Fax Ext:
+Tech Email: directnic.com@domainvault.io
+Name Server: NS0.DIRECTNIC.COM
+Name Server: NS1.DIRECTNIC.COM
+URL of the ICANN WHOIS Data Problem Reporting System
+http://wdprs.internic.net
+>>> Last update of WHOIS database: 2018-05-03T20:26:18Z <<<
+For more information on Whois status codes,
+please visit https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en.
+
+
+The compilation, repackaging, dissemination, or other use of this WHOIS
+data is expressly prohibited without the prior written consent of
+DNC Holdings, Inc.
+
+DNC Holdings reserves the right to terminate your access to its WHOIS
+database in its sole discretion, including without limitation, for
+excessive querying of the database or for failure to otherwise abide by
+this policy.
+
+DNC Holdings reserves the right to modify these terms at any time.
+
+NOTE: THE WHOIS DATABASE IS A CONTACT DATABASE ONLY.
+LACK OF A DOMAIN RECORD DOES NOT SIGNIFY DOMAIN AVAILABILITY.
