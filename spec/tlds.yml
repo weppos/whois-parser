@@ -916,6 +916,10 @@ om:
     status_registered: rop.gov.om
 pa:
     _adapter: web
+paris:
+    _server: whois.nic.paris
+    status_available: u34jedzcq.paris
+    status_registered: bienvenue.paris
 pe:
     _server: kero.yachay.pe
     status_available: u34jedzcq.pe
