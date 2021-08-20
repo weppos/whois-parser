@@ -8,6 +8,7 @@
 
 
 require_relative 'base'
+require 'whois/scanners/whois.registration.ge.rb'
 
 module Whois
   class Parsers
@@ -20,11 +21,11 @@ module Whois
     # @note This parser is just a stub and provides only a few basic methods
     #   to check for domain availability and get domain status.
     #   Please consider to contribute implementing missing methods.
-    class WhoisNicGe < Base
+    class WhoisRegistrationGe < Base
 
       include Scanners::Scannable
 
-      self.scanner = Scanners::Verisign
+      self.scanner = Scanners::WhoisRegistrationGe
 
       # Gets the registry disclaimer that comes with the record.
       #
