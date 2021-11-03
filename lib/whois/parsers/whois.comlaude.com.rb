@@ -86,11 +86,11 @@ module Whois
 
         # 0 Domain Manager
         # 1 Nom-IQ Ltd dba Com Laude
-        #   2nd Floor, 28-30 Little Russell Street
+        #   28-30 Little Russell Street
         #   London WC1A 2HN
         #   United Kingdom
-        #   Phone: +44.2078360070
-        #   Fax: +44.2078360070
+        #   Phone: +44.2074218250
+        #   Fax: +44.8700118187
         #   Email: admin@comlaude.com
         Parser::Contact.new(
           :type         => type,
