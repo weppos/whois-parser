@@ -23,7 +23,7 @@ describe Whois::Parsers::WhoisFi, "status_registered.expected" do
 
   describe "#disclaimer" do
     it do
-      expect(subject.disclaimer).to eq("More information is available at https://domain.fi/\nCopyright (c) Finnish Communications Regulatory Authority")
+      expect(subject.disclaimer).to eq("Copyright (c) Finnish Transport and Communications Agency Traficom")
     end
   end
   describe "#domain" do
@@ -60,50 +60,70 @@ describe Whois::Parsers::WhoisFi, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2013-06-07"))
+      expect(subject.updated_on).to eq(Time.parse("2019-06-02"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-07-04"))
+      expect(subject.expires_on).to eq(Time.parse("2020-07-04 10:15:55"))
     end
   end
   describe "#registrar" do
     it do
-      expect { subject.registrar }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.registrar.id).to eq(nil)
+      expect(subject.registrar.name).to eq("MarkMonitor Inc.")
+      expect(subject.registrar.organization).to eq("MarkMonitor Inc.")
+      expect(subject.registrar.url).to eq("www.markmonitor.com")
     end
   end
   describe "#registrant_contacts" do
     it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("09073468")
-      expect(subject.registrant_contacts[0].name).to eq("Domain Administrator")
-      expect(subject.registrant_contacts[0].organization).to eq("Google Finland Oy")
-      expect(subject.registrant_contacts[0].address).to eq("Mannerheimintie 12 B")
-      expect(subject.registrant_contacts[0].city).to eq("HELSINKI")
-      expect(subject.registrant_contacts[0].zip).to eq("00100")
-      expect(subject.registrant_contacts[0].state).to eq(nil)
-      expect(subject.registrant_contacts[0].country).to eq(nil)
-      expect(subject.registrant_contacts[0].country_code).to eq(nil)
-      expect(subject.registrant_contacts[0].phone).to eq("35896966890")
-      expect(subject.registrant_contacts[0].fax).to eq(nil)
-      expect(subject.registrant_contacts[0].email).to eq(nil)
-      expect(subject.registrant_contacts[0].created_on).to eq(nil)
-      expect(subject.registrant_contacts[0].updated_on).to eq(nil)
+      expect { subject.registrant_contacts }.to raise_error(Whois::AttributeNotSupported)
     end
   end
   describe "#admin_contacts" do
     it do
-      expect { subject.admin_contacts }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.admin_contacts).to be_a(Array)
+      expect(subject.admin_contacts.size).to eq(1)
+      expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
+      expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+      expect(subject.admin_contacts[0].id).to eq("3582691")
+      expect(subject.admin_contacts[0].name).to eq("Google LLC")
+      expect(subject.admin_contacts[0].organization).to eq(nil)
+      expect(subject.admin_contacts[0].address).to eq("1600 Amphitheatre Parkway")
+      expect(subject.admin_contacts[0].zip).to eq("94043")
+      expect(subject.admin_contacts[0].city).to eq("Mountain View")
+      expect(subject.admin_contacts[0].state).to eq(nil)
+      expect(subject.admin_contacts[0].country).to eq("United States of America")
+      expect(subject.admin_contacts[0].country_code).to eq(nil)
+      expect(subject.admin_contacts[0].phone).to eq("+1.6502530000")
+      expect(subject.admin_contacts[0].fax).to eq(nil)
+      expect(subject.admin_contacts[0].email).to eq("")
+      expect(subject.admin_contacts[0].created_on).to eq(nil)
+      expect(subject.admin_contacts[0].updated_on).to eq(nil)
     end
   end
   describe "#technical_contacts" do
     it do
-      expect { subject.technical_contacts }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.technical_contacts).to be_a(Array)
+      expect(subject.technical_contacts.size).to eq(1)
+      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+      expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
+      expect(subject.technical_contacts[0].id).to eq(nil)
+      expect(subject.technical_contacts[0].name).to eq("Google LLC")
+      expect(subject.technical_contacts[0].organization).to eq(nil)
+      expect(subject.technical_contacts[0].address).to eq(nil)
+      expect(subject.technical_contacts[0].city).to eq(nil)
+      expect(subject.technical_contacts[0].zip).to eq(nil)
+      expect(subject.technical_contacts[0].state).to eq(nil)
+      expect(subject.technical_contacts[0].country).to eq(nil)
+      expect(subject.technical_contacts[0].country_code).to eq(nil)
+      expect(subject.technical_contacts[0].phone).to eq(nil)
+      expect(subject.technical_contacts[0].fax).to eq(nil)
+      expect(subject.technical_contacts[0].email).to eq("ccops@markmonitor.com")
+      expect(subject.technical_contacts[0].created_on).to eq(nil)
+      expect(subject.technical_contacts[0].updated_on).to eq(nil)
     end
   end
   describe "#nameservers" do
@@ -111,13 +131,13 @@ describe Whois::Parsers::WhoisFi, "status_registered.expected" do
       expect(subject.nameservers).to be_a(Array)
       expect(subject.nameservers.size).to eq(4)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns1.google.com")
+      expect(subject.nameservers[0].name).to eq("ns3.google.com")
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns2.google.com")
+      expect(subject.nameservers[1].name).to eq("ns4.google.com")
       expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("ns3.google.com")
+      expect(subject.nameservers[2].name).to eq("ns1.google.com")
       expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[3].name).to eq("ns4.google.com")
+      expect(subject.nameservers[3].name).to eq("ns2.google.com")
     end
   end
 end
