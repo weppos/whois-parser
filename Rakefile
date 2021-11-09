@@ -31,3 +31,7 @@ task :clobber => "yardoc:clobber"
 Dir["tasks/**/*.rake"].each do |file|
   load(file)
 end
+
+task :console do
+  sh "irb -r rubygems -I lib -r whois-parser.rb"
+end

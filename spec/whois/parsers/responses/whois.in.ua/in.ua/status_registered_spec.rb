@@ -38,19 +38,20 @@ describe Whois::Parsers::WhoisInUa, "status_registered.expected" do
   end
   describe "#created_on" do
     it do
-      expect { subject.created_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.created_on).to be_a(Time)
+      expect(subject.created_on).to eq(Time.parse("2007-12-18 20:12:35 +02:00"))
     end
   end
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2012-12-16 13:41:04"))
+      expect(subject.updated_on).to eq(Time.parse("2019-12-03 11:15:10 +02:00"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2013-12-18 00:00:00"))
+      expect(subject.expires_on).to eq(Time.parse("2020-12-20 00:00:00 +02:00"))
     end
   end
   describe "#nameservers" do
@@ -58,11 +59,11 @@ describe Whois::Parsers::WhoisInUa, "status_registered.expected" do
       expect(subject.nameservers).to be_a(Array)
       expect(subject.nameservers.size).to eq(3)
       expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns12.uadns.com")
+      expect(subject.nameservers[0].name).to eq("ns10.uadns.com")
       expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns11.uadns.com")
+      expect(subject.nameservers[1].name).to eq("ns12.uadns.com")
       expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("ns10.uadns.com")
+      expect(subject.nameservers[2].name).to eq("ns11.uadns.com")
     end
   end
 end
