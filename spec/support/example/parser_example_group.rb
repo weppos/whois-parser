@@ -30,7 +30,7 @@ RSpec::Matchers.define :cache_property do |property|
   end
 end
 
-RSpec::configure do |c|
+RSpec.configure do |c|
   def c.escaped_path(*parts)
     /#{parts.join('\/')}/
   end

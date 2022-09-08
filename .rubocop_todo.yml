@@ -344,12 +344,6 @@ Style/CaseLikeIf:
     - 'lib/whois/parsers/whois.nic.pr.rb'
     - 'lib/whois/parsers/whois.nic.uk.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/ColonMethodCall:
-  Exclude:
-    - 'spec/support/example/parser_example_group.rb'
-
 # Offense count: 11
 Style/DocumentDynamicEvalDefinition:
   Exclude:
@@ -424,13 +418,6 @@ Style/GuardClause:
 # SupportedShorthandSyntax: always, never, either, consistent
 Style/HashSyntax:
   Enabled: false
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowIfModifier.
-Style/IfInsideElse:
-  Exclude:
-    - 'lib/whois/parsers/whois.tonic.to.rb'
 
 # Offense count: 238
 # This cop supports safe autocorrection (--autocorrect).

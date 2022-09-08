@@ -30,12 +30,10 @@ module Whois
       property_supported :status do
         if response_incomplete?
           :incomplete
+        elsif available?
+          :available
         else
-          if available?
-            :available
-          else
-            :registered
-          end
+          :registered
         end
       end
 
