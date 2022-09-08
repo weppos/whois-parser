@@ -30,7 +30,7 @@ describe Whois do
       end
     end
 
-    it "it raises Whois::AttributeNotImplemented when missing parser" do
+    it "raises Whois::AttributeNotImplemented when missing parser" do
       with_definitions do
         Whois::Server.define(:tld, "test", "missing.parser.test")
         expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).and_return("1 == 2")
@@ -59,7 +59,7 @@ describe Whois do
       end
     end
 
-    it "it raises Whois::AttributeNotImplemented when missing parser" do
+    it "raises Whois::AttributeNotImplemented when missing parser" do
       with_definitions do
         Whois::Server.define(:tld, "test", "missing.parser.test")
         expect_any_instance_of(Whois::Server::Adapters::Standard).to receive(:query_the_socket).and_return("1 == 2")

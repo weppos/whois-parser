@@ -25,7 +25,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /Domain name:\s(.+?)\n/
-          $1
+          ::Regexp.last_match(1)
         end
       end
 
@@ -51,7 +51,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Created:\s(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -59,7 +59,7 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expiration date:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -71,7 +71,7 @@ module Whois
         if content_for_scanner =~ /Registrant:\s+(.+?)\n/
           Parser::Contact.new(
               :type => Parser::Contact::TYPE_REGISTRANT,
-              :name => $1
+              :name => ::Regexp.last_match(1)
           )
         end
       end

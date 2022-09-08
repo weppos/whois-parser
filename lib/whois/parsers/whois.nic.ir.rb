@@ -47,7 +47,7 @@ module Whois
 
       property_supported :updated_on do
         if content_for_scanner =~ /last-updated:\s+(.*)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 

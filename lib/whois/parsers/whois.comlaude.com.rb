@@ -34,7 +34,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Registered: (.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -42,7 +42,7 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expires: (.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -69,7 +69,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Nameservers:\n((?:\s*[^\s\n]+\n)+)\n/
-          $1.split("\n").map do |line|
+          ::Regexp.last_match(1).split("\n").map do |line|
             Parser::Nameserver.new(:name => line.strip)
           end
         end
@@ -103,7 +103,7 @@ module Whois
           :country      => nil,
           :phone        => match.slice(/Phone: (.*)/, 1),
           :email        => match.slice(/Email: (.*)/, 1),
-          :fax          => match.slice(/Fax: (.*)/, 1),
+          :fax          => match.slice(/Fax: (.*)/, 1)
         )
       end
 

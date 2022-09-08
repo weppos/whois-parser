@@ -20,9 +20,9 @@ module Whois
     #
     class Whois1und1Info < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^Domain (.+) is not registered here.\n/
+          pattern_available: /^Domain (.+) is not registered here.\n/,
       }
     end
 
-end
+  end
 end

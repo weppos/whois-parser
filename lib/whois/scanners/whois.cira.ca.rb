@@ -35,13 +35,13 @@ module Whois
 
           # This is a nested key
           target = if start.index(" ") == 0
-            error!("Expected group.") if @tmp["group"].nil?
-            @ast[@tmp["group"]] ||= {}
-            @ast[@tmp["group"]]
-          else
-            @tmp.delete("group")
-            @ast
-          end
+                     error!("Expected group.") if @tmp["group"].nil?
+                     @ast[@tmp["group"]] ||= {}
+                     @ast[@tmp["group"]]
+                   else
+                     @tmp.delete("group")
+                     @ast
+                   end
 
           more  = _scan_lines_to_array(/^\s{#{start.size}}(.+)\n/)
           value = more.unshift(value).join("\n") unless more.empty?

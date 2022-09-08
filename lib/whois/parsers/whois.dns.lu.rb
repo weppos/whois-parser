@@ -26,11 +26,11 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /domaintype:\s+(.+)\n/
-          case $1.downcase
+          case ::Regexp.last_match(1).downcase
           when "active"
             :registered
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available
@@ -49,7 +49,7 @@ module Whois
       property_supported :created_on do
         if content_for_scanner =~ /registered:\s+(.*)\n/
           # Force the parser to use the dd/mm/yyyy format.
-          Time.utc(*$1.split("/").reverse)
+          Time.utc(*::Regexp.last_match(1).split("/").reverse)
         end
       end
 
@@ -62,7 +62,7 @@ module Whois
         if name = value_for_key('registrar-name')
           Parser::Registrar.new(
               name:         name,
-              url:          value_for_key('registrar-url'),
+              url:          value_for_key('registrar-url')
           )
         end
       end
@@ -83,7 +83,7 @@ module Whois
       property_supported :nameservers do
         values_for_key('nserver').map do |line|
           if line =~ /(.+) \[(.+)\]/
-            Parser::Nameserver.new(name: $1, ipv4: $2)
+            Parser::Nameserver.new(name: ::Regexp.last_match(1), ipv4: ::Regexp.last_match(2))
           else
             Parser::Nameserver.new(name: line)
           end

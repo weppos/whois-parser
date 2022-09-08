@@ -22,7 +22,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /DOMAIN NAME:\s+(.+)\n/
-          $1
+          ::Regexp.last_match(1)
         end
       end
 
@@ -48,19 +48,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /created:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /last modified:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
-        if content_for_scanner =~ /renewal date:\s+(.+?)\n/ && $1 != "not defined"
-          parse_time($1)
+        if content_for_scanner =~ /renewal date:\s+(.+?)\n/ && ::Regexp.last_match(1) != "not defined"
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -71,7 +71,7 @@ module Whois
 
         lines = match.split("\n")
         Parser::Registrar.new(
-          :name         => lines[0]
+          :name => lines[0]
         )
       end
 
@@ -88,7 +88,7 @@ module Whois
         content_for_scanner.scan(/nameservers:\s+(.+)\n(.+)\n/).flatten.map do |line|
           line.strip!
           if line =~ /(.+) \[(.+)\]/
-            Parser::Nameserver.new(:name => $1.chomp("."), :ipv4 => $2)
+            Parser::Nameserver.new(:name => ::Regexp.last_match(1).chomp("."), :ipv4 => ::Regexp.last_match(2))
           else
             Parser::Nameserver.new(:name => line.chomp("."))
           end
@@ -137,7 +137,7 @@ module Whois
         hash = {}
         lines.each do |line|
           if line =~ /(.+):(.+)/
-            hash[key = $1] = $2.strip
+            hash[key = ::Regexp.last_match(1)] = ::Regexp.last_match(2).strip
           else
             hash[key] += "\n#{line.strip}"
           end

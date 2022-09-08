@@ -29,7 +29,7 @@ module Whois
 
       property_supported :domain do
         content_for_scanner =~ /Query:\s+(.+?)\n/
-        $1 || Whois::Parser.bug!(ParserError, "Unable to parse domain.")
+        ::Regexp.last_match(1) || Whois::Parser.bug!(ParserError, "Unable to parse domain.")
       end
 
       property_not_supported :domain_id
@@ -37,7 +37,7 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /Status:\s+(.+?)\n/
-          status = $1.downcase
+          status = ::Regexp.last_match(1).downcase
           self.class.status_mapping[status] || Whois::Parser.bug!(ParserError, "Unknown status `#{status}'.")
         else
           Whois::Parser.bug!(ParserError, "Unable to parse status.")
@@ -55,19 +55,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Created:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /Modified:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expires:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -75,7 +75,7 @@ module Whois
       property_supported :registrar do
         if content_for_scanner =~ /Registrar Name: (.+)\n/
           Parser::Registrar.new(
-              name:         $1,
+              name:         ::Regexp.last_match(1),
               organization: nil,
               url:          content_for_scanner.slice(/Registration URL: (.+)\n/, 1)
           )
@@ -85,7 +85,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Name Servers:\n((.+\n)+)\n/
-          $1.split("\n").map do |name|
+          ::Regexp.last_match(1).split("\n").map do |name|
             Parser::Nameserver.new(:name => name.strip)
           end
         end

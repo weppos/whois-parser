@@ -13,8 +13,8 @@ module Whois
 
 
       tokenizer :scan_disclaimer do
-        if @input.match?(/^\%(.*?)\n/)
-          @ast["Disclaimer"] = _scan_lines_to_array(/\%(.*?)\n/).select { |line| line =~ /\w+/ }.join(" ")
+        if @input.match?(/^%(.*?)\n/)
+          @ast["Disclaimer"] = _scan_lines_to_array(/%(.*?)\n/).select { |line| line =~ /\w+/ }.join(" ")
         end
       end
 
@@ -23,15 +23,15 @@ module Whois
 
           # Adapt the section's name depending on the first line
           section = case @input[1].strip
-          when 'contact'
-            @input[2].strip # use the contact type name as identifier
-          when 'created', 'changed'
-            'dates'
-          when 'nserver'
-            'nameservers'
-          else
-            @input[1].strip # Default name is the first label found
-          end
+                    when 'contact'
+                      @input[2].strip # use the contact type name as identifier
+                    when 'created', 'changed'
+                      'dates'
+                    when 'nserver'
+                      'nameservers'
+                    else
+                      @input[1].strip # Default name is the first label found
+                    end
 
           content = parse_section_pairs
           @input.match?(/\n+/) || error("Unexpected end of section")
@@ -40,12 +40,12 @@ module Whois
       end
 
 
-    private
+      private
 
       def parse_section_pairs
         # Sets by default the firsts values found in the section parsing bellow
         section_name, section_value = @input[1].strip, @input[2].strip
-        #contents = {section_name =>  section_value}
+        # contents = {section_name =>  section_value}
 
         contents = {}
 
@@ -53,36 +53,36 @@ module Whois
           contents.merge!(content)
         end
 
-        if contents.has_key? section_name
+        if contents.key? section_name
           contents[section_name].insert(0, "#{section_value}\n")
         else
           contents[section_name] = section_value
         end
 
-        if !contents.empty?
-          contents
-        else
+        if contents.empty?
           false
+        else
+          contents
         end
       end
 
-        def parse_section_pair
-          if @input.scan(/^(.+):\s*(.+)\n/)
-            key     =  @input[1].strip
-            values  = [@input[2].strip]
+      def parse_section_pair
+        if @input.scan(/^(.+):\s*(.+)\n/)
+          key     =  @input[1].strip
+          values  = [@input[2].strip]
 
-            while value = parse_section_pair_newlinevalue(key)
-              values << value
-            end
-            { key => values.join("\n") }
+          while value = parse_section_pair_newlinevalue(key)
+            values << value
           end
+          { key => values.join("\n") }
         end
+      end
 
-          def parse_section_pair_newlinevalue(key)
-            if @input.scan(/^#{key}:\s*(.+)\n/)
-              @input[1].strip
-            end
-          end
+      def parse_section_pair_newlinevalue(key)
+        if @input.scan(/^#{key}:\s*(.+)\n/)
+          @input[1].strip
+        end
+      end
 
     end
   end

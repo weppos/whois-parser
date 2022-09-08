@@ -7,10 +7,12 @@ describe Whois::Record do
   let(:server) {
     Whois::Server.factory(:tld, ".foo", "whois.example.test")
   }
-  let(:parts) {[
-    Whois::Record::Part.new(body: "This is a record from foo.", host: "foo.example.test"),
-    Whois::Record::Part.new(body: "This is a record from bar.", host: "bar.example.test")
-  ]}
+  let(:parts) {
+    [
+   Whois::Record::Part.new(body: "This is a record from foo.", host: "foo.example.test"),
+   Whois::Record::Part.new(body: "This is a record from bar.", host: "bar.example.test"),
+ ]
+  }
 
   describe "#parser" do
     it "returns a Parser" do

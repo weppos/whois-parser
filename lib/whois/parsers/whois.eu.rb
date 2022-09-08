@@ -19,7 +19,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /Domain:\s+(.+)\n/
-          "#{$1.downcase}"
+          "#{::Regexp.last_match(1).downcase}"
         end
       end
 
@@ -52,7 +52,7 @@ module Whois
 
       property_supported :registrar do
         if content_for_scanner =~ /Registrar:\s((.+\n)+)\n/
-          lines = $1
+          lines = ::Regexp.last_match(1)
           Parser::Registrar.new(
               name:         lines.slice(/Name:\s+(.+)/, 1),
               url:          lines.slice(/Website:\s+(.+)/, 1)
@@ -76,7 +76,7 @@ module Whois
       #
       property_supported :technical_contacts do
         if content_for_scanner =~ /Technical:\s((.+\n)+)\n/
-          lines = $1
+          lines = ::Regexp.last_match(1)
           Parser::Contact.new(
             :type         => Parser::Contact::TYPE_TECHNICAL,
             :id           => nil,
@@ -102,9 +102,9 @@ module Whois
       #
       property_supported :nameservers do
         if content_for_scanner =~ /Name\sservers:\s((.+\n)+)\n/
-          $1.split("\n").map do |line|
+          ::Regexp.last_match(1).split("\n").map do |line|
             if line.strip =~ /(.+) \((.+)\)/
-              Parser::Nameserver.new(:name => $1, :ipv4 => $2)
+              Parser::Nameserver.new(:name => ::Regexp.last_match(1), :ipv4 => ::Regexp.last_match(2))
             else
               Parser::Nameserver.new(:name => line.strip)
             end

@@ -113,7 +113,7 @@ module Whois
               :name         => node("#{element} Name"),
               :organization => node("#{element} Organization"),
               :address      => node("#{element} Street"),
-              :city        => node("#{element} City"),
+              :city => node("#{element} City"),
               :zip          => node("#{element} Postal Code"),
               :country      => node("#{element} Country"),
               :email        => node("#{element} Email")

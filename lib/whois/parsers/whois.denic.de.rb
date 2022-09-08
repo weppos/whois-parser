@@ -54,7 +54,7 @@ module Whois
             # NEWSTATUS invalid
             :invalid
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{node("Status")}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{node('Status')}'.")
           end
         end
       end
@@ -135,7 +135,7 @@ module Whois
       def version
         cached_properties_fetch :version do
           if content_for_scanner =~ /^% Version: (.+)$/
-            $1
+            ::Regexp.last_match(1)
           end
         end
       end

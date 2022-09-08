@@ -43,7 +43,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Domain Name Commencement Date:\s(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -51,14 +51,14 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expiry Date:\s(.+?)\n/
-          parse_time($1.strip)
+          parse_time(::Regexp.last_match(1).strip)
         end
       end
 
 
       property_supported :nameservers do
         if content_for_scanner =~ /Name Servers Information:\n\n((.+\n)+)\n/
-          $1.split("\n").map do |name|
+          ::Regexp.last_match(1).split("\n").map do |name|
             Parser::Nameserver.new(:name => name.strip.downcase)
           end
         end

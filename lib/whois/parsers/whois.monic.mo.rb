@@ -25,7 +25,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /Domain Name:\s+(.+)\n/
-          $1.downcase
+          ::Regexp.last_match(1).downcase
         end
       end
 
@@ -59,7 +59,7 @@ module Whois
       property_supported :registrar do
         if content_for_scanner =~ /Registrar:\s+(.+)\n/
           Parser::Registrar.new(
-              :name         => $1
+              :name => ::Regexp.last_match(1)
           )
         end
       end

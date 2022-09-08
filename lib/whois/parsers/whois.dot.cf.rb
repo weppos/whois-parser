@@ -43,7 +43,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Domain registered:\s(.+)\n/
-          Time.strptime($1, "%m/%d/%Y")
+          Time.strptime(::Regexp.last_match(1), "%m/%d/%Y")
         end
       end
 
@@ -51,7 +51,7 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /Record will expire on:\s(.+)\n/
-          value = $1.strip
+          value = ::Regexp.last_match(1).strip
           Time.strptime(value, "%m/%d/%Y") if value.present?
         end
       end
@@ -59,7 +59,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Domain Nameservers:\n((.+\n)+)\s+\n/
-          $1.split("\n").map do |name|
+          ::Regexp.last_match(1).split("\n").map do |name|
             Parser::Nameserver.new(name: name.strip.downcase)
           end
         end

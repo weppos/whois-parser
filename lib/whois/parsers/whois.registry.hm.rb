@@ -47,7 +47,7 @@ module Whois
         if content_for_scanner =~ /Domain creation date: (.+?)\n/
           # Change dd/mm/yy to yyyy-mm-dd to prevent
           # argument out of range
-          parse_time($1.split("/").reverse.join("-"))
+          parse_time(::Regexp.last_match(1).split("/").reverse.join("-"))
         end
       end
 
@@ -55,7 +55,7 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /Domain expiration date: (.+?)\n/
-          parse_time($1.split("/").reverse.join("-"))
+          parse_time(::Regexp.last_match(1).split("/").reverse.join("-"))
         end
       end
 

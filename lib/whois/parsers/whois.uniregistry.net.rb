@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisUniregistryNet < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: />>> Domain \".+\" is available/
+          pattern_available: />>> Domain ".+" is available/,
       }
 
 
@@ -38,6 +38,7 @@ module Whois
 
       property_supported :registrar do
         return unless node('Sponsoring Registrar')
+
         Parser::Registrar.new(
             id:           node('Sponsoring Registrar IANA ID'),
             name:         node('Sponsoring Registrar'),

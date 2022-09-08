@@ -39,19 +39,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Created On: (.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /Updated On: (.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expires On: (.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 

@@ -42,26 +42,26 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Record created: (.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /Record last updated on (.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /Record expires on (.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
 
       property_supported :nameservers do
         if content_for_scanner =~ /Name servers in the listed order:\n\n((.+\n)+)\n/
-          $1.split("\n").map do |name|
+          ::Regexp.last_match(1).split("\n").map do |name|
             Parser::Nameserver.new(:name => name.downcase)
           end
         end

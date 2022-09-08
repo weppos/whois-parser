@@ -48,7 +48,7 @@ module Whois
             :available
           end
         else
-          Whois::Parser.bug!(ParserError, "Unknown status `#{node("status")}'.")
+          Whois::Parser.bug!(ParserError, "Unknown status `#{node('status')}'.")
         end
       end
 
@@ -107,6 +107,7 @@ module Whois
       def build_contact(element, type)
         Array.wrap(node(element)).map do |id|
           next unless (contact = node("field:#{id}"))
+
           Parser::Contact.new(
             :type         => type,
             :id           => id,

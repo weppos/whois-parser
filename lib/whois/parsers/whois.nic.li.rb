@@ -52,7 +52,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Name servers:\n((.+\n)+)(?:\n|\z)/
-          $1.split("\n").map do |name|
+          ::Regexp.last_match(1).split("\n").map do |name|
             Parser::Nameserver.new(:name => name)
           end
         end

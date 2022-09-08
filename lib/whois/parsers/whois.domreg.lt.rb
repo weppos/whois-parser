@@ -28,7 +28,7 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /Status:\s+(.*)\n/
-          $1.to_sym
+          ::Regexp.last_match(1).to_sym
         end
       end
 
@@ -43,7 +43,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Registered:\s+(.*)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -55,7 +55,7 @@ module Whois
       property_supported :nameservers do
         content_for_scanner.scan(/Nameserver:\s+(.+)\n/).flatten.map do |line|
           if line =~ /(.+)\t\[(.+)\]/
-            Parser::Nameserver.new(:name => $1, :ipv4 => $2)
+            Parser::Nameserver.new(:name => ::Regexp.last_match(1), :ipv4 => ::Regexp.last_match(2))
           else
             Parser::Nameserver.new(:name => line.strip)
           end

@@ -21,7 +21,7 @@ module Whois
     class WhoisRegistryOm < BaseShared1
 
       self.scanner = Scanners::BaseShared1, {
-          pattern_reserved: /^Restricted\n/
+          pattern_reserved: /^Restricted\n/,
       }
 
 

@@ -21,7 +21,7 @@ module Whois
     class WhoisDonutsCo < BaseIcannCompliant
 
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^Domain not found\./
+          pattern_available: /^Domain not found\./,
       }
 
 
@@ -34,6 +34,7 @@ module Whois
 
       property_supported :registrar do
         return unless node("Registrar")
+
         Parser::Registrar.new({
             id:           node("Registrar IANA ID"),
             name:         node("Registrar"),
@@ -43,7 +44,7 @@ module Whois
       end
 
 
-      private
+
       #
       # def build_contact(element, type)
       #   if (contact = super)

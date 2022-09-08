@@ -26,7 +26,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /domain:\s+(.+?)\n/
-          $1.downcase
+          ::Regexp.last_match(1).downcase
         end
       end
 
@@ -35,7 +35,7 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /state:\s+(.+?)\n/
-          $1.split(",").map(&:strip)
+          ::Regexp.last_match(1).split(",").map(&:strip)
         else
           []
         end
@@ -52,7 +52,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /created:\s+(.*)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -60,7 +60,7 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /paid-till:\s+(.*)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -68,7 +68,7 @@ module Whois
       property_supported :registrar do
         if content_for_scanner =~ /registrar:\s+(.*)\n/
           Parser::Registrar.new(
-              :id           => $1
+              :id => ::Regexp.last_match(1)
           )
         end
       end
@@ -78,16 +78,16 @@ module Whois
         url   = content_for_scanner[/admin-contact:\s+(.+)\n/, 1]
         email = content_for_scanner[/e-mail:\s+(.+)\n/, 1]
         contact = if url or email
-          Parser::Contact.new(
-            :type         => Parser::Contact::TYPE_ADMINISTRATIVE,
-            :url          => url,
-            :email        => email,
-            :name         => content_for_scanner[/person:\s+(.+)\n/, 1],
-            :organization => content_for_scanner[/org:\s+(.+)\n/, 1],
-            :phone        => content_for_scanner[/phone:\s+(.+)\n/, 1],
-            :fax          => content_for_scanner[/fax-no:\s+(.+)\n/, 1]
-          )
-        end
+                    Parser::Contact.new(
+                      :type         => Parser::Contact::TYPE_ADMINISTRATIVE,
+                      :url          => url,
+                      :email        => email,
+                      :name         => content_for_scanner[/person:\s+(.+)\n/, 1],
+                      :organization => content_for_scanner[/org:\s+(.+)\n/, 1],
+                      :phone        => content_for_scanner[/phone:\s+(.+)\n/, 1],
+                      :fax          => content_for_scanner[/fax-no:\s+(.+)\n/, 1]
+                    )
+                  end
         Array.wrap(contact)
       end
 

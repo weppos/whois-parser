@@ -26,7 +26,7 @@ module Whois
 
       property_supported :domain do
         if section =~ /Domain Name:\s+(.+)\n/
-          $1
+          ::Regexp.last_match(1)
         end
       end
 
@@ -52,13 +52,13 @@ module Whois
 
       property_supported :created_on do
         if section =~ /Created:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if section =~ /Updated:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -72,7 +72,7 @@ module Whois
         if section =~ /Name:\s+(.+)\n/
           Parser::Contact.new(
               type:         Parser::Contact::TYPE_REGISTRANT,
-              name:         $1
+              name:         ::Regexp.last_match(1)
           )
         end
       end
@@ -84,7 +84,7 @@ module Whois
 
       property_supported :nameservers do
         (1..4).map do |i|
-          section =~ /Name Server #{i}:\s+(.+)\n/ ? Parser::Nameserver.new(name: $1) : nil
+          section =~ /Name Server #{i}:\s+(.+)\n/ ? Parser::Nameserver.new(name: ::Regexp.last_match(1)) : nil
         end.compact
       end
 
@@ -93,10 +93,10 @@ module Whois
 
       def build_contact(element, type)
         node("#{element} ID") do
-          address = ["", "2", "3"].
-              map { |i| node("#{element} Address#{i}") }.
-              delete_if(&:empty?).
-              join("\n")
+          address = ["", "2", "3"]
+              .map { |i| node("#{element} Address#{i}") }
+              .delete_if(&:empty?)
+              .join("\n")
 
           Parser::Contact.new(
               :type         => type,
@@ -117,7 +117,8 @@ module Whois
 
       def section
         return @section if @section
-        @section = content_for_scanner =~ /((?:Domain:.+\n)(?:.+:.+\n)+)\n/ ? $1 : ""
+
+        @section = content_for_scanner =~ /((?:Domain:.+\n)(?:.+:.+\n)+)\n/ ? ::Regexp.last_match(1) : ""
       end
 
     end

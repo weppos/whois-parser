@@ -63,9 +63,9 @@ module Whois
       def build_contact(element, type)
         node("#{element} ID") do
           address = [node("#{element} Street")]
-          address = (address + (1..3).map { |i| node("#{element} Street#{i}") }).
-            delete_if { |i| i.nil? || i.empty? }.
-            join("\n")
+          address = (address + (1..3).map { |i| node("#{element} Street#{i}") })
+            .delete_if { |i| i.nil? || i.empty? }
+            .join("\n")
 
           Parser::Contact.new(
               :type         => type,

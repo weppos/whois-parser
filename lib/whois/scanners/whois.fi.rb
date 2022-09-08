@@ -11,7 +11,7 @@ module Whois
           :scan_available,
           :scan_disclaimer,
           :scan_keyvalue,
-          :scan_reserved
+          :scan_reserved,
       ]
 
 

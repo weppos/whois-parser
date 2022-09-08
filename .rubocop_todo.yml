@@ -6,92 +6,10 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: outdent, indent
-Layout/AccessModifierIndentation:
-  Exclude:
-    - 'lib/whois/parsers/whois.educause.edu.rb'
-    - 'lib/whois/scanners/base.rb'
-    - 'lib/whois/scanners/iana.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-Layout/BlockEndNewline:
-  Exclude:
-    - 'spec/whois/parser_extensions/parser_spec.rb'
-    - 'spec/whois/parser_extensions/record_spec.rb'
-    - 'spec/whois/safe_record_spec.rb'
-
-# Offense count: 17
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentOneStep, IndentationWidth.
-# SupportedStyles: case, end
-Layout/CaseIndentation:
-  Exclude:
-    - 'lib/whois/parsers/whois.aeda.net.ae.rb'
-    - 'lib/whois/parsers/whois.cctld.uz.rb'
-    - 'lib/whois/parsers/whois.co.ca.rb'
-    - 'lib/whois/parsers/whois.dk-hostmaster.dk.rb'
-    - 'lib/whois/parsers/whois.nic.sm.rb'
-    - 'lib/whois/parsers/whois.nic.ve.rb'
-    - 'lib/whois/parsers/whois.sgnic.sg.rb'
-    - 'lib/whois/scanners/iana.rb'
-
 # Offense count: 45
 # This cop supports safe autocorrection (--autocorrect).
 Layout/ClosingParenthesisIndentation:
   Enabled: false
-
-# Offense count: 31
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: leading, trailing
-Layout/DotPosition:
-  Exclude:
-    - 'lib/whois/parser.rb'
-    - 'lib/whois/parsers/base_afilias.rb'
-    - 'lib/whois/parsers/base_afilias2.rb'
-    - 'lib/whois/parsers/base_shared2.rb'
-    - 'lib/whois/parsers/whois.centralnic.com.rb'
-    - 'lib/whois/parsers/whois.nic.asia.rb'
-    - 'lib/whois/parsers/whois.nic.bj.rb'
-    - 'lib/whois/parsers/whois.nic.me.rb'
-    - 'lib/whois/parsers/whois.pir.org.rb'
-    - 'lib/whois/parsers/whois.safenames.net.rb'
-    - 'lib/whois/parsers/whois.yoursrs.com.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-Layout/ElseAlignment:
-  Exclude:
-    - 'lib/whois/parsers/whois.jprs.jp.rb'
-    - 'lib/whois/parsers/whois.nic.tr.rb'
-    - 'lib/whois/scanners/whois.cira.ca.rb'
-
-# Offense count: 10
-# This cop supports safe autocorrection (--autocorrect).
-Layout/EmptyLineAfterGuardClause:
-  Exclude:
-    - 'lib/whois/parser.rb'
-    - 'lib/whois/parser_extensions/whois_record.rb'
-    - 'lib/whois/parsers/base.rb'
-    - 'lib/whois/parsers/base_icann_compliant.rb'
-    - 'lib/whois/parsers/whois.domainregistry.ie.rb'
-    - 'lib/whois/parsers/whois.donuts.co.rb'
-    - 'lib/whois/parsers/whois.nic.bj.rb'
-    - 'lib/whois/parsers/whois.uniregistry.net.rb'
-    - 'lib/whois/parsers/za_central_registry.rb'
-    - 'lib/whois/safe_record.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: around, only_before
-Layout/EmptyLinesAroundAccessModifier:
-  Exclude:
-    - 'lib/whois/parsers/whois.donuts.co.rb'
 
 # Offense count: 779
 # This cop supports safe autocorrection (--autocorrect).
@@ -99,38 +17,6 @@ Layout/EmptyLinesAroundAccessModifier:
 # SupportedStyles: empty_lines, no_empty_lines
 Layout/EmptyLinesAroundBlockBody:
   Enabled: false
-
-# Offense count: 11
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyleAlignWith, Severity.
-# SupportedStylesAlignWith: keyword, variable, start_of_line
-Layout/EndAlignment:
-  Exclude:
-    - 'lib/whois/parsers/base_cocca2.rb'
-    - 'lib/whois/parsers/base_whoisd.rb'
-    - 'lib/whois/parsers/whois.1und1.info.rb'
-    - 'lib/whois/parsers/whois.aeda.net.ae.rb'
-    - 'lib/whois/parsers/whois.cctld.uz.rb'
-    - 'lib/whois/parsers/whois.cira.ca.rb'
-    - 'lib/whois/parsers/whois.nic.tr.rb'
-    - 'lib/whois/parsers/whois.sgnic.sg.rb'
-    - 'lib/whois/parsers/whois.tcinet.ru.rb'
-    - 'lib/whois/scanners/iana.rb'
-    - 'lib/whois/scanners/whois.cira.ca.rb'
-
-# Offense count: 8
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
-Layout/ExtraSpacing:
-  Exclude:
-    - 'lib/whois/parsers/whois.centralnic.com.rb'
-    - 'lib/whois/parsers/whois.dns.pl.rb'
-    - 'lib/whois/parsers/whois.monic.mo.rb'
-    - 'lib/whois/parsers/whois.nic.sm.rb'
-    - 'lib/whois/parsers/whois.tcinet.ru.rb'
-    - 'lib/whois/parsers/whois.yoursrs.com.rb'
-    - 'spec/integration/whois_spec.rb'
-    - 'tasks/spec.rake'
 
 # Offense count: 46
 # This cop supports safe autocorrection (--autocorrect).
@@ -168,48 +54,6 @@ Layout/HeredocIndentation:
   Exclude:
     - 'tasks/spec.rake'
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: normal, indented_internal_methods
-Layout/IndentationConsistency:
-  Exclude:
-    - 'lib/whois/scanners/iana.rb'
-
-# Offense count: 13
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: Width, AllowedPatterns, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'lib/whois/parsers/whois.cctld.uz.rb'
-    - 'lib/whois/parsers/whois.cira.ca.rb'
-    - 'lib/whois/parsers/whois.co.pl.rb'
-    - 'lib/whois/parsers/whois.jprs.jp.rb'
-    - 'lib/whois/parsers/whois.nic.cl.rb'
-    - 'lib/whois/parsers/whois.nic.lv.rb'
-    - 'lib/whois/parsers/whois.nic.tr.rb'
-    - 'lib/whois/parsers/whois.tcinet.ru.rb'
-    - 'lib/whois/parsers/whois.tonic.to.rb'
-    - 'lib/whois/scanners/iana.rb'
-    - 'lib/whois/scanners/whois.cira.ca.rb'
-
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
-Layout/LeadingCommentSpace:
-  Exclude:
-    - 'lib/whois/scanners/base.rb'
-    - 'lib/whois/scanners/iana.rb'
-    - 'lib/whois/scanners/verisign.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-Layout/MultilineBlockLayout:
-  Exclude:
-    - 'spec/whois/parser_extensions/parser_spec.rb'
-    - 'spec/whois/parser_extensions/record_spec.rb'
-    - 'spec/whois/safe_record_spec.rb'
-
 # Offense count: 36
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, IndentationWidth.
@@ -245,68 +89,6 @@ Layout/MultilineOperationIndentation:
     - 'lib/whois/parsers/whois.nic.it.rb'
     - 'lib/whois/parsers/whois.registro.br.rb'
 
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-Layout/SpaceAfterComma:
-  Exclude:
-    - 'lib/whois/parsers/whois.registro.br.rb'
-
-# Offense count: 5
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowForAlignment, EnforcedStyleForExponentOperator.
-# SupportedStylesForExponentOperator: space, no_space
-Layout/SpaceAroundOperators:
-  Exclude:
-    - 'lib/whois/parsers/whois.dns.pl.rb'
-    - 'lib/whois/parsers/whois.monic.mo.rb'
-    - 'lib/whois/parsers/whois.sx.rb'
-    - 'lib/whois/parsers/whois.tcinet.ru.rb'
-    - 'spec/whois/parser_spec.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Exclude:
-    - 'spec/whois/parser_extensions/parser_spec.rb'
-    - 'spec/whois/parser_extensions/record_spec.rb'
-    - 'spec/whois/safe_record_spec.rb'
-
-# Offense count: 12
-# This cop supports safe autocorrection (--autocorrect).
-Layout/SpaceInsidePercentLiteralDelimiters:
-  Exclude:
-    - 'lib/whois/parsers/base_nic_fr.rb'
-    - 'spec/support/example/parser_example_group.rb'
-    - 'spec/whois/parser_spec.rb'
-    - 'tasks/spec.rake'
-
-# Offense count: 11
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: final_newline, final_blank_line
-Layout/TrailingEmptyLines:
-  Exclude:
-    - 'lib/whois/parser/super_struct.rb'
-    - 'lib/whois/parsers/blank.rb'
-    - 'lib/whois/parsers/whois.1und1.info.rb'
-    - 'lib/whois/parsers/whois.dns.lu.rb'
-    - 'lib/whois/parsers/whois.nic.jobs.rb'
-    - 'lib/whois/parsers/whois.pairnic.com.rb'
-    - 'lib/whois/parsers/whois.udag.net.rb'
-    - 'lib/whois/safe_record.rb'
-    - 'lib/whois/scanners/base.rb'
-    - 'lib/whois/scanners/iana.rb'
-    - 'spec/whois/parser/contact_spec.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Lint/AmbiguousOperatorPrecedence:
-  Exclude:
-    - 'lib/whois/parser.rb'
-
 # Offense count: 10
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:
@@ -330,22 +112,10 @@ Lint/ConstantDefinitionInBlock:
     - 'spec/whois/safe_record_spec.rb'
     - 'tasks/spec.rake'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Lint/DeprecatedClassMethods:
-  Exclude:
-    - 'tasks/spec.rake'
-
 # Offense count: 32
 # Configuration parameters: IgnoreLiteralBranches, IgnoreConstantBranches.
 Lint/DuplicateBranch:
   Enabled: false
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Lint/DuplicateRegexpCharacterClassElement:
-  Exclude:
-    - 'lib/whois/scanners/whois.denic.de.rb'
 
 # Offense count: 2
 # Configuration parameters: AllowComments, AllowEmptyLambdas.
@@ -389,13 +159,6 @@ Lint/UnusedMethodArgument:
   Exclude:
     - 'lib/whois/parser_extensions/whois_record.rb'
     - 'lib/whois/scanners/base.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
-Lint/UselessAccessModifier:
-  Exclude:
-    - 'lib/whois/parsers/whois.donuts.co.rb'
 
 # Offense count: 1
 Lint/UselessAssignment:
@@ -450,13 +213,6 @@ RSpec/DescribedClass:
     - 'spec/whois/parser/super_struct_spec.rb'
     - 'spec/whois/parser_extensions/whois_spec.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowConsecutiveOneLiners.
-RSpec/EmptyLineAfterExample:
-  Exclude:
-    - 'spec/whois/parsers/base_spec.rb'
-
 # Offense count: 5391
 # This cop supports safe autocorrection (--autocorrect).
 RSpec/EmptyLineAfterExampleGroup:
@@ -466,13 +222,6 @@ RSpec/EmptyLineAfterExampleGroup:
 # Configuration parameters: CountAsOne.
 RSpec/ExampleLength:
   Max: 38
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: CustomTransform, IgnoredWords.
-RSpec/ExampleWording:
-  Exclude:
-    - 'spec/whois/parser_extensions/whois_spec.rb'
 
 # Offense count: 751
 # Configuration parameters: Include, CustomTransform, IgnoreMethods, SpecSuffixOnly.
@@ -520,19 +269,6 @@ RSpec/MultipleExpectations:
 RSpec/NamedSubject:
   Enabled: false
 
-# Offense count: 18
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: not_to, to_not
-RSpec/NotToNot:
-  Exclude:
-    - 'spec/whois/parser/contact_spec.rb'
-    - 'spec/whois/parser/nameserver_spec.rb'
-    - 'spec/whois/parser/registrar_spec.rb'
-    - 'spec/whois/parser_extensions/record_spec.rb'
-    - 'spec/whois/parser_spec.rb'
-    - 'spec/whois/parsers/base_spec.rb'
-
 # Offense count: 2
 RSpec/RepeatedDescription:
   Exclude:
@@ -562,14 +298,6 @@ Security/Eval:
 Security/YAMLLoad:
   Exclude:
     - 'lib/whois/scanners/whois.smallregistry.net.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: prefer_alias, prefer_alias_method
-Style/Alias:
-  Exclude:
-    - 'lib/whois/safe_record.rb'
 
 # Offense count: 4
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -667,39 +395,6 @@ Style/EmptyMethod:
   Exclude:
     - 'lib/whois/parsers/base.rb'
 
-# Offense count: 749
-# This cop supports safe autocorrection (--autocorrect).
-Style/Encoding:
-  Enabled: false
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/EvalWithLocation:
-  Exclude:
-    - 'spec/whois/parser_spec.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Style/ExpandPathArguments:
-  Exclude:
-    - 'spec/spec_helper.rb'
-    - 'tasks/spec.rake'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/FileWrite:
-  Exclude:
-    - 'tasks/spec.rake'
-
-# Offense count: 11
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: format, sprintf, percent
-Style/FormatString:
-  Exclude:
-    - 'lib/whois/parsers/whois.dns.lu.rb'
-    - 'tasks/spec.rake'
-
 # Offense count: 1041
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyle.
@@ -721,13 +416,6 @@ Style/GuardClause:
     - 'lib/whois/scanners/iana.rb'
     - 'lib/whois/scanners/whois.denic.de.rb'
     - 'lib/whois/scanners/whois.nic.it.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowSplatArgument.
-Style/HashConversion:
-  Exclude:
-    - 'lib/whois/parsers/whois.nic.tr.rb'
 
 # Offense count: 524
 # This cop supports safe autocorrection (--autocorrect).
@@ -774,13 +462,6 @@ Style/MutableConstant:
     - 'lib/whois/scanners/whois.nc.rb'
     - 'lib/whois/scanners/whois.rnids.rs.rb'
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Style/NegatedIfElseCondition:
-  Exclude:
-    - 'lib/whois/scanners/iana.rb'
-    - 'lib/whois/scanners/whois.nic.it.rb'
-
 # Offense count: 4
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyle, AllowedMethods, AllowedPatterns, IgnoredMethods.
@@ -812,37 +493,6 @@ Style/ParallelAssignment:
     - 'lib/whois/scanners/whois.cira.ca.rb'
     - 'lib/whois/scanners/whois.denic.de.rb'
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowSafeAssignment, AllowInMultilineConditions.
-Style/ParenthesesAroundCondition:
-  Exclude:
-    - 'lib/whois/parsers/whois.nic.tr.rb'
-    - 'lib/whois/parsers/whois.tld.ee.rb'
-
-# Offense count: 6
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'lib/whois/parsers/base_nic_fr.rb'
-    - 'spec/support/example/parser_example_group.rb'
-    - 'spec/whois/parser_spec.rb'
-    - 'tasks/spec.rake'
-
-# Offense count: 387
-# This cop supports safe autocorrection (--autocorrect).
-Style/PerlBackrefs:
-  Enabled: false
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: short, verbose
-Style/PreferredHashMethods:
-  Exclude:
-    - 'lib/whois/scanners/iana.rb'
-
 # Offense count: 11
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: Methods.
@@ -869,53 +519,6 @@ Style/RedundantInterpolation:
     - 'lib/whois/parsers/whois.cnnic.cn.rb'
     - 'lib/whois/parsers/whois.eu.rb'
 
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantParentheses:
-  Exclude:
-    - 'lib/whois/parsers/whois.jprs.jp.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantRegexpCharacterClass:
-  Exclude:
-    - 'lib/whois/parsers/whois.co.ca.rb'
-    - 'lib/whois/scanners/base.rb'
-    - 'lib/whois/scanners/whois.smallregistry.net.rb'
-
-# Offense count: 11
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantRegexpEscape:
-  Exclude:
-    - 'lib/whois/parsers/whois.networksolutions.com.rb'
-    - 'lib/whois/parsers/whois.nic.it.rb'
-    - 'lib/whois/parsers/whois.rrpproxy.net.rb'
-    - 'lib/whois/parsers/whois.safenames.net.rb'
-    - 'lib/whois/parsers/whois.schlund.info.rb'
-    - 'lib/whois/parsers/whois.uniregistry.net.rb'
-    - 'lib/whois/scanners/iana.rb'
-    - 'lib/whois/scanners/verisign.rb'
-    - 'lib/whois/scanners/whois.yoursrs.com.rb'
-
-# Offense count: 6
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantSelf:
-  Exclude:
-    - 'lib/whois/parser/contact.rb'
-    - 'lib/whois/parsers/base.rb'
-    - 'lib/whois/parsers/whois.netcom.cm.rb'
-
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, AllowInnerSlashes.
-# SupportedStyles: slashes, percent_r, mixed
-Style/RegexpLiteral:
-  Exclude:
-    - 'lib/whois/parsers/whois.dns.pt.rb'
-    - 'lib/whois/parsers/whois.nic.hu.rb'
-    - 'lib/whois/scanners/whois.tld.ee.rb'
-    - 'tasks/spec.rake'
-
 # Offense count: 5
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Style/SelectByRegexp:
@@ -926,26 +529,11 @@ Style/SelectByRegexp:
     - 'lib/whois/scanners/iana.rb'
     - 'lib/whois/scanners/whois.nic.it.rb'
 
-# Offense count: 6
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowIfMethodIsEmpty.
-Style/SingleLineMethods:
-  Exclude:
-    - 'spec/whois/parser_extensions/record_spec.rb'
-    - 'spec/whois/parsers/base_spec.rb'
-
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Style/SlicingWithRange:
   Exclude:
     - 'lib/whois/parsers/base_nic_fr.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowModifier.
-Style/SoleNestedConditional:
-  Exclude:
-    - 'lib/whois/parsers/whois.nic.sl.rb'
 
 # Offense count: 3
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -962,21 +550,6 @@ Style/StringConcatenation:
 Style/StringLiterals:
   Enabled: false
 
-# Offense count: 10
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiteralsInInterpolation:
-  Exclude:
-    - 'lib/whois/parsers/base_cocca2.rb'
-    - 'lib/whois/parsers/base_whoisd.rb'
-    - 'lib/whois/parsers/whois.denic.de.rb'
-    - 'lib/whois/parsers/whois.domainregistry.ie.rb'
-    - 'lib/whois/parsers/whois.fi.rb'
-    - 'lib/whois/parsers/whois.rnids.rs.rb'
-    - 'lib/whois/parsers/whois.smallregistry.net.rb'
-    - 'tasks/spec.rake'
-
 # Offense count: 2
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: AllowMethodsWithArguments, AllowedMethods, AllowedPatterns, IgnoredMethods, AllowComments.
@@ -985,54 +558,6 @@ Style/SymbolProc:
   Exclude:
     - 'lib/whois/parsers/whois.centralnic.com.rb'
     - 'lib/whois/parsers/whois.nic.it.rb'
-
-# Offense count: 3
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, AllowSafeAssignment.
-# SupportedStyles: require_parentheses, require_no_parentheses, require_parentheses_when_complex
-Style/TernaryParentheses:
-  Exclude:
-    - 'lib/whois/parsers/whois.jprs.jp.rb'
-
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInArguments:
-  Exclude:
-    - 'lib/whois/parsers/whois.comlaude.com.rb'
-    - 'lib/whois/parsers/whois.dns.lu.rb'
-    - 'lib/whois/parsers/whois.nic.es.rb'
-    - 'lib/whois/parsers/za_central_registry.rb'
-
-# Offense count: 6
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInArrayLiteral:
-  Exclude:
-    - 'lib/whois/parsers/base_icann_compliant.rb'
-    - 'lib/whois/scanners/whois.fi.rb'
-    - 'lib/whois/scanners/whois.tld.ee.rb'
-    - 'spec/whois/parser_extensions/parser_spec.rb'
-    - 'spec/whois/parser_extensions/record_spec.rb'
-    - 'spec/whois/safe_record_spec.rb'
-
-# Offense count: 23
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInHashLiteral:
-  Enabled: false
-
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-Style/WhileUntilModifier:
-  Exclude:
-    - 'lib/whois/parsers/whois.educause.edu.rb'
-    - 'lib/whois/scanners/base.rb'
-    - 'lib/whois/scanners/base_iisse.rb'
-    - 'lib/whois/scanners/whois.denic.de.rb'
 
 # Offense count: 24
 # This cop supports safe autocorrection (--autocorrect).

@@ -102,8 +102,8 @@ module Whois
         lines = node_nsset['nserver'] rescue nil
         Array.wrap(lines).map do |line|
           if line =~ /(.+) \((.+)\)/
-            name = $1
-            ipv4, ipv6 = $2.split(', ')
+            name = ::Regexp.last_match(1)
+            ipv4, ipv6 = ::Regexp.last_match(2).split(', ')
             Parser::Nameserver.new(:name => name, :ipv4 => ipv4, :ipv6 => ipv6)
           else
             Parser::Nameserver.new(:name => line.strip)
@@ -115,7 +115,7 @@ module Whois
       private
 
       def node_nsset
-        node("node:nsset/#{node("nsset")}")
+        node("node:nsset/#{node('nsset')}")
       end
 
       def build_contact(element, type)
@@ -141,5 +141,5 @@ module Whois
 
     end
 
-end
+  end
 end

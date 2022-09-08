@@ -53,7 +53,7 @@ module Whois
 
 
       property_supported :created_on do
-        node("Created On")  { |str| parse_time(str) } ||
+        node("Created On") { |str| parse_time(str) } ||
         node("Creation Date") { |str| parse_time(str) }
       end
 
@@ -111,10 +111,10 @@ module Whois
 
       def build_contact(element, type)
         node("#{element} ID") do
-          address = [nil, 1, 2, 3].
-              map { |i| node("#{element} Street#{i}") }.
-              delete_if { |i| i.nil? || i.empty? }.
-              join("\n")
+          address = [nil, 1, 2, 3]
+              .map { |i| node("#{element} Street#{i}") }
+              .delete_if { |i| i.nil? || i.empty? }
+              .join("\n")
           address = nil if address.empty?
 
           Parser::Contact.new(

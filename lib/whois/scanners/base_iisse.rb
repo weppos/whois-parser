@@ -23,9 +23,7 @@ module Whois
       tokenizer :scan_disclaimer do
         if @input.match?(/# Copyright/)
           lines = []
-          while @input.scan(/#(.*)\n\n?/)
-            lines << @input[1].strip unless @input[1].strip == ""
-          end
+          lines << @input[1].strip unless @input[1].strip == "" while @input.scan(/#(.*)\n\n?/)
           @ast["field:disclaimer"] = lines.join(" ")
         end
       end

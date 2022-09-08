@@ -29,10 +29,11 @@ module Whois
 
       property_supported :registrar do
         return unless node("Sponsoring Registrar")
+
         Parser::Registrar.new(
             id:           node('Sponsoring Registrar IANA ID'),
             name:         node('Sponsoring Registrar'),
-            organization: node('Sponsoring Registrar'),
+            organization: node('Sponsoring Registrar')
         )
       end
 

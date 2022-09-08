@@ -41,7 +41,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /^\s+Creation Date:\s+(.*)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -49,31 +49,31 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /^\s+Expiration Date:\s+(.*)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
 
       property_supported :nameservers do
         if content_for_scanner =~ /Name Servers:\n((.+\n)+)\n/
-          values = case value = $1.downcase
-          # schema-1
-          when /^(?:\s+([\w.-]+)\n){2,}/
-            value.scan(/\s+([\w.-]+)\n/).map do |match|
-              { :name => match[0] }
-            end
-          when /^(?:\s+([\w.-]+)\s+\((.+)\)\n){2,}/
-            value.scan(/\s+([\w.-]+)\s+\((.+)\)\n/).map do |match|
-              { :name => match[0], :ipv4 => match[1] }
-            end
-          # schema-2
-          when /^(?:\s+([\w.-]+)){2,}/
-            value.strip.split(/\s+/).map do |name|
-              { :name => name }
-            end
-          else
-            Whois::Parser.bug!(ParserError, "Unknown nameservers format `#{value}'")
-          end
+          values = case value = ::Regexp.last_match(1).downcase
+                   # schema-1
+                   when /^(?:\s+([\w.-]+)\n){2,}/
+                     value.scan(/\s+([\w.-]+)\n/).map do |match|
+                       { :name => match[0] }
+                     end
+                   when /^(?:\s+([\w.-]+)\s+\((.+)\)\n){2,}/
+                     value.scan(/\s+([\w.-]+)\s+\((.+)\)\n/).map do |match|
+                       { :name => match[0], :ipv4 => match[1] }
+                     end
+                   # schema-2
+                   when /^(?:\s+([\w.-]+)){2,}/
+                     value.strip.split(/\s+/).map do |name|
+                       { :name => name }
+                     end
+                   else
+                     Whois::Parser.bug!(ParserError, "Unknown nameservers format `#{value}'")
+                   end
 
           values.map do |params|
             Parser::Nameserver.new(params)

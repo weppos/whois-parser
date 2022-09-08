@@ -34,7 +34,7 @@ module Whois
       end
 
       property_supported :available? do
-         !!(content_for_scanner =~ /Status: free/)
+        !!(content_for_scanner =~ /Status: free/)
       end
 
       property_supported :registered? do
@@ -46,7 +46,7 @@ module Whois
 
       property_supported :updated_on do
         if content_for_scanner =~ /Changed:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 

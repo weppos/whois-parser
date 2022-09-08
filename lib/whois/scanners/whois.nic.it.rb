@@ -61,10 +61,10 @@ module Whois
         while content = parse_section_pair
           contents.merge!(content)
         end
-        if !contents.empty?
-          contents
-        else
+        if contents.empty?
           false
+        else
+          contents
         end
       end
 

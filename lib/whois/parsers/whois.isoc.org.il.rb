@@ -28,13 +28,13 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /status:\s+(.*?)\n/
-          case $1.downcase
+          case ::Regexp.last_match(1).downcase
           when "transfer locked"
             :registered
           when "transfer allowed"
             :registered
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available

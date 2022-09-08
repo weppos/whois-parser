@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisSchlundInfo < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^Domain [\w\.]+ is not registered here\.\n/
+          pattern_available: /^Domain [\w.]+ is not registered here\.\n/,
       }
 
       property_supported :updated_on do

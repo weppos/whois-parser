@@ -24,7 +24,7 @@ describe Whois::Parser do
     end
 
     it "recognizes preloaded classes" do
-      Whois::Parsers.class_eval <<-RUBY
+      Whois::Parsers.class_eval <<-RUBY, __FILE__, __LINE__ + 1
         class PreloadedParserTest
         end
       RUBY
@@ -60,7 +60,7 @@ describe Whois::Parser do
   describe "#initialize" do
     it "requires an record" do
       expect { described_class.new }.to raise_error(ArgumentError)
-      expect { described_class.new(record) }.to_not raise_error
+      expect { described_class.new(record) }.not_to raise_error
     end
 
     it "sets record from argument" do
@@ -267,7 +267,7 @@ describe Whois::Parser do
       property_supported(:registrant_contacts)  { [] }
     end
 
-    class Whois::Parsers::Contacts3Test< Whois::Parsers::Base
+    class Whois::Parsers::Contacts3Test < Whois::Parsers::Base
       property_supported(:technical_contacts)   { ["p3-t1"] }
     end
 
@@ -281,7 +281,7 @@ describe Whois::Parser do
       record = Whois::Record.new(nil, [Whois::Record::Part.new(body: nil, host: "contacts2.test")])
       parser = described_class.new(record)
       expect(parser.contacts.size).to eq(2)
-      expect(parser.contacts).to eq(%w( p2-a1 p2-t1 ))
+      expect(parser.contacts).to eq(%w[p2-a1 p2-t1])
     end
 
     it "returns an array of contact when 1 part is not supported" do
@@ -295,7 +295,7 @@ describe Whois::Parser do
       record = Whois::Record.new(nil, [Whois::Record::Part.new(body: nil, host: "contacts2.test"), Whois::Record::Part.new(body: nil, host: "contacts3.test")])
       parser = described_class.new(record)
       expect(parser.contacts.size).to eq(3)
-      expect(parser.contacts).to eq(%w( p3-t1 p2-a1 p2-t1 ))
+      expect(parser.contacts).to eq(%w[p3-t1 p2-a1 p2-t1])
     end
   end
 
@@ -308,7 +308,7 @@ describe Whois::Parser do
 
       expect {
         described_class.new(record).changed?(described_class.new(record))
-      }.to_not raise_error
+      }.not_to raise_error
     end
   end
 
@@ -320,7 +320,7 @@ describe Whois::Parser do
 
       expect {
         described_class.new(record).unchanged?(described_class.new(record))
-      }.to_not raise_error
+      }.not_to raise_error
     end
 
     it "returns true if self and other references the same object" do

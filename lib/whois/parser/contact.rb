@@ -44,7 +44,7 @@ module Whois
         case name
         when :TYPE_ADMIN
           Whois.deprecate("Whois::Record::Contact::TYPE_ADMIN is now Whois::Record::Contact::TYPE_ADMINISTRATIVE")
-          self.const_set(name, TYPE_ADMINISTRATIVE)
+          const_set(name, TYPE_ADMINISTRATIVE)
         else
           super
         end

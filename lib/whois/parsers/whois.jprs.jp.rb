@@ -26,7 +26,7 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /\[Status\]\s+(.+)\n/
-          case $1.downcase
+          case ::Regexp.last_match(1).downcase
           when "active"
             :registered
           when "reserved"
@@ -36,10 +36,10 @@ module Whois
           when "suspended"
             :expired
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         elsif content_for_scanner =~ /\[State\]\s+(.+)\n/
-          case $1.split(" ").first.downcase
+          case ::Regexp.last_match(1).split(" ").first.downcase
           when "connected", "registered"
             :registered
           when "deleted"
@@ -47,9 +47,9 @@ module Whois
           when "reserved"
             :reserved
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
-       else
+        else
           :available
         end
       end
@@ -66,21 +66,21 @@ module Whois
       # TODO: timezone ('Asia/Tokyo')
       property_supported :created_on do
         if content_for_scanner =~ /\[(?:Created on|Registered Date)\][ \t]+(.*)\n/
-          ($1.empty?) ? nil : parse_time($1)
+          ::Regexp.last_match(1).empty? ? nil : parse_time(::Regexp.last_match(1))
         end
       end
 
       # TODO: timezone ('Asia/Tokyo')
       property_supported :updated_on do
         if content_for_scanner =~ /\[Last Updated?\][ \t]+(.*)\n/
-          ($1.empty?) ? nil : parse_time($1)
+          ::Regexp.last_match(1).empty? ? nil : parse_time(::Regexp.last_match(1))
         end
       end
 
       # TODO: timezone ('Asia/Tokyo')
       property_supported :expires_on do
         if content_for_scanner =~ /\[(?:Expires on|State)\][ \t]+(.*)\n/
-          ($1.empty?) ? nil : parse_time($1)
+          ::Regexp.last_match(1).empty? ? nil : parse_time(::Regexp.last_match(1))
         end
       end
 

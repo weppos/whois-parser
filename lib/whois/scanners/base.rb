@@ -37,7 +37,7 @@ module Whois
       end
 
       tokenizer :skip_blank_line do
-        @input.skip(/^[\s]*\n/)
+        @input.skip(/^\s*\n/)
       end
 
       tokenizer :skip_newline do
@@ -45,7 +45,7 @@ module Whois
       end
 
       # Scan a key/value pair and stores the result in the current target.
-      # target is the global @ast if no '_section' is set, else '_section' is used.
+      #  target is the global @ast if no '_section' is set, else '_section' is used.
       tokenizer :scan_keyvalue do
         if @input.scan(/(.+?):(.*?)(\n|\z)/)
           key, value = @input[1].strip, @input[2].strip
@@ -60,7 +60,7 @@ module Whois
         end
       end
 
-    protected
+      protected
 
       def _scan_lines_to_array(pattern)
         results = []
@@ -73,9 +73,7 @@ module Whois
 
       def _scan_lines_to_hash(pattern)
         results = {}
-        while @input.scan(pattern)
-          results.merge! @input[1].strip => @input[2].strip
-        end
+        results.merge! @input[1].strip => @input[2].strip while @input.scan(pattern)
         results
       end
 

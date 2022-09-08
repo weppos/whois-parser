@@ -55,7 +55,7 @@ describe Whois::Parsers::Base do
   describe "#initialize" do
     it "requires a part" do
       expect { described_class.new }.to raise_error(ArgumentError)
-      expect { described_class.new(part) }.to_not raise_error
+      expect { described_class.new(part) }.not_to raise_error
     end
 
     it "sets the part" do
@@ -86,9 +86,14 @@ describe Whois::Parsers::Base do
 
   describe "#is" do
     it "calls the method if the object respond to the method" do
-      koncrete = Class.new(described_class) { def response_throttled?; true; end }.new(Whois::Record::Part.new)
+      koncrete = Class.new(described_class) {
+        def response_throttled?
+          true
+        end
+      }.new(Whois::Record::Part.new)
       koncrete.is(:response_throttled?)
     end
+
     it "does not call the method if the object does not respond to the method" do
       koncrete = Class.new(described_class).new(Whois::Record::Part.new)
       expect(koncrete.is(:response_throttled?)).to eq(false)
@@ -97,19 +102,35 @@ describe Whois::Parsers::Base do
 
   describe "#validate!" do
     it "raises Whois::ResponseIsThrottled when the response is throttled" do
-      koncrete = Class.new(described_class) { def response_throttled?; true; end }.new(Whois::Record::Part.new)
+      koncrete = Class.new(described_class) {
+        def response_throttled?
+          true
+        end
+      }.new(Whois::Record::Part.new)
       expect { koncrete.validate! }.to raise_error(Whois::ResponseIsThrottled)
 
-      koncrete = Class.new(described_class) { def response_throttled?; false; end }.new(Whois::Record::Part.new)
-      expect { koncrete.validate! }.to_not raise_error
+      koncrete = Class.new(described_class) {
+        def response_throttled?
+          false
+        end
+      }.new(Whois::Record::Part.new)
+      expect { koncrete.validate! }.not_to raise_error
     end
 
     it "raises Whois::ResponseIsUnavailable when the response is unavailable" do
-      koncrete = Class.new(described_class) { def response_unavailable?; true; end }.new(Whois::Record::Part.new)
+      koncrete = Class.new(described_class) {
+        def response_unavailable?
+          true
+        end
+      }.new(Whois::Record::Part.new)
       expect { koncrete.validate! }.to raise_error(Whois::ResponseIsUnavailable)
 
-      koncrete = Class.new(described_class) { def response_unavailable?; false; end }.new(Whois::Record::Part.new)
-      expect { koncrete.validate! }.to_not raise_error
+      koncrete = Class.new(described_class) {
+        def response_unavailable?
+          false
+        end
+      }.new(Whois::Record::Part.new)
+      expect { koncrete.validate! }.not_to raise_error
     end
   end
 
@@ -122,7 +143,7 @@ describe Whois::Parsers::Base do
 
       expect {
         described_class.new(part).changed?(described_class.new(part))
-      }.to_not raise_error
+      }.not_to raise_error
     end
   end
 
@@ -134,7 +155,7 @@ describe Whois::Parsers::Base do
 
       expect {
         described_class.new(part).unchanged?(described_class.new(part))
-      }.to_not raise_error
+      }.not_to raise_error
     end
 
     it "returns true if self and other references the same object" do
@@ -243,7 +264,7 @@ describe Whois::Parsers::Base, "Parser Behavior" do
       expect { i.domain }.to raise_error(Whois::ResponseIsThrottled)
 
       i = Klass.new(Whois::Record::Part.new(body: "", host: "success.whois.test"))
-      expect { i.domain }.to_not raise_error
+      expect { i.domain }.not_to raise_error
     end
   end
 

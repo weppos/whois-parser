@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisEnomCom < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^Domain not found\.\n/
+          pattern_available: /^Domain not found\.\n/,
       }
 
       property_supported :updated_on do

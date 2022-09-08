@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisRrpproxyNet < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^No match for "[\w\.]+"\.\n/
+          pattern_available: /^No match for "[\w.]+"\.\n/,
       }
 
 

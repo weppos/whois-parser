@@ -67,7 +67,7 @@ module Whois
       property_supported :registrar do
         node("Sponsoring Registrar") do |value|
           Parser::Registrar.new(
-              name:         value
+              name: value
           )
         end
       end
@@ -97,10 +97,10 @@ module Whois
 
       def build_contact(element, type)
         node("#{element} ID") do
-          address = (1..3).
-              map { |i| node("#{element} Street#{i}") }.
-              delete_if { |i| i.nil? || i.empty? }.
-              join("\n")
+          address = (1..3)
+              .map { |i| node("#{element} Street#{i}") }
+              .delete_if { |i| i.nil? || i.empty? }
+              .join("\n")
 
           Parser::Contact.new(
               type:         type,

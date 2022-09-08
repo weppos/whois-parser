@@ -26,7 +26,7 @@ module Whois
 
         def status
           if content =~ /status:\s+(.+?)\n/
-            case (s = $1.downcase)
+            case (s = ::Regexp.last_match(1).downcase)
             when "ok", "clienthold", "autorenewgraceperiod", "clienttransferprohibited"
               :registered
             when "redemptionperiod", "pendingdelete"
@@ -41,19 +41,19 @@ module Whois
 
         def created_on
           if content =~ /created:\s+(.+)\n/
-            Base.parse_time($1)
+            Base.parse_time(::Regexp.last_match(1))
           end
         end
 
         def updated_on
           if content =~ /modified:\s+(.+)\n/
-            Base.parse_time($1)
+            Base.parse_time(::Regexp.last_match(1))
           end
         end
 
         def expires_on
           if content =~ /expires:\s+(.+)\n/
-            Base.parse_time($1)
+            Base.parse_time(::Regexp.last_match(1))
           end
         end
 
@@ -97,7 +97,7 @@ module Whois
 
         def status
           if content =~ /status:\s+(.+?)\n/
-            case (s = $1.downcase)
+            case (s = ::Regexp.last_match(1).downcase)
             when /^ok-until/
               :registered
             else
@@ -110,21 +110,21 @@ module Whois
 
         def created_on
           if content =~ /created:\s+(.+)\n/
-            time = $1.split(" ").last
+            time = ::Regexp.last_match(1).split(" ").last
             Base.parse_time(time)
           end
         end
 
         def updated_on
           if content =~ /changed:\s+(.+)\n/
-            time = $1.split(" ").last
+            time = ::Regexp.last_match(1).split(" ").last
             Base.parse_time(time)
           end
         end
 
         def expires_on
           if content =~ /status:\s+(.+)\n/
-            time = $1.split(" ").last
+            time = ::Regexp.last_match(1).split(" ").last
             Base.parse_time(time)
           end
         end
@@ -157,7 +157,7 @@ module Whois
               phone:        textblock.slice(/phone:\s+(.+)\n/, 1),
               fax:          textblock.slice(/fax-no:\s+(.+)\n/, 1),
               email:        textblock.slice(/e-mail:\s+(.+)\n/, 1),
-              updated_on:   (Base.parse_time($1.split(" ").last) if textblock =~ /changed:\s+(.+)\n/)
+              updated_on:   (Base.parse_time(::Regexp.last_match(1).split(" ").last) if textblock =~ /changed:\s+(.+)\n/)
             )
           end
         end
@@ -166,7 +166,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /domain:\s+(.+)\n/
-          $1
+          ::Regexp.last_match(1)
         end
       end
 

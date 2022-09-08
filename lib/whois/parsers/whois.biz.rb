@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisBiz < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^No Data Found\n/
+          pattern_available: /^No Data Found\n/,
       }
 
       property_supported :expires_on do

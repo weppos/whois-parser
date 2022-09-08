@@ -51,10 +51,10 @@ module Whois
 
       def build_contact(element, type)
         node("#{element} ID") do
-          address = ["", "2", "3"].
-              map { |i| node("#{element} Address#{i}") }.
-              delete_if(&:empty?).
-              join("\n")
+          address = ["", "2", "3"]
+              .map { |i| node("#{element} Address#{i}") }
+              .delete_if(&:empty?)
+              .join("\n")
 
           Parser::Contact.new(
             type:         type,
@@ -75,7 +75,7 @@ module Whois
 
       def decompose_registrar(value)
         if value =~ /^(.+?) ([^\s]+)$/
-          [$2, $1]
+          [::Regexp.last_match(2), ::Regexp.last_match(1)]
         end
       end
 

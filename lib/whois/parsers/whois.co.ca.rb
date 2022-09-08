@@ -26,9 +26,9 @@ module Whois
 
       property_supported :status do
         case
-          when available? then :available
-          when reserved?  then :reserved
-          else                 :registered
+        when available? then :available
+        when reserved?  then :reserved
+        else :registered
         end
       end
 
@@ -43,7 +43,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /date_approved:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -51,13 +51,13 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /date_renewal:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
 
       property_supported :nameservers do
-        content_for_scanner.scan(/ns[\d]_hostname:\s+(.+)\n/).flatten.map do |name|
+        content_for_scanner.scan(/ns\d_hostname:\s+(.+)\n/).flatten.map do |name|
           Parser::Nameserver.new(:name => name)
         end
       end

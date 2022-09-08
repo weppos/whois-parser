@@ -25,8 +25,8 @@ module Whois
     class WhoisDnsPt < Base
 
       property_supported :status do
-        if content_for_scanner =~ /^Estado \/ Status:\s+(.+)\n/
-          case $1.downcase
+        if content_for_scanner =~ %r{^Estado / Status:\s+(.+)\n}
+          case ::Regexp.last_match(1).downcase
           when "active"
             :registered
           when "reserved"
@@ -34,7 +34,7 @@ module Whois
           when "tech-pro"
             :inactive
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available
@@ -52,7 +52,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ / Creation Date .+?:\s+(.+)\n/
-          Time.utc(*$1.split("/").reverse)
+          Time.utc(*::Regexp.last_match(1).split("/").reverse)
         end
       end
 
@@ -60,7 +60,7 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ / Expiration Date .+?:\s+(.+)\n/
-          Time.utc(*$1.split("/").reverse)
+          Time.utc(*::Regexp.last_match(1).split("/").reverse)
         end
       end
 

@@ -28,11 +28,11 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /Status: (.+?)\n/
-          case $1.downcase
+          case ::Regexp.last_match(1).downcase
           when "active"
             :registered
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available
@@ -50,19 +50,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /^Created date: (.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /^Updated date: (.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /^Exp date: (.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 

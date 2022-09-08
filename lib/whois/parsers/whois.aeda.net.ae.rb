@@ -26,10 +26,10 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /Status:\s+(.+?)\n/
-          case $1.downcase
-            when "ok" then :registered
-            else
-              Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+          case ::Regexp.last_match(1).downcase
+          when "ok" then :registered
+          else
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available
@@ -60,5 +60,5 @@ module Whois
 
     end
 
-end
+  end
 end

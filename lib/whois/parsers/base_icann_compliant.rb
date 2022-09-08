@@ -72,6 +72,7 @@ module Whois
 
       property_supported :registrar do
         return unless node("Registrar")
+
         Parser::Registrar.new({
             id:           node("Registrar IANA ID"),
             name:         node("Registrar"),
@@ -136,7 +137,7 @@ module Whois
       def value_for_phone_property(element, property)
         [
           value_for_property(element, "#{property}"),
-          value_for_property(element, "#{property} Ext")
+          value_for_property(element, "#{property} Ext"),
         ].reject(&:empty?).join(' ext: ')
       end
 

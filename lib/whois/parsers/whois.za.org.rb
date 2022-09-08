@@ -45,13 +45,13 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Record Created\s+:\s+(.*)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /Record Last Updated\s+:\s+(.*)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -60,7 +60,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Domain Name Servers listed in order:\n\n((.+\n)+)\n/
-          $1.split("\n").reject { |value| value.strip.empty? }.map do |name|
+          ::Regexp.last_match(1).split("\n").reject { |value| value.strip.empty? }.map do |name|
             Parser::Nameserver.new(:name => name.strip)
           end
         end

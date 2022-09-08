@@ -30,7 +30,7 @@ module Whois
       #
       property_supported :status do
         if content_for_scanner =~ /\s+Registration status:\s+(.+?)\n/
-          case $1.downcase
+          case ::Regexp.last_match(1).downcase
           when "registered until expiry date."
             :registered
           when "registration request being processed."
@@ -45,7 +45,7 @@ module Whois
           when "renewal required."
             :registered
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         elsif invalid?
           :invalid
@@ -65,19 +65,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /\s+Registered on:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /\s+Last updated:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /\s+Expiry date:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -85,13 +85,13 @@ module Whois
       # @see http://www.nic.uk/other/whois/instruct/
       property_supported :registrar do
         if content_for_scanner =~ /Registrar:\n((.+\n)+)\n/
-          content = $1.strip
+          content = ::Regexp.last_match(1).strip
           id = name = org = url = nil
 
           if content =~ /Tag =/
-            name, id = (content =~ /(.+) \[Tag = (.+)\]/) && [$1.strip, $2.strip]
+            name, id = (content =~ /(.+) \[Tag = (.+)\]/) && [::Regexp.last_match(1).strip, ::Regexp.last_match(2).strip]
             org, name = name.split(" t/a ")
-            url = (content =~ /URL: (.+)/) && $1.strip
+            url = (content =~ /URL: (.+)/) && ::Regexp.last_match(1).strip
           elsif content =~ /This domain is registered directly with Nominet/
             name  = "Nominet"
             org   = "Nominet UK"
@@ -110,7 +110,7 @@ module Whois
 
       property_supported :registrant_contacts do
         if content_for_scanner =~ /Registrant's address:\n((.+\n)+)\n/
-          lines = $1.split("\n").map(&:strip)
+          lines = ::Regexp.last_match(1).split("\n").map(&:strip)
           address = lines[0..-5]
           city    = lines[-4]
           state   = lines[-3]
@@ -132,7 +132,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Name servers:\n((.+\n)+)\n/
-          $1.split("\n").reject { |value| value =~ /No name servers listed/ }.map do |line|
+          ::Regexp.last_match(1).split("\n").reject { |value| value =~ /No name servers listed/ }.map do |line|
             name, ipv4, ipv6 = line.strip.split(/\s+/)
             Parser::Nameserver.new(:name => name, :ipv4 => ipv4, :ipv6 => ipv6)
           end

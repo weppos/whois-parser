@@ -35,7 +35,7 @@ module Whois
       end
 
       property_supported :available? do
-         !!(content_for_scanner =~ /^(.+?): no existe$/)
+        !!(content_for_scanner =~ /^(.+?): no existe$/)
       end
 
       property_supported :registered? do
@@ -57,10 +57,10 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Servidores de nombre \(Domain servers\):\n((.+\n)+)\n/
-          $1.split("\n").map do |line|
+          ::Regexp.last_match(1).split("\n").map do |line|
             line.strip!
             line =~ /(.+) \((.+)\)/
-            Parser::Nameserver.new(:name => $1, :ipv4 => $2)
+            Parser::Nameserver.new(:name => ::Regexp.last_match(1), :ipv4 => ::Regexp.last_match(2))
           end
         end
       end

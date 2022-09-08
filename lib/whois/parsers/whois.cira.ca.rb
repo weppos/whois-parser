@@ -26,7 +26,7 @@ module Whois
 
 
       property_supported :disclaimer do
-         node("field:disclaimer")
+        node("field:disclaimer")
       end
 
 
@@ -55,7 +55,7 @@ module Whois
           when "unavailable"
             :invalid
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           Whois::Parser.bug!(ParserError, "Unable to parse status.")
@@ -141,11 +141,11 @@ module Whois
       def version
         cached_properties_fetch :version do
           version = if content_for_scanner =~ /^% \(c\) (.+?) Canadian Internet Registration Authority/
-            case $1
-            when "2007" then "1"
-            when "2010" then "2"
-            end
-          end
+                      case ::Regexp.last_match(1)
+                      when "2007" then "1"
+                      when "2010" then "2"
+                      end
+                    end
           version || Whois::Parser.bug!(ParserError, "Unable to detect version.")
         end
       end

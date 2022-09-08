@@ -5,7 +5,7 @@ module Whois
 
     class WhoisNicFm < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-        pattern_available: /DOMAIN NOT FOUND\n/
+        pattern_available: /DOMAIN NOT FOUND\n/,
       }
 
       property_supported :expires_on do

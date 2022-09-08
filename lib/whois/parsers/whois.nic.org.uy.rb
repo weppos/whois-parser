@@ -26,11 +26,11 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /Estatus del dominio: (.+?)\n/
-          case $1.downcase
+          case ::Regexp.last_match(1).downcase
           when "activo"
             :registered
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available
@@ -48,13 +48,13 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Fecha de Creacion: (.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /Ultima Actualizacion: (.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -63,7 +63,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Servidor\(es\) de Nombres de Dominio:\n\n((.+\n)+)\n/
-          $1.scan(/-\s(.*?)\n/).flatten.map do |name|
+          ::Regexp.last_match(1).scan(/-\s(.*?)\n/).flatten.map do |name|
             Parser::Nameserver.new(:name => name)
           end
         end

@@ -25,7 +25,7 @@ module Whois
 
       property_supported :disclaimer do
         if content_for_scanner =~ /\A((.*\n)+)\n--------------------------\n/
-          $1
+          ::Regexp.last_match(1)
         else
           Whois::Parser.bug!(ParserError, "Unable to parse disclaimer.")
         end
@@ -34,7 +34,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /Domain Name:\s(.+?)\n/
-          $1.downcase
+          ::Regexp.last_match(1).downcase
         end
       end
 
@@ -60,19 +60,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Domain record activated:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /Domain record last updated:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /Domain expires:\s+(.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -94,7 +94,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Name Servers: \n((.+\n)+)\n/
-          $1.split("\n").map do |line|
+          ::Regexp.last_match(1).split("\n").map do |line|
             name, ipv4 = line.strip.split(/\s+/)
             Parser::Nameserver.new(:name => name.downcase, :ipv4 => ipv4)
           end
@@ -102,7 +102,7 @@ module Whois
       end
 
 
-    private
+      private
 
       # [NAME] | EMPTY
       # [ROLE]?
@@ -114,7 +114,7 @@ module Whois
       # [EMAIL]
       def build_contact(element, type)
         if content_for_scanner =~ /#{element}:\n+((.+\n)+)\n/
-          lines = $1.split("\n").map(&:strip)
+          lines = ::Regexp.last_match(1).split("\n").map(&:strip)
           items = lines.dup
 
           # Extract variables
@@ -129,13 +129,11 @@ module Whois
 
           v6 = items.delete_at(-1)
           if v6 =~ /([^\n,]+),\s([A-Z]{2})(?:\s(\d{5}(?:-\d{4})?))/
-            v6, v7, v8 = $1, $2, $3
+            v6, v7, v8 = ::Regexp.last_match(1), ::Regexp.last_match(2), ::Regexp.last_match(3)
           end
 
           v4 = []
-          until items[0] =~ /^\d+/ || items.empty?
-            v4 << items.shift
-          end
+          v4 << items.shift until items[0] =~ /^\d+/ || items.empty?
           v4 = v4.join("\n")
 
           v5 = items.empty? ? nil : items.join("\n")
@@ -163,7 +161,7 @@ module Whois
       # [COUNTRY]
       def build_contact_registrant(element, type)
         if content_for_scanner =~ /#{element}:\n((.+\n)+)\n/
-          lines = $1.split("\n").map(&:strip)
+          lines = ::Regexp.last_match(1).split("\n").map(&:strip)
           items = lines.dup
 
           # Extract variables
@@ -174,7 +172,7 @@ module Whois
 
           v6 = items.delete_at(-1)
           if v6 =~ /([^\n,]+),\s([A-Z]{2})(?:\s(\d{5}))/
-            v6, v7, v8 = $1, $2, $3
+            v6, v7, v8 = ::Regexp.last_match(1), ::Regexp.last_match(2), ::Regexp.last_match(3)
           end
 
           v5 = items.empty? ? nil : items.join("\n")

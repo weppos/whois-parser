@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisTucowsCom < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^ No match for/
+          pattern_available: /^ No match for/,
       }
     end
 

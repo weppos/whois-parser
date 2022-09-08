@@ -21,12 +21,12 @@ module Whois
       tokenizer :scan_response_unavailable do
         # Check if the string starts with /*
         # If it does, match until the end of all /* lines
-        # or the end of the file and check for the content.
+        #  or the end of the file and check for the content.
         #
         # Flag the block as visited to force the scanner to ignore this tokenizer
-        # if already used and the content didn't match the unavailable message.
+        #  if already used and the content didn't match the unavailable message.
         if @input.match?(/^\*\n/) && !visited?
-          p = /^[^\*]|\z/
+          p = /^[^*]|\z/
           y = @input.check_until(p) =~ /^\* Sorry, the Whois database is currently down/
 
           if y

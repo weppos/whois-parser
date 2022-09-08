@@ -50,7 +50,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Created on\.+:\s+(.+)\n/
-          time = parse_time($1)
+          time = parse_time(::Regexp.last_match(1))
           Time.utc(time.year, time.month, time.day)
         end
       end
@@ -59,7 +59,7 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expires on\.+:\s+(.+)\n/
-          time = parse_time($1)
+          time = parse_time(::Regexp.last_match(1))
           Time.utc(time.year, time.month, time.day)
         end
       end
@@ -76,11 +76,11 @@ module Whois
 
         name = lines[0]
         address = lines[1..2].delete_if(&:blank?).join("\n")
-        city, country = if (lines[3] == "Out of Turkey,")
-          [nil, lines[4]]
-        else
-          [lines[3].chomp(","), lines[4]]
-        end
+        city, country = if lines[3] == "Out of Turkey,"
+                          [nil, lines[4]]
+                        else
+                          [lines[3].chomp(","), lines[4]]
+                        end
 
         Parser::Contact.new(
           type:         Parser::Contact::TYPE_REGISTRANT,
@@ -105,7 +105,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Domain Servers:\n((.+\n)+)\n/
-          $1.split("\n").map do |line|
+          ::Regexp.last_match(1).split("\n").map do |line|
             name, ipv4 = line.split(/\s+/)
             Parser::Nameserver.new(:name => name, :ipv4 => ipv4)
           end
@@ -140,7 +140,7 @@ module Whois
             lines << line.match(/([^\t]+)\t+:\s+(.+)/).to_a[1..2]
           end
         end
-        lines = Hash[lines]
+        lines = lines.to_h
 
         Parser::Contact.new(
             type:         type,

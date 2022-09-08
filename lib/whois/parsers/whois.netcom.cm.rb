@@ -16,8 +16,8 @@ module Whois
     # Parser for the whois.netcom.cm server.
     class WhoisNetcomCm < BaseCocca
 
-      self.status_mapping.merge!({
-          "suspended" => :registered
+      status_mapping.merge!({
+          "suspended" => :registered,
       })
 
     end

@@ -57,7 +57,7 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expiry : (.+?)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 

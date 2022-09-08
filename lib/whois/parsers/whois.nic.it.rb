@@ -43,7 +43,7 @@ module Whois
           :registered
         when /^pendingtransfer/
           :registered
-        when /redemption\-/
+        when /redemption-/
           :redemption
         when "pending-delete"
           :redemption

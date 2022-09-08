@@ -40,7 +40,7 @@ module Whois
 
       tokenizer :scan_body do
         str = @input.rest
-        str.gsub!(/ (![\w]+) \n/, " \n") # remove custom types
+        str.gsub!(/ (!\w+) \n/, " \n") # remove custom types
         @ast.merge! YAML.load(str)
         @input.terminate
       end

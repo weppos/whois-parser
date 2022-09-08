@@ -18,7 +18,7 @@ module Whois
 
       self.scanner = Scanners::BaseAfilias, {
           # Disclaimer starts with "Access to" in .in servers
-          pattern_disclaimer: /^Access to/
+          pattern_disclaimer: /^Access to/,
       }
 
     end

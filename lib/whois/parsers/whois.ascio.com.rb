@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisAscioCom < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^Object not found\n/
+          pattern_available: /^Object not found\n/,
       }
 
     end

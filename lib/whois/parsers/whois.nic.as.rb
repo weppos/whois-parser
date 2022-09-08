@@ -50,7 +50,7 @@ module Whois
 
       property_supported :nameservers do
         if content_for_scanner =~ /Name servers:\n((.+\n)+)\n/
-          $1.strip.split("\n").map do |line|
+          ::Regexp.last_match(1).strip.split("\n").map do |line|
             name, ipv4, ipv6 = line.strip.split(/\s+/)
             Parser::Nameserver.new(name: name, ipv4: ipv4, ipv6: ipv6)
           end

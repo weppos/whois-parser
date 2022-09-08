@@ -47,7 +47,7 @@ module Whois
           when "grace period"
             :registered
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{node("status")}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{node('status')}'.")
           end
         else
           :available

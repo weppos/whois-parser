@@ -11,7 +11,7 @@ module Whois
           :skip_head,
           :scan_section,
           :skip_empty_line,
-          :scan_disclaimer
+          :scan_disclaimer,
       ]
 
 
@@ -35,7 +35,7 @@ module Whois
       end
 
       tokenizer :skip_end do
-        @input.skip(/^More information at http:\/\/internet.ee\n?/)
+        @input.skip(%r{^More information at http://internet.ee\n?})
       end
 
       tokenizer :scan_disclaimer do

@@ -24,9 +24,9 @@ module Whois
 
       property_supported :domain do
         if registered? and content_for_scanner =~ /Domain:\s+(.+)\n/
-          $1
+          ::Regexp.last_match(1)
         elsif available? and content_for_scanner =~ /Domain (.+?) not found/
-          $1
+          ::Regexp.last_match(1)
         end
       end
 
@@ -52,7 +52,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Created:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -64,8 +64,8 @@ module Whois
       property_supported :registrar do
         if content_for_scanner =~ /Registrar:\s+(.+)\n/
           Parser::Registrar.new(
-              :id           => $1,
-              :name         => $1
+              :id           => ::Regexp.last_match(1),
+              :name         => ::Regexp.last_match(1)
           )
         end
       end
@@ -73,19 +73,19 @@ module Whois
 
       property_supported :registrant_contacts do
         if content_for_scanner =~ /Owner's handle:\s+(.+)\n/
-          build_contact($1, Parser::Contact::TYPE_REGISTRANT)
+          build_contact(::Regexp.last_match(1), Parser::Contact::TYPE_REGISTRANT)
         end
       end
 
       property_supported :admin_contacts do
         if content_for_scanner =~ /Administrative Contact's handle:\s+(.+)\n/
-          build_contact($1, Parser::Contact::TYPE_ADMINISTRATIVE)
+          build_contact(::Regexp.last_match(1), Parser::Contact::TYPE_ADMINISTRATIVE)
         end
       end
 
       property_supported :technical_contacts do
         if content_for_scanner =~ /Technical Contact's handle:\s+(.+)\n/
-          build_contact($1, Parser::Contact::TYPE_TECHNICAL)
+          build_contact(::Regexp.last_match(1), Parser::Contact::TYPE_TECHNICAL)
         end
       end
 

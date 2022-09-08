@@ -33,7 +33,7 @@ module Whois
       #
       property_supported :status do
         if content_for_scanner =~ /^Domain-status\s+(.+)\n/
-          case $1.downcase
+          case ::Regexp.last_match(1).downcase
           # The domain is registered and paid.
           when  "dom_ok"
             :registered
@@ -58,7 +58,7 @@ module Whois
           when  "dom_held"
             :redemption
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available
@@ -78,13 +78,13 @@ module Whois
 
       property_supported :updated_on do
         if content_for_scanner =~ /^Last-update\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /^Valid-date\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 

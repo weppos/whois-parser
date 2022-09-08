@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisPairnicCom < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^No matching domain name found\.\n/
+          pattern_available: /^No matching domain name found\.\n/,
       }
     end
 

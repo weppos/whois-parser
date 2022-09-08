@@ -25,7 +25,7 @@ module Whois
 
       property_supported :domain do
         if content_for_scanner =~ /domain:\s+(.+)\n/
-          $1
+          ::Regexp.last_match(1)
         end
       end
 
@@ -41,7 +41,7 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /\/ No match/)
+        !!(content_for_scanner =~ %r{/ No match})
       end
 
       property_supported :registered? do
@@ -51,7 +51,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /record created:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 

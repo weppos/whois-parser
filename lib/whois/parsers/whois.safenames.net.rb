@@ -20,7 +20,7 @@ module Whois
     #
     class WhoisSafenamesNet < BaseIcannCompliant
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^No match for "[\w\.]+"\.\n/
+          pattern_available: /^No match for "[\w.]+"\.\n/,
       }
 
       property_supported :created_on do
@@ -37,9 +37,9 @@ module Whois
       end
 
       def contact_address_attribute(element)
-        address = (1..2).
-          map { |i| node("#{element} Address Line #{i}") }.
-          compact.join("\n").chomp
+        address = (1..2)
+          .map { |i| node("#{element} Address Line #{i}") }
+          .compact.join("\n").chomp
       end
 
     end

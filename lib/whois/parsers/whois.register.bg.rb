@@ -26,11 +26,11 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /registration status:\s+(.+?)\n/
-          case $1.downcase
+          case ::Regexp.last_match(1).downcase
           when "registered"
             :registered
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available
@@ -50,7 +50,7 @@ module Whois
         if content_for_scanner =~ /activated on:\s+(.*?)\n/
           # Time.parse("30/06/2003 00:00:00")
           # => ArgumentError: argument out of range
-          parse_time($1.gsub("/", "-"))
+          parse_time(::Regexp.last_match(1).gsub("/", "-"))
         end
       end
 
@@ -60,16 +60,16 @@ module Whois
         if content_for_scanner =~ /expires at:\s+(.*?)\n/
           # Time.parse("30/06/2003 00:00:00")
           # => ArgumentError: argument out of range
-          parse_time($1.gsub("/", "-"))
+          parse_time(::Regexp.last_match(1).gsub("/", "-"))
         end
       end
 
 
       property_supported :nameservers do
         if content_for_scanner =~ /NAME SERVER INFORMATION:\n((.+\n)+)\s+\n/
-          $1.split("\n").map do |line|
+          ::Regexp.last_match(1).split("\n").map do |line|
             if line =~ /(.+) \((.+)\)/
-              Parser::Nameserver.new(:name => $1, :ipv4 => $2)
+              Parser::Nameserver.new(:name => ::Regexp.last_match(1), :ipv4 => ::Regexp.last_match(2))
             else
               Parser::Nameserver.new(:name => line.strip)
             end

@@ -21,7 +21,7 @@ module Whois
     class WhoisWildwestdomainsCom < BaseIcannCompliant
 
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^Domain (.+) is not registered here.\n/
+          pattern_available: /^Domain (.+) is not registered here.\n/,
       }
 
 

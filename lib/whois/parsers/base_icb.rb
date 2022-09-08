@@ -16,7 +16,7 @@ module Whois
     class BaseIcb < BaseIcannCompliant
 
       self.scanner = Scanners::BaseIcannCompliant, {
-          pattern_available: /^NOT FOUND/
+          pattern_available: /^NOT FOUND/,
       }
 
 

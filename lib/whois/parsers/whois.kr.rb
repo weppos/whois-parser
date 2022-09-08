@@ -43,19 +43,19 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Registered Date\s+:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :updated_on do
         if content_for_scanner =~ /Last Updated Date\s+:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expiration Date\s+:\s+(.+)\n/
-          parse_time($1)
+          parse_time(::Regexp.last_match(1))
         end
       end
 
@@ -64,10 +64,10 @@ module Whois
         content_for_scanner.scan(/^\w+ Name Server\n((?:.+\n)+)\n/).flatten.map do |group|
           Parser::Nameserver.new.tap do |nameserver|
             if group =~ /\s+Host Name\s+:\s+(.+)\n/
-              nameserver.name = $1
+              nameserver.name = ::Regexp.last_match(1)
             end
             if group =~ /\s+IP Address\s+:\s+(.+)\n/
-              nameserver.ipv4 = $1
+              nameserver.ipv4 = ::Regexp.last_match(1)
             end
           end
         end

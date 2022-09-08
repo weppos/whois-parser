@@ -26,11 +26,11 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /status:\s+(.+?)\n/
-          case $1.split("-").first.downcase
+          case ::Regexp.last_match(1).split("-").first.downcase
           when "ok"
             :registered
           else
-            Whois::Parser.bug!(ParserError, "Unknown status `#{$1}'.")
+            Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
         else
           :available
@@ -50,14 +50,14 @@ module Whois
 
       property_supported :updated_on do
         if content_for_scanner =~ /changed:\s+(.*)\n/
-          time = $1.split(" ").last
+          time = ::Regexp.last_match(1).split(" ").last
           Time.strptime(time, "%Y%m%d%H%M%S")
         end
       end
 
       property_supported :expires_on do
         if content_for_scanner =~ /status:\s+(.*)\n/
-          time = $1.split(" ").last
+          time = ::Regexp.last_match(1).split(" ").last
           Time.strptime(time, "%Y%m%d%H%M%S")
         end
       end

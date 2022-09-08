@@ -45,7 +45,7 @@ module Whois
       #   # => :supported
       #
       def self.property_state(property)
-        self._properties[property]
+        _properties[property]
       end
 
       # Check if the +property+ passed as symbol
@@ -66,9 +66,9 @@ module Whois
       #
       def self.property_state?(property, status = :any)
         if status == :any
-          self._properties.key?(property)
+          _properties.key?(property)
         else
-          self._properties[property] == status
+          _properties[property] == status
         end
       end
 
@@ -80,7 +80,7 @@ module Whois
       # @return [void]
       #
       def self.property_register(property, status)
-        self._properties = self._properties.merge({ property => status })
+        self._properties = _properties.merge({ property => status })
       end
 
 
@@ -171,6 +171,7 @@ module Whois
       #
       def self.parse_time(timestamp)
         return unless timestamp.is_a?(String) && !timestamp.empty?
+
         Time.parse(timestamp).change(usec: 0)
       rescue ArgumentError
         nil
