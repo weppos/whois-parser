@@ -4,7 +4,7 @@
 
 This library was extracted from the Ruby <tt>Whois</tt> library], and made available as a standalone library. It can be used in combination with the Ruby Whois library to perform WHOIS queries and parse the response in Ruby, or as a standalone library to parse WHOIS records fetched previously and/or from different WHOIS clients.
 
-[![Build Status](https://travis-ci.org/weppos/whois-parser.svg?branch=master)](https://travis-ci.org/weppos/whois-parser)
+[![Build Status](https://github.com/weppos/whois-parser/actions/workflows/tests.yml/badge.svg)](https://github.com/weppos/whois/actions/workflows/tests.yml)
 
 The [whois repository](https://github.com/weppos/whois) contains more information on how to use the library.
 
