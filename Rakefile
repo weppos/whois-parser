@@ -1,31 +1,26 @@
-require 'bundler/gem_tasks'
+# frozen_string_literal: true
+
+require "bundler/gem_tasks"
+
+task default: [:test]
 
 
-# Run test by default.
-task :default => :spec
-task :test => :spec
-
-
-require 'rspec/core/rake_task'
+require "rspec/core/rake_task"
 
 RSpec::Core::RakeTask.new do |t|
   t.verbose = !ENV["VERBOSE"].nil?
 end
 
+task test: :spec
 
-require 'yard'
+
+require "yard/rake/yardoc_task"
 
 YARD::Rake::YardocTask.new(:yardoc) do |y|
   y.options = ["--output-dir", "yardoc"]
 end
 
-namespace :yardoc do
-  task :clobber do
-    rm_r "yardoc" rescue nil
-  end
-end
-
-task :clobber => "yardoc:clobber"
+CLOBBER.include "yardoc"
 
 
 Dir["tasks/**/*.rake"].each do |file|
