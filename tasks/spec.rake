@@ -183,7 +183,7 @@ end
   def _build_condition_typecast(described_class, value)
     case described_class
     when "time"
-      %Q{Time.parse("#{value}")}
+      %{Time.parse("#{value}")}
     else
       raise "Unknown class `#{described_class}'"
     end
