@@ -54,24 +54,6 @@ Layout/HeredocIndentation:
   Exclude:
     - 'tasks/spec.rake'
 
-# Offense count: 36
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented, indented_relative_to_receiver
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-    - 'lib/whois/parsers/base_afilias.rb'
-    - 'lib/whois/parsers/base_afilias2.rb'
-    - 'lib/whois/parsers/base_shared2.rb'
-    - 'lib/whois/parsers/whois.centralnic.com.rb'
-    - 'lib/whois/parsers/whois.nic.asia.rb'
-    - 'lib/whois/parsers/whois.nic.bj.rb'
-    - 'lib/whois/parsers/whois.nic.me.rb'
-    - 'lib/whois/parsers/whois.pir.org.rb'
-    - 'lib/whois/parsers/whois.safenames.net.rb'
-    - 'lib/whois/parsers/whois.yoursrs.com.rb'
-    - 'spec/integration/whois_spec.rb'
-
 # Offense count: 15
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, IndentationWidth.

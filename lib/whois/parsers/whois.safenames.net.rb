@@ -38,8 +38,8 @@ module Whois
 
       def contact_address_attribute(element)
         address = (1..2)
-          .map { |i| node("#{element} Address Line #{i}") }
-          .compact.join("\n").chomp
+                  .map { |i| node("#{element} Address Line #{i}") }
+                  .compact.join("\n").chomp
       end
 
     end

@@ -112,9 +112,9 @@ module Whois
       def build_contact(element, type)
         node("#{element} ID") do
           address = [nil, 1, 2, 3]
-              .map { |i| node("#{element} Street#{i}") }
-              .delete_if { |i| i.nil? || i.empty? }
-              .join("\n")
+                    .map { |i| node("#{element} Street#{i}") }
+                    .delete_if { |i| i.nil? || i.empty? }
+                    .join("\n")
           address = nil if address.empty?
 
           Parser::Contact.new(

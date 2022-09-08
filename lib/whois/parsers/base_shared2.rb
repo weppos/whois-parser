@@ -99,9 +99,9 @@ module Whois
       def build_contact(element, type)
         node("#{element} ID") do |str|
           address = (1..3)
-              .map { |i| node("#{element} Address#{i}") }
-              .delete_if(&:nil?)
-              .join("\n")
+                    .map { |i| node("#{element} Address#{i}") }
+                    .delete_if(&:nil?)
+                    .join("\n")
 
           Parser::Contact.new(
             :type         => type,
