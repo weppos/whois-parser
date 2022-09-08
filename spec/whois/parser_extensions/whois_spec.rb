@@ -4,7 +4,7 @@ describe Whois do
 
   class Whois::Parsers::ParserTest < Whois::Parsers::Base
     property_supported :available? do
-      eval(content_for_scanner)
+      content_for_scanner == "1 == 1"
     end
     property_supported :registered? do
       !available?

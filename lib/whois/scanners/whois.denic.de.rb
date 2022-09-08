@@ -34,7 +34,9 @@ module Whois
         if @input.match?(/% Copyright \(c\) *\d{4} by DENIC\n/)
           @input.scan_until(/% Terms and Conditions of Use\n/)
           lines = []
-          lines << @input[1].strip unless @input[1].strip == "" while @input.match?(/%/) && @input.scan(/%(.*)\n/)
+          while @input.match?(/%/) && @input.scan(/%(.*)\n/) # rubocop:disable Style/WhileUntilModifier
+            lines << @input[1].strip unless @input[1].strip == ""
+          end
           @ast["Disclaimer"] = lines.join(" ")
         end
       end

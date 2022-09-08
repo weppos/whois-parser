@@ -94,18 +94,18 @@ module Whois
       private
 
       def build_contact(element, type)
-        if name = value_for_key('%s-name' % element)
-          Parser::Contact.new(
-              type:         type,
-              id:           nil,
-              name:         name,
-              address:      value_for_key('%s-address' % element),
-              city:         value_for_key('%s-city' % element),
-              zip:          value_for_key('%s-zipcode' % element),
-              country_code: value_for_key('%s-country' % element),
-              email:        value_for_key('%s-email' % element)
-          )
-        end
+        return unless (name = value_for_key(format("%s-name", element)))
+
+        Parser::Contact.new(
+            type:         type,
+            id:           nil,
+            name:         name,
+            address:      value_for_key(format("%s-address", element)),
+            city:         value_for_key(format("%s-city", element)),
+            zip:          value_for_key(format("%s-zipcode", element)),
+            country_code: value_for_key(format("%s-country", element)),
+            email:        value_for_key(format("%s-email", element))
+        )
       end
 
       def value_for_key(key)

@@ -270,17 +270,6 @@ RSpec/SubjectStub:
     - 'spec/whois/parser_extensions/record_spec.rb'
     - 'spec/whois/safe_record_spec.rb'
 
-# Offense count: 1
-Security/Eval:
-  Exclude:
-    - 'spec/whois/parser_extensions/whois_spec.rb'
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Security/YAMLLoad:
-  Exclude:
-    - 'lib/whois/scanners/whois.smallregistry.net.rb'
-
 # Offense count: 4
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyle.

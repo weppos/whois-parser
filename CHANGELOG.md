@@ -5,7 +5,9 @@ This project uses [Semantic Versioning 2.0.0](http://semver.org/).
 
 #### master
 
-- CHANGED: Minimum Ruby version 2.3
+- CHANGED: Minimum Ruby version 2.6
+
+- FIXED: Addressed security issues with eval and YAML.load. Thanks Francis Beaudoin
 
 
 #### Release 1.2.0
