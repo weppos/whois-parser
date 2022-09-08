@@ -1,0 +1,27 @@
+inherit_from:
+  - .rubocop_opinionated.yml
+  - .rubocop_todo.yml
+
+require:
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    # Exclude .gemspec files because they are generally auto-generated
+    - '*.gemspec'
+    # Exclude vendored folders
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    # Exclude artifacts
+    - 'pkg/**/*'
+    # Other
+    - '.simplecov'
+    - 'test/benchmarks/**/*'
+    - 'test/profilers/**/*'
+    - 'utils/**/*'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+    - 'test/**/*_test.rb'

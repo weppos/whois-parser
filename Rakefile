@@ -14,6 +14,11 @@ end
 task test: :spec
 
 
+require "rubocop/rake_task"
+
+RuboCop::RakeTask.new
+
+
 require "yard/rake/yardoc_task"
 
 YARD::Rake::YardocTask.new(:yardoc) do |y|
