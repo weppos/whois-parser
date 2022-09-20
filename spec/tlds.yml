@@ -1394,7 +1394,39 @@ xn--ngbc5azd:
     _server: whois.nic.xn--ngbc5azd
     _subdir: xn--ngbc5azd
 
+app:
+    _server: whois.nic.google
+    _subdir: app
+    status_available: u34jedzcq.app
+    status_registered: google.app
+
+dev:
+    _server: whois.nic.google
+    _subdir: dev
+    status_available: u34jedzcq.dev
+    status_registered: google.dev
+
+how:
+    _server: whois.nic.google
+    _subdir: how
+    status_available: u34jedzcq.how
+    status_registered: google.how
+
+page:
+    _server: whois.nic.google
+    _subdir: page
+    status_available: u34jedzcq.page
+    status_registered: google.page
+
+soy:
+    _server: whois.nic.google
+    _subdir: soy
+    status_available: u34jedzcq.soy
+    status_registered: google.soy
+
 // .みんな
 xn--q9jyb4c:
-    _server: domain-registry-whois.l.google.com
+    _server: whois.nic.google
     _subdir: xn--q9jyb4c
+    status_available: u34jedzcq.xn--q9jyb4c
+    status_registered: google.xn--q9jyb4c
