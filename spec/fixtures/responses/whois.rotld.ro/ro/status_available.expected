@@ -9,13 +9,15 @@
 
 
 #created_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2000-07-17 00:00:00.000000000 +0000}
 
 #updated_on
   %s %ERROR{AttributeNotSupported}
 
 #expires_on
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{time}
+  %s %TIME{2000-07-17 00:00:00.000000000 +0000}
 
 
 #nameservers

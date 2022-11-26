@@ -36,7 +36,7 @@ describe Whois::Parsers::WhoisRotldRo, "status_registered.expected" do
   end
   describe "#created_on" do
     it do
-      expect { subject.created_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.created_on).to eq(Time.parse("2000-07-17 00:00:00.000000000 +0000"))
     end
   end
   describe "#updated_on" do
@@ -46,7 +46,7 @@ describe Whois::Parsers::WhoisRotldRo, "status_registered.expected" do
   end
   describe "#expires_on" do
     it do
-      expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
+      expect(subject.created_on).to eq(Time.parse("2000-07-17 00:00:00.000000000 +0000"))
     end
   end
   describe "#nameservers" do
