@@ -36,7 +36,7 @@ describe Whois::Parsers::WhoisAfiliasNet, "status_registered.expected" do
   end
   describe "#status" do
     it do
-      expect(subject.status).to eq(["clientDeleteProhibited", "clientTransferProhibited", "clientUpdateProhibited"])
+      expect(subject.status).to eq(["clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited", "clientTransferProhibited https://icann.org/epp#clientTransferProhibited", "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"])
     end
   end
   describe "#available?" do
@@ -58,22 +58,22 @@ describe Whois::Parsers::WhoisAfiliasNet, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2013-06-29 09:26:18 UTC"))
+      expect(subject.updated_on).to eq(Time.parse("2017-06-29 09:35:17 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-07-31 23:57:50 UTC"))
+      expect(subject.expires_on).to eq(Time.parse("2018-07-31 23:57:50 UTC"))
     end
   end
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("R151-LRMS")
+      expect(subject.registrar.id).to eq("292")
       expect(subject.registrar.name).to eq("MarkMonitor Inc.")
-      expect(subject.registrar.organization).to eq(nil)
-      expect(subject.registrar.url).to eq(nil)
+      expect(subject.registrar.organization).to eq("MarkMonitor Inc.")
+      expect(subject.registrar.url).to eq("http://www.markmonitor.com")
     end
   end
   describe "#registrant_contacts" do
@@ -82,7 +82,7 @@ describe Whois::Parsers::WhoisAfiliasNet, "status_registered.expected" do
       expect(subject.registrant_contacts.size).to eq(1)
       expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("mmr-32097")
+      expect(subject.registrant_contacts[0].id).to eq("C60668647-LRMS")
       expect(subject.registrant_contacts[0].name).to eq("DNS Admin")
       expect(subject.registrant_contacts[0].organization).to eq("Google Inc.")
       expect(subject.registrant_contacts[0].address).to eq("1600 Amphitheatre Parkway")
@@ -101,7 +101,7 @@ describe Whois::Parsers::WhoisAfiliasNet, "status_registered.expected" do
       expect(subject.admin_contacts.size).to eq(1)
       expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq("mmr-32097")
+      expect(subject.admin_contacts[0].id).to eq("C60668647-LRMS")
       expect(subject.admin_contacts[0].name).to eq("DNS Admin")
       expect(subject.admin_contacts[0].organization).to eq("Google Inc.")
       expect(subject.admin_contacts[0].address).to eq("1600 Amphitheatre Parkway")
@@ -120,7 +120,7 @@ describe Whois::Parsers::WhoisAfiliasNet, "status_registered.expected" do
       expect(subject.technical_contacts.size).to eq(1)
       expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq("mmr-32097")
+      expect(subject.technical_contacts[0].id).to eq("C60668647-LRMS")
       expect(subject.technical_contacts[0].name).to eq("DNS Admin")
       expect(subject.technical_contacts[0].organization).to eq("Google Inc.")
       expect(subject.technical_contacts[0].address).to eq("1600 Amphitheatre Parkway")
