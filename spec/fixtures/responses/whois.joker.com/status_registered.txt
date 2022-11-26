@@ -1,0 +1,65 @@
+Domain Name: joker.com
+Registry Domain ID: 523683_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.joker.com
+Registrar URL: http://joker.com/
+Updated Date: 2018-02-21T18:51:25Z
+Creation Date: 1994-11-27T00:00:00Z
+Registrar Registration Expiration Date: 2027-08-03T15:02:10Z
+Registrar: CSL Computer Service Langenbach GmbH d/b/a joker.com
+Registrar IANA ID: 113
+Registrar Abuse Contact Email: abuse@joker.com
+Registrar Abuse Contact Phone: +49.21186767447
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registry Registrant ID:  
+Registrant Name: Domain Administrator
+Registrant Organization: CSL Computer Service Langenbach GmbH
+Registrant Street: Hansaallee 191-193
+Registrant City: Duesseldorf
+Registrant Postal Code: 40549
+Registrant Country: DE
+Registrant Phone: +49.211867670
+Registrant Fax: +49.2118676710
+Registrant Email: admin@joker.com
+Registry Admin ID:  
+Admin Name: n/a
+Admin Organization: CSL Computer Service Langenbach GmbH
+Admin Street: Hansaallee 191-193
+Admin City: Duesseldorf
+Admin Postal Code: 40549
+Admin Country: DE
+Admin Phone: +49.211867670
+Admin Email: admin@joker.com
+Registry Tech ID:  
+Tech Name: Domain Administrator
+Tech Organization: CSL Computer Service Langenbach GmbH
+Tech Street: Hansaallee 191-193
+Tech City: Duesseldorf
+Tech State/Province: NRW
+Tech Postal Code: 40549
+Tech Country: DE
+Tech Phone: +49.211867670
+Tech Fax: +49.2118676710
+Tech Email: hostmaster@joker.com
+Name Server: j.ns.joker.com
+Name Server: k.ns.joker.com
+Name Server: l.ns.joker.com
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2018-05-03T10:01:07Z <<<
+
+Query Time: 0.085578
+Query Source: 82.99.18.126
+WHOIS Source: joker.com live whois service
+
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTE: By submitting a WHOIS query, you agree to abide by the following
+NOTE: terms of use: You agree that you may use this data only for lawful
+NOTE: purposes and that under no circumstances will you use this data to:
+NOTE: (1) allow, enable, or otherwise support the transmission of mass
+NOTE: unsolicited, commercial advertising or solicitations via direct mail,
+NOTE: e-mail, telephone, or facsimile; or (2) enable high volume, automated,
+NOTE: electronic processes that apply to Joker.com (or its computer systems).
+NOTE: The compilation, repackaging, dissemination or other use of this data
+NOTE: is expressly prohibited without the prior written consent of Joker.com.
