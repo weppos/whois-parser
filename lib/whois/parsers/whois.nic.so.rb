@@ -31,7 +31,8 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /^Domain Status: No Object Found$/)
+        !!((content_for_scanner =~ /^Domain Status: No Object Found$/) &&
+          (content_for_scanner !~ /^Notes: This name is invalid and can not be registered$/))
       end
 
       property_supported :registered? do
