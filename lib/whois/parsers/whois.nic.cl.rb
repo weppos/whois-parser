@@ -35,8 +35,7 @@ module Whois
       end
 
       property_supported :available? do
-        byebug
-        !!(content_for_scanner =~ /^(.+?): no existe$/)
+        !!(content_for_scanner =~ /^(.+?): no entries found/)
       end
 
       property_supported :registered? do
