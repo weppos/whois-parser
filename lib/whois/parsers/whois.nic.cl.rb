@@ -35,6 +35,7 @@ module Whois
       end
 
       property_supported :available? do
+        byebug
         !!(content_for_scanner =~ /^(.+?): no existe$/)
       end
 
