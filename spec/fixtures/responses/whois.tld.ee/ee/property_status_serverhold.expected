@@ -31,7 +31,6 @@
 #registrar
   %s %CLASS{registrar}
   %s.name         == "Edicy OÜ"
-  %s.organization == "Edicy OÜ"
   %s.url          == "http://www.edicy.com"
 
 #registrant_contacts

@@ -1,5 +1,5 @@
 #disclaimer
-  %s == "Access to the whois service is rate limited. For more information, please see https://registrar-console.centralnic.com/pub/whois_guidance."
+  %s == "The Whois and RDAP services are provided by CentralNic, and contain information pertaining to Internet domain names registered by our our customers. By using this service you are agreeing (1) not to use any information presented here for any purpose other than determining ownership of domain names, (2) not to store or reproduce this data in any way, (3) not to use any high-volume, automated, electronic processes to obtain data from this service. Abuse of this service is monitored and actions in contravention of these terms will result in being permanently blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com) Access to the Whois and RDAP services is rate limited. For more information, visit https://registrar-console.centralnic.com/pub/whois_guidance."
 
 
 #domain
@@ -10,7 +10,7 @@
 
 
 #status
-  %s == ["clientTransferProhibited https://icann.org/epp#clientTransferProhibited", "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited", "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited"]
+  %s == :registered
 
 #available?
   %s == false
@@ -25,9 +25,9 @@
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2015-08-18 15:09:36 UTC}
+  %s %TIME{2018-04-23 22:02:32 UTC}
 
-#expires_on 
+#expires_on
   %s %CLASS{time}
   %s %TIME{2025-03-20 23:59:59 UTC}
 
@@ -36,71 +36,39 @@
   %s %CLASS{registrar}
   %s.id           == "292"
   %s.name         == "MarkMonitor, Inc (TLDs)"
-  %s.organization == nil
-  %s.url          == nil
+  %s.url          == ""
 
 #registrant_contacts
   %s %CLASS{array}
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
-  %s[0].id            == "mmr-87489"
-  %s[0].name          == "DNS Admin"
-  %s[0].organization  == "Google Inc."
-  %s[0].address       == "1600 Amphitheatre Parkway"
-  %s[0].city          == "Mountain View"
-  %s[0].zip           == "94043"
+  %s[0].id            == nil
+  %s[0].name          == nil
+  %s[0].organization  == "Google LLC"
+  %s[0].address       == nil
+  %s[0].city          == nil
+  %s[0].zip           == nil
   %s[0].state         == "CA"
   %s[0].country       == nil
   %s[0].country_code  == "US"
-  %s[0].phone         == "+1.6502530000"
-  %s[0].fax           == "+1.6502530001"
-  %s[0].email         == "dns-admin@google.com"
-  %s[0].url           == nil
-  %s[0].created_on    == nil
-  %s[0].updated_on    == nil
+  %s[0].phone         == nil
+  %s[0].fax           == nil
+  %s[0].email         == "Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name."
 
 #admin_contacts
   %s %CLASS{array}
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_ADMINISTRATIVE
-  %s[0].id            == "mmr-87489"
-  %s[0].name          == "DNS Admin"
-  %s[0].organization  == "Google Inc."
-  %s[0].address       == "1600 Amphitheatre Parkway"
-  %s[0].city          == "Mountain View"
-  %s[0].zip           == "94043"
-  %s[0].state         == "CA"
-  %s[0].country       == nil
-  %s[0].country_code  == "US"
-  %s[0].phone         == "+1.6502530000"
-  %s[0].fax           == "+1.6502530001"
-  %s[0].email         == "dns-admin@google.com"
-  %s[0].url           == nil
-  %s[0].created_on    == nil
-  %s[0].updated_on    == nil
+  %s[0].email         == "Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name."
 
 #technical_contacts
   %s %CLASS{array}
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_TECHNICAL
-  %s[0].id            == "mmr-87489"
-  %s[0].name          == "DNS Admin"
-  %s[0].organization  == "Google Inc."
-  %s[0].address       == "1600 Amphitheatre Parkway"
-  %s[0].city          == "Mountain View"
-  %s[0].zip           == "94043"
-  %s[0].state         == "CA"
-  %s[0].country       == nil
-  %s[0].country_code  == "US"
-  %s[0].phone         == "+1.6502530000"
-  %s[0].fax           == "+1.6502530001"
-  %s[0].email         == "dns-admin@google.com"
-  %s[0].url           == nil
-  %s[0].created_on    == nil
-  %s[0].updated_on    == nil
+  %s[0].email         == "Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name."
 
 
 #nameservers
@@ -108,17 +76,9 @@
   %s %SIZE{4}
   %s[0] %CLASS{nameserver}
   %s[0].name == "ns2.google.com"
-  %s[0].ipv4 == nil
-  %s[0].ipv6 == nil
   %s[1] %CLASS{nameserver}
   %s[1].name == "ns4.google.com"
-  %s[1].ipv4 == nil
-  %s[1].ipv6 == nil
   %s[2] %CLASS{nameserver}
   %s[2].name == "ns3.google.com"
-  %s[2].ipv4 == nil
-  %s[2].ipv6 == nil
   %s[3] %CLASS{nameserver}
   %s[3].name == "ns1.google.com"
-  %s[3].ipv4 == nil
-  %s[3].ipv6 == nil

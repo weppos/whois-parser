@@ -9,51 +9,25 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.dns.pt.rb'
 
-describe Whois::Parsers::WhoisDnsPt, "status_reserved.expected" do
+describe "whois.dns.pt", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.dns.pt/pt/status_reserved.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.dns.pt")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:reserved)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2009-02-09 00:00:00 UTC"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers).to eq([])
-    end
+  it "matches status_reserved.expected" do
+    expect(subject.status).to eq(:reserved)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2015-05-07 23:40:09 UTC"))
+    expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2026-05-06 23:59:09 UTC"))
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers).to eq([])
   end
 end

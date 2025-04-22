@@ -7,7 +7,7 @@
 #++
 
 
-require_relative 'base'
+require_relative 'base_icann_compliant'
 require 'whois/scanners/base_afilias'
 
 
@@ -17,68 +17,13 @@ module Whois
     # Base parser for Afilias servers.
     #
     # @abstract
-    class BaseAfilias < Base
-      include Scanners::Scannable
+    class BaseAfilias < BaseIcannCompliant
 
       self.scanner = Scanners::BaseAfilias
 
 
-      property_supported :disclaimer do
-        node("field:disclaimer")
-      end
-
-
-      property_supported :domain do
-        node("Domain Name", &:downcase)
-      end
-
-      property_supported :domain_id do
-        node("Domain ID")
-      end
-
-
       property_supported :status do
-        Array.wrap(node("Status"))
-      end
-
-      property_supported :available? do
-        !!node("status:available")
-      end
-
-      property_supported :registered? do
-        !available?
-      end
-
-
-      property_supported :created_on do
-        node("Created On") do |value|
-          parse_time(value)
-        end
-      end
-
-      property_supported :updated_on do
-        node("Last Updated On") do |value|
-          parse_time(value)
-        end
-      end
-
-      property_supported :expires_on do
-        node("Expiration Date") do |value|
-          parse_time(value)
-        end
-      end
-
-
-      property_supported :registrar do
-        node("Sponsoring Registrar") do |value|
-          id, name = decompose_registrar(value) ||
-              Whois::Parser.bug!(ParserError, "Unknown registrar format `#{value}'")
-
-          Parser::Registrar.new(
-              id:           id,
-              name:         name
-          )
-        end
+        Array(node("Domain Status"))
       end
 
       property_supported :registrant_contacts do
@@ -95,41 +40,44 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("Name Server")).reject(&:empty?).map do |name|
+        Array(node("Name Server")).reject(&:empty?).map do |name|
           Parser::Nameserver.new(:name => name.downcase)
         end
       end
 
+      # Checks whether the response has been throttled.
+      #
+      # @return [Boolean]
+      #
+      # @example
+      #   WHOIS LIMIT EXCEEDED - SEE WWW.PIR.ORG/WHOIS FOR DETAILS
+      #
+      def response_throttled?
+        !!node("response:throttled")
+      end
 
       private
 
       def build_contact(element, type)
-        node("#{element} ID") do
-          address = ["", "1", "2", "3"]
-                    .map { |i| node("#{element} Street#{i}") }
-                    .delete_if { |i| i.nil? || i.empty? }
-                    .join("\n")
-
+        node("#{element} Organization") do
+          address = ["", "1", "2", "3"].
+            map { |i| node("#{element} Street#{i}") }.
+            delete_if { |i| i.nil? || i.empty? }.
+            join("\n").presence
           Parser::Contact.new(
-              :type         => type,
-              :id           => node("#{element} ID"),
-              :name         => node("#{element} Name"),
-              :organization => node("#{element} Organization"),
-              :address      => address,
-              :city         => node("#{element} City"),
-              :zip          => node("#{element} Postal Code"),
-              :state        => node("#{element} State/Province"),
-              :country_code => node("#{element} Country"),
-              :phone        => node("#{element} Phone"),
-              :fax          => node("#{element} FAX") || node("#{element} Fax"),
-              :email        => node("#{element} Email")
+            type:         type,
+            id:           node("Registry #{element} ID"),
+            name:         node("#{element} Name"),
+            organization: node("#{element} Organization"),
+            address:      address,
+            city:         node("#{element} City"),
+            zip:          node("#{element} Postal Code"),
+            state:        node("#{element} State/Province"),
+            country_code: node("#{element} Country"),
+            phone:        node("#{element} Phone"),
+            fax:          node("#{element} Fax"),
+            email:        node("#{element} Email")
           )
-        end
-      end
-
-      def decompose_registrar(value)
-        if value =~ /(.+?) \((.+?)\)/
-          [::Regexp.last_match(2), ::Regexp.last_match(1)]
         end
       end
 

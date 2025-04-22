@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.dot.cf.rb'
 
-describe Whois::Parsers::WhoisDotCf, "property_expires_on_blank.expected" do
+describe "whois.dot.cf", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.dot.cf/cf/property_expires_on_blank.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.dot.cf")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
+  it "matches property_expires_on_blank.expected" do
+    expect(subject.expires_on).to eq(nil)
   end
 end

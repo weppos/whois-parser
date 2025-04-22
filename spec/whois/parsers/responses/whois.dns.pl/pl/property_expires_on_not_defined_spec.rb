@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.dns.pl.rb'
 
-describe Whois::Parsers::WhoisDnsPl, "property_expires_on_not_defined.expected" do
+describe "whois.dns.pl", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.dns.pl/pl/property_expires_on_not_defined.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.dns.pl")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
+  it "matches property_expires_on_not_defined.expected" do
+    expect(subject.expires_on).to eq(nil)
   end
 end

@@ -9,24 +9,17 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.registro.br.rb'
 
-describe Whois::Parsers::WhoisRegistroBr, "status_available_limited.expected" do
+describe "whois.registro.br", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.registro.br/br/status_available_limited.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.registro.br")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(true)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
+  it "matches status_available_limited.expected" do
+    expect(subject.available?).to eq(true)
+    expect(subject.registered?).to eq(false)
   end
 end

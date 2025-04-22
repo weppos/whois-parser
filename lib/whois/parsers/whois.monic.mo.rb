@@ -58,9 +58,7 @@ module Whois
 
       property_supported :registrar do
         if content_for_scanner =~ /Registrar:\s+(.+)\n/
-          Parser::Registrar.new(
-              :name => ::Regexp.last_match(1)
-          )
+          Parser::Registrar.new(name: ::Regexp.last_match(1))
         end
       end
 

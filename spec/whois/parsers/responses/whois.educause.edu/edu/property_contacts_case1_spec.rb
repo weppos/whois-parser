@@ -9,33 +9,30 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.educause.edu.rb'
 
-describe Whois::Parsers::WhoisEducauseEdu, "property_contacts_case1.expected" do
+describe "whois.educause.edu", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.educause.edu/edu/property_contacts_case1.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.educause.edu")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts.size).to eq(1)
-      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.technical_contacts[0].id).to eq(nil)
-      expect(subject.technical_contacts[0].name).to eq("Information Technology\nEDUCAUSE")
-      expect(subject.technical_contacts[0].organization).to eq(nil)
-      expect(subject.technical_contacts[0].address).to eq("4772 Walnut Street\nSte 206")
-      expect(subject.technical_contacts[0].city).to eq("Boulder")
-      expect(subject.technical_contacts[0].zip).to eq("80301")
-      expect(subject.technical_contacts[0].state).to eq("CO")
-      expect(subject.technical_contacts[0].country).to eq("UNITED STATES")
-      expect(subject.technical_contacts[0].country_code).to eq(nil)
-      expect(subject.technical_contacts[0].phone).to eq("(303) 449-4430")
-      expect(subject.technical_contacts[0].fax).to eq(nil)
-      expect(subject.technical_contacts[0].email).to eq("netadmin@educause.edu")
-    end
+  it "matches property_contacts_case1.expected" do
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts.size).to eq(1)
+    expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.technical_contacts[0].id).to eq(nil)
+    expect(subject.technical_contacts[0].name).to eq("Information Technology\nEDUCAUSE")
+    expect(subject.technical_contacts[0].organization).to eq(nil)
+    expect(subject.technical_contacts[0].address).to eq("4772 Walnut Street\nSte 206")
+    expect(subject.technical_contacts[0].city).to eq("Boulder")
+    expect(subject.technical_contacts[0].zip).to eq("80301")
+    expect(subject.technical_contacts[0].state).to eq("CO")
+    expect(subject.technical_contacts[0].country).to eq("UNITED STATES")
+    expect(subject.technical_contacts[0].country_code).to eq(nil)
+    expect(subject.technical_contacts[0].phone).to eq("(303) 449-4430")
+    expect(subject.technical_contacts[0].fax).to eq(nil)
+    expect(subject.technical_contacts[0].email).to eq("netadmin@educause.edu")
   end
 end

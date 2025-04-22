@@ -33,7 +33,6 @@
   %s %CLASS{registrar}
   %s.id           == "QatarTelecom"
   %s.name         == "Qatar Telecom (Qtel) Q. S. C"
-  %s.organization == "Qatar Telecom (Qtel) Q. S. C"
 
 #registrant_contacts
   %s %CLASS{array}

@@ -9,57 +9,30 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.ve.rb'
 
-describe Whois::Parsers::WhoisNicVe, "status_inactive.expected" do
+describe "whois.nic.ve", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.ve/ve/status_inactive.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.ve")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:inactive)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2005-11-21 15:21:32"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2006-06-08 21:54:41"))
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2010-11-21 15:21:32"))
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(2)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns10.tepuyserver.net")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns9.tepuyserver.net")
-    end
+  it "matches status_inactive.expected" do
+    expect(subject.status).to eq(:inactive)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2005-11-21 15:21:32"))
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2006-06-08 21:54:41"))
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2010-11-21 15:21:32"))
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(2)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns10.tepuyserver.net")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns9.tepuyserver.net")
   end
 end

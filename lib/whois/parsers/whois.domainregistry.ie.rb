@@ -95,7 +95,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("nserver")).map do |line|
+        Array(node("nserver")).map do |line|
           name, ipv4 = line.split(/\s+/)
           Parser::Nameserver.new(:name => name, :ipv4 => ipv4)
         end
@@ -105,7 +105,7 @@ module Whois
       private
 
       def build_contact(element, type)
-        Array.wrap(node(element)).map do |id|
+        Array(node(element)).map do |id|
           next unless (contact = node("field:#{id}"))
 
           Parser::Contact.new(

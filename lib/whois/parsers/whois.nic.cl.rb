@@ -18,13 +18,11 @@ module Whois
     #
     # Parser for the whois.nic.cl server.
     #
-    # NOTE: This parser is just a stub and provides only a few basic methods
-    # to check for domain availability and get domain status.
-    # Please consider to contribute implementing missing methods.
-    # See WhoisNicIt parser for an explanation of all available methods
-    # and examples.
-    #
     class WhoisNicCl < Base
+
+      property_supported :domain do
+        content_for_scanner.slice(/Domain name:\s+(.+?)$/, 1)
+      end
 
       property_supported :status do
         if available?
@@ -35,33 +33,40 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /^(.+?): no existe$/)
+        !!(content_for_scanner =~ /^(.+?): no entries found.$/)
       end
 
       property_supported :registered? do
         !available?
       end
 
+      property_supported :registrant_contacts do
+        Parser::Contact.new(type: Parser::Contact::TYPE_REGISTRANT,
+          name: content_for_scanner[/Registrant name:\s+(.+?)$/, 1],
+          organization: content_for_scanner[/Registrant organisation:\s+(.+?)$/, 1])
+      end
 
-      property_not_supported :created_on
+      property_supported :registrar do
+        Parser::Registrar.new(name: content_for_scanner[/Registrar name:\s+(.+?)$/, 1],
+          url: content_for_scanner[/Registrar URL:\s+(.+?)$/, 1])
+      end
 
-      # TODO: custom date format with foreign month names
-      # property_supported :updated_on do
-      #   if content_for_scanner =~ /changed:\s+(.*)\n/
-      #     parse_time($1.split(" ", 2).last)
-      #   end
-      # end
+      property_supported :created_on do
+        if content_for_scanner =~ /Creation date:\s+(.*)\n/
+          parse_time($1)
+        end
+      end
 
-      property_not_supported :expires_on
+      property_supported :expires_on do
+        if content_for_scanner =~ /Expiration date:\s+(.*)\n/
+          parse_time($1)
+        end
+      end
 
 
       property_supported :nameservers do
-        if content_for_scanner =~ /Servidores de nombre \(Domain servers\):\n((.+\n)+)\n/
-          ::Regexp.last_match(1).split("\n").map do |line|
-            line.strip!
-            line =~ /(.+) \((.+)\)/
-            Parser::Nameserver.new(:name => ::Regexp.last_match(1), :ipv4 => ::Regexp.last_match(2))
-          end
+        content_for_scanner.scan(/Name server:\s+(.+)\n/).flatten.map do |name|
+          Parser::Nameserver.new(name: name.downcase)
         end
       end
 

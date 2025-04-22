@@ -9,144 +9,92 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.networksolutions.com.rb'
 
-describe Whois::Parsers::WhoisNetworksolutionsCom, "status_registered.expected" do
+describe "whois.networksolutions.com", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.networksolutions.com/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.networksolutions.com")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("xif.com")
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect(subject.domain_id).to eq("")
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("1997-06-10"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2012-02-13"))
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-06-09"))
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("2")
-      expect(subject.registrar.name).to eq("NETWORK SOLUTIONS, LLC.")
-      expect(subject.registrar.organization).to eq("NETWORK SOLUTIONS, LLC.")
-      expect(subject.registrar.url).to eq("http//www.networksolutions.com/en_US/")
-    end
-  end
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq(nil)
-      expect(subject.registrant_contacts[0].name).to eq("XIF Communications")
-      expect(subject.registrant_contacts[0].organization).to eq("XIF Communications")
-      expect(subject.registrant_contacts[0].address).to eq("1200 New Hampshire Avenue NW")
-      expect(subject.registrant_contacts[0].city).to eq("Washington")
-      expect(subject.registrant_contacts[0].zip).to eq("20036")
-      expect(subject.registrant_contacts[0].state).to eq("DC")
-      expect(subject.registrant_contacts[0].country).to eq(nil)
-      expect(subject.registrant_contacts[0].country_code).to eq("US")
-      expect(subject.registrant_contacts[0].phone).to eq("202-463-7200")
-      expect(subject.registrant_contacts[0].fax).to eq("999-999-9999")
-      expect(subject.registrant_contacts[0].email).to eq("noc@xif.com")
-      expect(subject.registrant_contacts[0].created_on).to eq(nil)
-      expect(subject.registrant_contacts[0].updated_on).to eq(nil)
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts.size).to eq(1)
-      expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq(nil)
-      expect(subject.admin_contacts[0].name).to eq("Communications, XIF ContactMiddleName")
-      expect(subject.admin_contacts[0].organization).to eq("XIF Communications")
-      expect(subject.admin_contacts[0].address).to eq("1200 New Hampshire Avenue NW")
-      expect(subject.admin_contacts[0].city).to eq("Washington")
-      expect(subject.admin_contacts[0].zip).to eq("20036")
-      expect(subject.admin_contacts[0].state).to eq("DC")
-      expect(subject.admin_contacts[0].country).to eq(nil)
-      expect(subject.admin_contacts[0].country_code).to eq("US")
-      expect(subject.admin_contacts[0].phone).to eq("202-463-7200")
-      expect(subject.admin_contacts[0].fax).to eq("202-318-4003")
-      expect(subject.admin_contacts[0].email).to eq("noc@xif.com")
-      expect(subject.admin_contacts[0].created_on).to eq(nil)
-      expect(subject.admin_contacts[0].updated_on).to eq(nil)
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts.size).to eq(1)
-      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq(nil)
-      expect(subject.technical_contacts[0].name).to eq("Communications, XIF ContactMiddleName")
-      expect(subject.technical_contacts[0].organization).to eq("XIF Communications")
-      expect(subject.technical_contacts[0].address).to eq("1200 New Hampshire Avenue NW")
-      expect(subject.technical_contacts[0].city).to eq("Washington")
-      expect(subject.technical_contacts[0].zip).to eq("20036")
-      expect(subject.technical_contacts[0].state).to eq("DC")
-      expect(subject.technical_contacts[0].country).to eq(nil)
-      expect(subject.technical_contacts[0].country_code).to eq("US")
-      expect(subject.technical_contacts[0].phone).to eq("202-463-7200")
-      expect(subject.technical_contacts[0].fax).to eq("202-318-4003")
-      expect(subject.technical_contacts[0].email).to eq("noc@xif.com")
-      expect(subject.technical_contacts[0].created_on).to eq(nil)
-      expect(subject.technical_contacts[0].updated_on).to eq(nil)
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(3)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns01.xif.com")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns-east.cerf.net")
-      expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("ns-west.cerf.net")
-    end
+  it "matches status_registered.expected" do
+    expect(subject.domain).to eq("xif.com")
+    expect(subject.domain_id).to eq("")
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("1997-06-10"))
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2012-02-13"))
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2014-06-09"))
+    expect(subject.registrar).to be_a(Whois::Parser::Registrar)
+    expect(subject.registrar.id).to eq("2")
+    expect(subject.registrar.name).to eq("NETWORK SOLUTIONS, LLC.")
+    expect(subject.registrar.url).to eq("http//www.networksolutions.com/en_US/")
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts.size).to eq(1)
+    expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
+    expect(subject.registrant_contacts[0].id).to eq(nil)
+    expect(subject.registrant_contacts[0].name).to eq("XIF Communications")
+    expect(subject.registrant_contacts[0].organization).to eq("XIF Communications")
+    expect(subject.registrant_contacts[0].address).to eq("1200 New Hampshire Avenue NW")
+    expect(subject.registrant_contacts[0].city).to eq("Washington")
+    expect(subject.registrant_contacts[0].zip).to eq("20036")
+    expect(subject.registrant_contacts[0].state).to eq("DC")
+    expect(subject.registrant_contacts[0].country).to eq(nil)
+    expect(subject.registrant_contacts[0].country_code).to eq("US")
+    expect(subject.registrant_contacts[0].phone).to eq("202-463-7200")
+    expect(subject.registrant_contacts[0].fax).to eq("999-999-9999")
+    expect(subject.registrant_contacts[0].email).to eq("noc@xif.com")
+    expect(subject.registrant_contacts[0].created_on).to eq(nil)
+    expect(subject.registrant_contacts[0].updated_on).to eq(nil)
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts.size).to eq(1)
+    expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+    expect(subject.admin_contacts[0].id).to eq(nil)
+    expect(subject.admin_contacts[0].name).to eq("Communications, XIF ContactMiddleName")
+    expect(subject.admin_contacts[0].organization).to eq("XIF Communications")
+    expect(subject.admin_contacts[0].address).to eq("1200 New Hampshire Avenue NW")
+    expect(subject.admin_contacts[0].city).to eq("Washington")
+    expect(subject.admin_contacts[0].zip).to eq("20036")
+    expect(subject.admin_contacts[0].state).to eq("DC")
+    expect(subject.admin_contacts[0].country).to eq(nil)
+    expect(subject.admin_contacts[0].country_code).to eq("US")
+    expect(subject.admin_contacts[0].phone).to eq("202-463-7200")
+    expect(subject.admin_contacts[0].fax).to eq("202-318-4003")
+    expect(subject.admin_contacts[0].email).to eq("noc@xif.com")
+    expect(subject.admin_contacts[0].created_on).to eq(nil)
+    expect(subject.admin_contacts[0].updated_on).to eq(nil)
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts.size).to eq(1)
+    expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
+    expect(subject.technical_contacts[0].id).to eq(nil)
+    expect(subject.technical_contacts[0].name).to eq("Communications, XIF ContactMiddleName")
+    expect(subject.technical_contacts[0].organization).to eq("XIF Communications")
+    expect(subject.technical_contacts[0].address).to eq("1200 New Hampshire Avenue NW")
+    expect(subject.technical_contacts[0].city).to eq("Washington")
+    expect(subject.technical_contacts[0].zip).to eq("20036")
+    expect(subject.technical_contacts[0].state).to eq("DC")
+    expect(subject.technical_contacts[0].country).to eq(nil)
+    expect(subject.technical_contacts[0].country_code).to eq("US")
+    expect(subject.technical_contacts[0].phone).to eq("202-463-7200")
+    expect(subject.technical_contacts[0].fax).to eq("202-318-4003")
+    expect(subject.technical_contacts[0].email).to eq("noc@xif.com")
+    expect(subject.technical_contacts[0].created_on).to eq(nil)
+    expect(subject.technical_contacts[0].updated_on).to eq(nil)
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(3)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns01.xif.com")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns-east.cerf.net")
+    expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[2].name).to eq("ns-west.cerf.net")
   end
 end

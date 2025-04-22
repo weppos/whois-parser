@@ -70,9 +70,7 @@ module Whois
         return unless match
 
         lines = match.split("\n")
-        Parser::Registrar.new(
-          :name => lines[0]
-        )
+        Parser::Registrar.new(name: lines[0])
       end
 
       property_not_supported :registrant_contacts

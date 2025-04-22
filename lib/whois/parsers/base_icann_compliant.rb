@@ -21,11 +21,17 @@ module Whois
     class BaseIcannCompliant < Base
       include Scanners::Scannable
 
-      self.scanner = Scanners::BaseIcannCompliant
+      self.scanner = Scanners::BaseIcannCompliant, {
+          pattern_available: /^No Data Found/
+      }
+
+      property_supported :disclaimer do
+        node("field:disclaimer")
+      end
 
 
       property_supported :domain do
-        node("Domain Name", &:downcase)
+        node("Domain Name")&.downcase
       end
 
       property_supported :domain_id do
@@ -34,8 +40,9 @@ module Whois
 
 
       property_supported :status do
-        # status = Array.wrap(node('Domain Status'))
-        if available?
+        if reserved?
+          :reserved
+        elsif available?
           :available
         else
           :registered
@@ -52,21 +59,15 @@ module Whois
 
 
       property_supported :created_on do
-        node("Creation Date") do |value|
-          parse_time(value)
-        end
+        parse_time(node("Creation Date"))
       end
 
       property_supported :updated_on do
-        node("Updated Date") do |value|
-          parse_time(value)
-        end
+        parse_time(node("Updated Date"))
       end
 
       property_supported :expires_on do
-        node("Registrar Registration Expiration Date") do |value|
-          parse_time(value)
-        end
+        parse_time(node("Registry Expiry Date")) || parse_time(node("Registrar Registration Expiration Date"))
       end
 
 
@@ -76,7 +77,6 @@ module Whois
         Parser::Registrar.new({
             id:           node("Registrar IANA ID"),
             name:         node("Registrar"),
-            organization: node("Registrar"),
             url:          node("Registrar URL"),
         })
       end
@@ -96,11 +96,18 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("Name Server") || node("Name Servers")).reject(&:empty?).map do |name|
+        Array(node("Name Server") || node("Name Servers")).reject(&:empty?).map do |name|
           Parser::Nameserver.new(name: name.downcase)
         end
       end
 
+      def reserved?
+        !!node("status:reserved")
+      end
+
+      def response_throttled?
+        !!node("response:throttled")
+      end
 
       protected
 
@@ -135,14 +142,17 @@ module Whois
       private
 
       def value_for_phone_property(element, property)
-        [
-          value_for_property(element, "#{property}"),
-          value_for_property(element, "#{property} Ext"),
-        ].reject(&:empty?).join(' ext: ')
+        node("#{element} #{property}") do |phone|
+          ext = node("#{element} #{property} Ext")
+          phone += " ext: #{ext}" if ext.present?
+          phone
+        end
       end
 
       def value_for_property(element, property)
-        Array.wrap(node("#{element} #{property}")).reject(&:empty?).join(', ')
+        node("#{element} #{property}") do |values|
+          Array(values).reject(&:empty?).join(', ')
+        end
       end
 
     end

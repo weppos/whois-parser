@@ -13,7 +13,6 @@ require_relative '../parser/registrar'
 require_relative '../parser/nameserver'
 require_relative '../scanners/scannable'
 
-
 module Whois
   class Parsers
 
@@ -169,12 +168,10 @@ module Whois
       # @return [Nil] if the timestamp can't be parsed
       # @return [Time]
       #
-      def self.parse_time(timestamp)
+      def self.parse_time(timestamp, timezone: 'UTC')
         return unless timestamp.is_a?(String) && !timestamp.empty?
-
-        Time.parse(timestamp).change(usec: 0)
-      rescue ArgumentError
-        nil
+        zone = Time.find_zone(timezone) or raise ArgumentError.new("Invalid timezone: #{timezone.inspect}")
+        zone.parse(timestamp)&.change(usec: 0)
       end
 
       # @return [Whois::Record::Part] The part referenced by this parser.
@@ -377,16 +374,18 @@ module Whois
 
       private
 
-      def typecast(value, type)
-        if Array == type
-          Array.wrap(value)
+      def wrap(object)
+        if object.nil?
+          []
+        elsif object.respond_to?(:to_ary)
+          object.to_ary || [object]
         else
-          value
+          [object]
         end
       end
 
-      def parse_time(timestamp)
-        self.class.parse_time(timestamp)
+      def parse_time(timestamp, **args)
+        self.class.parse_time(timestamp, **args)
       end
 
       def handle_property(property, *args)
@@ -400,7 +399,7 @@ module Whois
 
           case property.to_s
           when /_contacts$/, "nameservers"
-            typecast(value, Array)
+            wrap(value)
           else
             value
           end

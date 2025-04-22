@@ -1,0 +1,104 @@
+#disclaimer
+  %s == "Access to .IN WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the .IN registry database. The data in this record is provided by .IN Registry for informational purposes only ,and .IN does not guarantee its accuracy.  This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator or a Registrar, or Neustar except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. .IN reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy."
+
+
+#domain
+  %s == "google.in"
+
+#domain_id
+  %s == "D21089-IN"
+
+
+#status
+  %s == ["clientTransferProhibited http://www.icann.org/epp#clientTransferProhibited", "clientDeleteProhibited http://www.icann.org/epp#clientDeleteProhibited", "clientUpdateProhibited http://www.icann.org/epp#clientUpdateProhibited"]
+
+#available?
+  %s == false
+
+#registered?
+  %s == true
+
+
+#created_on
+  %s %TIME{2005-02-14 20:35:14 UTC}
+
+#updated_on
+  %s %TIME{2021-01-18 10:38:43 UTC}
+
+#expires_on
+  %s %TIME{2022-02-14 20:35:14 UTC}
+
+
+#registrar
+  %s %CLASS{registrar}
+  %s.id           == "292"
+  %s.name         == "MarkMonitor Inc."
+  %s.url          == "http://www.markmonitor.com"
+
+#registrant_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
+  %s[0].id            == "REDACTED FOR PRIVACY"
+  %s[0].name          == "REDACTED FOR PRIVACY"
+  %s[0].organization  == "Google LLC"
+  %s[0].address       == "REDACTED FOR PRIVACY\nREDACTED FOR PRIVACY\nREDACTED FOR PRIVACY"
+  %s[0].city          == "REDACTED FOR PRIVACY"
+  %s[0].zip           == "REDACTED FOR PRIVACY"
+  %s[0].state         == "CA"
+  %s[0].country       == nil
+  %s[0].country_code  == "US"
+  %s[0].phone         == "REDACTED FOR PRIVACY"
+  %s[0].fax           == "REDACTED FOR PRIVACY"
+  %s[0].email         == "Please contact the Registrar listed above"
+
+#admin_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type         == Whois::Parser::Contact::TYPE_ADMINISTRATIVE
+  %s[0].id            == "REDACTED FOR PRIVACY"
+  %s[0].name          == "REDACTED FOR PRIVACY"
+  %s[0].organization  == "REDACTED FOR PRIVACY"
+  %s[0].address       == "REDACTED FOR PRIVACY\nREDACTED FOR PRIVACY\nREDACTED FOR PRIVACY"
+  %s[0].city          == "REDACTED FOR PRIVACY"
+  %s[0].zip           == "REDACTED FOR PRIVACY"
+  %s[0].state         == "REDACTED FOR PRIVACY"
+  %s[0].country       == nil
+  %s[0].country_code  == "REDACTED FOR PRIVACY"
+  %s[0].phone         == "REDACTED FOR PRIVACY"
+  %s[0].fax           == "REDACTED FOR PRIVACY"
+  %s[0].email         == "Please contact the Registrar listed above"
+
+#technical_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type         == Whois::Parser::Contact::TYPE_TECHNICAL
+  %s[0].id            == "REDACTED FOR PRIVACY"
+  %s[0].name          == "REDACTED FOR PRIVACY"
+  %s[0].organization  == "REDACTED FOR PRIVACY"
+  %s[0].address       == "REDACTED FOR PRIVACY\nREDACTED FOR PRIVACY\nREDACTED FOR PRIVACY"
+  %s[0].city          == "REDACTED FOR PRIVACY"
+  %s[0].zip           == "REDACTED FOR PRIVACY"
+  %s[0].state         == "REDACTED FOR PRIVACY"
+  %s[0].country       == nil
+  %s[0].country_code  == "REDACTED FOR PRIVACY"
+  %s[0].phone         == "REDACTED FOR PRIVACY"
+  %s[0].fax           == "REDACTED FOR PRIVACY"
+  %s[0].email         == "Please contact the Registrar listed above"
+
+
+#nameservers
+  %s %CLASS{array}
+  %s %SIZE{4}
+  %s[0] %CLASS{nameserver}
+  %s[0] %CLASS{nameserver}
+  %s[0].name == "ns4.google.com"
+  %s[1] %CLASS{nameserver}
+  %s[1].name == "ns2.google.com"
+  %s[2] %CLASS{nameserver}
+  %s[2].name == "ns1.google.com"
+  %s[3] %CLASS{nameserver}
+  %s[3].name == "ns3.google.com"

@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == "83"
   %s.name         == "1&1 Internet AG"
-  %s.organization == "1&1 Internet AG"
   %s.url          == "http://1and1.com"
 
 
@@ -47,7 +46,7 @@
   %s[0].address      == "Elgendorfer Str. 57"
   %s[0].city         == "Montabaur"
   %s[0].zip          == "56410"
-  %s[0].state        == ""
+  %s[0].state        == nil
   %s[0].country_code == "DE"
   %s[0].phone        == "+49.2602960"
   %s[0].fax          == "+49.72191374215"
@@ -64,7 +63,7 @@
   %s[0].address      == "Elgendorfer Str. 57"
   %s[0].city         == "Montabaur"
   %s[0].zip          == "56410"
-  %s[0].state        == ""
+  %s[0].state        == nil
   %s[0].country_code == "DE"
   %s[0].phone        == "+49.2602960"
   %s[0].fax          == "+49.72191374215"
@@ -81,7 +80,7 @@
   %s[0].address      == "Brauerstr. 48"
   %s[0].city         == "Karlsruhe"
   %s[0].zip          == "76135"
-  %s[0].state        == ""
+  %s[0].state        == nil
   %s[0].country_code == "DE"
   %s[0].phone        == "+49.7219600"
   %s[0].fax          == "+49.72191374248"

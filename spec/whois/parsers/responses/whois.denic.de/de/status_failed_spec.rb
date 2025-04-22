@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.denic.de.rb'
 
-describe Whois::Parsers::WhoisDenicDe, "status_failed.expected" do
+describe "whois.denic.de", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.denic.de/de/status_failed.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.denic.de")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
+  it "matches status_failed.expected" do
+    expect(subject.status).to eq(:registered)
+    expect(subject.registered?).to eq(true)
+    expect(subject.available?).to eq(false)
   end
 end

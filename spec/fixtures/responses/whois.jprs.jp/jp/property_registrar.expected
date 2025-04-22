@@ -1,0 +1,6 @@
+#registrar
+  %s %CLASS{registrar}
+  %s.id == nil
+  %s.name == "Netowl,Inc."
+  %s.organization == "Netowl, Inc."
+  %s.url == nil 

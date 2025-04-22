@@ -9,138 +9,82 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.dotpostregistry.net.rb'
 
-describe Whois::Parsers::WhoisDotpostregistryNet, "status_registered.expected" do
+describe "whois.dotpostregistry.net", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.dotpostregistry.net/post/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.dotpostregistry.net")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#disclaimer" do
-    it do
-      expect(subject.disclaimer).to eq("Access to .POST REGISTRY WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the .POST Registry registry database. The data in this record is provided by .POST Registry for informational purposes only, and .POST Registry does not guarantee its accuracy.  This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to: (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. .POST Registry reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.")
-    end
-  end
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("posteitaliane.post")
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect(subject.domain_id).to eq("D19482-POST")
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(["TRANSFER PROHIBITED"])
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2012-09-21 12:03:07 UTC"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2012-09-21 12:07:40 UTC"))
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-09-21 12:03:07 UTC"))
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("R4947-POST")
-      expect(subject.registrar.name).to eq("Universal Postal Union")
-      expect(subject.registrar.organization).to eq(nil)
-      expect(subject.registrar.url).to eq(nil)
-    end
-  end
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("ITPI30001")
-      expect(subject.registrant_contacts[0].name).to eq("Poste Italiane")
-      expect(subject.registrant_contacts[0].organization).to eq("Poste Italiane")
-      expect(subject.registrant_contacts[0].address).to eq("Viale Europa 190")
-      expect(subject.registrant_contacts[0].city).to eq("Rome")
-      expect(subject.registrant_contacts[0].zip).to eq("00144")
-      expect(subject.registrant_contacts[0].state).to eq("")
-      expect(subject.registrant_contacts[0].country_code).to eq("IT")
-      expect(subject.registrant_contacts[0].phone).to eq("+39.0659581")
-      expect(subject.registrant_contacts[0].fax).to eq("+39.065942298")
-      expect(subject.registrant_contacts[0].email).to eq("info@poste.it")
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts.size).to eq(1)
-      expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq("UPU_C1002")
-      expect(subject.admin_contacts[0].name).to eq("Giovanni Brardinoni")
-      expect(subject.admin_contacts[0].organization).to eq("Poste Italiane")
-      expect(subject.admin_contacts[0].address).to eq("Viale Europa 175")
-      expect(subject.admin_contacts[0].city).to eq("Rome")
-      expect(subject.admin_contacts[0].zip).to eq("00144")
-      expect(subject.admin_contacts[0].state).to eq("")
-      expect(subject.admin_contacts[0].country_code).to eq("IT")
-      expect(subject.admin_contacts[0].phone).to eq("+39.0659583671")
-      expect(subject.admin_contacts[0].fax).to eq("+39.0698688651")
-      expect(subject.admin_contacts[0].email).to eq("Giovanni.Brardinoni@Postecom.it")
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts.size).to eq(1)
-      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq("UPU_C1001")
-      expect(subject.technical_contacts[0].name).to eq("Andrea Speranza")
-      expect(subject.technical_contacts[0].organization).to eq("Poste Italiane")
-      expect(subject.technical_contacts[0].address).to eq("Viale Europa 175")
-      expect(subject.technical_contacts[0].city).to eq("Rome")
-      expect(subject.technical_contacts[0].zip).to eq("00144")
-      expect(subject.technical_contacts[0].state).to eq("")
-      expect(subject.technical_contacts[0].country_code).to eq("IT")
-      expect(subject.technical_contacts[0].phone).to eq("+39.0659583086")
-      expect(subject.technical_contacts[0].fax).to eq("+39.0659582032")
-      expect(subject.technical_contacts[0].email).to eq("netsecurity@postecom.it")
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(2)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("dns.poste.it")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("dns2.poste.it")
-    end
+  it "matches status_registered.expected" do
+    expect(subject.disclaimer).to eq("Access to WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the registry database. The data in this record is provided by The Registry Operator for informational purposes only, and accuracy is not guaranteed.  This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. Registry Operator reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy. The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.")
+    expect(subject.domain).to eq("posteitaliane.post")
+    expect(subject.domain_id).to eq("D108700000000019482-AGRS")
+    expect(subject.status).to eq(["ok https://icann.org/epp#ok"])
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2012-09-21 12:03:07 UTC"))
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2021-09-21 22:31:15 UTC"))
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2022-09-21 12:03:07 UTC"))
+    expect(subject.registrar).to be_a(Whois::Parser::Registrar)
+    expect(subject.registrar.id).to eq("9999")
+    expect(subject.registrar.name).to eq("Universal Postal Union")
+    expect(subject.registrar.url).to eq("")
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts.size).to eq(1)
+    expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
+    expect(subject.registrant_contacts[0].id).to eq("C19309314-AGRS")
+    expect(subject.registrant_contacts[0].name).to eq("Poste Italiane")
+    expect(subject.registrant_contacts[0].organization).to eq("Poste Italiane")
+    expect(subject.registrant_contacts[0].address).to eq("Viale Europa 190")
+    expect(subject.registrant_contacts[0].city).to eq("Rome")
+    expect(subject.registrant_contacts[0].zip).to eq("00144")
+    expect(subject.registrant_contacts[0].state).to eq("")
+    expect(subject.registrant_contacts[0].country_code).to eq("IT")
+    expect(subject.registrant_contacts[0].phone).to eq("+39.0659581")
+    expect(subject.registrant_contacts[0].fax).to eq("+39.065942298")
+    expect(subject.registrant_contacts[0].email).to eq("info@poste.it")
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts.size).to eq(1)
+    expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+    expect(subject.admin_contacts[0].id).to eq("C19309312-AGRS")
+    expect(subject.admin_contacts[0].name).to eq("Giovanni Brardinoni")
+    expect(subject.admin_contacts[0].organization).to eq("Poste Italiane")
+    expect(subject.admin_contacts[0].address).to eq("Viale Europa 175")
+    expect(subject.admin_contacts[0].city).to eq("Rome")
+    expect(subject.admin_contacts[0].zip).to eq("00144")
+    expect(subject.admin_contacts[0].state).to eq("")
+    expect(subject.admin_contacts[0].country_code).to eq("IT")
+    expect(subject.admin_contacts[0].phone).to eq("+39.0659583671")
+    expect(subject.admin_contacts[0].fax).to eq("+39.0698688651")
+    expect(subject.admin_contacts[0].email).to eq("Giovanni.Brardinoni@Postecom.it")
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts.size).to eq(1)
+    expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
+    expect(subject.technical_contacts[0].id).to eq("C19309311-AGRS")
+    expect(subject.technical_contacts[0].name).to eq("Andrea Speranza")
+    expect(subject.technical_contacts[0].organization).to eq("Poste Italiane")
+    expect(subject.technical_contacts[0].address).to eq("Viale Europa 175")
+    expect(subject.technical_contacts[0].city).to eq("Rome")
+    expect(subject.technical_contacts[0].zip).to eq("00144")
+    expect(subject.technical_contacts[0].state).to eq("")
+    expect(subject.technical_contacts[0].country_code).to eq("IT")
+    expect(subject.technical_contacts[0].phone).to eq("+39.0659583086")
+    expect(subject.technical_contacts[0].fax).to eq("+39.0659582032")
+    expect(subject.technical_contacts[0].email).to eq("netsecurity@postecom.it")
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(2)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("dns.poste.it")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("dns2.poste.it")
   end
 end

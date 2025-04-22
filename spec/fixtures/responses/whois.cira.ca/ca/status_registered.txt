@@ -1,41 +1,84 @@
-Domain name:           google.ca
-Domain status:         registered
-Creation date:         2000/10/03
-Expiry date:           2015/04/28
-Updated date:          2014/02/13
+Domain Name: google.ca
+Registry Domain ID: D73081-CIRA
+Registrar WHOIS Server: whois.ca.fury.ca
+Registrar URL: Markmonitor.com
+Updated Date: 2021-04-28T04:04:12Z
+Creation Date: 2000-10-04T02:21:23Z
+Registry Expiry Date: 2022-04-28T04:00:00Z
+Registrar: MarkMonitor International Canada Ltd.
+Registrar IANA ID: not applicable
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone:
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
+Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
+Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
+Registry Registrant ID: 59969059-CIRA
+Registrant Name: Google LLC - TMA868122
+Registrant Organization:
+Registrant Street: 1600 Amphitheatre Parkway
+Registrant City: Mountain View
+Registrant State/Province: CA
+Registrant Postal Code: 94043
+Registrant Country: US
+Registrant Phone: +1.6502530000
+Registrant Phone Ext:
+Registrant Fax:
+Registrant Fax Ext:
+Registrant Email: dns-admin@google.com
+Registry Admin ID: 59969161-CIRA
+Admin Name: Lauren Johnston
+Admin Organization: Google LLC
+Admin Street: 1600 Amphitheatre Parkway
+Admin City: Mountain View
+Admin State/Province: CA
+Admin Postal Code: 94043
+Admin Country: US
+Admin Phone: +1.6502530000
+Admin Phone Ext:
+Admin Fax:
+Admin Fax Ext:
+Admin Email: dns-admin@google.com
+Registry Tech ID: 59969161-CIRA
+Tech Name: Lauren Johnston
+Tech Organization: Google LLC
+Tech Street: 1600 Amphitheatre Parkway
+Tech City: Mountain View
+Tech State/Province: CA
+Tech Postal Code: 94043
+Tech Country: US
+Tech Phone: +1.6502530000
+Tech Phone Ext:
+Tech Fax:
+Tech Fax Ext:
+Tech Email: dns-admin@google.com
+Registry Billing ID:
+Billing Name:
+Billing Organization:
+Billing Street:
+Billing City:
+Billing State/Province:
+Billing Postal Code:
+Billing Country:
+Billing Phone:
+Billing Phone Ext:
+Billing Fax:
+Billing Fax Ext:
+Billing Email:
+Name Server: ns1.google.com
+Name Server: ns2.google.com
+Name Server: ns3.google.com
+Name Server: ns4.google.com
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-11-25T11:24:22Z <<<
 
-Registrar:
-    Name:              MarkMonitor International Canada Ltd.
-    Number:            5000040
+For more information on Whois status codes, please visit https://icann.org/epp
 
-Registrant:
-    Name:              Google Inc.
-
-Administrative contact:
-    Name:              Christina Chiou
-    Postal address:    130 King St. W., Suite 1800,
-                       Toronto ON M5X1E3 Canada
-    Phone:             +1.4168653361x
-    Fax:               +1.4169456616
-    Email:             dns-admin@google.com
-
-Technical contact:
-    Name:              Matt Serlin
-    Postal address:    Domain Provisioning,10400 Overland Rd. PMB 155
-                       Boise ID 83709 United States
-    Phone:             +1.2083895740x
-    Fax:               +1.2083895771
-    Email:             ccops@markmonitor.com
-
-Name servers:
-    ns1.google.com
-    ns2.google.com
-    ns3.google.com
-    ns4.google.com
-
-% WHOIS look-up made at 2014-02-18 20:39:15 (GMT)
 %
 % Use of CIRA's WHOIS service is governed by the Terms of Use in its Legal
-% Notice, available at http://www.cira.ca/legal-notice/?lang=en 
+% Notice, available at http://www.cira.ca/legal-notice/?lang=en
 %
-% (c) 2014 Canadian Internet Registration Authority, (http://www.cira.ca/) 
+% (c) 2021 Canadian Internet Registration Authority, (http://www.cira.ca/)

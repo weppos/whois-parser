@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.net.sb.rb'
 
-describe Whois::Parsers::WhoisNicNetSb, "property_status_ok.expected" do
+describe "whois.nic.net.sb", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.net.sb/sb/property_status_ok.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.net.sb")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
+  it "matches property_status_ok.expected" do
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
   end
 end

@@ -8,11 +8,9 @@
 
 
 require 'whois'
-require 'active_support/core_ext/array/extract_options'
-require 'active_support/core_ext/array/wrap'
-require 'active_support/core_ext/class/attribute'
-require 'active_support/core_ext/kernel/singleton_class'
+require 'active_support'
 require 'active_support/core_ext/object/blank'
+require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/time/calculations'
 
 require_relative 'parser/version'
@@ -91,9 +89,8 @@ module Whois
     PROPERTY_STATE_SUPPORTED = :supported
 
 
-    # Returns the proper parser instance for given <tt>part</tt>.
-    # The parser class is selected according to the
-    # value of the <tt>#host</tt> attribute for given <tt>part</tt>.
+    # Instanciate the proper parser instance for given <tt>part</tt>.
+    # The parser class is determined using <tt>.parser_for</tt>
     #
     # @param  [Whois::Record::Part] part The part to get the parser for.
     #
@@ -112,37 +109,43 @@ module Whois
     #   # => #<Whois::Parsers::Blank>
     #
     def self.parser_for(part)
-      parser_klass(part.host).new(part)
-    rescue LoadError
-      Parsers.const_defined?("Blank") || autoload("blank")
-      Parsers::Blank.new(part)
+      parser_klass(part).new(part)
     end
 
-    # Detects the proper parser class according to given <tt>host</tt>
+    # Detects the proper parser class according to given <tt>part</tt>
     # and returns the class constant.
+    # The parser class is selected according to the values of the
+    # <tt>#host</tt> and <tt>#body</tt> attributes for given <tt>part</tt>.
     #
     # This method autoloads missing parser classes. If you want to define
     # a custom parser, simple make sure the class is loaded in the Ruby
     # environment before this method is called.
     #
-    # @param  [String] host The server host.
+    # @param  [Whois::Record::Part] part The part to get the parser for.
     #
     # @return [Class] The instance of Class representing the parser Class
-    #         corresponding to <tt>host</tt>. If <tt>host</tt> doesn't have
+    #         corresponding to <tt>part</tt>. If <tt>part</tt> doesn't have
     #         a specific parser implementation, then returns
     #         the {Whois::Parsers::Blank} {Class}.
     #         The {Class} is expected to be a child of {Whois::Parsers::Base}.
-    # @raises LoadError If the class is not found.
     #
     # @example
     #
-    #   Parser.parser_klass("whois.example.com")
+    #   Parser.parser_klass(Whois::Record::Part.new(host: "whois.example.com"))
     #   # => Whois::Parsers::WhoisExampleCom
     #
-    def self.parser_klass(host)
-      name = host_to_parser(host)
-      Parsers.const_defined?(name) || autoload(host)
-      Parsers.const_get(name)
+    def self.parser_klass(part)
+      autoload(part.host)
+    rescue LoadError
+      # Some WHOIS services like Donuts Inc covers hundred of TLDs (https://donuts.domains/what-we-do/top-level-domain-portfolio/)
+      # But using one host per TLD, so in this case it's easier to match on the disclaimer directly to cover all hosts
+      if part.body&.include?("Terms of Use: Identity Digital Inc.")
+        autoload("donuts_inc")
+      elsif part.body&.include?("The Whois and RDAP services are provided by CentralNic")
+        autoload("central_nic")
+      else
+        autoload("blank")
+      end
     end
 
     # Converts <tt>host</tt> to the corresponding parser class name.
@@ -172,7 +175,9 @@ module Whois
     # @return [void]
     #
     def self.autoload(name)
-      require "whois/parsers/#{name}"
+      class_name = host_to_parser(name)
+      require_relative "parsers/#{name}.rb" unless Parsers.const_defined?(class_name)
+      Parsers.const_get(class_name)
     end
 
 

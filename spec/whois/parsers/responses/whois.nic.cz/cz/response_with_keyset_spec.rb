@@ -9,32 +9,21 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.cz.rb'
 
-describe Whois::Parsers::WhoisNicCz, "response_with_keyset.expected" do
+describe "whois.nic.cz", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.cz/cz/response_with_keyset.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.cz")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2006-01-30 18:55:00"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2010-03-06 15:53:04"))
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-01-30"))
-    end
+  it "matches response_with_keyset.expected" do
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2006-01-30 18:55:00"))
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2010-03-06 15:53:04"))
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2014-01-30"))
   end
 end

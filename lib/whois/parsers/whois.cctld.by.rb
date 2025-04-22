@@ -69,9 +69,8 @@ module Whois
       property_supported :registrar do
         node("Registrar") do |registrar|
           Parser::Registrar.new(
-            :id => registrar,
-            :name => registrar,
-            :organization => registrar
+            id: registrar,
+            name: registrar
           )
         end
       end
@@ -84,7 +83,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("Name Server")).map do |name|
+        Array(node("Name Server")).map do |name|
           Parser::Nameserver.new(:name => name.downcase)
         end
       end

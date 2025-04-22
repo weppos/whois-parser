@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.uk.rb'
 
-describe Whois::Parsers::WhoisNicUk, "status_invalid.expected" do
+describe "whois.nic.uk", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.uk/uk/status_invalid.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.uk")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:invalid)
-    end
-  end
-  describe "#valid?" do
-    it do
-      expect(subject.valid?).to eq(false)
-    end
-  end
-  describe "#invalid?" do
-    it do
-      expect(subject.invalid?).to eq(true)
-    end
+  it "matches status_invalid.expected" do
+    expect(subject.status).to eq(:invalid)
+    expect(subject.valid?).to eq(false)
+    expect(subject.invalid?).to eq(true)
   end
 end

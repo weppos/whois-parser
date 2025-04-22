@@ -9,61 +9,34 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.dot.cf.rb'
 
-describe Whois::Parsers::WhoisDotCf, "status_registered.expected" do
+describe "whois.dot.cf", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.dot.cf/cf/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.dot.cf")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2013-03-28 00:00:00"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(5)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("dns5.nettica.com")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("dns1.nettica.com")
-      expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("dns2.nettica.com")
-      expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[3].name).to eq("dns3.nettica.com")
-      expect(subject.nameservers[4]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[4].name).to eq("dns4.nettica.com")
-    end
+  it "matches status_registered.expected" do
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2013-03-28 00:00:00"))
+    expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
+    expect(subject.expires_on).to eq(nil)
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(5)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("dns5.nettica.com")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("dns1.nettica.com")
+    expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[2].name).to eq("dns2.nettica.com")
+    expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[3].name).to eq("dns3.nettica.com")
+    expect(subject.nameservers[4]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[4].name).to eq("dns4.nettica.com")
   end
 end

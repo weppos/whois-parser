@@ -9,34 +9,19 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.cnnic.cn.rb'
 
-describe Whois::Parsers::WhoisCnnicCn, "property_status_reserved_list.expected" do
+describe "whois.cnnic.cn", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.cnnic.cn/cn/property_status_reserved_list.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.cnnic.cn")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq([])
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#reserved?" do
-    it do
-      expect(subject.reserved?).to eq(true)
-    end
+  it "matches property_status_reserved_list.expected" do
+    expect(subject.status).to eq([])
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(false)
+    expect(subject.reserved?).to eq(true)
   end
 end

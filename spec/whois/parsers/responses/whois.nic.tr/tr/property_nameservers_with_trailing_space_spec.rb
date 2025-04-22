@@ -9,24 +9,21 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.tr.rb'
 
-describe Whois::Parsers::WhoisNicTr, "property_nameservers_with_trailing_space.expected" do
+describe "whois.nic.tr", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.tr/tr/property_nameservers_with_trailing_space.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.tr")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(2)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns1.phpsunucu.com")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns2.phpsunucu.com")
-    end
+  it "matches property_nameservers_with_trailing_space.expected" do
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(2)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns1.phpsunucu.com")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns2.phpsunucu.com")
   end
 end

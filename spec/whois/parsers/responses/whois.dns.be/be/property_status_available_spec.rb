@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.dns.be.rb'
 
-describe Whois::Parsers::WhoisDnsBe, "property_status_available.expected" do
+describe "whois.dns.be", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.dns.be/be/property_status_available.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.dns.be")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:available)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(true)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
+  it "matches property_status_available.expected" do
+    expect(subject.status).to eq(:available)
+    expect(subject.available?).to eq(true)
+    expect(subject.registered?).to eq(false)
   end
 end

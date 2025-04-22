@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == "1408"
   %s.name         == "united domains AG"
-  %s.organization == "united domains AG"
   %s.url          == "http://www.united-domains.de/"
 
 

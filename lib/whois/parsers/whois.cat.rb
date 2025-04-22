@@ -26,7 +26,7 @@ module Whois
 
       property_supported :status do
         if content_for_scanner =~ /Status:\s+(.+?)\n/
-          Array.wrap(::Regexp.last_match(1).split(", "))
+          Array($1.split(", "))
         end
       end
 

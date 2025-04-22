@@ -25,7 +25,6 @@
   %s %CLASS{registrar}
   %s.id           == "1403"
   %s.name         == "10DENCEHISPAHARD, S.L"
-  %s.organization == "10DENCEHISPAHARD, S.L"
   %s.url          == "https://www.cdmon.com"
 
 #registrant_contacts

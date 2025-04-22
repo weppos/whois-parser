@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.rnids.rs.rb'
 
-describe Whois::Parsers::WhoisRnidsRs, "property_status_expired.expected" do
+describe "whois.rnids.rs", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.rnids.rs/rs/property_status_expired.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.rnids.rs")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:expired)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
+  it "matches property_status_expired.expected" do
+    expect(subject.status).to eq(:expired)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
   end
 end

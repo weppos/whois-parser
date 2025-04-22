@@ -31,3 +31,7 @@ CLOBBER.include "yardoc"
 Dir["tasks/**/*.rake"].each do |file|
   load(file)
 end
+
+task :console do
+  system "irb -r rubygems -I lib -r whois-parser.rb"
+end

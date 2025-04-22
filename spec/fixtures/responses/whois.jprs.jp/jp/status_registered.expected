@@ -10,15 +10,15 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{2005-05-30}
+  %s %TIME{2005-05-30 00:00:00 JST}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2013-06-01 01:05:07}
+  %s %TIME{2021-06-01 01:05:09 JST}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2014-05-31}
+  %s %TIME{2022-05-31 00:00:00 JST}
 
 
 #nameservers

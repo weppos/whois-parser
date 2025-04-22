@@ -9,26 +9,23 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.uk.rb'
 
-describe Whois::Parsers::WhoisNicUk, "property_nameservers_with_ip.expected" do
+describe "whois.nic.uk", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.uk/uk/property_nameservers_with_ip.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.uk")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(2)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns0.netbenefit.co.uk")
-      expect(subject.nameservers[0].ipv4).to eq("212.53.64.30")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns1.netbenefit.co.uk")
-      expect(subject.nameservers[1].ipv4).to eq("212.53.77.30")
-    end
+  it "matches property_nameservers_with_ip.expected" do
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(2)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns0.netbenefit.co.uk")
+    expect(subject.nameservers[0].ipv4).to eq("212.53.64.30")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns1.netbenefit.co.uk")
+    expect(subject.nameservers[1].ipv4).to eq("212.53.77.30")
   end
 end

@@ -33,7 +33,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "MONIC"
-  %s.organization == nil
   %s.url          == nil
 
 #registrant_contacts

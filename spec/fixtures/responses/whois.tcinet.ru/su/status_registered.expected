@@ -29,9 +29,8 @@
 
 #registrar
   %s %CLASS{registrar}
-  %s.id           == "RUCENTER-REG-FID"
-  %s.name         == nil
-  %s.organization == nil
+  %s.id           == nil
+  %s.name         == "RUCENTER-REG-FID"
 
 #registrant_contacts
   %s %ERROR{AttributeNotSupported}

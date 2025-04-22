@@ -9,65 +9,26 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.srs.net.nz.rb'
 
-describe Whois::Parsers::WhoisSrsNetNz, "status_invalid.expected" do
+describe "whois.srs.net.nz", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.srs.net.nz/nz/status_invalid.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.srs.net.nz")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:invalid)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(nil)
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers).to eq([])
-    end
-  end
-  describe "#valid?" do
-    it do
-      expect(subject.valid?).to eq(false)
-    end
-  end
-  describe "#invalid?" do
-    it do
-      expect(subject.invalid?).to eq(true)
-    end
-  end
-  describe "#response_throttled?" do
-    it do
-      expect(subject.response_throttled?).to eq(false)
-    end
+  it "matches status_invalid.expected" do
+    expect(subject.status).to eq(:invalid)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(false)
+    expect(subject.created_on).to eq(nil)
+    expect(subject.updated_on).to eq(nil)
+    expect(subject.expires_on).to eq(nil)
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers).to eq([])
+    expect(subject.valid?).to eq(false)
+    expect(subject.invalid?).to eq(true)
+    expect(subject.response_throttled?).to eq(false)
   end
 end

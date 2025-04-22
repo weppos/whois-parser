@@ -9,70 +9,27 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.dns.be.rb'
 
-describe Whois::Parsers::WhoisDnsBe, "status_invalid.expected" do
+describe "whois.dns.be", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.dns.be/be/status_invalid.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.dns.be")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("www.kimdemolenaer.be")
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:invalid)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(nil)
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to eq(nil)
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers).to eq([])
-    end
-  end
-  describe "#response_throttled?" do
-    it do
-      expect(subject.response_throttled?).to eq(false)
-    end
-  end
-  describe "#invalid?" do
-    it do
-      expect(subject.invalid?).to eq(true)
-    end
+  it "matches status_invalid.expected" do
+    expect(subject.domain).to eq("www.kimdemolenaer.be")
+    expect(subject.status).to eq(:invalid)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(false)
+    expect(subject.created_on).to eq(nil)
+    expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
+    expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
+    expect(subject.registrar).to eq(nil)
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers).to eq([])
+    expect(subject.response_throttled?).to eq(false)
+    expect(subject.invalid?).to eq(true)
   end
 end

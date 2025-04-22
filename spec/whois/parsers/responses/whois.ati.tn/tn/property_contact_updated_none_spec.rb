@@ -9,25 +9,22 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.ati.tn.rb'
 
-describe Whois::Parsers::WhoisAtiTn, "property_contact_updated_none.expected" do
+describe "whois.ati.tn", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.ati.tn/tn/property_contact_updated_none.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.ati.tn")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].name).to eq("MAISON DE BIEN HOTELIERS ET EQ Farhat Riadh")
-      expect(subject.registrant_contacts[0].created_on).to eq(Time.parse("2013-12-13 20:00:57"))
-      expect(subject.registrant_contacts[0].updated_on).to eq(nil)
-    end
+  it "matches property_contact_updated_none.expected" do
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts.size).to eq(1)
+    expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
+    expect(subject.registrant_contacts[0].name).to eq("MAISON DE BIEN HOTELIERS ET EQ Farhat Riadh")
+    expect(subject.registrant_contacts[0].created_on).to eq(DateTime.parse("2013-12-13 20:00:57"))
+    expect(subject.registrant_contacts[0].updated_on).to eq(nil)
   end
 end

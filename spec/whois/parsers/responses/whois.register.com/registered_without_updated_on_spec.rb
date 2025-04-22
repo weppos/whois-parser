@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.register.com.rb'
 
-describe Whois::Parsers::WhoisRegisterCom, "registered_without_updated_on.expected" do
+describe "whois.register.com", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.register.com/registered_without_updated_on.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.register.com")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
+  it "matches registered_without_updated_on.expected" do
+    expect(subject.updated_on).to eq(nil)
   end
 end

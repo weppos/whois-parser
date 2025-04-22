@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.srs.net.nz.rb'
 
-describe Whois::Parsers::WhoisSrsNetNz, "property_status_pendingrelease.expected" do
+describe "whois.srs.net.nz", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.srs.net.nz/nz/property_status_pendingrelease.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.srs.net.nz")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:redemption)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
+  it "matches property_status_pendingrelease.expected" do
+    expect(subject.status).to eq(:redemption)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
   end
 end

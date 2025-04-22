@@ -9,24 +9,17 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.tonic.to.rb'
 
-describe Whois::Parsers::WhoisTonicTo, "response_incomplete.expected" do
+describe "whois.tonic.to", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.tonic.to/to/response_incomplete.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.tonic.to")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:incomplete)
-    end
-  end
-  describe "#response_incomplete?" do
-    it do
-      expect(subject.response_incomplete?).to eq(true)
-    end
+  it "matches response_incomplete.expected" do
+    expect(subject.status).to eq(:incomplete)
+    expect(subject.response_incomplete?).to eq(true)
   end
 end

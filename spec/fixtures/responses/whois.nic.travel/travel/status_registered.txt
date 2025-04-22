@@ -1,76 +1,63 @@
-Domain Name:                                 TRAVEL.TRAVEL
-Domain ID:                                   D24096-TRAVEL
-Sponsoring Registrar:                        NEUSTAR GATEWAY
-Registrar URL (registration services):       whois.neustar.us
-Domain Status:                               ok
-Registrant ID:                               TRALLIANCE
-Registrant Name:                             Tralliance Corporation
-Registrant Address1:                         110 East Broward Blvd, 14th floor
-Registrant City:                             Fort Lauderdale
-Registrant State/Province:                   FL
-Registrant Postal Code:                      33301
-Registrant Country:                          United States
-Registrant Country Code:                     US
-Registrant Phone Number:                     +1.9547695999
-Registrant Email:                            info@tralliance.travel
-Administrative Contact ID:                   TRALLIANCE
-Administrative Contact Name:                 Tralliance Corporation
-Administrative Contact Address1:             110 East Broward Blvd, 14th floor
-Administrative Contact City:                 Fort Lauderdale
-Administrative Contact State/Province:       FL
-Administrative Contact Postal Code:          33301
-Administrative Contact Country:              United States
-Administrative Contact Country Code:         US
-Administrative Contact Phone Number:         +1.9547695999
-Administrative Contact Email:                info@tralliance.travel
-Billing Contact ID:                          TRALLIANCE
-Billing Contact Name:                        Tralliance Corporation
-Billing Contact Address1:                    110 East Broward Blvd, 14th floor
-Billing Contact City:                        Fort Lauderdale
-Billing Contact State/Province:              FL
-Billing Contact Postal Code:                 33301
-Billing Contact Country:                     United States
-Billing Contact Country Code:                US
-Billing Contact Phone Number:                +1.9547695999
-Billing Contact Email:                       info@tralliance.travel
-Technical Contact ID:                        TRALLIANCE
-Technical Contact Name:                      Tralliance Corporation
-Technical Contact Address1:                  110 East Broward Blvd, 14th floor
-Technical Contact City:                      Fort Lauderdale
-Technical Contact State/Province:            FL
-Technical Contact Postal Code:               33301
-Technical Contact Country:                   United States
-Technical Contact Country Code:              US
-Technical Contact Phone Number:              +1.9547695999
-Technical Contact Email:                     info@tralliance.travel
-Name Server:                                 NS01-MIA.THEGLOBE.COM
-Name Server:                                 NETSYS.COM
-Created by Registrar:                        NEUSTAR GATEWAY
-Last Updated by Registrar:                   AHANACEK
-Domain Registration Date:                    Tue Oct 04 21:44:27 GMT 2005
-Domain Expiration Date:                      Sun Oct 03 23:59:59 GMT 2021
-Domain Last Updated Date:                    Wed Sep 18 15:13:32 GMT 2013
+Domain Name: travel.travel
+Registry Domain ID: ff0390f7114c4ad99ac46ae56c00300f-DONUTS
+Registrar WHOIS Server: whois.identitydigital.services
+Registrar URL: https://identity.digital
+Updated Date: 2022-11-18T00:00:14Z
+Creation Date: 2005-10-04T21:44:27Z
+Registry Expiry Date: 2023-10-03T23:59:59Z
+Registrar: Donuts Internal (9998)
+Registrar IANA ID: 9998
+Registrar Abuse Contact Email: 
+Registrar Abuse Contact Phone: 
+Domain Status: ok https://icann.org/epp#ok
+Registry Registrant ID: REDACTED FOR PRIVACY
+Registrant Name: REDACTED FOR PRIVACY
+Registrant Organization: Donuts Inc.
+Registrant Street: REDACTED FOR PRIVACY
+Registrant City: REDACTED FOR PRIVACY
+Registrant State/Province: WA
+Registrant Postal Code: REDACTED FOR PRIVACY
+Registrant Country: us
+Registrant Phone: REDACTED FOR PRIVACY
+Registrant Phone Ext: REDACTED FOR PRIVACY
+Registrant Fax: REDACTED FOR PRIVACY
+Registrant Fax Ext: REDACTED FOR PRIVACY
+Registrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Registry Admin ID: REDACTED FOR PRIVACY
+Admin Name: REDACTED FOR PRIVACY
+Admin Organization: REDACTED FOR PRIVACY
+Admin Street: REDACTED FOR PRIVACY
+Admin City: REDACTED FOR PRIVACY
+Admin State/Province: REDACTED FOR PRIVACY
+Admin Postal Code: REDACTED FOR PRIVACY
+Admin Country: REDACTED FOR PRIVACY
+Admin Phone: REDACTED FOR PRIVACY
+Admin Phone Ext: REDACTED FOR PRIVACY
+Admin Fax: REDACTED FOR PRIVACY
+Admin Fax Ext: REDACTED FOR PRIVACY
+Admin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Registry Tech ID: REDACTED FOR PRIVACY
+Tech Name: REDACTED FOR PRIVACY
+Tech Organization: REDACTED FOR PRIVACY
+Tech Street: REDACTED FOR PRIVACY
+Tech City: REDACTED FOR PRIVACY
+Tech State/Province: REDACTED FOR PRIVACY
+Tech Postal Code: REDACTED FOR PRIVACY
+Tech Country: REDACTED FOR PRIVACY
+Tech Phone: REDACTED FOR PRIVACY
+Tech Phone Ext: REDACTED FOR PRIVACY
+Tech Fax: REDACTED FOR PRIVACY
+Tech Fax Ext: REDACTED FOR PRIVACY
+Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.
+Name Server: ns-1812.awsdns-34.co.uk
+Name Server: ns-458.awsdns-57.com
+Name Server: ns-935.awsdns-52.net
+Name Server: ns-1480.awsdns-57.org
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2023-03-14T15:28:47Z <<<
 
->>>> Whois database was last updated on: Tue Feb 18 20:31:29 GMT 2014 <<<<
+For more information on Whois status codes, please visit https://icann.org/epp
 
-Tralliance, Inc., the Registry Operator for .travel, has collected this information
-for the WHOIS database through an ICANN-Accredited Registrar.  This information
-is provided to you for informational purposes only and is designed to assist
-persons in determining contents of a domain name registration record in the
-Tralliance registry database.  Tralliance makes this information available to you
-"as is" and does not guarantee its accuracy. By submitting a WHOIS query, you
-agree that you will use this data only for lawful purposes and that, under no
-circumstances will you use this data: (1) to allow, enable, or otherwise
-support the transmission of mass unsolicited, commercial advertising or
-solicitations via direct mail, electronic mail, or by telephone; (2) in
-contravention of any applicable data and privacy protection acts; or (3) to
-enable high volume, automated, electronic processes that apply to the registry
-(or its systems).  Compilation, repackaging, dissemination, or other use of the
-WHOIS database in its entirety, or of a substantial portion thereof, is not
-allowed without Tralliance's prior written permission.  Tralliance reserves the
-right to modify or change these conditions at any time without prior or
-subsequent notification of any kind.  By executing this query, in any manner
-whatsoever, you agree to abide by these terms.
-
-NOTE: FAILURE TO LOCATE A RECORD IN THE WHOIS DATABASE IS NOT INDICATIVE
-OF THE AVAILABILITY OF A DOMAIN NAME.
+Terms of Use: Identity Digital Inc. provides this Whois service for information purposes, and to assist persons in obtaining information about or related to a domain name registration record. Identity Digital does not guarantee its accuracy. Users accessing the Identity Digital Whois service agree to use the data only for lawful purposes, and under no circumstances may this data be used to: a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the registrar's own existing customers and b) enable high volume, automated, electronic processes that send queries or data to the systems of Identity Digital or any ICANN-accredited registrar, except as reasonably necessary to register domain names or modify existing registrations. When using the Identity Digital Whois service, please consider the following: The Whois service is not a replacement for standard EPP commands to the SRS service. Whois is not considered authoritative for registered domain objects. The Whois service may be scheduled for downtime during production or OT&E maintenance periods. Queries to the Whois services are throttled. If too many queries are received from a single IP address within a specified time, the service will begin to reject further queries for a period of time to prevent disruption of Whois service access. Abuse of the Whois system through data mining is mitigated by detecting and limiting bulk query access from single sources. Where applicable, the presence of a [Non-Public Data] tag indicates that such data is not made publicly available due to applicable data privacy laws or requirements. Should you wish to contact the registrant, please refer to the Whois records available through the registrar URL listed above. Access to non-public data may be provided, upon request, where it can be reasonably confirmed that the requester holds a specific legitimate interest and a 
+proper legal basis for accessing the withheld data. Access to this data can be requested by submitting a request via the form found at https://www.identity.digital/about/policies/whois-layered-access/ Identity Digital Inc. reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.

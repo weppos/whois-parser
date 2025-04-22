@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.sx.rb'
 
-describe Whois::Parsers::WhoisSx, "status_unavailable.expected" do
+describe "whois.sx", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.sx/sx/status_unavailable.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.sx")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:unavailable)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
+  it "matches status_unavailable.expected" do
+    expect(subject.status).to eq(:unavailable)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(false)
   end
 end

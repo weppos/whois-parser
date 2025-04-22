@@ -32,7 +32,7 @@ module Whois
 
       # whois.nic.fo is using an old whoisd version.
       property_supported :nameservers do
-        Array.wrap(node('nserver')).map do |line|
+        Array(node('nserver')).map do |line|
           Parser::Nameserver.new(:name => line.strip)
         end
       end

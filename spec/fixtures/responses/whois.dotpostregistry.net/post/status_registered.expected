@@ -1,16 +1,16 @@
 #disclaimer
-  %s == "Access to .POST REGISTRY WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the .POST Registry registry database. The data in this record is provided by .POST Registry for informational purposes only, and .POST Registry does not guarantee its accuracy.  This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to: (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. .POST Registry reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy."
+  %s == "Access to WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the registry database. The data in this record is provided by The Registry Operator for informational purposes only, and accuracy is not guaranteed.  This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. Registry Operator reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy. The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name."
 
 
 #domain
   %s == "posteitaliane.post"
 
 #domain_id
-  %s == "D19482-POST"
+  %s == "D108700000000019482-AGRS"
 
 
 #status
-  %s == ["TRANSFER PROHIBITED"]
+  %s == ["ok https://icann.org/epp#ok"]
 
 #available?
   %s == false
@@ -25,26 +25,25 @@
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2012-09-21 12:07:40 UTC}
+  %s %TIME{2021-09-21 22:31:15 UTC}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2014-09-21 12:03:07 UTC}
+  %s %TIME{2022-09-21 12:03:07 UTC}
 
 
 #registrar
   %s %CLASS{registrar}
-  %s.id           == "R4947-POST"
+  %s.id           == "9999"
   %s.name         == "Universal Postal Union"
-  %s.organization == nil
-  %s.url          == nil
+  %s.url          == ""
 
 #registrant_contacts
   %s %CLASS{array}
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
-  %s[0].id            == "ITPI30001"
+  %s[0].id            == "C19309314-AGRS"
   %s[0].name          == "Poste Italiane"
   %s[0].organization  == "Poste Italiane"
   %s[0].address       == "Viale Europa 190"
@@ -61,7 +60,7 @@
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_ADMINISTRATIVE
-  %s[0].id            == "UPU_C1002"
+  %s[0].id            == "C19309312-AGRS"
   %s[0].name          == "Giovanni Brardinoni"
   %s[0].organization  == "Poste Italiane"
   %s[0].address       == "Viale Europa 175"
@@ -78,7 +77,7 @@
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_TECHNICAL
-  %s[0].id            == "UPU_C1001"
+  %s[0].id            == "C19309311-AGRS"
   %s[0].name          == "Andrea Speranza"
   %s[0].organization  == "Poste Italiane"
   %s[0].address       == "Viale Europa 175"

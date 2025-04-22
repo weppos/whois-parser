@@ -9,61 +9,26 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.bo.rb'
 
-describe Whois::Parsers::WhoisNicBo, "status_registered.expected" do
+describe "whois.nic.bo", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.bo/bo/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.bo")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("google.bo")
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect { subject.domain_id }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2006-08-22"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-08-22"))
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect { subject.nameservers }.to raise_error(Whois::AttributeNotSupported)
-    end
+  it "matches status_registered.expected" do
+    expect(subject.domain).to eq("google.bo")
+    expect { subject.domain_id }.to raise_error(Whois::AttributeNotSupported)
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2006-08-22"))
+    expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2014-08-22"))
+    expect { subject.nameservers }.to raise_error(Whois::AttributeNotSupported)
   end
 end

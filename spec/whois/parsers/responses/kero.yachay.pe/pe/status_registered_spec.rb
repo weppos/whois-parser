@@ -9,63 +9,32 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/kero.yachay.pe.rb'
 
-describe Whois::Parsers::KeroYachayPe, "status_registered.expected" do
+describe "kero.yachay.pe", :aggregate_failures do
 
   subject do
     file = fixture("responses", "kero.yachay.pe/pe/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "kero.yachay.pe")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect { subject.created_on }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(4)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns1.google.com")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns2.google.com")
-      expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("ns3.google.com")
-      expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[3].name).to eq("ns4.google.com")
-    end
-  end
-  describe "#response_throttled?" do
-    it do
-      expect(subject.response_throttled?).to eq(false)
-    end
+  it "matches status_registered.expected" do
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect { subject.created_on }.to raise_error(Whois::AttributeNotSupported)
+    expect { subject.updated_on }.to raise_error(Whois::AttributeNotSupported)
+    expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(4)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns1.google.com")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns2.google.com")
+    expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[2].name).to eq("ns3.google.com")
+    expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[3].name).to eq("ns4.google.com")
+    expect(subject.response_throttled?).to eq(false)
   end
 end

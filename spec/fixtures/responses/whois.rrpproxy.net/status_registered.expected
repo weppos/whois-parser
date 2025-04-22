@@ -31,7 +31,6 @@
   %s %CLASS{registrar}
   %s.id           == "269"
   %s.name         == "Key-Systems GmbH"
-  %s.organization == "Key-Systems GmbH"
   %s.url          == "http://www.reasonnet.com"
 
 

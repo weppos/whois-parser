@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.cctld.uz.rb'
 
-describe Whois::Parsers::WhoisCctldUz, "property_status_reserved.expected" do
+describe "whois.cctld.uz", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.cctld.uz/uz/property_status_reserved.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.cctld.uz")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:reserved)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
+  it "matches property_status_reserved.expected" do
+    expect(subject.status).to eq(:reserved)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
   end
 end

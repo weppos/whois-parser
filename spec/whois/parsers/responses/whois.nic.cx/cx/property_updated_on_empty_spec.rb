@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.cx.rb'
 
-describe Whois::Parsers::WhoisNicCx, "property_updated_on_empty.expected" do
+describe "whois.nic.cx", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.cx/cx/property_updated_on_empty.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.cx")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
+  it "matches property_updated_on_empty.expected" do
+    expect(subject.updated_on).to eq(nil)
   end
 end

@@ -1,62 +1,39 @@
-Domain ID:CNIC-DO450826
-Domain Name:SRK.RU.COM
-Created On:2006-07-31T10:06:04.0Z
-Last Updated On:2012-07-10T08:16:19.0Z
-Expiration Date:2014-07-31T23:59:59.0Z
-Status:ok
-Registrant ID:H1037013
-Registrant Name:Anthony Lloyd, SRK Consulting (UK) Limited
-Registrant Street1:5th Floor
-Registrant Street2:Churchill House
-Registrant Street3:17 Churchill Way
-Registrant City:Cardiff
-Registrant Postal Code:CF10 2HH
-Registrant Country:GB
-Registrant Phone:+44.2920348150
-Registrant Email:alloyd@srk.co.uk
-Admin ID:H265405
-Admin Name:Anthony Lloyd
-Admin Organization:SRK Consulting (UK) Limited
-Admin Street1:5th Floor
-Admin Street2:Churchill House
-Admin Street3:17 Churchill Way
-Admin City:Cardiff
-Admin Postal Code:CF10 2HH
-Admin Country:GB
-Admin Phone:+44.2920348150
-Admin Email:alloyd@srk.co.uk
-Tech ID:H265405
-Tech Name:Anthony Lloyd
-Tech Organization:SRK Consulting (UK) Limited
-Tech Street1:5th Floor
-Tech Street2:Churchill House
-Tech Street3:17 Churchill Way
-Tech City:Cardiff
-Tech Postal Code:CF10 2HH
-Tech Country:GB
-Tech Phone:+44.2920348150
-Tech Email:alloyd@srk.co.uk
-Billing ID:H265406
-Billing Name:A R Lloyd
-Billing Organization:SRK Consulting (UK) Limited
-Billing Street1:Windsor Court
-Billing Street2:1-3 Windsor Place
-Billing Street3:Cardiff
-Billing Postal Code:CF10 3BX
-Billing Country:GB
-Billing Phone:+44.2920348150
-Billing Email:alloyd@srk.co.uk
-Name Server:NS7.ZONEEDIT.COM
-Name Server:NS12.ZONEEDIT.COM
-DNSSEC:Unsigned
+Domain Name: SRK.RU.COM
+Registry Domain ID: D450826-CNIC
+Registrar WHOIS Server: whois.instra.net
+Registrar URL: https://instra.com/
+Updated Date: 2021-04-19T15:40:48.0Z
+Creation Date: 2006-07-31T10:06:04.0Z
+Registry Expiry Date: 2025-07-31T23:59:59.0Z
+Registrar: Instra Corporation Pty Ltd
+Registrar IANA ID: 1376
+Domain Status: ok https://icann.org/epp#ok
+Registrant Email: https://whois.centralnic.com/contact/srk.ru.com/registrant
+Admin Email: https://whois.centralnic.com/contact/srk.ru.com/admin
+Tech Email: https://whois.centralnic.com/contact/srk.ru.com/tech
+Name Server: NS7.ZONEEDIT.COM
+Name Server: NS11.ZONEEDIT.COM
+DNSSEC: unsigned
+Billing Email: https://whois.centralnic.com/contact/srk.ru.com/billing
+Registrar Abuse Contact Email: compliance@instra.com
+Registrar Abuse Contact Phone: +61.397831800
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-12-15T16:58:26.0Z <<<
 
-This whois service is provided by CentralNic Ltd and only contains
-information pertaining to Internet domain names we have registered for
+For more information on Whois status codes, please visit https://icann.org/epp
+
+>>> IMPORTANT INFORMATION ABOUT THE DEPLOYMENT OF RDAP: please visit
+https://www.centralnic.com/support/rdap <<<
+
+The Whois and RDAP services are provided by CentralNic, and contain
+information pertaining to Internet domain names registered by our
 our customers. By using this service you are agreeing (1) not to use any
 information presented here for any purpose other than determining
-ownership of domain names, (2) not to store or reproduce this data in 
+ownership of domain names, (2) not to store or reproduce this data in
 any way, (3) not to use any high-volume, automated, electronic processes
 to obtain data from this service. Abuse of this service is monitored and
 actions in contravention of these terms will result in being permanently
-blacklisted. All data is (c) CentralNic Ltd https://www.centralnic.com/
+blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com)
 
+Access to the Whois and RDAP services is rate limited. For more
+information, visit https://registrar-console.centralnic.com/pub/whois_guidance.

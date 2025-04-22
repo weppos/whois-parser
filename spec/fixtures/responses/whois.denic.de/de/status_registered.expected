@@ -34,7 +34,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "Domain Admin"
-  %s.organization == "MarkMonitor Inc"
   %s.url          == nil
 
 #registrant_contacts

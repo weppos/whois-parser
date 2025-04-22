@@ -76,9 +76,7 @@ module Whois
 
       property_supported :registrar do
         node("Sponsoring Registrar") do |value|
-          Parser::Registrar.new(
-              :name         => value
-          )
+          Parser::Registrar.new(name: value)
         end
       end
 
@@ -97,7 +95,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("Name Server")).map do |name|
+        Array(node("Name Server")).map do |name|
           Parser::Nameserver.new(:name => name)
         end
       end

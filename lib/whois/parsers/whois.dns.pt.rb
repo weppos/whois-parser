@@ -25,14 +25,12 @@ module Whois
     class WhoisDnsPt < Base
 
       property_supported :status do
-        if content_for_scanner =~ %r{^Estado / Status:\s+(.+)\n}
+        if content_for_scanner =~ %r{^Domain Status:\s+(.+)\n}
           case ::Regexp.last_match(1).downcase
-          when "active"
+          when "registered"
             :registered
           when "reserved"
             :reserved
-          when "tech-pro"
-            :inactive
           else
             Whois::Parser.bug!(ParserError, "Unknown status `#{::Regexp.last_match(1)}'.")
           end
@@ -42,32 +40,30 @@ module Whois
       end
 
       property_supported :available? do
-        !!(content_for_scanner =~ /^.* no match$/)
+        !!(content_for_scanner =~ /^.* No Match$/)
       end
 
       property_supported :registered? do
         !available?
       end
 
-
       property_supported :created_on do
-        if content_for_scanner =~ / Creation Date .+?:\s+(.+)\n/
-          Time.utc(*::Regexp.last_match(1).split("/").reverse)
+        if content_for_scanner =~ /Creation Date:\s+(.+)\n/
+          parse_time(*::Regexp.last_match(1))
         end
       end
 
       property_not_supported :updated_on
 
       property_supported :expires_on do
-        if content_for_scanner =~ / Expiration Date .+?:\s+(.+)\n/
-          Time.utc(*::Regexp.last_match(1).split("/").reverse)
+        if content_for_scanner =~ /Expiration Date:\s+(.+)\n/
+          parse_time(*::Regexp.last_match(1))
         end
       end
 
-
       property_supported :nameservers do
-        content_for_scanner.scan(/Nameserver:\s+(?:.*)\s+NS\s+(.+?)\.\n/).flatten.map do |name|
-          Parser::Nameserver.new(:name => name)
+        content_for_scanner.scan(/Name Server:\s+([^\s]+)/).flatten.map do |name|
+          Parser::Nameserver.new(name: name)
         end
       end
 

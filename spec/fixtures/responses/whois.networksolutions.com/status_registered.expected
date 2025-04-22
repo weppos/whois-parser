@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == "2"
   %s.name         == "NETWORK SOLUTIONS, LLC."
-  %s.organization == "NETWORK SOLUTIONS, LLC."
   %s.url          == "http//www.networksolutions.com/en_US/"
 
 

@@ -35,7 +35,6 @@
   %s %CLASS{registrar}
   %s.id           == "MarkMonitor Inc."
   %s.name         == "MarkMonitor Inc."
-  %s.organization == nil
 
 #registrant_contacts
   %s %CLASS{array}

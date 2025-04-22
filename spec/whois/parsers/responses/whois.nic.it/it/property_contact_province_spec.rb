@@ -9,32 +9,29 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.it.rb'
 
-describe Whois::Parsers::WhoisNicIt, "property_contact_province.expected" do
+describe "whois.nic.it", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.it/it/property_contact_province.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.it")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("HTML1-ITNIC")
-      expect(subject.registrant_contacts[0].name).to eq("HTML.it srl")
-      expect(subject.registrant_contacts[0].organization).to eq("HTML.it srl")
-      expect(subject.registrant_contacts[0].address).to eq("Viale Alessandrino, 595")
-      expect(subject.registrant_contacts[0].city).to eq("Roma")
-      expect(subject.registrant_contacts[0].zip).to eq("00172")
-      expect(subject.registrant_contacts[0].state).to eq("RM")
-      expect(subject.registrant_contacts[0].country_code).to eq("IT")
-      expect(subject.registrant_contacts[0].created_on).to eq(Time.parse("2007-03-01 10:28:08"))
-      expect(subject.registrant_contacts[0].updated_on).to eq(Time.parse("2007-03-01 10:28:08"))
-    end
+  it "matches property_contact_province.expected" do
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts.size).to eq(1)
+    expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
+    expect(subject.registrant_contacts[0].id).to eq("HTML1-ITNIC")
+    expect(subject.registrant_contacts[0].name).to eq("HTML.it srl")
+    expect(subject.registrant_contacts[0].organization).to eq("HTML.it srl")
+    expect(subject.registrant_contacts[0].address).to eq("Viale Alessandrino, 595")
+    expect(subject.registrant_contacts[0].city).to eq("Roma")
+    expect(subject.registrant_contacts[0].zip).to eq("00172")
+    expect(subject.registrant_contacts[0].state).to eq("RM")
+    expect(subject.registrant_contacts[0].country_code).to eq("IT")
+    expect(subject.registrant_contacts[0].created_on).to eq(DateTime.parse("2007-03-01 10:28:08"))
+    expect(subject.registrant_contacts[0].updated_on).to eq(DateTime.parse("2007-03-01 10:28:08"))
   end
 end

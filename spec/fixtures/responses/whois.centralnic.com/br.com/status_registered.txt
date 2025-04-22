@@ -1,73 +1,42 @@
-Domain ID:CNIC-DO624205
-Domain Name:BILLBOARD.BR.COM
-Created On:2009-04-17T12:22:49.0Z
-Last Updated On:2012-01-16T16:23:18.0Z
-Expiration Date:2017-04-17T23:59:59.0Z
-Status:clientTransferProhibited
-Status:serverTransferProhibited
-Status:renewPeriod
-Registrant ID:36542943
-Registrant Name:Antonio Camarotti Pinto
-Registrant Street1:Rua Urussui, 238
-Registrant Street2:#22
-Registrant City:Sao Paulo
-Registrant State/Province:Sao Paulo
-Registrant Postal Code:04542-050
-Registrant Country:BR
-Registrant Phone:+1.551130787711
-Registrant Email:ac@bpp.bz
-Admin ID:36542943
-Admin Name:Antonio Camarotti Pinto
-Admin Street1:Rua Urussui, 238
-Admin Street2:#22
-Admin City:Sao Paulo
-Admin State/Province:Sao Paulo
-Admin Postal Code:04542-050
-Admin Country:BR
-Admin Phone:+1.551130787711
-Admin Email:ac@bpp.bz
-Tech ID:36542943
-Tech Name:Antonio Camarotti Pinto
-Tech Street1:Rua Urussui, 238
-Tech Street2:#22
-Tech City:Sao Paulo
-Tech State/Province:Sao Paulo
-Tech Postal Code:04542-050
-Tech Country:BR
-Tech Phone:+1.551130787711
-Tech Email:ac@bpp.bz
-Billing ID:36542943
-Billing Name:Antonio Camarotti Pinto
-Billing Street1:Rua Urussui, 238
-Billing Street2:#22
-Billing City:Sao Paulo
-Billing State/Province:Sao Paulo
-Billing Postal Code:04542-050
-Billing Country:BR
-Billing Phone:+1.551130787711
-Billing Email:ac@bpp.bz
-Sponsoring Registrar ID:H292913
-Sponsoring Registrar IANA ID:2
-Sponsoring Registrar Organization:Network Solutions LLC
-Sponsoring Registrar Street1:12808 Gran Bay Parkway West
-Sponsoring Registrar City:Jacksonville
-Sponsoring Registrar State/Province:FL
-Sponsoring Registrar Postal Code:32258
-Sponsoring Registrar Country:US
-Sponsoring Registrar Phone:+1.9046806600
-Sponsoring Registrar FAX:+1.9048800350
-Sponsoring Registrar Website:http://www.networksolutions.com/
-Name Server:NS1.LOCAWEB.COM.BR
-Name Server:NS2.LOCAWEB.COM.BR
-DNSSEC:Unsigned
+Domain Name: LINET.BR.COM
+Registry Domain ID: D1656506-CNIC
+Registrar WHOIS Server: whois.1api.net
+Registrar URL: http://www.1api.net
+Updated Date: 2021-03-11T11:49:22.0Z
+Creation Date: 2013-11-28T13:16:50.0Z
+Registry Expiry Date: 2022-11-28T23:59:59.0Z
+Registrar: 1API GmbH
+Registrar IANA ID: 1387
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: autoRenewPeriod https://icann.org/epp#autoRenewPeriod
+Registrant Email: https://whois.centralnic.com/contact/linet.br.com/registrant
+Admin Email: https://whois.centralnic.com/contact/linet.br.com/admin
+Tech Email: https://whois.centralnic.com/contact/linet.br.com/tech
+Name Server: NS1.IWANTMYNAME.NET
+Name Server: NS2.IWANTMYNAME.NET
+Name Server: NS3.IWANTMYNAME.NET
+Name Server: NS4.IWANTMYNAME.NET
+DNSSEC: unsigned
+Billing Email: https://whois.centralnic.com/contact/linet.br.com/billing
+Registrar Abuse Contact Email: abuse@1api.net
+Registrar Abuse Contact Phone: +49.68949396850
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-12-15T16:22:50.0Z <<<
 
-This whois service is provided by CentralNic Ltd and only contains
-information pertaining to Internet domain names we have registered for
+For more information on Whois status codes, please visit https://icann.org/epp
+
+>>> IMPORTANT INFORMATION ABOUT THE DEPLOYMENT OF RDAP: please visit
+https://www.centralnic.com/support/rdap <<<
+
+The Whois and RDAP services are provided by CentralNic, and contain
+information pertaining to Internet domain names registered by our
 our customers. By using this service you are agreeing (1) not to use any
 information presented here for any purpose other than determining
-ownership of domain names, (2) not to store or reproduce this data in 
+ownership of domain names, (2) not to store or reproduce this data in
 any way, (3) not to use any high-volume, automated, electronic processes
 to obtain data from this service. Abuse of this service is monitored and
 actions in contravention of these terms will result in being permanently
-blacklisted. All data is (c) CentralNic Ltd https://www.centralnic.com/
+blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com)
 
+Access to the Whois and RDAP services is rate limited. For more
+information, visit https://registrar-console.centralnic.com/pub/whois_guidance.

@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.kz.rb'
 
-describe Whois::Parsers::WhoisNicKz, "property_status_missing.expected" do
+describe "whois.nic.kz", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.kz/kz/property_status_missing.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.kz")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(nil)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(true)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
+  it "matches property_status_missing.expected" do
+    expect(subject.status).to eq(nil)
+    expect(subject.available?).to eq(true)
+    expect(subject.registered?).to eq(false)
   end
 end

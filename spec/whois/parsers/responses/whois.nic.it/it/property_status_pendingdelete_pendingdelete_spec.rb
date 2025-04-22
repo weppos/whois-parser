@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.it.rb'
 
-describe Whois::Parsers::WhoisNicIt, "property_status_pendingdelete_pendingdelete.expected" do
+describe "whois.nic.it", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.it/it/property_status_pendingdelete_pendingdelete.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.it")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:redemption)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
+  it "matches property_status_pendingdelete_pendingdelete.expected" do
+    expect(subject.status).to eq(:redemption)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
   end
 end

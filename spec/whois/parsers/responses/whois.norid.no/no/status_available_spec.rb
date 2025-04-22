@@ -9,44 +9,21 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.norid.no.rb'
 
-describe Whois::Parsers::WhoisNoridNo, "status_available.expected" do
+describe "whois.norid.no", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.norid.no/no/status_available.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.norid.no")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:available)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(true)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(nil)
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
-    end
+  it "matches status_available.expected" do
+    expect(subject.status).to eq(:available)
+    expect(subject.available?).to eq(true)
+    expect(subject.registered?).to eq(false)
+    expect(subject.created_on).to eq(nil)
+    expect(subject.updated_on).to eq(nil)
+    expect { subject.expires_on }.to raise_error(Whois::AttributeNotSupported)
   end
 end

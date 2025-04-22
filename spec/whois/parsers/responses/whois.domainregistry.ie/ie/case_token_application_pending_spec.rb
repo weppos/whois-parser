@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.domainregistry.ie.rb'
 
-describe Whois::Parsers::WhoisDomainregistryIe, "case_token_application_pending.expected" do
+describe "whois.domainregistry.ie", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.domainregistry.ie/ie/case_token_application_pending.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.domainregistry.ie")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
+  it "matches case_token_application_pending.expected" do
+    expect(subject.status).to eq(:registered)
   end
 end

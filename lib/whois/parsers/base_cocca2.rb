@@ -35,7 +35,7 @@ module Whois
       # TODO: /pending delete/ => :redemption
       # TODO: /pending purge/  => :redemption
       property_supported :status do
-        list = Array.wrap(node("Domain Status")).map(&:downcase)
+        list = Array(node("Domain Status")).map(&:downcase)
         case
         when list.include?("no object found")
           :available
@@ -80,7 +80,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("Name Server")).map do |name|
+        Array(node("Name Server")).map do |name|
           Parser::Nameserver.new(name: name)
         end
       end

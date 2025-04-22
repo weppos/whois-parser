@@ -1,5 +1,8 @@
+#domain
+  %s == "u34jedzcq.so"
+
 #status
-  %s == []
+  %s == :available
 
 #available?
   %s == true

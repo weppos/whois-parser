@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.ve.rb'
 
-describe Whois::Parsers::WhoisNicVe, "property_expires_on_missing.expected" do
+describe "whois.nic.ve", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.ve/ve/property_expires_on_missing.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.ve")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
+  it "matches property_expires_on_missing.expected" do
+    expect(subject.expires_on).to eq(nil)
   end
 end

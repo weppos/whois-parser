@@ -9,32 +9,21 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.rnids.rs.rb'
 
-describe Whois::Parsers::WhoisRnidsRs, "case_token_whois_privacy.expected" do
+describe "whois.rnids.rs", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.rnids.rs/rs/case_token_whois_privacy.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.rnids.rs")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts).to eq([])
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts).to eq([])
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts).to eq([])
-    end
+  it "matches case_token_whois_privacy.expected" do
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts).to eq([])
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts).to eq([])
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts).to eq([])
   end
 end

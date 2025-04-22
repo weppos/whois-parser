@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.kz.rb'
 
-describe Whois::Parsers::WhoisNicKz, "property_status_multiple.expected" do
+describe "whois.nic.kz", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.kz/kz/property_status_multiple.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.kz")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited"])
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
+  it "matches property_status_multiple.expected" do
+    expect(subject.status).to eq(["clientDeleteProhibited", "clientRenewProhibited", "clientTransferProhibited"])
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
   end
 end

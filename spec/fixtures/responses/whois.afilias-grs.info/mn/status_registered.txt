@@ -1,85 +1,67 @@
-Access to CCTLD WHOIS information is provided to assist persons in 
-determining the contents of a domain name registration record in the 
-Afilias registry database. The data in this record is provided by 
-Afilias Limited for informational purposes only, and Afilias does not 
-guarantee its accuracy.  This service is intended only for query-based 
-access. You agree that you will use this data only for lawful purposes 
-and that, under no circumstances will you use this data to: (a) allow, 
-enable, or otherwise support the transmission by e-mail, telephone, or 
-facsimile of mass unsolicited, commercial advertising or solicitations 
-to entities other than the data recipient's own existing customers; or 
-(b) enable high volume, automated, electronic processes that send 
-queries or data to the systems of Registry Operator, a Registrar, or 
-Afilias except as reasonably necessary to register domain names or 
-modify existing registrations. All rights reserved. Afilias reserves 
-the right to modify these terms at any time. By submitting this query, 
-you agree to abide by this policy. 
+Domain Name: GOOGLE.MN
+Registry Domain ID: D105800000000444956-AGRS
+Registrar WHOIS Server:
+Registrar URL: http://www.markmonitor.com
+Updated Date: 2021-03-06T10:38:48Z
+Creation Date: 2003-04-07T00:00:00Z
+Registry Expiry Date: 2022-04-07T00:00:00Z
+Registrar Registration Expiration Date:
+Registrar: MarkMonitor Inc.
+Registrar IANA ID: 292
+Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+Registrar Abuse Contact Phone: +1.2083895740
+Reseller:
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+Registry Registrant ID: C40795-AGRS
+Registrant Name: DNS Admin
+Registrant Organization: Google Inc.
+Registrant Street: 1600 Amphitheatre Parkway
+Registrant City: Mountain View
+Registrant State/Province: CA
+Registrant Postal Code: 94043
+Registrant Country: US
+Registrant Phone: +1.6502530000
+Registrant Phone Ext:
+Registrant Fax: +1.6502530001
+Registrant Fax Ext:
+Registrant Email: dns-admin@google.com
+Registry Admin ID: C40795-AGRS
+Admin Name: DNS Admin
+Admin Organization: Google Inc.
+Admin Street: 1600 Amphitheatre Parkway
+Admin City: Mountain View
+Admin State/Province: CA
+Admin Postal Code: 94043
+Admin Country: US
+Admin Phone: +1.6502530000
+Admin Phone Ext:
+Admin Fax: +1.6502530001
+Admin Fax Ext:
+Admin Email: dns-admin@google.com
+Registry Tech ID: C40795-AGRS
+Tech Name: DNS Admin
+Tech Organization: Google Inc.
+Tech Street: 1600 Amphitheatre Parkway
+Tech City: Mountain View
+Tech State/Province: CA
+Tech Postal Code: 94043
+Tech Country: US
+Tech Phone: +1.6502530000
+Tech Phone Ext:
+Tech Fax: +1.6502530001
+Tech Fax Ext:
+Tech Email: dns-admin@google.com
+Name Server: NS1.GOOGLE.COM
+Name Server: NS2.GOOGLE.COM
+Name Server: NS4.GOOGLE.COM
+Name Server: NS3.GOOGLE.COM
+DNSSEC: unsigned
 
-Domain ID:D444956-LRCC
-Domain Name:GOOGLE.MN
-Created On:07-Apr-2003 00:00:00 UTC
-Last Updated On:06-Mar-2013 10:21:48 UTC
-Expiration Date:07-Apr-2014 00:00:00 UTC
-Sponsoring Registrar:MarkMonitor, Inc. (R22-LRCC)
-Status:CLIENT DELETE PROHIBITED
-Status:CLIENT TRANSFER PROHIBITED
-Status:CLIENT UPDATE PROHIBITED
-Registrant ID:MNM-11332
-Registrant Name:DNS Admin
-Registrant Organization:Google Inc.
-Registrant Street1:1600 Amphitheatre Parkway
-Registrant Street2:
-Registrant Street3:
-Registrant City:Mountain View
-Registrant State/Province:CA
-Registrant Postal Code:94043
-Registrant Country:US
-Registrant Phone:+165.03300100
-Registrant Phone Ext.:
-Registrant FAX:+165.06188571
-Registrant FAX Ext.:
-Registrant Email:dns-admin@google.com
-Admin ID:MNM-11332
-Admin Name:DNS Admin
-Admin Organization:Google Inc.
-Admin Street1:1600 Amphitheatre Parkway
-Admin Street2:
-Admin Street3:
-Admin City:Mountain View
-Admin State/Province:CA
-Admin Postal Code:94043
-Admin Country:US
-Admin Phone:+165.03300100
-Admin Phone Ext.:
-Admin FAX:+165.06188571
-Admin FAX Ext.:
-Admin Email:dns-admin@google.com
-Tech ID:mmr-33293
-Tech Name:Domain Admin
-Tech Organization:MarkMonitor
-Tech Street1:391 N. Ancestor Place
-Tech Street2:Suite 150
-Tech Street3:
-Tech City:Boise
-Tech State/Province:CA
-Tech Postal Code:83704
-Tech Country:US
-Tech Phone:+1.2083895740
-Tech Phone Ext.:
-Tech FAX:+1.2083895771
-Tech FAX Ext.:
-Tech Email:ccops@markmonitor.com
-Name Server:NS1.GOOGLE.COM
-Name Server:NS2.GOOGLE.COM
-Name Server:NS3.GOOGLE.COM
-Name Server:NS4.GOOGLE.COM
-Name Server: 
-Name Server: 
-Name Server: 
-Name Server: 
-Name Server: 
-Name Server: 
-Name Server: 
-Name Server: 
-Name Server: 
+>>> Last update of WHOIS database: 2021-11-09T15:18:31Z <<<
 
+For more information on Whois status codes, please visit https://icann.org/epp
+
+Access to WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the registry database. The data in this record is provided by The Registry Operator for informational purposes only, and accuracy is not guaranteed.  This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. Registry Operator reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.
+The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.

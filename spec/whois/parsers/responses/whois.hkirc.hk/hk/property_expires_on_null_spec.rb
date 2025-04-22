@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.hkirc.hk.rb'
 
-describe Whois::Parsers::WhoisHkircHk, "property_expires_on_null.expected" do
+describe "whois.hkirc.hk", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.hkirc.hk/hk/property_expires_on_null.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.hkirc.hk")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
+  it "matches property_expires_on_null.expected" do
+    expect(subject.expires_on).to eq(nil)
   end
 end

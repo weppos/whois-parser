@@ -39,7 +39,7 @@ module Whois
 
 
       property_supported :status do
-        node("Domain Status") { |value| Array.wrap(value) }
+        node("Domain Status") { |value| Array(value) }
       end
 
       property_supported :available? do
@@ -67,8 +67,8 @@ module Whois
       property_supported :registrar do
         node("Sponsoring Registrar") do |str|
           Parser::Registrar.new(
-            :id           => node("Sponsoring Registrar IANA ID"),
-            :name         => node("Sponsoring Registrar")
+            id:   node("Sponsoring Registrar IANA ID"),
+            name: node("Sponsoring Registrar")
           )
         end
       end
@@ -88,7 +88,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("Name Server")).map do |name|
+        Array(node("Name Server")).map do |name|
           Parser::Nameserver.new(:name => name.downcase)
         end
       end

@@ -9,34 +9,31 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/coza-whois.registry.net.za.rb'
 
-describe Whois::Parsers::CozaWhoisRegistryNetZa, "property_contact_fax_empty.expected" do
+describe "coza-whois.registry.net.za", :aggregate_failures do
 
   subject do
     file = fixture("responses", "coza-whois.registry.net.za/co.za/property_contact_fax_empty.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "coza-whois.registry.net.za")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].name).to eq("FirstRand Bank Limited")
-      expect(subject.registrant_contacts[0].organization).to eq("FirstRand Bank Limited")
-      expect(subject.registrant_contacts[0].address).to eq("2nd floor 4 Merchant Place Cnr Rivonia and Sandton Drive")
-      expect(subject.registrant_contacts[0].city).to eq("Sandton")
-      expect(subject.registrant_contacts[0].zip).to eq("2196")
-      expect(subject.registrant_contacts[0].state).to eq("Gauteng")
-      expect(subject.registrant_contacts[0].country_code).to eq("ZA")
-      expect(subject.registrant_contacts[0].phone).to eq("+27.112828000")
-      expect(subject.registrant_contacts[0].fax).to eq("")
-      expect(subject.registrant_contacts[0].email).to eq("domreg.admins@firstrand.co.za")
-      expect(subject.registrant_contacts[0].created_on).to eq(nil)
-      expect(subject.registrant_contacts[0].updated_on).to eq(nil)
-    end
+  it "matches property_contact_fax_empty.expected" do
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts.size).to eq(1)
+    expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
+    expect(subject.registrant_contacts[0].name).to eq("FirstRand Bank Limited")
+    expect(subject.registrant_contacts[0].organization).to eq("FirstRand Bank Limited")
+    expect(subject.registrant_contacts[0].address).to eq("2nd floor 4 Merchant Place Cnr Rivonia and Sandton Drive")
+    expect(subject.registrant_contacts[0].city).to eq("Sandton")
+    expect(subject.registrant_contacts[0].zip).to eq("2196")
+    expect(subject.registrant_contacts[0].state).to eq("Gauteng")
+    expect(subject.registrant_contacts[0].country_code).to eq("ZA")
+    expect(subject.registrant_contacts[0].phone).to eq("+27.112828000")
+    expect(subject.registrant_contacts[0].fax).to eq("")
+    expect(subject.registrant_contacts[0].email).to eq("domreg.admins@firstrand.co.za")
+    expect(subject.registrant_contacts[0].created_on).to eq(nil)
+    expect(subject.registrant_contacts[0].updated_on).to eq(nil)
   end
 end

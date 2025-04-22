@@ -10,14 +10,14 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{2003-06-30 00:00:00}
+  %s %TIME{2003-06-30 00:00:00 EEST}
 
 #updated_on
   %s %ERROR{AttributeNotSupported}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2014-06-30 00:00:00}
+  %s %TIME{2014-06-30 00:00:00 EEST}
 
 
 #nameservers

@@ -79,12 +79,7 @@ module Whois
 
       property_supported :registrar do
         node("Zone-C") do |raw|
-          Parser::Registrar.new(
-              :id => nil,
-              :name => raw["name"],
-              :organization => raw["organization"],
-              :url => nil
-          )
+          Parser::Registrar.new(name: raw["name"])
         end
       end
 

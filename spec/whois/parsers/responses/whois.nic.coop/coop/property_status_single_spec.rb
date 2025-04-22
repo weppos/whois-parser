@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.coop.rb'
 
-describe Whois::Parsers::WhoisNicCoop, "property_status_single.expected" do
+describe "whois.nic.coop", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.coop/coop/property_status_single.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.coop")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(["ok"])
-    end
+  it "matches property_status_single.expected" do
+    expect(subject.status).to eq(["ok"])
   end
 end

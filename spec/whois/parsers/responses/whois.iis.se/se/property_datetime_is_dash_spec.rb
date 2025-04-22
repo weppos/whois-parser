@@ -9,31 +9,20 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.iis.se.rb'
 
-describe Whois::Parsers::WhoisIisSe, "property_datetime_is_dash.expected" do
+describe "whois.iis.se", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.iis.se/se/property_datetime_is_dash.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.iis.se")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2010-08-05"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2011-08-05"))
-    end
+  it "matches property_datetime_is_dash.expected" do
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2010-08-05"))
+    expect(subject.updated_on).to eq(nil)
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2011-08-05"))
   end
 end

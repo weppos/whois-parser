@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.domain-registry.nl.rb'
 
-describe Whois::Parsers::WhoisDomainRegistryNl, "response_throttled.expected" do
+describe "whois.domain-registry.nl", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.domain-registry.nl/nl/response_throttled.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.domain-registry.nl")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#response_throttled?" do
-    it do
-      expect(subject.response_throttled?).to eq(true)
-    end
+  it "matches response_throttled.expected" do
+    expect(subject.response_throttled?).to eq(true)
   end
 end

@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.domain-registry.nl.rb'
 
-describe Whois::Parsers::WhoisDomainRegistryNl, "property_status_inactive.expected" do
+describe "whois.domain-registry.nl", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.domain-registry.nl/nl/property_status_inactive.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.domain-registry.nl")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:inactive)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
+  it "matches property_status_inactive.expected" do
+    expect(subject.status).to eq(:inactive)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
   end
 end

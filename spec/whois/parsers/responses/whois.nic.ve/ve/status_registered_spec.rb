@@ -9,52 +9,25 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.ve.rb'
 
-describe Whois::Parsers::WhoisNicVe, "status_registered.expected" do
+describe "whois.nic.ve", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.ve/ve/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.ve")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2010-10-27 12:23:43"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2011-10-27 12:23:43"))
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers).to eq([])
-    end
+  it "matches status_registered.expected" do
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2010-10-27 12:23:43"))
+    expect(subject.updated_on).to eq(nil)
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2011-10-27 12:23:43"))
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers).to eq([])
   end
 end

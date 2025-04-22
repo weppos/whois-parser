@@ -63,27 +63,48 @@ module Whois
       end
 
 
-      # TODO: timezone ('Asia/Tokyo')
       property_supported :created_on do
         if content_for_scanner =~ /\[(?:Created on|Registered Date)\][ \t]+(.*)\n/
-          ::Regexp.last_match(1).empty? ? nil : parse_time(::Regexp.last_match(1))
+          (::Regexp.last_match(1).empty?) ? nil : parse_time(::Regexp.last_match(1), timezone: 'Asia/Tokyo')
         end
       end
 
-      # TODO: timezone ('Asia/Tokyo')
       property_supported :updated_on do
         if content_for_scanner =~ /\[Last Updated?\][ \t]+(.*)\n/
-          ::Regexp.last_match(1).empty? ? nil : parse_time(::Regexp.last_match(1))
+          (::Regexp.last_match(1).empty?) ? nil : parse_time(::Regexp.last_match(1), timezone: 'Asia/Tokyo')
         end
       end
 
-      # TODO: timezone ('Asia/Tokyo')
       property_supported :expires_on do
         if content_for_scanner =~ /\[(?:Expires on|State)\][ \t]+(.*)\n/
-          ::Regexp.last_match(1).empty? ? nil : parse_time(::Regexp.last_match(1))
+          (::Regexp.last_match(1).empty?) ? nil : parse_time(::Regexp.last_match(1), timezone: 'Asia/Tokyo')
         end
       end
 
+      property_supported :registrar do
+        name = nil
+        organization = nil
+        url = nil
+        
+        if content_for_scanner =~ /\[Registrant\][ \t]+(.*)\n/
+          name = ::Regexp.last_match(1)
+        end
+        
+        if content_for_scanner =~ /\[Name\][ \t]+(.*)\n/
+          organization = ::Regexp.last_match(1)
+        end
+        
+        if content_for_scanner =~ /\[Web Page\][ \t]+(.*)\n/ && !::Regexp.last_match(1).strip.empty?
+          url = ::Regexp.last_match(1).strip
+        end
+        
+        Parser::Registrar.new(
+          id: nil,
+          name: name,
+          organization: organization,
+          url: url
+        )
+      end
 
       property_supported :nameservers do
         content_for_scanner.scan(/\[Name Server\][\s\t]+([^\s\n]+?)\n/).flatten.map do |name|

@@ -9,23 +9,20 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.uk.rb'
 
-describe Whois::Parsers::WhoisNicUk, "property_registrar_without_trading_name.expected" do
+describe "whois.nic.uk", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.uk/uk/property_registrar_without_trading_name.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.uk")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("NETNAMES")
-      expect(subject.registrar.name).to eq("NetNames Limited")
-      expect(subject.registrar.name).to eq("NetNames Limited")
-      expect(subject.registrar.url).to eq("http://www.netnames.co.uk")
-    end
+  it "matches property_registrar_without_trading_name.expected" do
+    expect(subject.registrar).to be_a(Whois::Parser::Registrar)
+    expect(subject.registrar.id).to eq("NETNAMES")
+    expect(subject.registrar.name).to eq("NetNames Limited")
+    expect(subject.registrar.name).to eq("NetNames Limited")
+    expect(subject.registrar.url).to eq("http://www.netnames.co.uk")
   end
 end

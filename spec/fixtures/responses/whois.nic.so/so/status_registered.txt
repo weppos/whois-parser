@@ -1,22 +1,59 @@
-Whois Results for "google.so".
-
 Domain Name: google.so
-Creation Date: 2011-01-24T02:22:24.0Z
-Last Updated On: 2011-01-25T04:20:26.0Z
-Expiration Date: 2014-01-24T02:22:24.0Z
-Sponsoring Registrar: MarkMonitor Inc.
-Status: serverDeleteProhibited
-Status: serverTransferProhibited
-Registrant ID: mm-google
-Admin Contact ID: mm-google
-Billing Contact ID: so-mm-billing
-Tech Contact ID: mm-google
+Registry Domain ID: 34544-sonic
+Registry WHOIS Server: whois.nic.so
+Registrar URL: 
+Updated Date: 2022-12-23T09:26:14.78Z
+Creation Date: 2011-01-24T00:00:00.0Z
+Registry Expiry Date: 2024-01-24T00:00:00.0Z
+Registrar Registration Expiration Date: 2024-01-24T00:00:00.0Z
+Registrar: Mark Monitor
+Registrar Abuse Contact Email: ccops@markmonitor.com
+Registrar Abuse Contact Phone: +1.2083895740
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Registry Registrant ID: CAKlg-SfRgX
+Registrant Name: Domain Administrator
+Registrant Organization: Google LLC
+Registrant Street: 1600 Amphitheatre Parkway
+Registrant City: Mountain View
+Registrant State/Province: CA
+Registrant Postal Code: 94043
+Registrant Country: US
+Registrant Phone: +1.6502530000
+Registrant Fax: +1.6502530001
+Registrant Email: dns-admin@google.com
+Registry Admin ID: ns66c-kLSXy
+Admin Name: Domain Administrator
+Admin Organization: Google LLC
+Admin Street: 1600 Amphitheatre Parkway
+Admin City: Mountain View
+Admin State/Province: CA
+Admin Postal Code: 94043
+Admin Country: US
+Admin Phone: +1.6502530000
+Admin Fax: +1.6502530001
+Admin Email: dns-admin@google.com
+Registry Tech ID: J8ANM-4ZMch
+Tech Name: Domain Administrator
+Tech Organization: Google LLC
+Tech Street: 1600 Amphitheatre Parkway
+Tech City: Mountain View
+Tech State/Province: CA
+Tech Postal Code: 94043
+Tech Country: US
+Tech Phone: +1.6502530000
+Tech Fax: +1.6502530001
+Tech Email: dns-admin@google.com
 Name Server: ns1.google.com
 Name Server: ns2.google.com
 Name Server: ns3.google.com
 Name Server: ns4.google.com
+DNSSEC: unsigned
+>>> Last update of WHOIS database: 2023-01-16T18:45:24.287Z <<<
 
-Access to WHOIS information is provided to assist persons in determining 
-the contents of a domain name registration record in the registry database.
-The data in this record is provided for informational purposes only without
-any accuracy guarantee.
+For more information on Whois status codes, please visit https://icann.org/epp
+
+TERMS OF USE: You are not authorized to access or query our WHOIS database through the use of electronic processes that are high-volume and automated.  This WHOIS database is provided by as a service to the internet community.
+
+The data is for information purposes only. We do not guarantee its accuracy. By submitting a WHOIS query, you agree to abide by the following terms of use: You agree that you may use this Data only for lawful purposes and that under no circumstances will you use this Data to: (1) allow, enable, or otherwise support the transmission of mass unsolicited, commercial advertising or solicitations via e-mail, telephone, or facsimile; or (2) enable high volume, automated, electronic processes. The compilation, repackaging, dissemination or other use of this Data is expressly prohibited.

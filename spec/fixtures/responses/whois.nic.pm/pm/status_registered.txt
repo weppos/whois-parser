@@ -1,9 +1,7 @@
-[Querying whois.nic.pm]
-[whois.nic.pm]
 %%
 %% This is the AFNIC Whois server.
 %%
-%% complete date format : DD/MM/YYYY
+%% complete date format : YYYY-MM-DDThh:mm:ssZ
 %% short date format    : DD/MM
 %% version              : FRNIC-2.5
 %%
@@ -12,7 +10,7 @@
 %%
 %% Use '-h' option to obtain more information about this service.
 %%
-%% [0.0.0.0 REQUEST] >> nic.pm
+%% [209.153.220.50 REQUEST] >> nic.pm
 %%
 %% RL Net [##########] - RL IP [#########.]
 %%
@@ -31,31 +29,50 @@ remarks:     Please email mailto: nic@nic.fr
 remarks:     Spam mailto: abuse@nic.fr
 remarks:     Test mailto: ping@nic.fr
 registrar:   AFNIC registry
-Expiry Date: 31/12/2017
-created:     01/01/1995
-last-update: 31/12/2016
+Expiry Date: 2019-12-31T23:00:00Z
+created:     1994-12-31T23:00:00Z
+last-update: 2018-12-31T23:33:19Z
 source:      FRNIC
 
 ns-list:     NSL1-FRNIC
-nserver:     ns1.nic.fr [192.134.4.1 2001:67c:2218:2::4:1]
-nserver:     ns2.nic.fr [192.93.0.4 2001:660:3005:1::1:2]
-nserver:     ns3.nic.fr [192.134.0.49 2001:660:3006:1::1:1]
+nserver:     ns1.nic.fr
+nserver:     ns2.nic.fr
+nserver:     ns3.nic.fr
 source:      FRNIC
 
 registrar:   AFNIC registry
 type:        Isp Option 2
 anonymous:   YES
-registered:  22/05/1997
+registered:  1997-05-22T12:00:00Z
+source:      FRNIC
+
+nic-hdl:     APEM2-FRNIC
+type:        ORGANIZATION
+contact:     Afnic (Saint-Pierre et Miquelon - CTOM)
+address:     immeuble le Stephenson
+address:     1, rue Stephenson
+address:     Hall A2 - 3eme etage
+address:     78180 Montigny le Bretonneux
+country:     FR
+phone:       +33 1 39 30 83 00
+fax-no:      +33 1 39 30 83 01
+e-mail:      support@afnic.fr
+registrar:   AFNIC registry
+changed:     2017-07-17T12:39:46Z nic@nic.fr
+anonymous:   NO
+obsoleted:   NO
+eligstatus:  not identified
+reachstatus: not identified
 source:      FRNIC
 
 nic-hdl:     NFC1-FRNIC
 type:        ROLE
 contact:     NIC France Contact
 address:     AFNIC
-address:     immeuble international
-address:     2, rue Stephenson
-address:     Montigny le Bretonneux
-address:     78181 Saint Quentin en Yvelines Cedex
+address:     immeuble le Stephenson
+address:     1, rue Stephenson
+address:     Hall A2 - 3eme etage
+address:     78180 Montigny-Le-Bretonneux
 country:     FR
 phone:       +33 1 39 30 83 00
 e-mail:      hostmaster@nic.fr
@@ -70,22 +87,39 @@ tech-c:      GO661-FRNIC
 tech-c:      MS-FRNIC
 tech-c:      AI1-FRNIC
 registrar:   AFNIC registry
-changed:     23/08/2005 hostmaster@nic.fr
+changed:     2005-08-23T16:13:17Z hostmaster@nic.fr
 anonymous:   NO
 obsoleted:   NO
+eligstatus:  not identified
+reachstatus: not identified
 source:      FRNIC
 
-nic-hdl:     APEM2-FRNIC
-type:        ORGANIZATION
-contact:     Afnic (Saint-Pierre et Miquelon - CTOM)
-address:     immeuble international
-address:     2, rue Stephenson
-address:     Montigny-Le-Bretonneux
-address:     78181 Saint Quentin en Yvelines Cedex
+nic-hdl:     NFC1-FRNIC
+type:        ROLE
+contact:     NIC France Contact
+address:     AFNIC
+address:     immeuble le Stephenson
+address:     1, rue Stephenson
+address:     Hall A2 - 3eme etage
+address:     78180 Montigny-Le-Bretonneux
 country:     FR
+phone:       +33 1 39 30 83 00
+e-mail:      hostmaster@nic.fr
+admin-c:     NFC1-FRNIC
+tech-c:      PL12-FRNIC
+tech-c:      JP-FRNIC
+tech-c:      MS1887-FRNIC
+tech-c:      VL-FRNIC
+tech-c:      PR1249-FRNIC
+tech-c:      PV827-FRNIC
+tech-c:      GO661-FRNIC
+tech-c:      MS-FRNIC
+tech-c:      AI1-FRNIC
 registrar:   AFNIC registry
-changed:     09/10/2008 whoismaster@nic.fr
+changed:     2005-08-23T16:13:17Z hostmaster@nic.fr
 anonymous:   NO
 obsoleted:   NO
+eligstatus:  not identified
+reachstatus: not identified
 source:      FRNIC
 

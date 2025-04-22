@@ -9,65 +9,26 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois1.nic.bi.rb'
 
-describe Whois::Parsers::Whois1NicBi, "status_available.expected" do
+describe "whois1.nic.bi", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois1.nic.bi/bi/status_available.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois1.nic.bi")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("u34jedzcq.bi")
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect(subject.domain_id).to eq(nil)
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:available)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(true)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(nil)
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to eq(nil)
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers).to eq([])
-    end
+  it "matches status_available.expected" do
+    expect(subject.domain).to eq("u34jedzcq.bi")
+    expect(subject.domain_id).to eq(nil)
+    expect(subject.status).to eq(:available)
+    expect(subject.available?).to eq(true)
+    expect(subject.registered?).to eq(false)
+    expect(subject.created_on).to eq(nil)
+    expect(subject.updated_on).to eq(nil)
+    expect(subject.expires_on).to eq(nil)
+    expect(subject.registrar).to eq(nil)
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers).to eq([])
   end
 end

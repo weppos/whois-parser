@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.jprs.jp.rb'
 
-describe Whois::Parsers::WhoisJprsJp, "property_created_on_missing.expected" do
+describe "whois.jprs.jp", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.jprs.jp/ne.jp/property_created_on_missing.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.jprs.jp")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(nil)
-    end
+  it "matches property_created_on_missing.expected" do
+    expect(subject.created_on).to eq(nil)
   end
 end

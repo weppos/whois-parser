@@ -1,0 +1,95 @@
+#domain
+  %s == "solex.world"
+
+#domain_id
+  %s == "0bd73f47b47f436cac3ee5b20df18ef5-DONUTS"
+
+
+#status
+  %s == :registered
+
+#available?
+  %s == false
+
+#registered?
+  %s == true
+
+
+#created_on
+  %s %CLASS{time}
+  %s %TIME{2017-10-03 11:12:14 GMT}
+
+#updated_on
+  %s %CLASS{time}
+  %s %TIME{2022-10-06 14:00:13 GMT}
+
+#expires_on
+  %s %CLASS{time}
+  %s %TIME{2023-10-03 11:12:14 GMT}
+
+
+#registrar
+  %s %CLASS{registrar}
+  %s.id           == "433"
+  %s.name         == "OVH SAS"
+  %s.url          == "http://www.ovh.com"
+
+#registrant_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
+  %s[0].id            == "REDACTED FOR PRIVACY"
+  %s[0].name          == "REDACTED FOR PRIVACY"
+  %s[0].organization  == ""
+  %s[0].address       == "REDACTED FOR PRIVACY"
+  %s[0].city          == "REDACTED FOR PRIVACY"
+  %s[0].zip           == "REDACTED FOR PRIVACY"
+  %s[0].state         == ""
+  %s[0].country_code  == "FR"
+  %s[0].phone         == "REDACTED FOR PRIVACY ext: REDACTED FOR PRIVACY"
+  %s[0].fax           == "REDACTED FOR PRIVACY ext: REDACTED FOR PRIVACY"
+  %s[0].email         == "Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name."
+
+#admin_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type          == Whois::Parser::Contact::TYPE_ADMINISTRATIVE
+  %s[0].id            == "REDACTED FOR PRIVACY"
+  %s[0].name          == "REDACTED FOR PRIVACY"
+  %s[0].organization  == "REDACTED FOR PRIVACY"
+  %s[0].address       == "REDACTED FOR PRIVACY"
+  %s[0].city          == "REDACTED FOR PRIVACY"
+  %s[0].zip           == "REDACTED FOR PRIVACY"
+  %s[0].state         == "REDACTED FOR PRIVACY"
+  %s[0].country_code  == "REDACTED FOR PRIVACY"
+  %s[0].phone         == "REDACTED FOR PRIVACY ext: REDACTED FOR PRIVACY"
+  %s[0].fax           == "REDACTED FOR PRIVACY ext: REDACTED FOR PRIVACY"
+  %s[0].email         == "Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name."
+
+#technical_contacts
+  %s %CLASS{array}
+  %s %SIZE{1}
+  %s[0] %CLASS{contact}
+  %s[0].type          == Whois::Parser::Contact::TYPE_TECHNICAL
+  %s[0].id            == "REDACTED FOR PRIVACY"
+  %s[0].name          == "REDACTED FOR PRIVACY"
+  %s[0].organization  == "REDACTED FOR PRIVACY"
+  %s[0].address       == "REDACTED FOR PRIVACY"
+  %s[0].city          == "REDACTED FOR PRIVACY"
+  %s[0].zip           == "REDACTED FOR PRIVACY"
+  %s[0].state         == "REDACTED FOR PRIVACY"
+  %s[0].country_code  == "REDACTED FOR PRIVACY"
+  %s[0].phone         == "REDACTED FOR PRIVACY ext: REDACTED FOR PRIVACY"
+  %s[0].fax           == "REDACTED FOR PRIVACY ext: REDACTED FOR PRIVACY"
+  %s[0].email         == "Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name."
+
+
+#nameservers
+  %s %CLASS{array}
+  %s %SIZE{2}
+  %s[0] %CLASS{nameserver}
+  %s[0].name == "dns104.ovh.net"
+  %s[1] %CLASS{nameserver}
+  %s[1].name == "ns104.ovh.net"

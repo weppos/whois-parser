@@ -65,10 +65,7 @@ module Whois
 
       property_supported :registrar do
         node("Registrar") do |value|
-          Parser::Registrar.new(
-            :id           => nil,
-            :name         => value
-          )
+          Parser::Registrar.new(name: value)
         end
       end
 
@@ -86,7 +83,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("NameServers")).map do |line|
+        Array(node("NameServers")).map do |line|
           name, ipv4 = line.match(/(.+)\. \[(.+)\]/)[1, 2]
           Parser::Nameserver.new(:name => name, :ipv4 => ipv4)
         end

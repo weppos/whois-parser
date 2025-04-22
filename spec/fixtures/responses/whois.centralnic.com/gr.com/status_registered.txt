@@ -1,23 +1,40 @@
-Domain ID:CNIC-DO735168
-Domain Name:GOOGLE.GR.COM
-Created On:2011-02-07T13:10:14.0Z
-Last Updated On:2012-06-23T10:38:02.0Z
-Expiration Date:2015-02-07T23:59:59.0Z
-Status:ok
-Registrant ID:H1346485
-Tech ID:H1346485
-Billing ID:H1346485
-Name Server:F1G1NS1.DNSPOD.NET
-Name Server:F1G1NS2.DNSPOD.NET
-DNSSEC:Unsigned
+Domain Name: GOOGLE.GR.COM
+Registry Domain ID: D67028804-CNIC
+Registrar WHOIS Server: whois.porkbun.com
+Registrar URL: https://porkbun.com/
+Updated Date: 2021-06-05T01:20:51.0Z
+Creation Date: 2018-05-07T07:21:24.0Z
+Registry Expiry Date: 2022-05-07T23:59:59.0Z
+Registrar: Porkbun, LLC
+Registrar IANA ID: 1861
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Registrant Email: https://whois.centralnic.com/contact/google.gr.com/registrant
+Admin Email: https://whois.centralnic.com/contact/google.gr.com/admin
+Tech Email: https://whois.centralnic.com/contact/google.gr.com/tech
+Name Server: NS1.67HOSTING.COM
+Name Server: NS2.67HOSTING.COM
+DNSSEC: unsigned
+Billing Email: https://whois.centralnic.com/contact/google.gr.com/billing
+Registrar Abuse Contact Email: abuse@porkbun.com
+Registrar Abuse Contact Phone: +1.5038508351
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-12-15T16:41:46.0Z <<<
 
-This whois service is provided by CentralNic Ltd and only contains
-information pertaining to Internet domain names we have registered for
+For more information on Whois status codes, please visit https://icann.org/epp
+
+>>> IMPORTANT INFORMATION ABOUT THE DEPLOYMENT OF RDAP: please visit
+https://www.centralnic.com/support/rdap <<<
+
+The Whois and RDAP services are provided by CentralNic, and contain
+information pertaining to Internet domain names registered by our
 our customers. By using this service you are agreeing (1) not to use any
 information presented here for any purpose other than determining
-ownership of domain names, (2) not to store or reproduce this data in 
+ownership of domain names, (2) not to store or reproduce this data in
 any way, (3) not to use any high-volume, automated, electronic processes
 to obtain data from this service. Abuse of this service is monitored and
 actions in contravention of these terms will result in being permanently
-blacklisted. All data is (c) CentralNic Ltd https://www.centralnic.com/
+blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com)
 
+Access to the Whois and RDAP services is rate limited. For more
+information, visit https://registrar-console.centralnic.com/pub/whois_guidance.

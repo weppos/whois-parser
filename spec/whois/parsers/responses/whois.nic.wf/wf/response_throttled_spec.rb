@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.wf.rb'
 
-describe Whois::Parsers::WhoisNicWf, "response_throttled.expected" do
+describe "whois.nic.wf", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.wf/wf/response_throttled.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.wf")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#response_throttled?" do
-    it do
-      expect(subject.response_throttled?).to eq(true)
-    end
+  it "matches response_throttled.expected" do
+    expect(subject.response_throttled?).to eq(true)
   end
 end

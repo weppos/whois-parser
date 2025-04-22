@@ -37,7 +37,7 @@ module Whois
         if respond_to?(:reserved?) && reserved?
           :reserved
         else
-          Array.wrap(node("Status"))
+          Array(node("Status"))
         end
       end
 
@@ -60,9 +60,8 @@ module Whois
       property_supported :registrar do
         node('Registrar Name') do |name|
           Parser::Registrar.new(
-              :id           => node('Registrar ID'),
-              :name         => node('Registrar Name'),
-              :organization => node('Registrar Name')
+              id:   node('Registrar ID'),
+              name: node('Registrar Name')
           )
         end
       end

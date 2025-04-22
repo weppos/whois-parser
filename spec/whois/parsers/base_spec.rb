@@ -40,6 +40,18 @@ describe Whois::Parsers::Base do
       expect(described_class.parse_time("1970-01-01T00:00:00Z")).to eq(Time.at(0))
     end
 
+    it "parse time in UTC by default" do
+      expect(described_class.parse_time("2021-11-16 08:03")).to eq(Time.utc(2021, 11, 16, 8, 3))
+    end
+
+    it "parse custom time zone if present" do
+      expect(described_class.parse_time("2021-11-16 08:03 JST")).to eq(Time.utc(2021, 11, 15, 23, 3))
+    end
+
+    it "allows custom default timezone" do
+      expect(described_class.parse_time("2021-11-16 08:03", timezone: "Tokyo")).to eq(Time.utc(2021, 11, 15, 23, 3))
+    end
+
     it "removes microseconds on parsed timestamps" do
       expect(described_class.parse_time("1970-01-01T00:00:00.123Z")).to eq(Time.at(0))
     end

@@ -9,109 +9,72 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.fi.rb'
 
-describe Whois::Parsers::WhoisFi, "property_status_graceperiod.expected" do
+describe "whois.fi", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.fi/fi/property_status_graceperiod.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.fi")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#disclaimer" do
-    it do
-      expect(subject.disclaimer).to eq("More information is available at https://domain.fi/\nCopyright (c) Finnish Communications Regulatory Authority")
-    end
-  end
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("oogle.fi")
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect { subject.domain_id }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2012-06-21"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2013-06-22"))
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2013-06-21"))
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect { subject.registrar }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("NURMI")
-      expect(subject.registrant_contacts[0].name).to eq("-")
-      expect(subject.registrant_contacts[0].organization).to eq("Minna")
-      expect(subject.registrant_contacts[0].address).to eq("Huovitie 3")
-      expect(subject.registrant_contacts[0].city).to eq("HELSINKI")
-      expect(subject.registrant_contacts[0].zip).to eq("00400")
-      expect(subject.registrant_contacts[0].state).to eq(nil)
-      expect(subject.registrant_contacts[0].country).to eq(nil)
-      expect(subject.registrant_contacts[0].country_code).to eq(nil)
-      expect(subject.registrant_contacts[0].phone).to eq("+358201599789")
-      expect(subject.registrant_contacts[0].fax).to eq(nil)
-      expect(subject.registrant_contacts[0].email).to eq(nil)
-      expect(subject.registrant_contacts[0].created_on).to eq(nil)
-      expect(subject.registrant_contacts[0].updated_on).to eq(nil)
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect { subject.admin_contacts }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect { subject.technical_contacts }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(2)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("a.ns.netim.net")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("b.ns.netim.net")
-    end
+  it "matches property_status_graceperiod.expected" do
+    expect(subject.disclaimer).to eq("Copyright (c) Finnish Transport and Communications Agency Traficom")
+    expect(subject.domain).to eq("kalatalousministeri.fi")
+    expect { subject.domain_id }.to raise_error(Whois::AttributeNotSupported)
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2018-03-14 17:47:42"))
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2019-11-06"))
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2020-03-14 17:47:42"))
+    expect(subject.registrar.name).to eq("Gandi SAS")
+    expect(subject.registrar.url).to eq("www.gandi.net")
+    expect { subject.registrant_contacts }.to raise_error(Whois::AttributeNotSupported)
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts.size).to eq(1)
+    expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+    expect(subject.admin_contacts[0].id).to eq("2823344-7")
+    expect(subject.admin_contacts[0].name).to eq("Digiteam Oy")
+    expect(subject.admin_contacts[0].address).to eq("Myllyniityntie 71")
+    expect(subject.admin_contacts[0].city).to eq("Lohja")
+    expect(subject.admin_contacts[0].zip).to eq("08100")
+    expect(subject.admin_contacts[0].state).to eq(nil)
+    expect(subject.admin_contacts[0].country).to eq("Finland")
+    expect(subject.admin_contacts[0].country_code).to eq(nil)
+    expect(subject.admin_contacts[0].phone).to eq("+358.503716096")
+    expect(subject.admin_contacts[0].fax).to eq(nil)
+    expect(subject.admin_contacts[0].email).to eq("")
+    expect(subject.admin_contacts[0].created_on).to eq(nil)
+    expect(subject.admin_contacts[0].updated_on).to eq(nil)
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts.size).to eq(1)
+    expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
+    expect(subject.technical_contacts[0].id).to eq(nil)
+    expect(subject.technical_contacts[0].name).to eq("Seravo Oy")
+    expect(subject.technical_contacts[0].address).to eq(nil)
+    expect(subject.technical_contacts[0].city).to eq(nil)
+    expect(subject.technical_contacts[0].zip).to eq(nil)
+    expect(subject.technical_contacts[0].state).to eq(nil)
+    expect(subject.technical_contacts[0].country).to eq(nil)
+    expect(subject.technical_contacts[0].country_code).to eq(nil)
+    expect(subject.technical_contacts[0].phone).to eq(nil)
+    expect(subject.technical_contacts[0].fax).to eq(nil)
+    expect(subject.technical_contacts[0].email).to eq("hostmaster@seravo.com")
+    expect(subject.technical_contacts[0].created_on).to eq(nil)
+    expect(subject.technical_contacts[0].updated_on).to eq(nil)
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(3)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns-184-c.gandi.net")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns-196-a.gandi.net")
+    expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[2].name).to eq("ns-73-b.gandi.net")
   end
 end

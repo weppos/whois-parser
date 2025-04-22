@@ -36,7 +36,6 @@
   %s %CLASS{registrar}
   %s.id           == "625"
   %s.name         == "Name.com LLC"
-  %s.organization == "Name.com LLC"
   %s.url          == "www.name.com"
 
 #registrant_contacts

@@ -38,8 +38,7 @@ module Whois
 
       property_supported :status do
         node('status') do |value|
-          values = Array.wrap(value)
-          status = values.each do |s|
+          status = Array(value).each do |s|
             v = self.class.status_mapping[s.downcase]
             break v if v
           end
@@ -100,7 +99,7 @@ module Whois
 
       property_supported :nameservers do
         lines = node_nsset['nserver'] rescue nil
-        Array.wrap(lines).map do |line|
+        Array(lines).map do |line|
           if line =~ /(.+) \((.+)\)/
             name = ::Regexp.last_match(1)
             ipv4, ipv6 = ::Regexp.last_match(2).split(', ')

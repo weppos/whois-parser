@@ -36,7 +36,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "SX Registry O"
-  %s.organization == nil
   %s.url          == nil
 
 #registrant_contacts

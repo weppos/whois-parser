@@ -18,7 +18,7 @@
 #created_on
   %s %CLASS{time}
   %s %TIME{1992-11-24 00:00:00 -0500}
-  
+
 
 #updated_on
   %s %CLASS{time}
@@ -33,7 +33,6 @@
   %s %CLASS{registrar}
   %s.id           == "299"
   %s.name         == "CORPORATE DOMAINS, INC."
-  %s.organization == "CORPORATE DOMAINS, INC."
   %s.url          == "www.cscprotectsbrands.com"
 
 

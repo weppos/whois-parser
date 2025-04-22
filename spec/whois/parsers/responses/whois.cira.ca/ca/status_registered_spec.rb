@@ -9,152 +9,86 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.cira.ca.rb'
 
-describe Whois::Parsers::WhoisCiraCa, "status_registered.expected" do
+describe "whois.cira.ca", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.cira.ca/ca/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.cira.ca")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#disclaimer" do
-    it do
-      expect(subject.disclaimer).to eq("Use of CIRA's WHOIS service is governed by the Terms of Use in its Legal\nNotice, available at http://www.cira.ca/legal-notice/?lang=en\n\n(c) 2014 Canadian Internet Registration Authority, (http://www.cira.ca/)")
-    end
-  end
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("google.ca")
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect { subject.domain_id }.to raise_error(Whois::AttributeNotSupported)
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2000-10-03 00:00:00"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2014-02-13 00:00:00"))
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2015-04-28 00:00:00"))
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("5000040")
-      expect(subject.registrar.name).to eq("MarkMonitor International Canada Ltd.")
-      expect(subject.registrar.organization).to eq("MarkMonitor International Canada Ltd.")
-      expect(subject.registrar.url).to eq(nil)
-    end
-  end
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq(nil)
-      expect(subject.registrant_contacts[0].name).to eq("Google Inc.")
-      expect(subject.registrant_contacts[0].organization).to eq(nil)
-      expect(subject.registrant_contacts[0].address).to eq(nil)
-      expect(subject.registrant_contacts[0].city).to eq(nil)
-      expect(subject.registrant_contacts[0].zip).to eq(nil)
-      expect(subject.registrant_contacts[0].state).to eq(nil)
-      expect(subject.registrant_contacts[0].country_code).to eq(nil)
-      expect(subject.registrant_contacts[0].phone).to eq(nil)
-      expect(subject.registrant_contacts[0].fax).to eq(nil)
-      expect(subject.registrant_contacts[0].email).to eq(nil)
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts.size).to eq(1)
-      expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq(nil)
-      expect(subject.admin_contacts[0].name).to eq("Christina Chiou")
-      expect(subject.admin_contacts[0].organization).to eq(nil)
-      expect(subject.admin_contacts[0].address).to eq("130 King St. W., Suite 1800,\nToronto ON M5X1E3 Canada")
-      expect(subject.admin_contacts[0].city).to eq(nil)
-      expect(subject.admin_contacts[0].zip).to eq(nil)
-      expect(subject.admin_contacts[0].state).to eq(nil)
-      expect(subject.admin_contacts[0].country_code).to eq(nil)
-      expect(subject.admin_contacts[0].phone).to eq("+1.4168653361x")
-      expect(subject.admin_contacts[0].fax).to eq("+1.4169456616")
-      expect(subject.admin_contacts[0].email).to eq("dns-admin@google.com")
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts.size).to eq(1)
-      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq(nil)
-      expect(subject.technical_contacts[0].name).to eq("Matt Serlin")
-      expect(subject.technical_contacts[0].organization).to eq(nil)
-      expect(subject.technical_contacts[0].address).to eq("Domain Provisioning,10400 Overland Rd. PMB 155\nBoise ID 83709 United States")
-      expect(subject.technical_contacts[0].city).to eq(nil)
-      expect(subject.technical_contacts[0].zip).to eq(nil)
-      expect(subject.technical_contacts[0].state).to eq(nil)
-      expect(subject.technical_contacts[0].country_code).to eq(nil)
-      expect(subject.technical_contacts[0].phone).to eq("+1.2083895740x")
-      expect(subject.technical_contacts[0].fax).to eq("+1.2083895771")
-      expect(subject.technical_contacts[0].email).to eq("ccops@markmonitor.com")
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(4)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns1.google.com")
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns2.google.com")
-      expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("ns3.google.com")
-      expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[3].name).to eq("ns4.google.com")
-    end
-  end
-  describe "#valid?" do
-    it do
-      expect(subject.valid?).to eq(true)
-    end
-  end
-  describe "#invalid?" do
-    it do
-      expect(subject.invalid?).to eq(false)
-    end
+  it "matches status_registered.expected" do
+    expect(subject.disclaimer).to eq("Use of CIRA's WHOIS service is governed by the Terms of Use in its Legal Notice, available at http://www.cira.ca/legal-notice/?lang=en (c) 2021 Canadian Internet Registration Authority, (http://www.cira.ca/)")
+    expect(subject.domain).to eq("google.ca")
+    expect(subject.domain_id).to eq("D73081-CIRA")
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2000-10-04 02:21:23 UTC"))
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2021-04-28 04:04:12 UTC"))
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2022-04-28 04:00:00 UTC"))
+    expect(subject.registrar).to be_a(Whois::Parser::Registrar)
+    expect(subject.registrar.id).to eq("not applicable")
+    expect(subject.registrar.name).to eq("MarkMonitor International Canada Ltd.")
+    expect(subject.registrar.url).to eq("Markmonitor.com")
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts.size).to eq(1)
+    expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
+    expect(subject.registrant_contacts[0].id).to eq("59969059-CIRA")
+    expect(subject.registrant_contacts[0].name).to eq("Google LLC - TMA868122")
+    expect(subject.registrant_contacts[0].organization).to eq("")
+    expect(subject.registrant_contacts[0].address).to eq("1600 Amphitheatre Parkway")
+    expect(subject.registrant_contacts[0].city).to eq("Mountain View")
+    expect(subject.registrant_contacts[0].zip).to eq("94043")
+    expect(subject.registrant_contacts[0].state).to eq("CA")
+    expect(subject.registrant_contacts[0].country_code).to eq("US")
+    expect(subject.registrant_contacts[0].phone).to eq("+1.6502530000")
+    expect(subject.registrant_contacts[0].fax).to eq("")
+    expect(subject.registrant_contacts[0].email).to eq("dns-admin@google.com")
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts.size).to eq(1)
+    expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+    expect(subject.admin_contacts[0].id).to eq("59969161-CIRA")
+    expect(subject.admin_contacts[0].name).to eq("Lauren Johnston")
+    expect(subject.admin_contacts[0].organization).to eq("Google LLC")
+    expect(subject.admin_contacts[0].address).to eq("1600 Amphitheatre Parkway")
+    expect(subject.admin_contacts[0].city).to eq("Mountain View")
+    expect(subject.admin_contacts[0].zip).to eq("94043")
+    expect(subject.admin_contacts[0].state).to eq("CA")
+    expect(subject.admin_contacts[0].country_code).to eq("US")
+    expect(subject.admin_contacts[0].phone).to eq("+1.6502530000")
+    expect(subject.admin_contacts[0].fax).to eq("")
+    expect(subject.admin_contacts[0].email).to eq("dns-admin@google.com")
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts.size).to eq(1)
+    expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
+    expect(subject.technical_contacts[0].id).to eq("59969161-CIRA")
+    expect(subject.technical_contacts[0].name).to eq("Lauren Johnston")
+    expect(subject.technical_contacts[0].organization).to eq("Google LLC")
+    expect(subject.technical_contacts[0].address).to eq("1600 Amphitheatre Parkway")
+    expect(subject.technical_contacts[0].city).to eq("Mountain View")
+    expect(subject.technical_contacts[0].zip).to eq("94043")
+    expect(subject.technical_contacts[0].state).to eq("CA")
+    expect(subject.technical_contacts[0].country_code).to eq("US")
+    expect(subject.technical_contacts[0].phone).to eq("+1.6502530000")
+    expect(subject.technical_contacts[0].fax).to eq("")
+    expect(subject.technical_contacts[0].email).to eq("dns-admin@google.com")
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(4)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns1.google.com")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns2.google.com")
+    expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[2].name).to eq("ns3.google.com")
+    expect(subject.nameservers[3]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[3].name).to eq("ns4.google.com")
   end
 end

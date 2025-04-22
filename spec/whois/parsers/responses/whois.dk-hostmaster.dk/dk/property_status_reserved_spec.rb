@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.dk-hostmaster.dk.rb'
 
-describe Whois::Parsers::WhoisDkHostmasterDk, "property_status_reserved.expected" do
+describe "whois.dk-hostmaster.dk", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.dk-hostmaster.dk/dk/property_status_reserved.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.dk-hostmaster.dk")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:reserved)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
+  it "matches property_status_reserved.expected" do
+    expect(subject.status).to eq(:reserved)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
   end
 end

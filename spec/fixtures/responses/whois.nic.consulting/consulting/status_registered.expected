@@ -1,0 +1,30 @@
+#status
+  %s == ["clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited", "clientRenewProhibited https://icann.org/epp#clientRenewProhibited","clientTransferProhibited https://icann.org/epp#clientTransferProhibited", "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"]
+
+#available?
+  %s == false
+
+#registered?
+  %s == true
+
+
+#created_on
+  %s %CLASS{time}
+  %s %TIME{2023-02-15T01:47:04Z}
+
+#updated_on
+  %s %CLASS{time}
+  %s %TIME{2024-07-14T03:59:16Z}
+
+#expires_on
+  %s %CLASS{time}
+  %s %TIME{2025-02-15T01:47:04Z}
+
+
+#nameservers
+  %s %CLASS{array}
+  %s %SIZE{2}
+  %s[0] %CLASS{nameserver}
+  %s[0].name == "ns25.domaincontrol.com"
+  %s[1] %CLASS{nameserver}
+  %s[1].name == "ns26.domaincontrol.com"

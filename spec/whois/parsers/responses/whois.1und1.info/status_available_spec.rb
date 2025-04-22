@@ -9,83 +9,32 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.1und1.info.rb'
 
-describe Whois::Parsers::Whois1und1Info, "status_available.expected" do
+describe "whois.1und1.info", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.1und1.info/status_available.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.1und1.info")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq(nil)
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect(subject.domain_id).to eq(nil)
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:available)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(true)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(nil)
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to eq(nil)
-    end
-  end
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts).to eq([])
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts).to eq([])
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts).to eq([])
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers).to eq([])
-    end
+  it "matches status_available.expected" do
+    expect(subject.domain).to eq("u34jedzcq.com")
+    expect(subject.domain_id).to eq(nil)
+    expect(subject.status).to eq(:available)
+    expect(subject.available?).to eq(true)
+    expect(subject.registered?).to eq(false)
+    expect(subject.created_on).to eq(nil)
+    expect(subject.updated_on).to eq(nil)
+    expect(subject.expires_on).to eq(nil)
+    expect(subject.registrar).to eq(nil)
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts).to eq([])
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts).to eq([])
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts).to eq([])
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers).to eq([])
   end
 end

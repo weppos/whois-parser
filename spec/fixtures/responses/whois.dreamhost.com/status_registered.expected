@@ -25,7 +25,6 @@
   %s %CLASS{registrar}
   %s.id           == "431"
   %s.name         == "DREAMHOST"
-  %s.organization == "DREAMHOST"
   %s.url          == "www.dreamhost.com"
 
 #registrant_contacts

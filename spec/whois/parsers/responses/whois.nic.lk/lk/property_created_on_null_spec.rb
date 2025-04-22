@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.lk.rb'
 
-describe Whois::Parsers::WhoisNicLk, "property_created_on_null.expected" do
+describe "whois.nic.lk", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.lk/lk/property_created_on_null.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.lk")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(nil)
-    end
+  it "matches property_created_on_null.expected" do
+    expect(subject.created_on).to eq(nil)
   end
 end

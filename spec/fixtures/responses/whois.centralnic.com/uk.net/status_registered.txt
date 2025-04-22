@@ -1,76 +1,39 @@
-Domain ID:CNIC-DO393884
-Domain Name:PARAMOUNT.UK.NET
-Created On:2006-02-28T12:17:01.0Z
-Last Updated On:2013-04-03T12:59:45.0Z
-Expiration Date:2014-02-28T23:59:59.0Z
-Status:ok
-Registrant ID:MNT60424953041
-Registrant Name:Identity Protection Service
-Registrant Organization:Identity Protect Limited
-Registrant Street1:PO Box 795
-Registrant City:Godalming
-Registrant State/Province:Surrey
-Registrant Postal Code:GU7 9GA
-Registrant Country:GB
-Registrant Phone:+44.1483307527
-Registrant FAX:+44.1483304031
-Registrant Email:paramount.uk.net@identity-protect.org
-Admin ID:MNT60424953041
-Admin Name:Identity Protection Service
-Admin Organization:Identity Protect Limited
-Admin Street1:PO Box 795
-Admin City:Godalming
-Admin State/Province:Surrey
-Admin Postal Code:GU7 9GA
-Admin Country:GB
-Admin Phone:+44.1483307527
-Admin FAX:+44.1483304031
-Admin Email:paramount.uk.net@identity-protect.org
-Tech ID:MNT60424953041
-Tech Name:Identity Protection Service
-Tech Organization:Identity Protect Limited
-Tech Street1:PO Box 795
-Tech City:Godalming
-Tech State/Province:Surrey
-Tech Postal Code:GU7 9GA
-Tech Country:GB
-Tech Phone:+44.1483307527
-Tech FAX:+44.1483304031
-Tech Email:paramount.uk.net@identity-protect.org
-Billing ID:MNT60424953041
-Billing Name:Identity Protection Service
-Billing Organization:Identity Protect Limited
-Billing Street1:PO Box 795
-Billing City:Godalming
-Billing State/Province:Surrey
-Billing Postal Code:GU7 9GA
-Billing Country:GB
-Billing Phone:+44.1483307527
-Billing FAX:+44.1483304031
-Billing Email:paramount.uk.net@identity-protect.org
-Sponsoring Registrar ID:I6467
-Sponsoring Registrar IANA ID:1515
-Sponsoring Registrar Organization:Webfusion
-Sponsoring Registrar Street1:5 Roundwood Avenue
-Sponsoring Registrar Street2:Stockley Park
-Sponsoring Registrar City:Uxbridge
-Sponsoring Registrar State/Province:Middlesex
-Sponsoring Registrar Postal Code:UB11 1FF
-Sponsoring Registrar Country:GB
-Sponsoring Registrar Phone:0845 859 0018
-Sponsoring Registrar FAX:08701 650437
-Sponsoring Registrar Website:http://www.123-reg.co.uk/domain-names/
-Name Server:NS1.MYHOSTCP.COM
-Name Server:NS2.MYHOSTCP.COM
-DNSSEC:Unsigned
+Domain Name: PARAMOUNT.UK.NET
+Registry Domain ID: D123061216-CNIC
+Registrar WHOIS Server: whois.tldregistrarsolutions.com
+Registrar URL: http://www.tldregistrarsolutions.com
+Updated Date: 2021-08-12T04:46:26.0Z
+Creation Date: 2019-09-03T15:47:37.0Z
+Registry Expiry Date: 2022-09-03T23:59:59.0Z
+Registrar: TLD Registrar Solutions Ltd
+Registrar IANA ID: 1564
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Registrant Email: https://whois.centralnic.com/contact/paramount.uk.net/registrant
+Admin Email: https://whois.centralnic.com/contact/paramount.uk.net/admin
+Tech Email: https://whois.centralnic.com/contact/paramount.uk.net/tech
+Name Server: NS1.GSGP1001.SITEGROUND.ASIA
+Name Server: NS2.GSGP1001.SITEGROUND.ASIA
+DNSSEC: unsigned
+Billing Email: https://whois.centralnic.com/contact/paramount.uk.net/billing
+Registrar Abuse Contact Email: abuse@tldregistrarsolutions.com
+Registrar Abuse Contact Phone: +1.5167401179
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-12-15T17:11:16.0Z <<<
 
-This whois service is provided by CentralNic Ltd and only contains
-information pertaining to Internet domain names we have registered for
+For more information on Whois status codes, please visit https://icann.org/epp
+
+>>> IMPORTANT INFORMATION ABOUT THE DEPLOYMENT OF RDAP: please visit
+https://www.centralnic.com/support/rdap <<<
+
+The Whois and RDAP services are provided by CentralNic, and contain
+information pertaining to Internet domain names registered by our
 our customers. By using this service you are agreeing (1) not to use any
 information presented here for any purpose other than determining
-ownership of domain names, (2) not to store or reproduce this data in 
+ownership of domain names, (2) not to store or reproduce this data in
 any way, (3) not to use any high-volume, automated, electronic processes
 to obtain data from this service. Abuse of this service is monitored and
 actions in contravention of these terms will result in being permanently
-blacklisted. All data is (c) CentralNic Ltd https://www.centralnic.com/
+blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com)
 
+Access to the Whois and RDAP services is rate limited. For more
+information, visit https://registrar-console.centralnic.com/pub/whois_guidance.

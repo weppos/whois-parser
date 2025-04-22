@@ -1,12 +1,12 @@
 #disclaimer
-  %s == "Use of CIRA's WHOIS service is governed by the Terms of Use in its Legal\nNotice, available at http://www.cira.ca/legal-notice/?lang=en\n\n(c) 2014 Canadian Internet Registration Authority, (http://www.cira.ca/)"
+  %s == "Use of CIRA's WHOIS service is governed by the Terms of Use in its Legal Notice, available at http://www.cira.ca/legal-notice/?lang=en (c) 2021 Canadian Internet Registration Authority, (http://www.cira.ca/)"
 
 
 #domain
   %s == "u34jedzcq.ca"
 
 #domain_id
-  %s %ERROR{AttributeNotSupported}
+  %s == nil
 
 
 #status
@@ -48,10 +48,3 @@
 #nameservers
   %s %CLASS{array}
   %s == []
-
-
-#valid?
-  %s == true
-
-#invalid?
-  %s == false

@@ -70,10 +70,8 @@ module Whois
       property_supported :registrar do
         node("registrar") do |raw|
           Parser::Registrar.new(
-            :id           => nil,
-            :name         => node("registrar"),
-            :organization => nil,
-            :url          => node("url")
+            name: node("registrar"),
+            url:  node("url")
           )
         end
       end

@@ -84,7 +84,6 @@ module Whois
         node('Registrar') do |hash|
           Parser::Registrar.new(
             name:         hash['name'],
-            organization: hash['name'],
             url:          hash['url']
           )
         end
@@ -105,7 +104,7 @@ module Whois
 
       property_supported :nameservers do
         node('Name servers') do |hash|
-          Array.wrap(hash['nserver']).map do |name|
+          Array(hash['nserver']).map do |name|
             Parser::Nameserver.new(name: name.downcase)
           end
         end
@@ -116,14 +115,14 @@ module Whois
 
       def build_contact(element, type)
         node(element) do |hash|
-          el_size = Array.wrap(hash['name']).size
+          el_size = Array(hash['name']).size
 
           (0...el_size).map do |i|
             Parser::Contact.new(
               type:       type,
-              name:       Array.wrap(hash['name'])[i],
-              email:      Array.wrap(hash['email'])[i],
-              updated_on: parse_time(Array.wrap(hash['changed'])[i])
+              name:       Array(hash['name'])[i],
+              email:      Array(hash['email'])[i],
+              updated_on: parse_time(Array(hash['changed'])[i])
             )
           end
         end

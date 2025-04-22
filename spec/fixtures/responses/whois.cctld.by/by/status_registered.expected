@@ -36,7 +36,6 @@
   %s %CLASS{registrar}
   %s.id           == "Active Technologies LLC"
   %s.name         == "Active Technologies LLC"
-  %s.organization == "Active Technologies LLC"
 
 #registrant_contacts
   %s %ERROR{AttributeNotSupported}

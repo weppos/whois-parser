@@ -1,5 +1,5 @@
 #disclaimer
-  %s == "More information is available at https://domain.fi/\nCopyright (c) Finnish Communications Regulatory Authority"
+  %s == "Copyright (c) Finnish Transport and Communications Agency Traficom"
 
 
 #domain
@@ -30,17 +30,18 @@
 
 
 #registrar
-  %s %ERROR{AttributeNotSupported}
+  %s == nil
 
 #registrant_contacts
+  %s %ERROR{AttributeNotSupported}
+
+#admin_contacts
   %s %CLASS{array}
   %s == []
 
-#admin_contacts
-  %s %ERROR{AttributeNotSupported}
-
 #technical_contacts
-  %s %ERROR{AttributeNotSupported}
+  %s %CLASS{array}
+  %s == []
 
 
 #nameservers

@@ -14,7 +14,7 @@
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2005-08-15 12:15:10}
+  %s %TIME{2005-08-15 12:15:10 BST}
 
 #expires_on
   %s %ERROR{AttributeNotSupported}

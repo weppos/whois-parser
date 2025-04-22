@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == "440"
   %s.name         == "Wild West Domains, LLC"
-  %s.organization == "Wild West Domains, LLC"
   %s.url          == "http://www.wildwestdomains.com"
 
 

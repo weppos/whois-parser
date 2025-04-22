@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "Key-Systems"
-  %s.organization == nil
   %s.url          == "http://www.key-systems.net"
 
 

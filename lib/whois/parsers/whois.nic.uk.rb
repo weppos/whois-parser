@@ -149,7 +149,7 @@ module Whois
       #   and will be replenished in 50 seconds.
       #
       def response_throttled?
-        !!(content_for_scanner =~ /The WHOIS query quota for .+ has been exceeded/)
+        !!(content_for_scanner =~ /the WHOIS query quota for .+ has been exceeded/i)
       end
 
 

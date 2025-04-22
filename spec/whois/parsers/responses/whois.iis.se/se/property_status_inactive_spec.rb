@@ -9,68 +9,29 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.iis.se.rb'
 
-describe Whois::Parsers::WhoisIisSe, "property_status_inactive.expected" do
+describe "whois.iis.se", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.iis.se/se/property_status_inactive.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.iis.se")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(Time.parse("2000-11-01"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(Time.parse("2006-04-18"))
-    end
-  end
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts).to eq([])
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts).to eq([])
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts).to eq([])
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.name).to eq("CoreRegistry")
-    end
+  it "matches property_status_inactive.expected" do
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to eq(DateTime.parse("2000-11-01"))
+    expect(subject.updated_on).to eq(nil)
+    expect(subject.expires_on).to eq(DateTime.parse("2006-04-18"))
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts).to eq([])
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts).to eq([])
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts).to eq([])
+    expect(subject.registrar).to be_a(Whois::Parser::Registrar)
+    expect(subject.registrar.name).to eq("CoreRegistry")
   end
 end

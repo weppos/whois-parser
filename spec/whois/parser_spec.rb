@@ -8,19 +8,20 @@ describe Whois::Parser do
 
 
   describe ".parser_for" do
-    it "returns the blank parser if the parser doesn't exist" do
-      expect(described_class.parser_for(Whois::Record::Part.new(host: "whois.missing.test")).class.name).to eq("Whois::Parsers::Blank")
-      expect(described_class.parser_for(Whois::Record::Part.new(host: "216.157.192.3")).class.name).to eq("Whois::Parsers::Blank")
+    it "simply instanciate the parser class returned by .parser_klass" do
+      expect(described_class.parser_for(Whois::Record::Part.new(host: "whois.missing.test"))).to be_a(Whois::Parsers::Blank)
+      expect(described_class.parser_for(Whois::Record::Part.new(host: "216.157.192.3"))).to be_a(Whois::Parsers::Blank)
+      expect(described_class.parser_for(Whois::Record::Part.new(host: "whois.nic.it"))).to be_a(Whois::Parsers::WhoisNicIt)
     end
   end
 
   describe ".parser_klass" do
     it "returns the parser hostname converted into a class" do
-      expect(described_class.parser_klass("whois.verisign-grs.com").name).to eq("Whois::Parsers::WhoisVerisignGrsCom")
+      expect(described_class.parser_klass(Whois::Record::Part.new(host: "whois.verisign-grs.com")).name).to eq("Whois::Parsers::WhoisVerisignGrsCom")
     end
 
     it "recognizes and lazy-loads classes" do
-      expect(described_class.parser_klass("whois.nic.it").name).to eq("Whois::Parsers::WhoisNicIt")
+      expect(described_class.parser_klass(Whois::Record::Part.new(host: "whois.nic.it"))).to eq(Whois::Parsers::WhoisNicIt)
     end
 
     it "recognizes preloaded classes" do
@@ -28,11 +29,15 @@ describe Whois::Parser do
         class PreloadedParserTest
         end
       RUBY
-      expect(described_class.parser_klass("preloaded.parser.test").name).to eq("Whois::Parsers::PreloadedParserTest")
+      expect(described_class.parser_klass(Whois::Record::Part.new(host: "preloaded.parser.test"))).to eq(Whois::Parsers::PreloadedParserTest)
     end
 
-    it "raises LoadError if the parser doesn't exist" do
-      expect { described_class.parser_klass("whois.missing.test") }.to raise_error(LoadError)
+    it "returns the DonutsInc parser if the parser doesn't exist and the body contains Donuts disclaimer" do
+      expect(described_class.parser_klass(Whois::Record::Part.new(host: "whois.nic.domains", body: "Terms of Use: Identity Digital Inc."))).to eq(Whois::Parsers::DonutsInc)
+    end
+
+    it "returns the blank parser if the parser doesn't exist" do
+      expect(described_class.parser_klass(Whois::Record::Part.new(host: "whois.missing.test"))).to eq(Whois::Parsers::Blank)
     end
   end
 

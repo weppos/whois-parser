@@ -54,7 +54,7 @@ module Whois
           if target[key].nil?
             target[key] = value
           else
-            target[key] = Array.wrap(target[key])
+            target[key] = Array(target[key])
             target[key] << value
           end
         end
@@ -84,7 +84,7 @@ module Whois
           if results[key].nil?
             results[key] = value
           else
-            results[key] = Array.wrap(results[key])
+            results[key] = Array(results[key])
             results[key] << value
           end
         end

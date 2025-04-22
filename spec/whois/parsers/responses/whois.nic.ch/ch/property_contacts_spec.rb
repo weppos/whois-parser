@@ -9,37 +9,26 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.ch.rb'
 
-describe Whois::Parsers::WhoisNicCh, "property_contacts.expected" do
+describe "whois.nic.ch", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.ch/ch/property_contacts.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.ch")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].name).to eq("EISD John")
-      expect(subject.registrant_contacts[0].address).to eq("Room 208, Furong Road, Changsha City\nCN-41000 Changsha\nChina")
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts.size).to eq(1)
-      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.technical_contacts[0].name).to eq("xie huijie")
-      expect(subject.technical_contacts[0].address).to eq("xie huijie\nNo95.Lane768.Ruili Road.Minhang District\nCN-200240 shanghai\nChina")
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect { subject.admin_contacts }.to raise_error(Whois::AttributeNotSupported)
-    end
+  it "matches property_contacts.expected" do
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts.size).to eq(1)
+    expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.registrant_contacts[0].name).to eq("EISD John")
+    expect(subject.registrant_contacts[0].address).to eq("Room 208, Furong Road, Changsha City\nCN-41000 Changsha\nChina")
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts.size).to eq(1)
+    expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.technical_contacts[0].name).to eq("xie huijie")
+    expect(subject.technical_contacts[0].address).to eq("xie huijie\nNo95.Lane768.Ruili Road.Minhang District\nCN-200240 shanghai\nChina")
+    expect { subject.admin_contacts }.to raise_error(Whois::AttributeNotSupported)
   end
 end

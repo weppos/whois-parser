@@ -48,7 +48,7 @@ module Whois
 
       property_supported :created_on do
         if content_for_scanner =~ /Creation Date:\s+(.+)\n/
-          parse_time(::Regexp.last_match(1))
+          DateTime.strptime(::Regexp.last_match(1), "%d/%m/%y").to_time
         end
       end
 
@@ -56,16 +56,13 @@ module Whois
 
       property_supported :expires_on do
         if content_for_scanner =~ /Expiration Date:\s+(.+)\n/
-          parse_time(::Regexp.last_match(1))
+          DateTime.strptime(::Regexp.last_match(1), "%d/%m/%y").to_time
         end
       end
 
 
       property_supported :registrar do
-        Parser::Registrar.new(
-            :name         => 'ES-NIC',
-            :organization => 'ES-NIC Delegated Internet Registry for Spain'
-        )
+        Parser::Registrar.new(name: 'ES-NIC')
       end
 
 
@@ -73,17 +70,7 @@ module Whois
         if content_for_scanner =~ /Registrant Name:\s+(.+)\n/
           Parser::Contact.new(
               type:         Parser::Contact::TYPE_REGISTRANT,
-              id:           nil,
               name:         ::Regexp.last_match(1).to_s.strip,
-              organization: nil,
-              address:      nil,
-              city:         nil,
-              zip:          nil,
-              state:        nil,
-              country:      nil,
-              phone:        nil,
-              fax:          nil,
-              email:        nil
           )
         end
       end

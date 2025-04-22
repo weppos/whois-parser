@@ -7,34 +7,19 @@
 #++
 
 
-require_relative 'base_afilias2'
+require_relative 'base_icann_compliant'
 
 
 module Whois
   class Parsers
 
     # Parser for the whois.nic.xxx server.
-    class WhoisNicXxx < BaseAfilias2
+    class WhoisNicXxx < BaseIcannCompliant
 
-      self.scanner = Scanners::BaseAfilias, {
-          pattern_disclaimer: /^Access to/,
-          pattern_reserved: /^Reserved by ICM Registry\n/,
+      self.scanner = Scanners::BaseIcannCompliant, {
+          pattern_available: /^No Data Found/,
+          pattern_reserved: /^Reserved Domain Name\n/, # reserved: a.xxx
       }
-
-
-      property_supported :status do
-        if reserved?
-          :reserved
-        else
-          super()
-        end
-      end
-
-
-      # NEWPROPERTY
-      def reserved?
-        !!node("status:reserved")
-      end
 
     end
 

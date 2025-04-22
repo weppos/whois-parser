@@ -23,38 +23,31 @@ namespace :spec do
 #
 
 require 'spec_helper'
-require 'whois/parsers/%{khost}.rb'
 
-describe %{described_class}, "%{descr}" do
+describe "%{khost}", :aggregate_failures do
 
   subject do
     file = fixture("responses", "%{fixture}")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "%{khost}")
+    Whois::Parser.parser_for(part)
   end
 
-%{contexts}
+  it "matches %{descr}" do
+%{matches}
+  end
 end
   RUBY
 
-  TPL_CONTEXT = <<-RUBY.chomp!
-  describe "#%{descr}" do
-    it do
-%{examples}
-    end
-  end
-  RUBY
-
   TPL_MATCH = <<-RUBY.chomp!
-      expect(subject.%{attribute}).to %{match}
+    expect(subject.%{attribute}).to %{match}
   RUBY
 
   TPL_MATCH_SIZE = <<-RUBY.chomp!
-      expect(subject.%{attribute}.size).to eq(%{size})
+    expect(subject.%{attribute}.size).to eq(%{size})
   RUBY
 
   TPL_MATCH_RAISE = <<-RUBY.chomp!
-      expect { subject.%{attribute} }.to %{match}
+    expect { subject.%{attribute} }.to %{match}
   RUBY
 
   def relativize(path)
@@ -71,7 +64,6 @@ end
       parts = (source_path.split("/") - SOURCE_PARTS)
       khost = parts.first
       kfile = parts.last
-      described_class = Whois::Parser.parser_klass(khost)
 
       target_path = File.join(TARGET_DIR, *parts).gsub(".expected", "_spec.rb")
 
@@ -109,8 +101,8 @@ end
 
       # Generate the RSpec content and
       # write one file for every test.
-      contexts = tests.map do |attr, specs|
-        matches = specs.map do |method, condition|
+      matches = tests.flat_map do |attr, specs|
+        specs.map do |method, condition|
           attribute = method % attr
           case condition
           when /raise_error/
@@ -120,12 +112,17 @@ end
           else
             format(TPL_MATCH, attribute: attribute, match: condition)
           end
-        end.join("\n")
-        format(TPL_CONTEXT, descr: attr, examples: matches)
+        end
       end.join("\n")
 
       describe = <<-RUBY
-#{format(TPL_DESCRIBE, :described_class => described_class, :khost => khost, :descr => kfile, :sfile => relativize(source_path), :fixture => parts.join('/').gsub('.expected', '.txt'), :contexts => contexts)}
+#{TPL_DESCRIBE % {
+  :khost            => khost,
+  :descr            => kfile,
+  :sfile            => relativize(source_path),
+  :fixture          => parts.join("/").gsub(".expected", ".txt"),
+  :matches          => matches
+}}
       RUBY
 
       print "Generating #{relativize(target_path)}... "
@@ -147,9 +144,11 @@ end
     when c =~ /^%CLASS\{(.+)\}$/
       c = "be_a(#{_build_condition_typeof(Regexp.last_match(1))})"
 
-    # %s %TIME{...} -> %s Time.parse(...)
+    # DateTime is better than Time here because it doesn't take local timezone into account (UTC by default)
+    # and also parses timezones better (e.g. CET, JST, BST, etc..) at the end of the string
+    # %s %TIME{...} -> %s DateTime.parse(...)
     when c =~ /^%TIME\{(.+)\}$/
-      c = "eq(Time.parse(\"#{Regexp.last_match(1)}\"))"
+      c = "eq(DateTime.parse(\"#{Regexp.last_match(1)}\"))"
 
     # %s %ERROR{...} -> %s raise_error(...)
     when c =~ /^%ERROR\{(.+)\}$/

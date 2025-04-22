@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "whois", ">= 4.1.0"
   s.add_dependency "activesupport", ">= 4"
+  s.add_dependency "ostruct"
 
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec"

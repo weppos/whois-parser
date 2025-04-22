@@ -25,11 +25,6 @@ module Whois
           pattern_throttled: /^You have exceeded your quota of queries\./,
       }
 
-
-      def response_throttled?
-        !!node("response:throttled")
-      end
-
     end
 
   end

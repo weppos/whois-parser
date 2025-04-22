@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.verisign-grs.com.rb'
 
-describe Whois::Parsers::WhoisVerisignGrsCom, "response_unavailable.expected" do
+describe "whois.verisign-grs.com", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.verisign-grs.com/response_unavailable.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.verisign-grs.com")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#response_unavailable?" do
-    it do
-      expect(subject.response_unavailable?).to eq(true)
-    end
+  it "matches response_unavailable.expected" do
+    expect(subject.response_unavailable?).to eq(true)
   end
 end

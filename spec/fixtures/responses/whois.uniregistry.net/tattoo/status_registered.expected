@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == "9999"
   %s.name         == "Uniregistry, Corp."
-  %s.organization == "Uniregistry, Corp."
   %s.url          == nil
 
 

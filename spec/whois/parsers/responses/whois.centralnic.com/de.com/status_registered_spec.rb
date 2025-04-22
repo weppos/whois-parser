@@ -9,145 +9,54 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.centralnic.com.rb'
 
-describe Whois::Parsers::WhoisCentralnicCom, "status_registered.expected" do
+describe "whois.centralnic.com", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.centralnic.com/de.com/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.centralnic.com")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#disclaimer" do
-    it do
-      expect(subject.disclaimer).to eq("This whois service is provided by CentralNic Ltd and only contains information pertaining to Internet domain names we have registered for our customers. By using this service you are agreeing (1) not to use any information presented here for any purpose other than determining ownership of domain names, (2) not to store or reproduce this data in any way, (3) not to use any high-volume, automated, electronic processes to obtain data from this service. Abuse of this service is monitored and actions in contravention of these terms will result in being permanently blacklisted. All data is (c) CentralNic Ltd https://www.centralnic.com/")
-    end
-  end
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq("autopoint.de.com")
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect(subject.domain_id).to eq("CNIC-DO578833")
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(["clientTransferProhibited", "serverTransferProhibited"])
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2008-07-04 20:30:08 UTC"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2013-07-12 10:03:56 UTC"))
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-07-04 23:59:59 UTC"))
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("H67436")
-      expect(subject.registrar.name).to eq(nil)
-      expect(subject.registrar.organization).to eq("united-domains AG")
-      expect(subject.registrar.url).to eq("http://www.united-domains.de")
-    end
-  end
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts.size).to eq(1)
-      expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("H1102323")
-      expect(subject.registrant_contacts[0].name).to eq("Stefan Von Gehlen")
-      expect(subject.registrant_contacts[0].organization).to eq(nil)
-      expect(subject.registrant_contacts[0].address).to eq("Muelgaustr. 292-294, Moenchengladbach")
-      expect(subject.registrant_contacts[0].city).to eq(nil)
-      expect(subject.registrant_contacts[0].zip).to eq("41238")
-      expect(subject.registrant_contacts[0].state).to eq(nil)
-      expect(subject.registrant_contacts[0].country).to eq(nil)
-      expect(subject.registrant_contacts[0].country_code).to eq("DE")
-      expect(subject.registrant_contacts[0].phone).to eq("+49.2166120626")
-      expect(subject.registrant_contacts[0].fax).to eq(nil)
-      expect(subject.registrant_contacts[0].email).to eq("s.vongehlen@arcor.de")
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts.size).to eq(1)
-      expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq("H402505")
-      expect(subject.admin_contacts[0].name).to eq("Stefan Von Gehlen")
-      expect(subject.admin_contacts[0].organization).to eq(nil)
-      expect(subject.admin_contacts[0].address).to eq("Muelgaustr. 292-294, Moenchengladbach")
-      expect(subject.admin_contacts[0].city).to eq(nil)
-      expect(subject.admin_contacts[0].zip).to eq("41238")
-      expect(subject.admin_contacts[0].state).to eq(nil)
-      expect(subject.admin_contacts[0].country).to eq(nil)
-      expect(subject.admin_contacts[0].country_code).to eq("DE")
-      expect(subject.admin_contacts[0].phone).to eq("+49.2166120626")
-      expect(subject.admin_contacts[0].fax).to eq(nil)
-      expect(subject.admin_contacts[0].email).to eq("s.vongehlen@arcor.de")
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts.size).to eq(1)
-      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq("C-UHM65D7-TJGULR")
-      expect(subject.technical_contacts[0].name).to eq("Host Master")
-      expect(subject.technical_contacts[0].organization).to eq("united-domains AG")
-      expect(subject.technical_contacts[0].address).to eq("Gautinger Str. 10")
-      expect(subject.technical_contacts[0].city).to eq("Starnberg")
-      expect(subject.technical_contacts[0].zip).to eq("82319")
-      expect(subject.technical_contacts[0].state).to eq("Bayern")
-      expect(subject.technical_contacts[0].country).to eq(nil)
-      expect(subject.technical_contacts[0].country_code).to eq("DE")
-      expect(subject.technical_contacts[0].phone).to eq("+49.8151368670")
-      expect(subject.technical_contacts[0].fax).to eq("+49.81513686777")
-      expect(subject.technical_contacts[0].email).to eq("hostmaster@united-domains.de")
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(2)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns.udagdns.net")
-      expect(subject.nameservers[0].ipv4).to eq(nil)
-      expect(subject.nameservers[0].ipv6).to eq(nil)
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns.udagdns.de")
-      expect(subject.nameservers[1].ipv4).to eq(nil)
-      expect(subject.nameservers[1].ipv6).to eq(nil)
-    end
+  it "matches status_registered.expected" do
+    expect(subject.disclaimer).to eq("The Whois and RDAP services are provided by CentralNic, and contain information pertaining to Internet domain names registered by our our customers. By using this service you are agreeing (1) not to use any information presented here for any purpose other than determining ownership of domain names, (2) not to store or reproduce this data in any way, (3) not to use any high-volume, automated, electronic processes to obtain data from this service. Abuse of this service is monitored and actions in contravention of these terms will result in being permanently blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com) Access to the Whois and RDAP services is rate limited. For more information, visit https://registrar-console.centralnic.com/pub/whois_guidance.")
+    expect(subject.domain).to eq("autopoint.de.com")
+    expect(subject.domain_id).to eq("D578833-CNIC")
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2008-07-04 20:30:08 UTC"))
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2021-11-11 15:12:54 UTC"))
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2022-07-04 23:59:59 UTC"))
+    expect(subject.registrar).to be_a(Whois::Parser::Registrar)
+    expect(subject.registrar.id).to eq("1408")
+    expect(subject.registrar.name).to eq("united-domains AG")
+    expect(subject.registrar.url).to eq("https://www.united-domains.de/")
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts.size).to eq(1)
+    expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
+    expect(subject.registrant_contacts[0].email).to eq("https://whois.centralnic.com/contact/autopoint.de.com/registrant")
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts.size).to eq(1)
+    expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+    expect(subject.admin_contacts[0].email).to eq("https://whois.centralnic.com/contact/autopoint.de.com/admin")
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts.size).to eq(1)
+    expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
+    expect(subject.technical_contacts[0].email).to eq("https://whois.centralnic.com/contact/autopoint.de.com/tech")
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(3)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns.udag.org")
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns.udag.de")
+    expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[2].name).to eq("ns.udag.net")
   end
 end

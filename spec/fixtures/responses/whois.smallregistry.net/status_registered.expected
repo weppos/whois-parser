@@ -36,7 +36,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "GOOGLE"
-  %s.organization == "GOOGLE"
   %s.url          == "http://www.google.com"
 
 #registrant_contacts

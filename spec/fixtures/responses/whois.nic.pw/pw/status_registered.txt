@@ -1,85 +1,40 @@
-Domain ID:CNIC-DO949924
-Domain Name:GOOGLE.PW
-Created On:2012-10-12T10:19:46.0Z
-Last Updated On:2014-01-18T00:13:36.0Z
-Expiration Date:2017-02-10T23:59:59.0Z
-Status:clientTransferProhibited
-Status:clientUpdateProhibited
-Status:clientDeleteProhibited
-Status:serverTransferProhibited
-Registrant ID:H2396041
-Registrant Name:DNS Admin - Google Inc
-Registrant Organization:Google Inc
-Registrant Street1:1600 Amphitheatre Parkway
-Registrant City:Mountain View
-Registrant State/Province:CA
-Registrant Postal Code:94043
-Registrant Country:US
-Registrant Phone:+1.6502530000
-Registrant FAX:+1.6502530001
-Registrant Email:dns-admin@google.com
-Admin ID:H2396041
-Admin Name:DNS Admin - Google Inc
-Admin Organization:Google Inc
-Admin Street1:1600 Amphitheatre Parkway
-Admin City:Mountain View
-Admin State/Province:CA
-Admin Postal Code:94043
-Admin Country:US
-Admin Phone:+1.6502530000
-Admin FAX:+1.6502530001
-Admin Email:dns-admin@google.com
-Tech ID:H2396041
-Tech Name:DNS Admin - Google Inc
-Tech Organization:Google Inc
-Tech Street1:1600 Amphitheatre Parkway
-Tech City:Mountain View
-Tech State/Province:CA
-Tech Postal Code:94043
-Tech Country:US
-Tech Phone:+1.6502530000
-Tech FAX:+1.6502530001
-Tech Email:dns-admin@google.com
-Billing ID:7061-EM
-Billing Name:Domain Administrator
-Billing Organization:MarkMonitor, Inc.
-Billing Street1:Emerald Tech Center
-Billing Street2:391 N. Ancestor Place
-Billing City:Boise
-Billing State/Province:ID
-Billing Postal Code:83704
-Billing Country:US
-Billing Phone:+1.2083895740
-Billing FAX:+1.2083895771
-Billing Email:ccops@markmonitor.com
-Sponsoring Registrar ID:7061-EM
-Sponsoring Registrar IANA ID:292
-Sponsoring Registrar Organization:MarkMonitor, Inc.
-Sponsoring Registrar Street1:Emerald Tech Center
-Sponsoring Registrar Street2:391 N. Ancestor Place
-Sponsoring Registrar City:Boise
-Sponsoring Registrar State/Province:ID
-Sponsoring Registrar Postal Code:83704
-Sponsoring Registrar Country:US
-Sponsoring Registrar Phone:+1.2083895740
-Sponsoring Registrar FAX:+1.2083895771
-Sponsoring Registrar Website:http://www.markmonitor.com/
-Name Server:NS1.MARKMONITOR.COM
-Name Server:NS2.MARKMONITOR.COM
-Name Server:NS3.MARKMONITOR.COM
-Name Server:NS4.MARKMONITOR.COM
-Name Server:NS5.MARKMONITOR.COM
-Name Server:NS6.MARKMONITOR.COM
-Name Server:NS7.MARKMONITOR.COM
-DNSSEC:Unsigned
+Domain Name: GOOGLE.PW
+Registry Domain ID: D949924-CNIC
+Registrar WHOIS Server: whois.markmonitor.com
+Registrar URL:
+Updated Date: 2021-02-04T15:18:38.0Z
+Creation Date: 2012-10-12T10:19:46.0Z
+Registry Expiry Date: 2022-02-10T23:59:59.0Z
+Registrar: MarkMonitor, Inc.
+Registrar IANA ID: 292
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+Domain Status: inactive https://icann.org/epp#inactive
+Registrant Email: https://whois.nic.pw/contact/google.pw/registrant
+Admin Email: https://whois.nic.pw/contact/google.pw/admin
+Tech Email: https://whois.nic.pw/contact/google.pw/tech
+Name Server:
+DNSSEC: unsigned
+Registrar Abuse Contact Email: ccops@markmonitor.com
+Registrar Abuse Contact Phone: +1.2083895740
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-12-16T10:47:36.0Z <<<
 
-This whois service is provided by CentralNic Ltd and only contains
-information pertaining to Internet domain names we have registered for
+For more information on Whois status codes, please visit https://icann.org/epp
+
+>>> IMPORTANT INFORMATION ABOUT THE DEPLOYMENT OF RDAP: please visit
+https://www.centralnic.com/support/rdap <<<
+
+The Whois and RDAP services are provided by CentralNic, and contain
+information pertaining to Internet domain names registered by our
 our customers. By using this service you are agreeing (1) not to use any
 information presented here for any purpose other than determining
-ownership of domain names, (2) not to store or reproduce this data in 
+ownership of domain names, (2) not to store or reproduce this data in
 any way, (3) not to use any high-volume, automated, electronic processes
 to obtain data from this service. Abuse of this service is monitored and
 actions in contravention of these terms will result in being permanently
-blacklisted. All data is (c) CentralNic Ltd https://www.centralnic.com/
+blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com)
 
+Access to the Whois and RDAP services is rate limited. For more
+information, visit https://registrar-console.centralnic.com/pub/whois_guidance.

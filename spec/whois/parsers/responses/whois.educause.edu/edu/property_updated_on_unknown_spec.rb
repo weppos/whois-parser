@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.educause.edu.rb'
 
-describe Whois::Parsers::WhoisEducauseEdu, "property_updated_on_unknown.expected" do
+describe "whois.educause.edu", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.educause.edu/edu/property_updated_on_unknown.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.educause.edu")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
+  it "matches property_updated_on_unknown.expected" do
+    expect(subject.updated_on).to eq(nil)
   end
 end

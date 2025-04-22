@@ -36,7 +36,6 @@
   %s %CLASS{registrar}
   %s.id           == "292"
   %s.name         == "MARKMONITOR INC."
-  %s.organization == nil
   %s.url          == "http://www.markmonitor.com"
 
 

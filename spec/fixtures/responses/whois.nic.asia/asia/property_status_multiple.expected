@@ -1,5 +1,5 @@
 #status
-  %s == ["CLIENT DELETE PROHIBITED", "CLIENT TRANSFER PROHIBITED"]
+  %s == ["clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited", "clientTransferProhibited https://icann.org/epp#clientTransferProhibited"]
 
 #available?
   %s == false

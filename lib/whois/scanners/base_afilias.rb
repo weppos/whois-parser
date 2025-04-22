@@ -17,7 +17,7 @@ module Whois
 
 
       tokenizer :scan_available do
-        if @input.scan(/^NOT FOUND\n/)
+        if @input.scan(/^(NOT FOUND|No Data Found)\n/)
           @ast["status:available"] = true
         end
       end
@@ -30,19 +30,15 @@ module Whois
 
       # .ORG
       tokenizer :scan_throttled do
-        if @input.match?(/^WHOIS LIMIT EXCEEDED/)
+        if @input.match?(/.*LIMIT EXCEEDED/)
           @ast["response:throttled"] = true
           @input.skip(/^.+\n/)
         end
       end
 
       tokenizer :scan_disclaimer do
-        if settings[:pattern_disclaimer]
-          if @input.match?(settings[:pattern_disclaimer])
-            @ast["field:disclaimer"] = _scan_lines_to_array(/^(.+)\n/).join(" ")
-          end
-        elsif @input.pos == 0 && @input.match?(/^(.+\n){3,}\n/)
-          @ast["field:disclaimer"] = _scan_lines_to_array(/^(.+)\n/).join(" ")
+        if @input.match?(/^Access to/)
+          @ast["field:disclaimer"] = _scan_lines_to_array(/^(.+)\n+/).join(" ")
         end
       end
     end

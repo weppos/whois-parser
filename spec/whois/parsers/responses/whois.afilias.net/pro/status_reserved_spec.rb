@@ -9,24 +9,17 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.afilias.net.rb'
 
-describe Whois::Parsers::WhoisAfiliasNet, "status_reserved.expected" do
+describe "whois.afilias.net", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.afilias.net/pro/status_reserved.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.afilias.net")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:reserved)
-    end
-  end
-  describe "#reserved?" do
-    it do
-      expect(subject.reserved?).to eq(true)
-    end
+  it "matches status_reserved.expected" do
+    expect(subject.status).to eq(:reserved)
+    expect(subject.reserved?).to eq(true)
   end
 end

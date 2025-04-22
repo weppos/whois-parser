@@ -1,24 +1,18 @@
-Nome de domínio / Domain Name: wiki.pt
-Data de registo / Creation Date (dd/mm/yyyy): 09/02/2009
-Estado / Status: RESERVED
-
-Titular / Registrant
-   Portugalmail - Comunicações S.A.
-   Rua Ricardo Severo, Nº 3 - 5º Dto.
-   
-   4050-515 Porto
-   PT
-   Email: registos@portugalmail.pt
-
-Entidade Gestora / Billing Contact
-   Portugalmail - Comunicações S.A.
-   Email: registos@portugalmail.pt
-
-Responsável Técnico / Tech Contact
-   Portugalmail - Comunicações S.A.
-   Email: registos@portugalmail.pt
-
-Nameserver Information
-
-
-
+Domain: wiki.pt
+Domain Status: Reserved
+Creation Date: 07/05/2015 23:40:09
+Expiration Date: 06/05/2026 23:59:09
+Owner Name: 
+Owner Address: 
+Owner Locality: 
+Owner ZipCode: 
+Owner Locality ZipCode: 
+Owner Country Code: 
+Owner Email: 
+Admin Name: SOOMA.COM - WEB SERVICES, LDA
+Admin Address: Rua Dom João I  99
+Admin Locality: Porto
+Admin ZipCode: 4450-164
+Admin Locality ZipCode: Matosinhos
+Admin Country Code: PT
+Admin Email: gestao.dominios@sooma.com,daf@sooma.com

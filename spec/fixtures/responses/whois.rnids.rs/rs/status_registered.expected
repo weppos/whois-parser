@@ -36,7 +36,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "NINET Company d.o.o."
-  %s.organization == nil
   %s.url          == nil
 
 #registrant_contacts

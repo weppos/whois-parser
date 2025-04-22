@@ -78,12 +78,9 @@ module Whois
 
       property_supported :registrar do
         node("registrar") do |hash|
-          v1, v2, v3, v4 = hash.values_at('nil', 'name', 'name', 'web')
           Parser::Registrar.new(
-              :id           => v1,
-              :name         => v2,
-              :organization => v3,
-              :url          => v4
+              :name         => hash['name'],
+              :url          => hash['web']
           )
         end
       end
@@ -102,7 +99,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("name_servers")).map do |hash|
+        Array(node("name_servers")).map do |hash|
           Parser::Nameserver.new(:name => hash)
         end
       end

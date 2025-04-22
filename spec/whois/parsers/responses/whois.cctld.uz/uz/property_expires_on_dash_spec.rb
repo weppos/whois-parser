@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.cctld.uz.rb'
 
-describe Whois::Parsers::WhoisCctldUz, "property_expires_on_dash.expected" do
+describe "whois.cctld.uz", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.cctld.uz/uz/property_expires_on_dash.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.cctld.uz")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
+  it "matches property_expires_on_dash.expected" do
+    expect(subject.expires_on).to eq(nil)
   end
 end

@@ -9,20 +9,17 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.jprs.jp.rb'
 
-describe Whois::Parsers::WhoisJprsJp, "property_updates_on_error_out-of-range.expected" do
+describe "whois.jprs.jp", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.jprs.jp/jp/property_updates_on_error_out-of-range.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.jprs.jp")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2010-10-18 11:30:47 JST"))
-    end
+  it "matches property_updates_on_error_out-of-range.expected" do
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2010-10-18 11:30:47 JST"))
   end
 end

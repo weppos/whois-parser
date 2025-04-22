@@ -29,7 +29,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "ES-NIC"
-  %s.organization == "ES-NIC Delegated Internet Registry for Spain"
   %s.url          == nil
 
 

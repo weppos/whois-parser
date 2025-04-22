@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == "REG-TZNIC"
   %s.name         == "REG-TZNIC"
-  %s.organization == nil
   %s.url          == nil
 
 #registrant_contacts

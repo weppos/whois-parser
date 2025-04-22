@@ -17,17 +17,17 @@
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2015-02-28 00:00:00 UTC}
+  %s %TIME{2023-02-28 23:59:00 UTC}
 
 
 #nameservers
   %s %CLASS{array}
   %s %SIZE{4}
   %s[0] %CLASS{nameserver}
-  %s[0].name == "ns4.google.com"
+  %s[0].name == "ns3.google.com"
   %s[1] %CLASS{nameserver}
-  %s[1].name == "ns2.google.com"
+  %s[1].name == "ns4.google.com"
   %s[2] %CLASS{nameserver}
   %s[2].name == "ns1.google.com"
   %s[3] %CLASS{nameserver}
-  %s[3].name == "ns3.google.com"
+  %s[3].name == "ns2.google.com"

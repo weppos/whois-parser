@@ -1,16 +1,15 @@
 #disclaimer
-  %s == "This whois service is provided by CentralNic Ltd and only contains information pertaining to Internet domain names we have registered for our customers. By using this service you are agreeing (1) not to use any information presented here for any purpose other than determining ownership of domain names, (2) not to store or reproduce this data in any way, (3) not to use any high-volume, automated, electronic processes to obtain data from this service. Abuse of this service is monitored and actions in contravention of these terms will result in being permanently blacklisted. All data is (c) CentralNic Ltd https://www.centralnic.com/"
-
+  %s == "The Whois and RDAP services are provided by CentralNic, and contain information pertaining to Internet domain names registered by our our customers. By using this service you are agreeing (1) not to use any information presented here for any purpose other than determining ownership of domain names, (2) not to store or reproduce this data in any way, (3) not to use any high-volume, automated, electronic processes to obtain data from this service. Abuse of this service is monitored and actions in contravention of these terms will result in being permanently blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com) Access to the Whois and RDAP services is rate limited. For more information, visit https://registrar-console.centralnic.com/pub/whois_guidance."
 
 #domain
   %s == "walkabout.eu.com"
 
 #domain_id
-  %s == "CNIC-DO85080"
+  %s == "D93652968-CNIC"
 
 
 #status
-  %s == ["ok"]
+  %s == :registered
 
 #available?
   %s == false
@@ -21,93 +20,59 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{2001-08-14 10:14:41 UTC}
+  %s %TIME{2019-02-14 09:07:09 UTC}
 
 #updated_on
   %s %CLASS{time}
-  %s %TIME{2013-08-15 11:25:43 UTC}
+  %s %TIME{2021-08-11 10:15:35 UTC}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{2015-08-14 23:59:59 UTC}
+  %s %TIME{2022-02-14 23:59:59 UTC}
 
 
 #registrar
   %s %CLASS{registrar}
-  %s.id           == "H126914"
-  %s.name         == nil
-  %s.organization == "iTransact Ltd"
-  %s.url          == "www.itransact.ltd.uk"
+  %s.id           == "470"
+  %s.name         == "Nom-iq Ltd. dba Com Laude"
+  %s.url          == "http://www.comlaude.com"
 
 #registrant_contacts
   %s %CLASS{array}
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_REGISTRANT
-  %s[0].id            == "H1045382"
-  %s[0].name          == "Regent Inns Plc"
-  %s[0].organization  == nil
-  %s[0].address       == "77 Muswell Hill\nLondon"
-  %s[0].city          == nil
-  %s[0].zip           == "N10 3PJ"
-  %s[0].state         == nil
-  %s[0].country       == nil
-  %s[0].country_code  == "GB"
-  %s[0].phone         == "+44.2083753155"
-  %s[0].fax           == "+44.2083753001"
-  %s[0].email         == "john.boyle@regent-inns.plc.uk"
+  %s[0].email         == "https://whois.centralnic.com/contact/walkabout.eu.com/registrant"
 
 #admin_contacts
   %s %CLASS{array}
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_ADMINISTRATIVE
-  %s[0].id            == "H64717"
-  %s[0].name          == "John Boyle"
-  %s[0].organization  == "Regent Inns Plc"
-  %s[0].address       == "77 Muswell Hill\nLondon"
-  %s[0].city          == nil
-  %s[0].zip           == "N10 3PJ"
-  %s[0].state         == nil
-  %s[0].country       == nil
-  %s[0].country_code  == "GB"
-  %s[0].phone         == "+44.2083753155"
-  %s[0].fax           == "+44.2083753001"
-  %s[0].email         == "john.boyle@regent-inns.plc.uk"
+  %s[0].email         == "https://whois.centralnic.com/contact/walkabout.eu.com/admin"
 
 #technical_contacts
   %s %CLASS{array}
   %s %SIZE{1}
   %s[0] %CLASS{contact}
   %s[0].type          == Whois::Parser::Contact::TYPE_TECHNICAL
-  %s[0].id            == "H126914"
-  %s[0].name          == "Constantine Pagonis"
-  %s[0].organization  == "iTransact Ltd"
-  %s[0].address       == "PO Box 430\nCambridge\nCambs"
-  %s[0].city          == nil
-  %s[0].zip           == "CB1 2WE"
-  %s[0].state         == nil
-  %s[0].country       == nil
-  %s[0].country_code  == "GB"
-  %s[0].phone         == "+44.1223700322"
-  %s[0].fax           == nil
-  %s[0].email         == "constantine@itransact.ltd.uk"
+  %s[0].email         == "https://whois.centralnic.com/contact/walkabout.eu.com/tech"
 
 
 #nameservers
   %s %CLASS{array}
-  %s %SIZE{4}
+  %s %SIZE{7}
   %s[0] %CLASS{nameserver}
-  %s[0].name == "ns-1146.awsdns-15.org"
-  %s[0].ipv4 == nil
-  %s[0].ipv6 == nil
+  %s[0].name == "ns0.demysdns.net"
   %s[1] %CLASS{nameserver}
-  %s[1].name == "ns-1741.awsdns-25.co.uk"
-  %s[1].ipv4 == nil
-  %s[1].ipv6 == nil
-  %s[2].name == "ns-374.awsdns-46.com"
-  %s[2].ipv4 == nil
-  %s[2].ipv6 == nil
-  %s[3].name == "ns-914.awsdns-50.net"
-  %s[3].ipv4 == nil
-  %s[3].ipv6 == nil
+  %s[1].name == "ns1.demysdns.net"
+  %s[2] %CLASS{nameserver}
+  %s[2].name == "ns2.demysdns.net"
+  %s[3] %CLASS{nameserver}
+  %s[3].name == "ns3.demysdns.net"
+  %s[4] %CLASS{nameserver}
+  %s[4].name == "ns4.demysdns.co.uk"
+  %s[5] %CLASS{nameserver}
+  %s[5].name == "ns5.demysdns.co.uk"
+  %s[6] %CLASS{nameserver}
+  %s[6].name == "ns6.demysdns.co.uk"

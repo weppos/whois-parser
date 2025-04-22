@@ -9,20 +9,17 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.me.rb'
 
-describe Whois::Parsers::WhoisNicMe, "property_nameservers_is_blank.expected" do
+describe "whois.nic.me", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.me/me/property_nameservers_is_blank.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.me")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers).to eq([])
-    end
+  it "matches property_nameservers_is_blank.expected" do
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers).to eq([])
   end
 end

@@ -25,7 +25,6 @@
   %s %CLASS{registrar}
   %s.id           == "1316"
   %s.name         == "35 Technology Co., Ltd."
-  %s.organization == "35 Technology Co., Ltd."
   %s.url          == "http://www.35.com"
 
 #registrant_contacts

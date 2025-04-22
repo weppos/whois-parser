@@ -33,7 +33,7 @@ module Whois
 
 
       property_supported :status do
-        Array.wrap(node("Status"))
+        Array(node("Status"))
       end
 
       property_supported :available? do
@@ -66,9 +66,7 @@ module Whois
 
       property_supported :registrar do
         node("Sponsoring Registrar") do |value|
-          Parser::Registrar.new(
-              name: value
-          )
+          Parser::Registrar.new(name: value)
         end
       end
 
@@ -87,7 +85,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("Name Server")).reject(&:empty?).map do |name|
+        Array(node("Name Server")).reject(&:empty?).map do |name|
           Parser::Nameserver.new(name: name.downcase)
         end
       end

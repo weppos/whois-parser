@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == "99"
   %s.name         == "pairNIC INC"
-  %s.organization == "pairNIC INC"
   %s.url          == "https://www.pairnic.com"
 
 
@@ -49,9 +48,9 @@
   %s[0].zip          == "15203"
   %s[0].state        == "PA"
   %s[0].country_code == "US"
-  %s[0].phone        == ""
-  %s[0].fax          == ""
-  %s[0].email        == ""
+  %s[0].phone        == nil
+  %s[0].fax          == nil
+  %s[0].email        == nil
 
 #admin_contacts
   %s %CLASS{array}

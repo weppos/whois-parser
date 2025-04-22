@@ -7,14 +7,6 @@
 #registered?
   %s == false
 
-
-#created_on
-  %s %ERROR{AttributeNotSupported}
-
-#expires_on
-  %s %ERROR{AttributeNotSupported}
-
-
 #nameservers
   %s %CLASS{array}
   %s == []

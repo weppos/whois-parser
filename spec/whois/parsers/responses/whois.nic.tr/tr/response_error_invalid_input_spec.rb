@@ -9,29 +9,18 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.nic.tr.rb'
 
-describe Whois::Parsers::WhoisNicTr, "response_error_invalid_input.expected" do
+describe "whois.nic.tr", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.nic.tr/tr/response_error_invalid_input.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.nic.tr")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:invalid)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
+  it "matches response_error_invalid_input.expected" do
+    expect(subject.status).to eq(:invalid)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(false)
   end
 end

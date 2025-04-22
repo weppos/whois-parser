@@ -9,34 +9,19 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.registry.om.rb'
 
-describe Whois::Parsers::WhoisRegistryOm, "status_reserved.expected" do
+describe "whois.registry.om", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.registry.om/om/status_reserved.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.registry.om")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:reserved)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#reserved?" do
-    it do
-      expect(subject.reserved?).to eq(true)
-    end
+  it "matches status_reserved.expected" do
+    expect(subject.status).to eq(:reserved)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(false)
+    expect(subject.reserved?).to eq(true)
   end
 end

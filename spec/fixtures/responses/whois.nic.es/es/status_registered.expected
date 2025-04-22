@@ -17,21 +17,20 @@
 
 #created_on
   %s %CLASS{time}
-  %s %TIME{16/09/03}
+  %s %TIME{2003-09-16}
 
 #updated_on
   %s %ERROR{AttributeNotSupported}
 
 #expires_on
   %s %CLASS{time}
-  %s %TIME{16/09/14}
+  %s %TIME{2014-09-16}
 
 
 #registrar
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "ES-NIC"
-  %s.organization == "ES-NIC Delegated Internet Registry for Spain"
   %s.url          == nil
 
 

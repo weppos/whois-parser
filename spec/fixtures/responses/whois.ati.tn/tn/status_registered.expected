@@ -34,7 +34,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "3S Global Net"
-  %s.organization == nil
   %s.url          == nil
 
 #registrant_contacts

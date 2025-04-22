@@ -9,65 +9,38 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.kg.rb'
 
-describe Whois::Parsers::WhoisKg, "status_registered.expected" do
+describe "whois.kg", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.kg/kg/status_registered.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.kg")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(:registered)
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(false)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(true)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2004-02-10 09:42:42"))
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2010-04-19 21:47:14"))
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2014-03-30 23:59:00"))
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers.size).to eq(3)
-      expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[0].name).to eq("ns1.google.com")
-      expect(subject.nameservers[0].ipv4).to eq(nil)
-      expect(subject.nameservers[0].ipv6).to eq(nil)
-      expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[1].name).to eq("ns2.google.com")
-      expect(subject.nameservers[1].ipv4).to eq(nil)
-      expect(subject.nameservers[1].ipv6).to eq(nil)
-      expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
-      expect(subject.nameservers[2].name).to eq("ns4.google.com")
-      expect(subject.nameservers[2].ipv4).to eq(nil)
-      expect(subject.nameservers[2].ipv6).to eq(nil)
-    end
+  it "matches status_registered.expected" do
+    expect(subject.status).to eq(:registered)
+    expect(subject.available?).to eq(false)
+    expect(subject.registered?).to eq(true)
+    expect(subject.created_on).to be_a(Time)
+    expect(subject.created_on).to eq(DateTime.parse("2004-02-10 09:42:42"))
+    expect(subject.updated_on).to be_a(Time)
+    expect(subject.updated_on).to eq(DateTime.parse("2010-04-19 21:47:14"))
+    expect(subject.expires_on).to be_a(Time)
+    expect(subject.expires_on).to eq(DateTime.parse("2014-03-30 23:59:00"))
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers.size).to eq(3)
+    expect(subject.nameservers[0]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[0].name).to eq("ns1.google.com")
+    expect(subject.nameservers[0].ipv4).to eq(nil)
+    expect(subject.nameservers[0].ipv6).to eq(nil)
+    expect(subject.nameservers[1]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[1].name).to eq("ns2.google.com")
+    expect(subject.nameservers[1].ipv4).to eq(nil)
+    expect(subject.nameservers[1].ipv6).to eq(nil)
+    expect(subject.nameservers[2]).to be_a(Whois::Parser::Nameserver)
+    expect(subject.nameservers[2].name).to eq("ns4.google.com")
+    expect(subject.nameservers[2].ipv4).to eq(nil)
+    expect(subject.nameservers[2].ipv6).to eq(nil)
   end
 end

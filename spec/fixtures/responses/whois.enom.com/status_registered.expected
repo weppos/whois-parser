@@ -30,7 +30,6 @@
   %s %CLASS{registrar}
   %s.id           == nil
   %s.name         == "eNom, Inc."
-  %s.organization == "eNom, Inc."
   %s.url          == nil
 
 
@@ -48,9 +47,9 @@
   %s[0].state         == "WA"
   %s[0].country       == nil
   %s[0].country_code  == "US"
-  %s[0].phone         == ""
-  %s[0].fax           == ""
-  %s[0].email         == ""
+  %s[0].phone         == nil
+  %s[0].fax           == nil
+  %s[0].email         == nil
   %s[0].created_on    == nil
   %s[0].updated_on    == nil
 

@@ -33,7 +33,6 @@
   %s %CLASS{registrar}
   %s.id           == "69"
   %s.name         == "TUCOWS, INC."
-  %s.organization == "TUCOWS, INC."
   %s.url          == "http://tucowsdomains.com"
 
 #registrant_contacts

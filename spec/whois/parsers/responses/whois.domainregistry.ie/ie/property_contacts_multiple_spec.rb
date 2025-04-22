@@ -9,38 +9,31 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.domainregistry.ie.rb'
 
-describe Whois::Parsers::WhoisDomainregistryIe, "property_contacts_multiple.expected" do
+describe "whois.domainregistry.ie", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.domainregistry.ie/ie/property_contacts_multiple.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.domainregistry.ie")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts.size).to eq(2)
-      expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq("JL241-IEDR")
-      expect(subject.admin_contacts[0].name).to eq("Jonathan Lundberg")
-      expect(subject.admin_contacts[1]).to be_a(Whois::Parser::Contact)
-      expect(subject.admin_contacts[1].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[1].id).to eq("JM474-IEDR")
-      expect(subject.admin_contacts[1].name).to eq("John Moylan")
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts.size).to eq(1)
-      expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
-      expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq("JM474-IEDR")
-      expect(subject.technical_contacts[0].name).to eq("John Moylan")
-    end
+  it "matches property_contacts_multiple.expected" do
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts.size).to eq(2)
+    expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+    expect(subject.admin_contacts[0].id).to eq("JL241-IEDR")
+    expect(subject.admin_contacts[0].name).to eq("Jonathan Lundberg")
+    expect(subject.admin_contacts[1]).to be_a(Whois::Parser::Contact)
+    expect(subject.admin_contacts[1].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
+    expect(subject.admin_contacts[1].id).to eq("JM474-IEDR")
+    expect(subject.admin_contacts[1].name).to eq("John Moylan")
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts.size).to eq(1)
+    expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
+    expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
+    expect(subject.technical_contacts[0].id).to eq("JM474-IEDR")
+    expect(subject.technical_contacts[0].name).to eq("John Moylan")
   end
 end

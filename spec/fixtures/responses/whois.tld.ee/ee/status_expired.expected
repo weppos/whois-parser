@@ -28,7 +28,6 @@
 #registrar
   %s %CLASS{registrar}
   %s.name         == "Elisa Eesti AS"
-  %s.organization == "Elisa Eesti AS"
   %s.url          == "http://www.elisa.ee"
 
 #registrant_contacts

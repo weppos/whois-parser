@@ -1,56 +1,39 @@
-Domain ID:CNIC-DO333077
-Domain Name:SIYENZA.ZA.COM
-Created On:2004-11-17T11:47:29.0Z
-Last Updated On:2013-12-03T12:33:13.0Z
-Expiration Date:2014-11-17T23:59:59.0Z
-Status:ok
-Registrant ID:H1063006
-Registrant Name:MegaWeb Internet Services cc
-Registrant Street1:PO Box 3738
-Registrant Street2:Cramerview
-Registrant Postal Code:2060
-Registrant Country:ZA
-Registrant Phone:+27.0114851984
-Registrant FAX:+27.0114855999
-Registrant Email:dns-admin@megaweb.co.za
-Admin ID:H119106
-Admin Name:Liz Hart
-Admin Organization:Siyenza Management
-Admin Street1:PO Box 3738
-Admin Street2:Cramerview
-Admin Postal Code:2060
-Admin Country:ZA
-Admin Phone:+27.0114851984
-Admin FAX:+27.0114855999
-Admin Email:dns-admin@megaweb.co.za
-Tech ID:C12112
-Tech Name:Laida Peters
-Tech Organization:Megaweb Internet Services
-Tech City:Gauteng
-Tech Postal Code:2192
-Tech Country:ZA
-Tech Phone:+27.027114851984
-Tech FAX:+27.027114851986
-Tech Email:dns-admin@megaweb.co.za
-Sponsoring Registrar ID:C12112
-Sponsoring Registrar Organization:Megaweb Internet Services
-Sponsoring Registrar City:Gauteng
-Sponsoring Registrar Postal Code:2192
-Sponsoring Registrar Country:ZA
-Sponsoring Registrar Phone:02711 485 1984
-Sponsoring Registrar FAX:02711 485 1986
-Sponsoring Registrar Website:http://www.megaweb.co.za/
-Name Server:NS1A.YOUR-SERVER.CO.ZA
-Name Server:NSA.SECOND-NS.CO.ZA
-DNSSEC:Unsigned
+Domain Name: SIYENZA.ZA.COM
+Registry Domain ID: D333077-CNIC
+Registrar WHOIS Server: whois.megaweb.co.za
+Registrar URL: http://www.megaweb.co.za/
+Updated Date: 2019-01-30T08:43:57.0Z
+Creation Date: 2004-11-17T11:47:29.0Z
+Registry Expiry Date: 2022-11-17T23:59:59.0Z
+Registrar: Megaweb Internet Services
+Registrar IANA ID:
+Domain Status: ok https://icann.org/epp#ok
+Domain Status: autoRenewPeriod https://icann.org/epp#autoRenewPeriod
+Registrant Email: https://whois.centralnic.com/contact/siyenza.za.com/registrant
+Admin Email: https://whois.centralnic.com/contact/siyenza.za.com/admin
+Tech Email: https://whois.centralnic.com/contact/siyenza.za.com/tech
+Name Server: NS1A.YOUR-SERVER.CO.ZA
+Name Server: NSA.SECOND-NS.CO.ZA
+DNSSEC: unsigned
+Registrar Abuse Contact Email: dns-admin@megaweb.co.za
+Registrar Abuse Contact Phone: +27.27114851984
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2021-12-15T17:21:34.0Z <<<
 
-This whois service is provided by CentralNic Ltd and only contains
-information pertaining to Internet domain names we have registered for
+For more information on Whois status codes, please visit https://icann.org/epp
+
+>>> IMPORTANT INFORMATION ABOUT THE DEPLOYMENT OF RDAP: please visit
+https://www.centralnic.com/support/rdap <<<
+
+The Whois and RDAP services are provided by CentralNic, and contain
+information pertaining to Internet domain names registered by our
 our customers. By using this service you are agreeing (1) not to use any
 information presented here for any purpose other than determining
-ownership of domain names, (2) not to store or reproduce this data in 
+ownership of domain names, (2) not to store or reproduce this data in
 any way, (3) not to use any high-volume, automated, electronic processes
 to obtain data from this service. Abuse of this service is monitored and
 actions in contravention of these terms will result in being permanently
-blacklisted. All data is (c) CentralNic Ltd https://www.centralnic.com/
+blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com)
 
+Access to the Whois and RDAP services is rate limited. For more
+information, visit https://registrar-console.centralnic.com/pub/whois_guidance.

@@ -116,7 +116,7 @@ module Whois
 
 
       property_supported :nameservers do
-        Array.wrap(node("Nameservers")).map do |name|
+        Array(node("Nameservers")).map do |name|
           Parser::Nameserver.new(:name => name)
         end
       end

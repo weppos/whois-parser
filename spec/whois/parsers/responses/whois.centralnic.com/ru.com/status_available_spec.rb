@@ -9,88 +9,33 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.centralnic.com.rb'
 
-describe Whois::Parsers::WhoisCentralnicCom, "status_available.expected" do
+describe "whois.centralnic.com", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.centralnic.com/ru.com/status_available.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.centralnic.com")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#disclaimer" do
-    it do
-      expect(subject.disclaimer).to eq(nil)
-    end
-  end
-  describe "#domain" do
-    it do
-      expect(subject.domain).to eq(nil)
-    end
-  end
-  describe "#domain_id" do
-    it do
-      expect(subject.domain_id).to eq(nil)
-    end
-  end
-  describe "#status" do
-    it do
-      expect(subject.status).to eq([])
-    end
-  end
-  describe "#available?" do
-    it do
-      expect(subject.available?).to eq(true)
-    end
-  end
-  describe "#registered?" do
-    it do
-      expect(subject.registered?).to eq(false)
-    end
-  end
-  describe "#created_on" do
-    it do
-      expect(subject.created_on).to eq(nil)
-    end
-  end
-  describe "#updated_on" do
-    it do
-      expect(subject.updated_on).to eq(nil)
-    end
-  end
-  describe "#expires_on" do
-    it do
-      expect(subject.expires_on).to eq(nil)
-    end
-  end
-  describe "#registrar" do
-    it do
-      expect(subject.registrar).to eq(nil)
-    end
-  end
-  describe "#registrant_contacts" do
-    it do
-      expect(subject.registrant_contacts).to be_a(Array)
-      expect(subject.registrant_contacts).to eq([])
-    end
-  end
-  describe "#admin_contacts" do
-    it do
-      expect(subject.admin_contacts).to be_a(Array)
-      expect(subject.admin_contacts).to eq([])
-    end
-  end
-  describe "#technical_contacts" do
-    it do
-      expect(subject.technical_contacts).to be_a(Array)
-      expect(subject.technical_contacts).to eq([])
-    end
-  end
-  describe "#nameservers" do
-    it do
-      expect(subject.nameservers).to be_a(Array)
-      expect(subject.nameservers).to eq([])
-    end
+  it "matches status_available.expected" do
+    expect(subject.disclaimer).to eq("The Whois and RDAP services are provided by CentralNic, and contain information pertaining to Internet domain names registered by our our customers. By using this service you are agreeing (1) not to use any information presented here for any purpose other than determining ownership of domain names, (2) not to store or reproduce this data in any way, (3) not to use any high-volume, automated, electronic processes to obtain data from this service. Abuse of this service is monitored and actions in contravention of these terms will result in being permanently blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com) Access to the Whois and RDAP services is rate limited. For more information, visit https://registrar-console.centralnic.com/pub/whois_guidance.")
+    expect(subject.domain).to eq(nil)
+    expect(subject.domain_id).to eq(nil)
+    expect(subject.status).to eq(:available)
+    expect(subject.available?).to eq(true)
+    expect(subject.registered?).to eq(false)
+    expect(subject.created_on).to eq(nil)
+    expect(subject.updated_on).to eq(nil)
+    expect(subject.expires_on).to eq(nil)
+    expect(subject.registrar).to eq(nil)
+    expect(subject.registrant_contacts).to be_a(Array)
+    expect(subject.registrant_contacts).to eq([])
+    expect(subject.admin_contacts).to be_a(Array)
+    expect(subject.admin_contacts).to eq([])
+    expect(subject.technical_contacts).to be_a(Array)
+    expect(subject.technical_contacts).to eq([])
+    expect(subject.nameservers).to be_a(Array)
+    expect(subject.nameservers).to eq([])
   end
 end

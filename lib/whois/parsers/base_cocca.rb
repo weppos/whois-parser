@@ -75,8 +75,7 @@ module Whois
       property_supported :registrar do
         if content_for_scanner =~ /Registrar Name: (.+)\n/
           Parser::Registrar.new(
-              name:         ::Regexp.last_match(1),
-              organization: nil,
+              name:         $1,
               url:          content_for_scanner.slice(/Registration URL: (.+)\n/, 1)
           )
         end

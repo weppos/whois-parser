@@ -21,7 +21,7 @@ module Whois
     class WhoisTldSy < BaseCocca2
 
       property_supported :status do
-        list = Array.wrap(node("Domain Status")).map(&:downcase)
+        list = Array(node("Domain Status")).map(&:downcase)
         list.include?("available") ? :available : super()
       end
 

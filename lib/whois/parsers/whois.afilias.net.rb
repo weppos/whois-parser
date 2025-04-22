@@ -7,18 +7,17 @@
 #++
 
 
-require_relative 'base_afilias2'
+require_relative 'base_afilias'
 
 
 module Whois
   class Parsers
 
     # Parser for the whois.afilias.net server.
-    class WhoisAfiliasNet < BaseAfilias2
+    class WhoisAfiliasNet < BaseAfilias
 
       self.scanner = Scanners::BaseAfilias, {
-          pattern_disclaimer: /^Access to/,
-          pattern_reserved: /^(Name is reserved by afilias\n)|(Reserved by Registry\n)/,
+          pattern_reserved: /^(Name is reserved by afilias\n)|(Reserved by the registry.\n)/,
       }
 
 

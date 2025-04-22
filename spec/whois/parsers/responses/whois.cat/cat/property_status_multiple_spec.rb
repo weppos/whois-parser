@@ -9,19 +9,16 @@
 #
 
 require 'spec_helper'
-require 'whois/parsers/whois.cat.rb'
 
-describe Whois::Parsers::WhoisCat, "property_status_multiple.expected" do
+describe "whois.cat", :aggregate_failures do
 
   subject do
     file = fixture("responses", "whois.cat/cat/property_status_multiple.txt")
-    part = Whois::Record::Part.new(body: File.read(file))
-    described_class.new(part)
+    part = Whois::Record::Part.new(body: File.read(file), host: "whois.cat")
+    Whois::Parser.parser_for(part)
   end
 
-  describe "#status" do
-    it do
-      expect(subject.status).to eq(["clientTransferProhibited", "clientDeleteProhibited"])
-    end
+  it "matches property_status_multiple.expected" do
+    expect(subject.status).to eq(["clientTransferProhibited", "clientDeleteProhibited"])
   end
 end

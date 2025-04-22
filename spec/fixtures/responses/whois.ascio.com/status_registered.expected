@@ -32,7 +32,6 @@
   %s %CLASS{registrar}
   %s.id           == "106"
   %s.name         == "Ascio Technologies, Inc"
-  %s.organization == "Ascio Technologies, Inc"
   %s.url          == "http://www.ascio.com"
 
 
